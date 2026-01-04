@@ -12,23 +12,23 @@ skills:
 
 main-image: /IMG_20241219_132228564_HDR.jpg
 ---
-
+## Team members: Allen Punnoose, Ahikara Sandrasagra, Christopher Sgambati, Somin Lee, Zehra Girgin, Zeshui Song
 ---
-## How it works
+# How it works
 GigaSniffer is a sensor-based freshness indicator that evaluates produce condition by monitoring changes in CO₂ and ethanol concentrations within an enclosed chamber. By tracking deviations from baseline levels, the device categorizes produce as fresh, nearing spoilage, or spoiled.
-## Engineering and Design
+# Engineering and Design
 
-### Bio-inspiration:
+## Bio-inspiration:
 - Modeled after fruit fly olfactory systems that respond to ethanol and CO₂ from decaying fruit.
 
-### Hardware:
+## Hardware:
 - CO₂ and ethanol gas sensors
 - Arduino Mega (upgraded from Uno due to memory constraints)
 - Laser-cut acrylic and wood enclosure for controlled sensing
 - Integrated display for real-time feedback
 {% include image-gallery.html images="Diagram.png, Fruit Chamber.jpg" height="400" %}
 
-### Software:
+## Software:
 - Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers
 
 <small><em>Maintains a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small>
@@ -112,3 +112,5 @@ else {
    rgb.off();
 }
 ```
+# Data
+# My role and future work
