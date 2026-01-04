@@ -1,28 +1,30 @@
+---
+layout: default
+title: Research
+permalink: /research/
+---
+
 <section id="research" class="project-grid-section">
     <h2>Research</h2>
 
     <div class="grid-container">
         {% for item in site.research %}
-            <a href="{{ item.url | relative_url }}" class="project-link">
-                <div class="project-card">
-                    {% if item['main-image'] %}
-                        {% assign folder_path = item.path | split: "/" | slice: 0, 2 | join: "/" %}
-                        {% assign image_path = "/" | append: folder_path | append: item['main-image'] %}
-                        <img src="{{ image_path | relative_url }}" alt="{{ item.title }} image">
-                    {% endif %}
-                    
-                    <h3 class="project-title">{{ item.title }}</h3>
-                    
-                    <div class="project-skills">
-                        {% for skill in item.skills %}
-                            <span class="skill">{{ skill }}</span>
-                        {% endfor %}
-                    </div>
-                    
-                    <p class="project-description">{{ item.description }}</p>
-                    <span class="read-more">Read more →</span>
-                </div>
-            </a>
-        {% endfor %}
+    <a href="{{ item.url }}" class="project-link">
+        <div class="project-card">
+            {% assign folder_path = item.path | split: "/" | slice: 0, 2 | join: "/" %}
+            {% assign image_path = "/" | append: folder_path | append: item['main-image'] %}
+            <img src="{{ image_path }}" alt="{{ item.title }} image">
+            <h3 class="project-title">{{ item.title }}</h3>
+            <div class="project-skills">
+                {% for skill in item.skills %}
+                    <span class="skill">{{ skill }}</span>
+                {% endfor %}
+            </div>
+            <p class="project-description">{{ item.description }}</p>
+            <button class="read-more">Read more →</button>
+        </div>
+    </a>
+{% endfor %}
     </div>
-</section>
+
+ </section>
