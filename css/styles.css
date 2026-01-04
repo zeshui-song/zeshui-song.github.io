@@ -464,7 +464,7 @@ nav .mobile-nav {
 .timeline-dot {
     position: absolute;
     left: -46px;            /* Centers the dot on the 2px line */
-    top: 0;                 /* ALIGNMENT FIX: Aligns with the top of the date box */
+    top: 6px;               /* Aligns dot with the top of the date/title */
     width: 20px;
     height: 20px;
     background-color: var(--text-color); 
@@ -472,15 +472,13 @@ nav .mobile-nav {
 }
 
 .timeline-content .date {
-    display: block;         /* Ensures it takes up the full line-height space */
-    font-size: calc(9px + 0.5vw); 
+    font-size: calc(9px + 0.5vw); /* Using your site's dynamic scaling */
     font-weight: 500;
-    line-height: 20px;      /* ALIGNMENT FIX: Matches dot height for centering */
     margin-bottom: 5px;
 }
 
 .timeline-content h3 {
-    font-size: calc(9px + 0.6vw); 
+    font-size: calc(9px + 0.6vw); /* Matches other H3 headings on your site */
     font-weight: 600;
 }
 
