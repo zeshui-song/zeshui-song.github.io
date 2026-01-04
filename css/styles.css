@@ -347,6 +347,19 @@ nav .mobile-nav {
     margin-bottom: 5px;
 }
 
+.skill {
+    display: inline-block;
+    background-color: var(--light-background-color);
+    color: var(--link-color);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
 .project-card .project-description,
 .research-card .research-description {
     display: -webkit-box;
