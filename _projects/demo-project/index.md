@@ -14,35 +14,25 @@ main-image: /IMG_20241219_132228564_HDR.jpg
 ---
 
 ---
-# Header 1 
-Used for the title (already generated automatically at the top)
-## Header 2  
-Use this for the header of each section
-### Header 3 
-Use this to have subsection if needed
+## How it works
+GigaSniffer is a sensor-based freshness indicator that evaluates produce condition by monitoring changes in CO₂ and ethanol concentrations within an enclosed chamber. By tracking deviations from baseline levels, the device categorizes produce as fresh, nearing spoilage, or spoiled.
+## Engineering and Design
+### Bio-inspiration:
+- Modeled after fruit fly olfactory systems that respond to ethanol and CO₂ from decaying fruit.
+### Hardware:
+- CO₂ and ethanol gas sensors
+- Arduino Mega (upgraded from Uno due to memory constraints)
+- Laser-cut acrylic and wood enclosure for controlled sensing
+- Integrated display for real-time feedback
+{% include image-gallery.html images="diagram.png" height="400" %} 
+### Software:
+- Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers
+- Threshold-based spoilage detection (25 ppm CO₂, 165 ppm ethanol)
+- Drives RGB LED and graphical display to indicate freshness in real time
 
 
-## Embedding images 
-### External images
-{% include image-gallery.html images="https://live.staticflickr.com/65535/52821641477_d397e56bc4_k.jpg, https://live.staticflickr.com/65535/52822650673_f074b20d90_k.jpg" height="400"%}
-<span style="font-size: 10px">"Starship Test Flight Mission" from https://www.flickr.com/photos/spacex/52821641477/</span>  
-You can put in multiple entries. All images will be at a fixed height in the same row. With smaller window, they will switch to columns.  
-
-### Embeed images
-{% include image-gallery.html images="project2.jpg" height="400" %} 
-place the images in project folder/images then update the file path.   
 
 
-## Embedding youtube video
-The second video has the autoplay on. copy and paste the 11-digit id found in the url link. <br>
-*Example* : https://www.youtube.com/watch?v={**MhVw-MHGv4s**}&ab_channel=engineerguy
-{% include youtube-video.html id="MhVw-MHGv4s" autoplay= "false"%}
-{% include youtube-video.html id="XGC31lmdS6s" autoplay = "true" %}
-
-you can also set up custom size by specifying the width (the aspect ratio has been set to 16/9). The default size is 560 pixels x 315 pixels.  
-
-The width of the video below. Regardless of initial width, all the videos is responsive and will fit within the smaller screen.
-{% include youtube-video.html id="tGCdLEQzde0" autoplay = "false" width= "900px" %}  
 
 <br>
 
@@ -81,23 +71,6 @@ end
 def start()
   print("time to start!")
 ```
-
-```javascript
-let x = 1;
-if (x === 1) {
-  let x = 2;
-  console.log(x);
-}
-console.log(x);
-
-```
-
-## Adding external links
-[Wikipedia](https://en.wikipedia.org)
-
-
-## Adding block quote
-> A blockquote would look great if you need to highlight something
 
 
 ## Adding table 
