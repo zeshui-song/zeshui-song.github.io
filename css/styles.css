@@ -433,7 +433,7 @@ nav .mobile-nav {
     font-size: 14px;
 }
 
-/* SECTION: EDUCATION */
+/* SECTION: EDUCATION (TIMELINE) */
 .education-section {
     margin-bottom: 100px;
     display: flex;
@@ -441,30 +441,30 @@ nav .mobile-nav {
 }
 
 .education-section h2 {
-    font-size: 34px;                    /* Matches Skills exactly */
-    margin-bottom: 15px;               /* Matches Skills spacing */
-    font-family: 'Poppins', sans-serif; /* Explicitly set to match site style */
-    color: var(--text-color);           /* Uses your theme's text color */
+    font-size: 34px;      /* Matches Skills header exactly */
+    margin-bottom: 15px; /* Matches Skills header spacing */
+    font-weight: 700;    /* Ensuring the same "boldness" */
+    color: var(--text-color);
 }
 
-/* The Timeline Container */
+/* The Timeline Layout */
 .timeline {
     position: relative;
     border-left: 2px solid var(--text-color); 
-    margin-left: 10px;      /* Aligning the line with the start of the header */
-    padding-left: 35px;
+    margin-left: 10px;      /* Aligns the vertical line with the header start */
+    padding-left: 35px;     /* Space between the line and your content */
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 50px;    /* Spacing between Cooper Union and Aviation High */
 }
 
-/* The Dots */
+/* The Dots on the line */
 .timeline-dot {
     position: absolute;
-    left: -46px;            /* Precise alignment on the 2px line */
-    top: 8px;
+    left: -46px;            /* Centers the dot on the 2px line */
+    top: 6px;               /* Aligns dot with the top of the date/title */
     width: 20px;
     height: 20px;
     background-color: var(--text-color); 
@@ -472,18 +472,19 @@ nav .mobile-nav {
 }
 
 .timeline-content .date {
-    font-size: 15px;
+    font-size: calc(9px + 0.5vw); /* Using your site's dynamic scaling */
     font-weight: 500;
     margin-bottom: 5px;
 }
 
 .timeline-content h3 {
-    font-size: 1.2rem;
+    font-size: calc(9px + 0.6vw); /* Matches other H3 headings on your site */
     font-weight: 600;
 }
 
 .timeline-content .degree {
     font-style: italic;
+    font-size: calc(9px + 0.5vw);
     margin-bottom: 10px;
 }
 
@@ -493,7 +494,7 @@ nav .mobile-nav {
 }
 
 .timeline-content .details li {
-    font-size: 14px;
+    font-size: calc(9px + 0.5vw);
     line-height: 1.6;
     margin-bottom: 5px;
 }
