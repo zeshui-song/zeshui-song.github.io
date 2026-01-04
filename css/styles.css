@@ -436,62 +436,42 @@ nav .mobile-nav {
     font-size: 14px;
 }
 
-
 /* SECTION 4: CONTACT */
 .contact-section {
-    padding: 25px 25px;
+    padding: 25px;
     max-width: 600px;
-    margin: 0 auto; 
+    margin: 0 auto 100px auto; 
     border-radius: 20px; 
-    margin-bottom: 100px;
-      
+    text-align: center; /* Centers the H2 and the group text */
 }
 
 .contact-section h2 {
     font-size: 34px;
-    text-align: center;
+    margin-bottom: 20px;
 }
 
 .contact-section .group {
     display: flex;
-    justify-content: center; /* Centers items horizontally */
-    align-items: flex-start; /* Aligns items to the top */
-    gap: 30px;               /* Adds space between the text and the form */
+    justify-content: center; /* Centers the content box horizontally */
+    align-items: center;
+    width: 100%;
 }
 
-.contact-section .group .text {
-    flex:3;
-}
-.contact-section .group form {
-    flex:3;
-    display: flex;
-    flex-direction: column;
-    color:var(--text-color)
+.contact-section .group p {
+    font-size: 18px; /* Slightly larger for visibility */
+    line-height: 1.6;
+    margin: 0;
 }
 
-.contact-section .group form input, .contact-section .group form textarea {
-    font-family: 'Poppins', sans-serif;
-    background-color: transparent;
-    border: 1px groove var(--text-color);
-    padding:5px;
-    margin-bottom: 10px;
-    outline: none;
-    resize: none;
-    font-size: 13px;
-    
+/* Optional: Style the links for a cleaner look */
+.contact-section .group a {
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
-.contact-section .group form button {
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    background-color: var(--link-color);
-    border:none;
-    height: 50px;
-    cursor: pointer;
-    transition: 0.1s
+.contact-section .group a:hover {
+    color: var(--text-color);
 }
-
 
 /* FOOTER */
 
