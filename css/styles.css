@@ -438,11 +438,11 @@ nav .mobile-nav {
 
 /* SECTION 4: CONTACT */
 .contact-section {
-    padding: 25px;
+    padding: 25px 25px;
     max-width: 600px;
     margin: 0 auto 100px auto; 
     border-radius: 20px; 
-    text-align: center; /* Centers the H2 and the group text */
+    text-align: center; /* This is the "magic" line for centering text */
 }
 
 .contact-section h2 {
@@ -451,26 +451,15 @@ nav .mobile-nav {
 }
 
 .contact-section .group {
-    display: flex;
-    justify-content: center; /* Centers the content box horizontally */
-    align-items: center;
-    width: 100%;
+    /* We removed display: flex here because it's no longer needed without a form */
+    display: block; 
 }
 
 .contact-section .group p {
-    font-size: 18px; /* Slightly larger for visibility */
-    line-height: 1.6;
     margin: 0;
-}
-
-/* Optional: Style the links for a cleaner look */
-.contact-section .group a {
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.contact-section .group a:hover {
-    color: var(--text-color);
+    line-height: 1.6;
+    /* This ensures the lines of text themselves are centered */
+    text-align: center; 
 }
 
 /* FOOTER */
