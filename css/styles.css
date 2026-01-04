@@ -264,47 +264,116 @@ nav .mobile-nav {
 }
 
 
-/* Apply styles to both Projects and Research */
-.project-grid-section, .research-grid-section {
+/*SECTION 2: PROJECT GRID */
+.project-grid-section {
     margin-bottom: 100px;
     margin-top: 50px;
-    display: flex;
+    display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
+   }
+
+.project-grid-section h2{
+    font-size: 34px;
+    margin-bottom: 10px;
+    padding: 0 10px;
 }
 
-.project-link, .research-link {
+.project-grid-section .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: stretch;
+  
+}
+
+.project-grid-section .project-link {
     text-decoration: none;
     color: inherit;
     display: inline-block;
 }
 
-/* Card Styling for both */
-.project-card, .research-card {
+.project-grid-section .grid-container .project-link .project-card {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100%; /* Take full height of grid cell */
     box-sizing: border-box;
     padding: 15px;
     background: var(--background-color);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     overflow: hidden;
 }
 
-/* Title and Description for both */
-.project-title, .research-title {
-    font-size: 1.4em;
-    margin-bottom: 10px;
+.project-card img {
+    width: 100%; 
+    max-width: 100%; 
+    aspect-ratio: 3/1;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+    margin-bottom: 10px; 
 }
 
-.project-description, .research-description {
-    line-height: 1.5;
-    max-height: calc(1.5em * 4);
+
+.project-card .project-title {
+    font-size: 1.4em;
+    text-decoration: none;
+    transition: color 0.3s ease; 
+    margin-bottom: 10px
+}
+
+.project-card .project-title:hover {
+    text-decoration: underline;
+}
+
+
+.project-card .project-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 5px;
+}
+
+.project-card .project-skills .skill {
+    padding: 0 6px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    background-color: var(--light-background-color);
+    color: var(--link-color);
+    white-space: nowrap; 
+}
+
+.project-card .project-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; 
+    line-clamp: 4px;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    line-height: 1.5; 
+    max-height: calc(1.5em * 4); 
+}
+
+.project-card .read-more {
+    background-color: transparent;
+    border: none;
+    color: var(--highlight-color);
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 5px;
+    text-align: start;
+}
+
+.project-card .read-more:hover {
+    text-decoration: underline;
 }
 
 
