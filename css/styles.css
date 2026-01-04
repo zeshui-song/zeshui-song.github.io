@@ -436,51 +436,49 @@ nav .mobile-nav {
 /* SECTION: EDUCATION */
 .education-section {
     margin-bottom: 100px;
-    display: flex;
-    flex-direction: column;
 }
 
 .education-section h2 {
-    font-size: 34px;      /* Matches Skills header exactly */
-    margin-bottom: 15px; /* Matches Skills header spacing */
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
+    font-size: 34px;
+    margin-bottom: 25px;
 }
 
+/* 1. Remove the parent border entirely */
 .timeline {
     position: relative;
-    border-left: none !important; /* Forces the old container line to disappear */
+    border-left: none !important; 
     margin-left: 10px;
     padding-left: 0;
 }
 
 .timeline-item {
     position: relative;
-    padding-left: 45px;   /* Room for dot and line */
-    margin-bottom: 50px;
+    padding-left: 45px;   /* Room for dot/line */
+    margin-bottom: 40px;
 }
 
-/* THE VERTICAL LINE: Attached to each item */
+/* 2. THE LINE SEGMENT: Only draws to the next item */
 .timeline-item::before {
     content: '';
     position: absolute;
     left: 9px;            /* Center of the 20px dot */
-    top: 12px;            /* Starts at the center of the current dot */
-    bottom: -50px;        /* Stretches down to the next dot */
+    top: 10px;            /* Start line at the center of the dot */
+    bottom: -40px;        /* Stretch down to the next dot */
     width: 2px;
     background-color: var(--text-color);
 }
 
-/* THE FIX: Removes the line from the very last entry */
+/* 3. THE SHORTENER: Removes the line from the last school */
 .timeline-item:last-child::before {
     display: none !important;
 }
 
-/* THE DOT: Centered with the date text */
+/* 4. THE DOT: Centered with the date text */
 .timeline-dot {
     position: absolute;
     left: 0;
-    top: 2px;             /* Initial alignment nudge */
+    /* This 'top' value is the key for centering with your year text */
+    top: 2px;             
     width: 20px;
     height: 20px;
     background-color: var(--text-color);
@@ -488,35 +486,18 @@ nav .mobile-nav {
     z-index: 2;
 }
 
-/* CONTENT STYLING */
 .timeline-content .date {
     display: block;
     font-size: 15px;
     font-weight: 500;
-    line-height: 20px;    /* Matches dot height for perfect centering */
+    /* Line-height matching the dot height (20px) ensures easy centering */
+    line-height: 22px;    
     margin-bottom: 5px;
 }
 
 .timeline-content h3 {
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.timeline-content .degree {
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-.timeline-content .details {
-    list-style: disc;
-    padding-left: 20px;
-}
-
-.timeline-content .details li {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 5px;
 }
 
 /* SECTION 4: CONTACT */
