@@ -433,50 +433,53 @@ nav .mobile-nav {
     font-size: 14px;
 }
 
-/* SECTION: EDUCATION - FULL OVERRIDE */
+/* SECTION: EDUCATION - MERGED FORMATTING */
 .education-section {
     margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 .education-section h2 {
-    font-size: 34px;      /* Matches your Skills header */
-    margin-bottom: 25px;
+    font-size: 34px;                    /* OLD CODE FORMATTING */
+    margin-bottom: 15px;               /* OLD CODE FORMATTING */
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
 }
 
-/* 1. Kill the old container-wide border */
 .timeline {
     position: relative;
-    border-left: none !important; 
+    border-left: none !important;      /* NUKE THE OLD LONG LINE */
     margin-left: 10px;
+    padding-left: 0;
 }
 
 .timeline-item {
     position: relative;
     padding-left: 45px;
-    margin-bottom: 50px;
+    margin-bottom: 50px;               /* OLD CODE SPACING */
 }
 
-/* 2. THE LINE: Attached to each item individually */
+/* THE LINE LOGIC: Stops at last item */
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: 9px;            /* Precisely the center of a 20px dot */
-    top: 10px;            /* Starts at the center of the dot */
-    bottom: -50px;        /* Stretches down to the next dot */
+    left: 9px;                         /* Center of 20px dot */
+    top: 10px;                         /* Starts at dot center */
+    bottom: -50px;                     /* Stretches to next dot */
     width: 2px;
     background-color: var(--text-color);
 }
 
-/* 3. THE MAGIC: Removes the dangling line from the final school */
 .timeline-item:last-child::before {
-    display: none !important;
+    display: none !important;          /* MAKES LINE SHORTER */
 }
 
-/* 4. THE DOT: Manually centered with the text */
+/* THE DOT: Centered with the Date */
 .timeline-dot {
     position: absolute;
     left: 0;
-    top: 2px;             /* This aligns the dot with the middle of the '2024' text */
+    top: 2px;                          /* Align with the middle of Date text */
     width: 20px;
     height: 20px;
     background-color: var(--text-color);
@@ -484,11 +487,33 @@ nav .mobile-nav {
     z-index: 2;
 }
 
+/* TYPOGRAPHY: PRESERVING OLD CODE FORMATTING */
 .timeline-content .date {
     display: block;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 24px;    /* Matches the vertical 'hit box' of the dot */
+    font-size: 15px;                   /* OLD CODE FORMATTING */
+    font-weight: 500;                  /* OLD CODE FORMATTING */
+    line-height: 24px;                 /* Helps center the dot */
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;                 /* OLD CODE FORMATTING */
+    font-weight: 600;                  /* OLD CODE BOLDING */
+}
+
+.timeline-content .degree {
+    font-style: italic;                /* OLD CODE FORMATTING */
+    margin-bottom: 10px;               /* OLD CODE FORMATTING */
+}
+
+.timeline-content .details {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.timeline-content .details li {
+    font-size: 14px;                   /* OLD CODE FORMATTING */
+    line-height: 1.6;                  /* OLD CODE FORMATTING */
     margin-bottom: 5px;
 }
 
