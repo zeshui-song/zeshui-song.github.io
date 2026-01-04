@@ -433,7 +433,7 @@ nav .mobile-nav {
     font-size: 14px;
 }
 
-/* SECTION: EDUCATION - MERGED FORMATTING */
+/* SECTION: EDUCATION */
 .education-section {
     margin-bottom: 100px;
     display: flex;
@@ -441,69 +441,50 @@ nav .mobile-nav {
 }
 
 .education-section h2 {
-    font-size: 34px;                    /* OLD CODE FORMATTING */
-    margin-bottom: 15px;               /* OLD CODE FORMATTING */
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
+    font-size: 34px;                    /* Matches Skills exactly */
+    margin-bottom: 15px;               /* Matches Skills spacing */
+    font-family: 'Poppins', sans-serif; /* Explicitly set to match site style */
+    color: var(--text-color);           /* Uses your theme's text color */
 }
 
+/* The Timeline Container */
 .timeline {
     position: relative;
-    border-left: none !important;      /* NUKE THE OLD LONG LINE */
-    margin-left: 10px;
-    padding-left: 0;
+    border-left: 2px solid var(--text-color); 
+    margin-left: 10px;      /* Aligning the line with the start of the header */
+    padding-left: 35px;
 }
 
 .timeline-item {
     position: relative;
-    padding-left: 45px;
-    margin-bottom: 50px;               /* OLD CODE SPACING */
+    margin-bottom: 50px;
 }
 
-/* THE LINE LOGIC: Stops at last item */
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 9px;                         /* Center of 20px dot */
-    top: 10px;                         /* Starts at dot center */
-    bottom: -50px;                     /* Stretches to next dot */
-    width: 2px;
-    background-color: var(--text-color);
-}
-
-.timeline-item:last-child::before {
-    display: none !important;          /* MAKES LINE SHORTER */
-}
-
-/* THE DOT: Centered with the Date */
+/* The Dots */
 .timeline-dot {
     position: absolute;
-    left: 0;
-    top: 2px;                          /* Align with the middle of Date text */
+    left: -46px;            /* Precise alignment on the 2px line */
+    top: 8px;
     width: 20px;
     height: 20px;
-    background-color: var(--text-color);
+    background-color: var(--text-color); 
     border-radius: 50%;
-    z-index: 2;
 }
 
-/* TYPOGRAPHY: PRESERVING OLD CODE FORMATTING */
 .timeline-content .date {
-    display: block;
-    font-size: 15px;                   /* OLD CODE FORMATTING */
-    font-weight: 500;                  /* OLD CODE FORMATTING */
-    line-height: 24px;                 /* Helps center the dot */
+    font-size: 15px;
+    font-weight: 500;
     margin-bottom: 5px;
 }
 
 .timeline-content h3 {
-    font-size: 1.2rem;                 /* OLD CODE FORMATTING */
-    font-weight: 600;                  /* OLD CODE BOLDING */
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .timeline-content .degree {
-    font-style: italic;                /* OLD CODE FORMATTING */
-    margin-bottom: 10px;               /* OLD CODE FORMATTING */
+    font-style: italic;
+    margin-bottom: 10px;
 }
 
 .timeline-content .details {
@@ -512,8 +493,8 @@ nav .mobile-nav {
 }
 
 .timeline-content .details li {
-    font-size: 14px;                   /* OLD CODE FORMATTING */
-    line-height: 1.6;                  /* OLD CODE FORMATTING */
+    font-size: 14px;
+    line-height: 1.6;
     margin-bottom: 5px;
 }
 
