@@ -31,7 +31,7 @@ GigaSniffer is a sensor-based freshness indicator that evaluates produce conditi
 ### Software:
 - Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers
 
-<small><em>Uses a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small>
+<small><em>Maintains a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small>
 ```c
 // Update rolling buffer with latest readings
 co2Readings[bufferIndex] = co2Value;
