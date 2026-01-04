@@ -441,50 +441,71 @@ nav .mobile-nav {
 }
 
 .education-section h2 {
-    font-size: 34px;                    /* Matches Skills exactly */
-    margin-bottom: 15px;               /* Matches Skills spacing */
-    font-family: 'Poppins', sans-serif; /* Explicitly set to match site style */
-    color: var(--text-color);           /* Uses your theme's text color */
+    font-size: 34px;      /* Matches Skills section exactly */
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
 }
 
-/* The Timeline Container */
 .timeline {
     position: relative;
-    border-left: 2px solid var(--text-color); 
-    margin-left: 10px;      /* Aligning the line with the start of the header */
-    padding-left: 35px;
+    margin-left: 10px;
+    padding-left: 0;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 50px;
+    padding-left: 40px;   /* Space for the dot and line */
+    margin-bottom: 40px;
 }
 
-/* The Dots */
+/* THE VERTICAL LINE */
+/* We put the line on the item so we can kill it on the last one */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 9px;            /* Half of the 20px dot (10px) minus half the line width (1px) */
+    top: 20px;            /* Starts at the center of the current dot */
+    bottom: -40px;        /* Extends down to the next dot */
+    width: 2px;
+    background-color: var(--text-color);
+}
+
+/* Remove the line from the last item so the timeline is "shorter" */
+.timeline-item:last-child::before {
+    display: none;
+}
+
+/* THE DOTS */
 .timeline-dot {
     position: absolute;
-    left: -46px;            /* Precise alignment on the 2px line */
-    top: 8px;
+    left: 0;
+    top: 0;               /* Aligned to the top of the date text */
     width: 20px;
     height: 20px;
-    background-color: var(--text-color); 
+    background-color: var(--text-color);
     border-radius: 50%;
+    z-index: 2;
 }
 
+/* CONTENT STYLING */
 .timeline-content .date {
+    display: block;
     font-size: 15px;
     font-weight: 500;
+    line-height: 20px;    /* Matches dot height to ensure centering */
     margin-bottom: 5px;
 }
 
 .timeline-content h3 {
     font-size: 1.2rem;
     font-weight: 600;
+    line-height: 1.4;
 }
 
 .timeline-content .degree {
     font-style: italic;
-    margin-bottom: 10px;
+    margin: 5px 0 10px 0;
 }
 
 .timeline-content .details {
