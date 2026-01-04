@@ -37,7 +37,7 @@ co2Readings[bufferIndex] = co2Value;
 alcoholReadings[bufferIndex] = alcoholValue;
 bufferIndex = (bufferIndex + 1) % BUFFER_SIZE;
 ```
-*Uses a circular buffer of recent readings to compute rolling averages and smooth sensor noise.*
+<small><em>Uses a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small>
 
 - Threshold-based spoilage detection (25 ppm CO₂, 165 ppm ethanol)
 
@@ -58,9 +58,12 @@ if (alcoholDifference > ALCOHOL_DIFFERENCE_THRESHOLD) {
    Serial.print("\n");
 }
 ```
-*Triggers alerts only when recent readings deviate significantly from the rolling average, reducing false positives.*
+<small><em>Triggers alerts only when recent readings deviate significantly from the rolling average, reducing false positives.</em></small>
 
 ```c
+bool fresh = true; 
+bool soon = true; 
+bool rot = true; 
 if(alcoholDifference > ALCOHOL_DIFFERENCE_THRESHOLD){
    fresh = false;  
    soon = false; 
@@ -77,7 +80,7 @@ else{
    rot = false; 
 }
 ```
-*Implements a freshness classification algorithm based on CO₂ and alcohol deviation thresholds.*
+<small><em>Implements a freshness classification algorithm using CO₂ and alcohol deviation thresholds, with CO₂ rising first as an early spoilage indicator </em></small>
 
 - Provides real-time visual feedback via RGB LED and graphical display to indicate freshness in real time
 ```c
