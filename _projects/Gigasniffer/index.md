@@ -26,7 +26,7 @@ GigaSniffer is a sensor-based freshness indicator that evaluates produce conditi
 - Arduino Mega (upgraded from Uno due to memory constraints)
 - Laser-cut acrylic and wood enclosure for controlled sensing
 - Integrated display for real-time feedback
-{% include image-gallery.html images="Diagram.png, Fruit Chamber.Jpg" height="400" %}
+{% include image-gallery.html images="Diagram.png, Fruit Chamber.jpg" height="400" %}
 
 ### Software:
 - Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers
