@@ -97,7 +97,7 @@ nav .right a:last-child
 nav .right a:last-child:hover,
 nav .right a span:last-child:hover,
 nav .mobile-nav a:last-child:hover,
-nav .mobile-nav a span:last-child:hover,{
+nav .mobile-nav a span:last-child:hover {
     color: var(--text-color);
     background-color: var(--light-background-color);
     border-radius: 10px;
@@ -454,7 +454,11 @@ nav .mobile-nav {
 
 .contact-section .group {
     display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 30px;               /* Adds space between the text and the form */
 }
+
 .contact-section .group .text {
     flex:3;
 }
