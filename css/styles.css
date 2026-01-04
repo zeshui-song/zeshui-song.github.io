@@ -442,9 +442,7 @@ nav .mobile-nav {
 
 .education-section h2 {
     font-size: 34px;         /* Matches Skills exactly */
-    margin-bottom: 25px;    /* Matches Skills spacing */
-    font-family: 'Poppins', sans-serif; /* Ensures no serif font leakage */
-    color: var(--text-color);
+    margin-bottom: 15px;    /* Matches Skills spacing */
 }
 
 /* The Timeline Container */
