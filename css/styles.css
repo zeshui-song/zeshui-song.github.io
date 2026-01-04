@@ -441,8 +441,10 @@ nav .mobile-nav {
 }
 
 .education-section h2 {
-    font-size: 34px;         /* Matches Skills exactly */
-    margin-bottom: 15px;    /* Matches Skills spacing */
+    font-size: 34px;                    /* Matches Skills exactly */
+    margin-bottom: 15px;               /* Matches Skills spacing */
+    font-family: 'Poppins', sans-serif; /* Explicitly set to match site style */
+    color: var(--text-color);           /* Uses your theme's text color */
 }
 
 /* The Timeline Container */
