@@ -1,16 +1,14 @@
 ---
 layout: post
-title: Super Heavy Booster Catch (Demo Only)
-description:  (I have never been employed by / affiliated with SpaceX. This is for demo use only) 
-    Developing the Super Heavy booster catch project involves designing a robust launch tower with "chopstick" arms, advanced control systems for precise booster alignment, and integrating sophisticated software for real-time trajectory adjustments and structural engineering to handle immense forces.
+title: GigaSniffer: Portable Produce Freshness Detector
+description:  New York City generates nearly 4 million tons of food waste annually, much of it edible at the time of disposal. A major contributor is uncertainty around food freshness, driven by unreliable expiration dates that fail to account for storage conditions. GigaSniffer is a portable device designed to reduce household food waste by detecting early-stage spoilage in produce through gas emissions rather than printed dates. Inspired by the way fruit flies detect rotting fruit through airborne chemicals, GigaSniffer measures carbon dioxide (CO₂) and ethanol emissions to infer freshness and alert users when produce is nearing spoilage.
 skills: 
-  - Structural analysis
-  - Aerodynamic design
-  - Propulsion system integration
-  - Control Algorithem 
-  - Welding
-  - Metal forming
-  - Thermal simulation
+  - Arduino Programming
+  - Gaseous Sensor Calibration
+  - Multisensor Interfacing
+  - Real-Time Sensor Data Visualization
+  - Laser Cutting
+  - Breadboard Prototyping
 
 main-image: /IMG_20241219_132228564_HDR.jpg
 ---
