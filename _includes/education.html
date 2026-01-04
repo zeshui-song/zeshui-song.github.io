@@ -1,21 +1,20 @@
 <section id="education" class="education-section">
-    <h2>Education</h2>
-
-    <div class="timeline">
-        {% for school in site.education %}
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <span class="date">{{ school.date }}</span>
-                <h3>{{ school.school }} – <span>{{ school.location }}</span></h3>
-                <p class="degree">{{ school.degree }}</p>
-                <ul class="details">
-                    {% for detail in school.details %}
-                    <li>{{ detail }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        {% endfor %}
+  <h2>Education</h2>
+  <div class="timeline">
+    {% for school in site.education %}
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="date">{{ school.date }}</span>
+        <h3>{{ school.school }} – <span>{{ school.location }}</span></h3>
+        <p class="degree">{{ school.degree }}</p>
+        <ul class="details">
+          {% for detail in school.details %}
+          <li>{{ detail }}</li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </section>

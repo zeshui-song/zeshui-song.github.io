@@ -390,9 +390,6 @@ nav .mobile-nav {
     margin-bottom: 15px;
 }
 
-
-
-
 .skills-section .skill-categories {
     list-style: none;
     padding-left: 0;
@@ -436,62 +433,57 @@ nav .mobile-nav {
     font-size: 14px;
 }
 
-/* SECTION: EDUCATION TIMELINE */
+/* SECTION: EDUCATION */
 .education-section {
     margin-bottom: 100px;
-    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .education-section h2 {
-    font-size: 34px;
-    margin-bottom: 30px;
+    font-size: 34px;         /* Matches Skills exactly */
+    margin-bottom: 25px;    /* Matches Skills spacing */
+    font-family: 'Poppins', sans-serif; /* Ensures no serif font leakage */
+    color: var(--text-color);
 }
 
-/* The vertical line container */
+/* The Timeline Container */
 .timeline {
     position: relative;
-    border-left: 2px solid var(--text-color); /* Creates the vertical line */
-    margin-left: 20px;
-    padding-left: 40px; /* Space between line and text */
+    border-left: 2px solid var(--text-color); 
+    margin-left: 10px;      /* Aligning the line with the start of the header */
+    padding-left: 35px;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 60px; /* Space between schools */
+    margin-bottom: 50px;
 }
 
-/* The Dots on the line */
+/* The Dots */
 .timeline-dot {
     position: absolute;
-    left: -51px; /* Positions dot exactly on the line */
-    top: 5px;
+    left: -46px;            /* Precise alignment on the 2px line */
+    top: 8px;
     width: 20px;
     height: 20px;
-    background-color: var(--text-color); /* Matches your original image */
+    background-color: var(--text-color); 
     border-radius: 50%;
-    z-index: 1;
 }
 
 .timeline-content .date {
-    display: block;
-    font-weight: 500;
     font-size: 15px;
+    font-weight: 500;
     margin-bottom: 5px;
 }
 
 .timeline-content h3 {
     font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.timeline-content h3 span {
-    font-weight: 400; /* For the 'New York, NY' part */
+    font-weight: 600;
 }
 
 .timeline-content .degree {
     font-style: italic;
-    font-size: 16px;
     margin-bottom: 10px;
 }
 
@@ -501,8 +493,9 @@ nav .mobile-nav {
 }
 
 .timeline-content .details li {
-    margin-bottom: 8px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 5px;
 }
 
 /* SECTION 4: CONTACT */
