@@ -14,8 +14,7 @@ main-image: /IMG_20241219_132228564_HDR.jpg
 ---
 **Team members:** Allen Punnoose, Ahikara Sandrasagra, Christopher Sgambati, Somin Lee, Zehra Girgin, Zeshui Song
 **Course:** EID 101B 
-**Duration:** Sep 2024–December 2024
-
+**Duration:** Sep–Dec 2024
 ---
 # How it works
 GigaSniffer is a sensor-based freshness indicator that evaluates produce condition by monitoring changes in CO₂ and ethanol concentrations within an enclosed chamber. By tracking deviations from baseline levels, the device categorizes produce as fresh, nearing spoilage, or spoiled.
