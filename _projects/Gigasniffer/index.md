@@ -12,8 +12,8 @@ skills:
 
 main-image: /IMG_20241219_132228564_HDR.jpg
 ---
-**Team members:** Allen Punnoose, Ahikara Sandrasagra, Christopher Sgambati, Somin Lee, Zehra Girgin, Zeshui Song
-**Course:** EID 101B 
+**Team members:** Allen Punnoose, Ahikara Sandrasagra, Christopher Sgambati, Somin Lee, Zehra Girgin, Zeshui Song<br>
+**Course:** EID 101B<br>
 **Duration:** Sep–Dec 2024
 ---
 # How it works
