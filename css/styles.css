@@ -433,52 +433,50 @@ nav .mobile-nav {
     font-size: 14px;
 }
 
-/* SECTION: EDUCATION */
+/* SECTION: EDUCATION - FULL OVERRIDE */
 .education-section {
     margin-bottom: 100px;
 }
 
 .education-section h2 {
-    font-size: 34px;
+    font-size: 34px;      /* Matches your Skills header */
     margin-bottom: 25px;
 }
 
-/* 1. Remove the parent border entirely */
+/* 1. Kill the old container-wide border */
 .timeline {
     position: relative;
     border-left: none !important; 
     margin-left: 10px;
-    padding-left: 0;
 }
 
 .timeline-item {
     position: relative;
-    padding-left: 45px;   /* Room for dot/line */
-    margin-bottom: 40px;
+    padding-left: 45px;
+    margin-bottom: 50px;
 }
 
-/* 2. THE LINE SEGMENT: Only draws to the next item */
+/* 2. THE LINE: Attached to each item individually */
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: 9px;            /* Center of the 20px dot */
-    top: 10px;            /* Start line at the center of the dot */
-    bottom: -40px;        /* Stretch down to the next dot */
+    left: 9px;            /* Precisely the center of a 20px dot */
+    top: 10px;            /* Starts at the center of the dot */
+    bottom: -50px;        /* Stretches down to the next dot */
     width: 2px;
     background-color: var(--text-color);
 }
 
-/* 3. THE SHORTENER: Removes the line from the last school */
+/* 3. THE MAGIC: Removes the dangling line from the final school */
 .timeline-item:last-child::before {
     display: none !important;
 }
 
-/* 4. THE DOT: Centered with the date text */
+/* 4. THE DOT: Manually centered with the text */
 .timeline-dot {
     position: absolute;
     left: 0;
-    /* This 'top' value is the key for centering with your year text */
-    top: 2px;             
+    top: 2px;             /* This aligns the dot with the middle of the '2024' text */
     width: 20px;
     height: 20px;
     background-color: var(--text-color);
@@ -490,14 +488,8 @@ nav .mobile-nav {
     display: block;
     font-size: 15px;
     font-weight: 500;
-    /* Line-height matching the dot height (20px) ensures easy centering */
-    line-height: 22px;    
+    line-height: 24px;    /* Matches the vertical 'hit box' of the dot */
     margin-bottom: 5px;
-}
-
-.timeline-content h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
 }
 
 /* SECTION 4: CONTACT */
