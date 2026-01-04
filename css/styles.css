@@ -264,42 +264,50 @@ nav .mobile-nav {
 }
 
 
-/*SECTION 2: PROJECT GRID */
-.project-grid-section {
+/* ==========================================================================
+   SECTION 2: PROJECT & RESEARCH GRIDS
+   ========================================================================== */
+
+.project-grid-section,
+.research-grid-section {
     margin-bottom: 100px;
     margin-top: 50px;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content: center; 
-   }
+    justify-content: center;
+}
 
-.project-grid-section h2{
+.project-grid-section h2,
+.research-grid-section h2 {
     font-size: 34px;
     margin-bottom: 10px;
     padding: 0 10px;
 }
 
-.project-grid-section .grid-container {
+.project-grid-section .grid-container,
+.research-grid-section .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 25px;
     width: 100%;
     margin: 0 auto;
     align-items: stretch;
-  
 }
 
-.project-grid-section .project-link {
+.project-link,
+.research-link {
     text-decoration: none;
     color: inherit;
     display: inline-block;
 }
 
-.project-grid-section .grid-container .project-link .project-card {
+/* Updated selector to handle both specific paths */
+.project-grid-section .grid-container .project-link .project-card,
+.research-grid-section .grid-container .research-link .research-card {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%; /* Take full height of grid cell */
+    height: 100%;
     box-sizing: border-box;
     padding: 15px;
     background: var(--background-color);
@@ -311,7 +319,9 @@ nav .mobile-nav {
     overflow: hidden;
 }
 
-.project-card img {
+/* Shared image and text styling */
+.project-card img,
+.research-card img {
     width: 100%; 
     max-width: 100%; 
     aspect-ratio: 3/1;
@@ -321,36 +331,24 @@ nav .mobile-nav {
     margin-bottom: 10px; 
 }
 
-
-.project-card .project-title {
+.project-card .project-title,
+.research-card .research-title {
     font-size: 1.4em;
     text-decoration: none;
     transition: color 0.3s ease; 
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
-.project-card .project-title:hover {
-    text-decoration: underline;
-}
-
-
-.project-card .project-skills {
+.project-card .project-skills,
+.research-card .research-skills {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
     margin-bottom: 5px;
 }
 
-.project-card .project-skills .skill {
-    padding: 0 6px;
-    border-radius: 10px;
-    font-size: 0.9em;
-    background-color: var(--light-background-color);
-    color: var(--link-color);
-    white-space: nowrap; 
-}
-
-.project-card .project-description {
+.project-card .project-description,
+.research-card .research-description {
     display: -webkit-box;
     -webkit-line-clamp: 4; 
     line-clamp: 4px;
@@ -362,20 +360,28 @@ nav .mobile-nav {
     max-height: calc(1.5em * 4); 
 }
 
-.project-card .read-more {
-    background-color: transparent;
-    border: none;
-    color: var(--highlight-color);
-    cursor: pointer;
-    font-size: 0.9em;
-    margin-top: 5px;
-    text-align: start;
-}
-
-.project-card .read-more:hover {
+/* Hover States */
+.project-card .project-title:hover,
+.research-card .research-title:hover {
     text-decoration: underline;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .project-grid-section .grid-container .project-card,
+    .research-grid-section .grid-container .research-card {
+        max-width: 500px;
+        height: 500px; 
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-grid-section .grid-container,
+    .research-grid-section .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
 
 /* SECTION 3: SKILLS */
 .skills-section {
