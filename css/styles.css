@@ -439,43 +439,70 @@ nav .mobile-nav {
 /* SECTION: EDUCATION TIMELINE */
 .education-section {
     margin-bottom: 100px;
+    padding: 0 10px;
 }
 
+.education-section h2 {
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+/* The vertical line container */
 .timeline {
     position: relative;
-    border-left: 2px solid var(--text-color); /* The vertical line */
-    margin-left: 10px;
-    padding-left: 30px;
+    border-left: 2px solid var(--text-color); /* Creates the vertical line */
+    margin-left: 20px;
+    padding-left: 40px; /* Space between line and text */
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 60px; /* Space between schools */
 }
 
+/* The Dots on the line */
 .timeline-dot {
     position: absolute;
-    left: -41px; /* Adjust this to center the dot on the line */
+    left: -51px; /* Positions dot exactly on the line */
     top: 5px;
     width: 20px;
     height: 20px;
-    background-color: var(--text-color); /* Solid dot matching your image */
+    background-color: var(--text-color); /* Matches your original image */
     border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content .date {
+    display: block;
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .timeline-content h3 {
     font-size: 1.2rem;
-    margin-top: 5px;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
 
-.timeline-content .date {
-    font-weight: 500;
+.timeline-content h3 span {
+    font-weight: 400; /* For the 'New York, NY' part */
+}
+
+.timeline-content .degree {
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .timeline-content .details {
     list-style: disc;
     padding-left: 20px;
-    margin-top: 10px;
+}
+
+.timeline-content .details li {
+    margin-bottom: 8px;
+    line-height: 1.5;
 }
 
 /* SECTION 4: CONTACT */
