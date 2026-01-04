@@ -26,21 +26,22 @@ GigaSniffer is a sensor-based freshness indicator that evaluates produce conditi
 - Arduino Mega (upgraded from Uno due to memory constraints)
 - Laser-cut acrylic and wood enclosure for controlled sensing
 - Integrated display for real-time feedback
-{% include image-gallery.html images="Diagram.png" height="400" %}
+{% include image-gallery.html images="Diagram.png, Fruit Chamber.Jpeg" height="400" %}
 
 ### Software:
 - Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers
 
+<small><em>Uses a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small>
 ```c
 // Update rolling buffer with latest readings
 co2Readings[bufferIndex] = co2Value;
 alcoholReadings[bufferIndex] = alcoholValue;
 bufferIndex = (bufferIndex + 1) % BUFFER_SIZE;
 ```
-<small><em>Uses a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small>
 
 - Threshold-based spoilage detection (25 ppm CO₂, 165 ppm ethanol)
 
+<small><em>Triggers alerts only when recent readings deviate significantly from the rolling average, reducing false positives.</em></small>
 ```c
 // Check for significant deviations and print alerts
 float co2Difference = abs(co2Readings[lastIndex] - co2Average);
@@ -58,8 +59,8 @@ if (alcoholDifference > ALCOHOL_DIFFERENCE_THRESHOLD) {
    Serial.print("\n");
 }
 ```
-<small><em>Triggers alerts only when recent readings deviate significantly from the rolling average, reducing false positives.</em></small>
 
+<small><em>Implements a freshness classification algorithm using CO₂ and alcohol deviation thresholds, with CO₂ rising first as an early spoilage indicator </em></small>
 ```c
 bool fresh = true; 
 bool soon = true; 
@@ -80,8 +81,6 @@ else{
    rot = false; 
 }
 ```
-<small><em>Implements a freshness classification algorithm using CO₂ and alcohol deviation thresholds, with CO₂ rising first as an early spoilage indicator </em></small>
-
 - Provides real-time visual feedback via RGB LED and graphical display to indicate freshness in real time
 ```c
 // Control the LED based on the state
