@@ -64,9 +64,23 @@ skills:
     - C
     - Arduino IDE
 
-
-# Contact Form Setup. Setup an account and copy over the key. When someone fills out the form, it will be received in your email.
-#formspree-key:   https://formspree.io/f/{8-digit key}
+# Education Section
+education:
+  - school: The Cooper Union for the Advancement of Science and Art
+    location: New York, NY
+    date: 2024 – Present
+    degree: B.E. in Mechanical Engineering in Progress
+    details:
+      - "Coursework: Thermodynamics, Systems Engineering, Design & Prototyping, Mechanics of Materials, Materials Science, Dynamics, Statics, Differential Equations, Intro to Linear Algebra, Physics I-III, Calculus I-III"
+      - NYS Scholarship for Academic Excellence
+      - Dean's List (2024-2025)
+  - school: Aviation Career & Technical High School
+    location: New York, NY
+    date: 2020 – 2024
+    degree: Advanced Regents Diploma
+    details:
+      - National Honor Society
+      - AP Scholar with Honor
 
 # Active theme (Updatethis to switch themes). Make sure to keep the indentation the samne.
 colors: # this is the basic theme

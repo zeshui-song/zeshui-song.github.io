@@ -436,6 +436,48 @@ nav .mobile-nav {
     font-size: 14px;
 }
 
+/* SECTION: EDUCATION TIMELINE */
+.education-section {
+    margin-bottom: 100px;
+}
+
+.timeline {
+    position: relative;
+    border-left: 2px solid var(--text-color); /* The vertical line */
+    margin-left: 10px;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -41px; /* Adjust this to center the dot on the line */
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--text-color); /* Solid dot matching your image */
+    border-radius: 50%;
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.timeline-content .date {
+    font-weight: 500;
+}
+
+.timeline-content .details {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
 /* SECTION 4: CONTACT */
 .contact-section {
     padding: 25px 25px;
