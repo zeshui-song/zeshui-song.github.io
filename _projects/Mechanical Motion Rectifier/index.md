@@ -65,3 +65,8 @@ Due to the 8" × 8" breadboard’s spatial constraints, the Archimedes screw was
   %}
   </div>  
 </div>
+
+## Water Subsystem
+The Archimedes screw lifts water from the bottom to the upper reservoir, which flows through a tube to drive a water wheel. The water wheel rotates a 5 mm shaft via an M3 screw, spinning an output disk. 
+
+The Archimedes screw converts rotational motion into the movement of water from the lower to the upper reservoir. Multiple design iterations improved water transport efficiency, modularity for 3D printing, and leak prevention.
