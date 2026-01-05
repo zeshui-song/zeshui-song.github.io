@@ -119,7 +119,6 @@ Data collected at 7.5 V show that the input gear’s angular velocity varies s
 # My Role and Reflections
 During this project, I was responsible for most of the CAD design in Onshape. As a team, we collaborated on manufacturing and assembling the system’s iterations, while other members handled data analysis and recording. Overall, the Archimedes screw pumped water effectively, but the output wheel was not fully constant. One major problem was that surface tension caused water droplets to cling to the water wheel buckets, increasing the effective moment of inertia and creating imbalances in the wheel. Future improvements could include smoothing surfaces, using hydrophobic coatings, or resin printing to reduce friction and optimize torque. This project taught me the “nonlinear path” of engineering, where parts that seem perfect in CAD often behave differently in the real world due to factors like tolerances and physical forces.
 <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
-  
   <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
     {% include youtube-video.html 
         id="mN5z6ZzOAVA" 
@@ -127,6 +126,20 @@ During this project, I was responsible for most of the CAD design in Onshape. As
         autoplay="true"
         loop="true"
     %}
-  </div>
-  
+  </div>  
 </div>
+
+## Extra Photos:
+
+<small><em>Collection of scrap pieces and old iterations.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Scraps.jpg" height="300"%}
+</div>
+
+<small><em>End of year showcase.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Showcase.jpg" height="500"%}
+</div>
+
+[Final Report](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Mechanical%20Motion%20Rectifier/EID103%20Final%20Report.pdf)<br>
+[Onshape CAD](https://cad.onshape.com/documents/7a2f53f5851927828ad4b1ab/w/d7a775bbe256ee246480effd/e/acfc0676ad124d315c4e56da?renderMode=0&uiState=695c356802bd79dd4a4d0af6)
