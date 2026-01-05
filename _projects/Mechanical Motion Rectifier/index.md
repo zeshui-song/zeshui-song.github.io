@@ -47,3 +47,9 @@ Due to the 8" × 8" breadboard’s spatial constraints, the Archimedes screw was
 <div style="width: fit-content; margin: 0 auto;">
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel1.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel2.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel3.png" height="300"%}
 </div>
+
+<small><em>Full bevel gear transmission.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Final%20Bevel.png" height="500"%}
+  {% include youtube-video.html id="iat7Izz4NXc" autoplay = "true" %}
+</div>
