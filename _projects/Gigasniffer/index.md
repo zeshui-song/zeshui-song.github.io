@@ -12,7 +12,7 @@ skills:
 
 main-image: /IMG_20241219_132228564_HDR.jpg
 ---
-**Team members:** Allen Punnoose, Ahikara Sandrasagra, Christopher Sgambati, Somin Lee, Zehra Girgin, Zeshui Song<br>
+**The Best Team Ever:** Allen Punnoose, Ahikara Sandrasagra, Christopher Sgambati, Somin Lee, Zehra Girgin, Zeshui Song<br>
 **Course:** EID 101B<br>
 **Duration:** Sep–Dec 2024
 
@@ -116,4 +116,7 @@ else {
 }
 ```
 # Data
-# My role and future work
+The prototype was tested on pears, raspberries, and bananas over eight days, with daily measurements of CO₂ and ethanol. As the fruits decayed, the amount of CO₂ and ethanol generally increased. Thresholds of 25 ppm CO₂ and 165 ppm ethanol were set based on observed trends to indicate when produce was no longer fresh (based on visual inspection).
+{% include image-gallery.html images="CO2.png, Ethanol.png" height="300" %}
+# My role and reflections
+In this project, I focused on developing both the hardware and software for the device, while my teammates conducted experiments and collected data. Overall, the final prototype successfully measured CO₂ and ethanol levels in correlation to fruit freshness. However, testing revealed the challenge of obtaining reliable data, requiring long exposure durations and careful interpretation of the multiple sensor outputs. Throughout the process, our team learned the importance of collaboration, iterative design, and extensive testing.
