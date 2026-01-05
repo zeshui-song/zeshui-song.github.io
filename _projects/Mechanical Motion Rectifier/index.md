@@ -19,12 +19,14 @@ main-image: /Motion Rectifier.jpg
 
 ---
 # How it works
-GigaSniffer is a sensor-based freshness indicator that evaluates produce condition by monitoring changes in CO₂ and ethanol concentrations within an enclosed chamber. By tracking deviations from baseline levels, the device categorizes produce as fresh, nearing spoilage, or spoiled.
+Wales is a mechanical motion rectifier that decouples a variable input from its output by using water as an external energy buffer. A variable-speed motor drives an Archimedes screw, lifting water from a lower reservoir to an upper reservoir. The upper reservoir stores potential energy and releases water at a constant rate through gravity to drive a water wheel. Constant pressure in the upper reservoir is maintained via an overflow outlet. By converting fluctuating mechanical input into stable potential energy, the system produces a steady rotational output independent of input speed.
 # Engineering and Design
+The system is composed of three primary mechanical subsystems: the pulley, bevel gear transmission, and the water subsystems.
+## Pulley Subsystem:
+Transfers power from the motor to an 8 mm main shaft using crowned pulleys, which self-centers the rubber drive belt and prevents slipping. Multiple pulley geometries were tested to identify the optimal configuration for reliable power transmission.
 
-## Bio-inspiration:
-- Modeled after fruit fly olfactory systems that respond to ethanol and CO₂ from decaying fruit.
-
+<small><em>The initial motor gear had a hexagonal section to mount a gear meshing with the encoder gear and a recessed center to guide the rubber band. However, the band frequently slipped to the side, causing jams in the motor.</em></small>
+{% include image-gallery.html images="Iitial.png, Initial1.png" height="300" %}
 ## Hardware:
 - CO₂ and ethanol gas sensors
 - Arduino Mega (upgraded from Uno due to memory constraints)
