@@ -1,8 +1,7 @@
-
 <div class="youtube-container" style="--max-width: {{ include.width | default: '560px' }}">
-    <div class="youtube-aspect-ratio">
+    <div class="youtube-aspect-ratio {% if include.format == 'shorts' %}shorts{% else %}normal{% endif %}">
         <iframe 
-            src="https://www.youtube.com/embed/{{ include.id }}{% if include.autoplay == 'true' %}?autoplay=1&mute=1{% elsif include.autoplay == 'false' %}?mute=1{% endif %}"
+            src="https://www.youtube.com/embed/{{ include.id }}?rel=0{% if include.autoplay == 'true' %}&autoplay=1&mute=1{% elsif include.autoplay == 'false' %}&mute=1{% endif %}{% if include.loop == 'true' %}&loop=1&playlist={{ include.id }}{% endif %}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>

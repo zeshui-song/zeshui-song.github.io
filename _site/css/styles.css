@@ -781,26 +781,39 @@ footer p {
     font-size: calc(10px + 0.5vw); /* Matches p size */
 }
 
+/* YouTube Video Embeds */
+
+.youtube-wrapper {
+    height: 100%;      /* fill parent height (500px) */
+    display: flex;
+    align-items: flex-start;
+}
+
 .youtube-container {
-    width: 100%;
+    width: auto;        /* let width scale */
     max-width: var(--max-width);
-    margin: 0 ;
-    padding: 5px
+    height: 100%;       /* match wrapper height */
+    margin: 0;
+    padding: 0;
 }
 
 .youtube-aspect-ratio {
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    width: auto;        /* scale width to maintain aspect ratio */
+    height: 100%;       /* match parent height */
+    padding-bottom: 0;  /* remove old padding trick */
+}
+
+.youtube-aspect-ratio.shorts iframe {
+    aspect-ratio: 9 / 16;  /* enforce Shorts ratio */
 }
 
 .youtube-aspect-ratio iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    width: auto;
     height: 100%;
 }
+
+
 
 
 
