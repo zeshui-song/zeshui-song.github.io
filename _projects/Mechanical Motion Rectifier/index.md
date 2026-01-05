@@ -129,7 +129,7 @@ During this project, I was responsible for most of the CAD design in Onshape. As
   </div>  
 </div>
 
-## Extra Photos:
+## Extra
 
 <small><em>Collection of scrap pieces and old iterations.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
