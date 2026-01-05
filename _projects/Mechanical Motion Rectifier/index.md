@@ -42,3 +42,12 @@ Due to the 8" × 8" breadboard’s spatial constraints, the Archimedes screw was
 <div style="width: fit-content; margin: 0 auto;">
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel%20Sup%201.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel%20Sup%202.png" height="300"%}
 </div>
+
+<small><em>The 8 mm shaft gear (left) uses a set screw and flange to engage only the bearing’s inner race, while the Archimedes screw gear (center) secures to a 3 mm shaft and the screw via symmetric set screws. A cross-sectional view (right) shows the 3 mm shaft connection and the Archimedes screw interface.</em></small>
+
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html 
+     images="Bevel 1.png, Bevel 2.png, Bevel 3.png" 
+     height="200" 
+  %}
+</div>
