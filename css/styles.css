@@ -786,18 +786,17 @@ footer p {
 
 /* YouTube Video Embeds */
 
+/* --- DESKTOP (Stays as is) --- */
 .youtube-wrapper {
     height: 100%;
     display: flex;
-    justify-content: center; /* Ensures horizontal centering */
+    justify-content: center;
 }
 
 .youtube-container {
     height: 100%;
-    width: fit-content; /* Critical: tells container to hug the calculated width */
+    width: fit-content;
     max-width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 .youtube-aspect-ratio {
@@ -805,24 +804,61 @@ footer p {
     position: relative;
 }
 
-/* Logic for Normal (16:9) */
 .youtube-aspect-ratio.normal {
     aspect-ratio: 16 / 9;
 }
 
-/* Logic for Shorts (9:16) */
 .youtube-aspect-ratio.shorts {
     aspect-ratio: 9 / 16;
 }
 
 .youtube-aspect-ratio iframe {
-    width: 100%;  /* Fill the calculated aspect-ratio width */
-    height: 100%; /* Fill the 500px height */
+    width: 100%;
+    height: 100%;
     display: block;
     border: none;
 }
 
+/* --- NARROW SCREENS (The Fix) --- */
+@media (max-width: 850px) {
+    /* Target the parent div with the inline 500px height */
+    /* This overrides the inline Markdown style only on mobile */
+    div[style*="height: 500px"] {
+        height: auto !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
 
+    /* Target the container wrapping the image and the video */
+    div[style*="flex: 0 0 auto"] {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .youtube-wrapper {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .youtube-container {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Normal videos take full width */
+    .youtube-aspect-ratio.normal {
+        width: 100%;
+        height: auto !important;
+    }
+
+    /* Shorts stack and stay narrow (centered columns) */
+    .youtube-aspect-ratio.shorts {
+        width: 280px; /* Adjust this to your preferred "Short" width on mobile */
+        margin: 0 auto;
+        height: auto !important;
+    }
+}
 
 
 
