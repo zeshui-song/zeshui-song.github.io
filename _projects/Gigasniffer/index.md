@@ -115,9 +115,12 @@ else {
    rgb.off();
 }
 ```
+[Full Arduino Code](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/Gigasniffer%20Code.ino)
 # Data
 The prototype was tested on pears, raspberries, and bananas over eight days, with daily measurements of CO₂ and ethanol. As the fruits decayed, the amount of CO₂ and ethanol generally increased. Thresholds of 25 ppm CO₂ and 165 ppm ethanol were set based on observed trends to indicate when produce was no longer fresh (based on visual inspection).
 {% include image-gallery.html images="CO2.png, Ethanol.png" height="300" %}
 # My role and reflections
 In this project, I focused on developing both the hardware and software for the device, while my teammates conducted experiments and collected data. Overall, the final prototype successfully measured CO₂ and ethanol levels in correlation to fruit freshness. However, testing revealed the challenge of obtaining reliable data, requiring long exposure durations and careful interpretation of the multiple sensor outputs. Throughout the process, our team learned the importance of collaboration, iterative design, and extensive testing.
-{% include image-gallery.html images="Best Team.jpg" height="300" %}
+{% include image-gallery.html images="Best team.jpg" height="300" %}
+<iframe src="./pdfs/EID101B_Team 4_FinalReport.pdf" width="600" height="800"></iframe>
+<iframe src="./pdfs/EID101B_Team 4_FinalDocumentation.pdf" width="600" height="800"></iframe>
