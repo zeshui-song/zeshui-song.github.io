@@ -76,5 +76,10 @@ The Archimedes screw uses rotational motion to lift water from the bottom to the
 
 <small><em>Muji containers were made into reservoirs, with the upper reservoir drilled to guide water to the water wheel and maintain a constant outflow. A small acrylic guide prevents spillage onto the breadboard.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Reservior.png" height="400"%}
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Reservior.png" height="300"%}
 </div>
+
+<small><em>Final water wheel iteration (left) with 9 fins is fitted for a 5 mm shaft with a 25 mm radius. Its support (right) positions the shaft close to the main reservoir, ensuring stability while avoiding interference with the rubber band.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/WaterWheel.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/WaterWheelSupp.png" height="300"%}
+</div>  
