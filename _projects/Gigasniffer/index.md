@@ -124,5 +124,5 @@ In this project, I focused on developing both the hardware and software for the 
 <div style="width: fit-content; margin: 0 auto;">
   {% include image-gallery.html images="Best team.jpg" height="300" %}
 </div>
-[Final Report]({{ "/EID101B_Team4_FinalReport.pdf" | relative_url }})<br>
-[Final Documentation]({{ "/EID101B_Team4_FinalDocumentation.pdf" | relative_url }})
+[Final Report](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalReport.pdf)<br>
+[Final Documentation](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalDocumentation.pdf)
