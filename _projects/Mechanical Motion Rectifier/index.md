@@ -35,7 +35,10 @@ Transfers power from the motor to an 8 mm main shaft using crowned pulleys, wh
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Rib.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Concave.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Convex.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Convex1.png" height="200"%}
 </div>
 
-<small><em>Pulley Subsystem Systems Diagram.</em></small>
+## Bevel Gear Transmission Subsystem:
+Due to the 8" × 8" breadboard’s spatial constraints, the Archimedes screw was angled at 55° and driven from the top. Power was transmitted via a pair of 45° bevel gears mounted on a custom angled support. Early prototypes experienced significant shaft wobble, which was eliminated by replacing a single-point support with an integrated bearing housing. This rigid design locked the gear mesh in place, enabling smooth power transfer even at peak motor velocity.
+
+<small><em>Comparison of initial bevel gear support (left) and final consolidated bevel gear support (right).</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Subsystem.png" height="300"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel%20Sup%201.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel%20Sup%202.png" height="300"%}
 </div>
