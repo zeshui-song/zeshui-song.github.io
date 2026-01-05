@@ -1,20 +1,23 @@
 ---
 layout: post
 title: "Wales: A Water-Based Physical Motion Rectifier"
-description:  New York City generates nearly 4 million tons of food waste annually, much of it edible at the time of disposal. A major contributor is uncertainty around food freshness, driven by unreliable expiration dates that fail to account for storage conditions. GigaSniffer is a portable device designed to reduce household food waste by detecting early-stage spoilage in produce through gas emissions rather than printed dates. Inspired by the way fruit flies detect rotting fruit through airborne chemicals, GigaSniffer measures carbon dioxide (CO₂) and ethanol emissions to infer freshness and alert users when produce is nearing spoilage.
-skills: 
-  - Arduino Programming
-  - Gaseous Sensor Calibration
-  - Multisensor Interfacing
-  - Real-Time Sensor Data Visualization
-  - Laser Cutting
-  - Breadboard Prototyping
-
+description:  Design a system that turns a variable-speed rotational input into a constant-speed rotational output. It must fit on an 8” × 8” breadboard and be set up or removed in under 5 minutes. The system should connect to the supplied motor shaft, include a gear for the encoder, and measure input and output speeds over time. The output drives a 1”–3” disc that reaches steady state within 10 seconds, and will be tested at 1 Hz, 0.5 Hz, and 0.25 Hz. No part should spin beyond safe limits.
+skills:
+  - Iterative Design & Prototyping
+  - FDM 3D Printing
+  - Onshape CAD
+  - Mechanical System Analysis
+  - Pulley & Bevel Gear Design
+  - Archimedes Screw & Fluid Systems
+  - 3D Printing Tolerancing
+  - Shaft & Bearing Mount Design
+  - Optical Breadboard Integration
+  - Design Documentation & System Diagrams
 main-image: /Motion Rectifier.jpg
 ---
-**The Best Team Ever:** Allen Punnoose, Ahikara Sandrasagra, Christopher Sgambati, Somin Lee, Zehra Girgin, Zeshui Song<br>
-**Course:** EID 101B<br>
-**Duration:** Sep–Dec 2024
+**Team members:** Nora Gallion, Zehra Girgin, Bertrand Juan, Zeshui Song<br>
+**Course:** EID 103<br>
+**Duration:** Jan–May 2025
 
 ---
 # How it works
