@@ -85,6 +85,7 @@ else{
 }
 ```
 - Provides real-time visual feedback via RGB LED and graphical display to indicate freshness in real time
+
 ```c
 // Control the LED based on the state
 if (rot) {
