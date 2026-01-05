@@ -6,12 +6,10 @@ skills:
   - Iterative Design & Prototyping
   - FDM 3D Printing
   - Onshape CAD
-  - Mechanical System Analysis
   - Pulley & Bevel Gear Design
   - Archimedes Screw & Fluid Systems
   - 3D Printing Tolerancing
   - Shaft & Bearing Mount Design
-  - Optical Breadboard Integration
   - Design Documentation & System Diagrams
 main-image: /Motion Rectifier.jpg
 ---
