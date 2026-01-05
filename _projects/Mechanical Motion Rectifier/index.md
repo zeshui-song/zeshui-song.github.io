@@ -82,4 +82,31 @@ The Archimedes screw uses rotational motion to lift water from the bottom to the
 <small><em>Final water wheel iteration (left) with 9 fins is fitted for a 5 mm shaft with a 25 mm radius. Its support (right) positions the shaft close to the main reservoir, ensuring stability while avoiding interference with the rubber band.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/WaterWheel.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/WaterWheelSupp.png" height="300"%}
-</div>  
+</div>
+
+# Completed System and Results
+<small><em>Oblique, side, front, and top views of the full assembly, in that order, showing the overall system layout.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Full.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Side.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Front.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Top.png" height="300"%}
+</div>
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content;">
+  {% include youtube-video.html 
+      id="o6Od8IpsKps" 
+      format="shorts" 
+      autoplay="true"
+      loop="true"
+  %}
+  </div>
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content;">
+  {% include youtube-video.html 
+      id="t_QB27qpTKk" 
+      format="shorts" 
+      autoplay="true"
+      loop="true"
+  %}
+  </div>  
+</div>
+
+Data collected at 7.5 V show that the input gear’s angular velocity varies sinusoidally between 16.16 and 26.4 rad/s, while the output gear’s angular velocity ranges from 4.2 to 9.37 rad/s, demonstrating that the rectifier reduces fluctuations and produces a more constant output speed. Accumulated angle analysis confirms this: the input gear shows varying slope, whereas the output gear maintains a nearly constant slope (R² = 1.00).
