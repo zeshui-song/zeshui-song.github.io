@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <script src="/assets/js/script.js"></script>
+
+    
+    <title>Zeshui Song's Portfolio</title>
+    
+
+</head>
+<body>
+    <!-- NAVBAR -->
+     <nav>
+    <div class="left">
+        <a href="/">Zeshui Song</a>
+    </div>
+
+    <div class="right desktop-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/research/">
+            <span>Research</span>
+        </a>
+        <a href="https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fa fa-bars fa-2x"></i>
+    </button>
+
+    <div class="mobile-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/research/">
+            <span>Research</span>
+        </a>
+        <a href="https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+</nav>
+
+     <div class="page"><div class="post-view">
+    <div class="summary">
+        
+       
+        
+               
+        <img src="/_projects/Gigasniffer/IMG_20241219_132228564_HDR.jpg" alt="GigaSniffer: Portable Produce Freshness Detector image">
+        
+        <div class="title-header">
+            <h1>GigaSniffer: Portable Produce Freshness Detector</h1>
+        </div>
+        
+        <div class="project-description">
+            <h2>Project Overview</h2>
+            <p>New York City generates nearly 4 million tons of food waste annually, much of it edible at the time of disposal. A major contributor is uncertainty around food freshness, driven by unreliable expiration dates that fail to account for storage conditions. GigaSniffer is a portable device designed to reduce household food waste by detecting early-stage spoilage in produce through gas emissions rather than printed dates. Inspired by the way fruit flies detect rotting fruit through airborne chemicals, GigaSniffer measures carbon dioxide (CO₂) and ethanol emissions to infer freshness and alert users when produce is nearing spoilage.</p>
+        </div>
+        <div class="skills-card">
+            <h2>Skills Used</h2> 
+            <div class="skills-list">
+                
+                <span class="skill">Arduino Programming</span>    
+                
+                <span class="skill">Gaseous Sensor Calibration</span>    
+                
+                <span class="skill">Multisensor Interfacing</span>    
+                
+                <span class="skill">Real-Time Sensor Data Visualization</span>    
+                
+                <span class="skill">Laser Cutting</span>    
+                
+                <span class="skill">Breadboard Prototyping</span>    
+                
+            </div>
+        </div>
+    </div>
+      
+    <div class="content">
+        <p><strong>The Best Team Ever:</strong> Allen Punnoose, Ahikara Sandrasagra, Christopher Sgambati, Somin Lee, Zehra Girgin, Zeshui Song<br />
+<strong>Course:</strong> EID 101B<br />
+<strong>Duration:</strong> Sep–Dec 2024</p>
+
+<hr />
+<h1 id="how-it-works">How it works</h1>
+<p>GigaSniffer is a sensor-based freshness indicator that evaluates produce condition by monitoring changes in CO₂ and ethanol concentrations within an enclosed chamber. By tracking deviations from baseline levels, the device categorizes produce as fresh, nearing spoilage, or spoiled.</p>
+<h1 id="engineering-and-design">Engineering and Design</h1>
+
+<h2 id="bio-inspiration">Bio-inspiration:</h2>
+<ul>
+  <li>Modeled after fruit fly olfactory systems that respond to ethanol and CO₂ from decaying fruit.</li>
+</ul>
+
+<h2 id="hardware">Hardware:</h2>
+<ul>
+  <li>CO₂ and ethanol gas sensors</li>
+  <li>Arduino Mega (upgraded from Uno due to memory constraints)</li>
+  <li>Laser-cut acrylic and wood enclosure for controlled sensing</li>
+  <li>Integrated display for real-time feedback</li>
+</ul>
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/Diagram.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/Fruit%20Chamber.jpg" alt="Web image" loading="lazy" />
+      
+  
+</div>
+
+<h2 id="software">Software:</h2>
+<ul>
+  <li>Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers</li>
+</ul>
+
+<p><small><em>Maintains a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Update rolling buffer with latest readings</span>
+<span class="n">co2Readings</span><span class="p">[</span><span class="n">bufferIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">co2Value</span><span class="p">;</span>
+<span class="n">alcoholReadings</span><span class="p">[</span><span class="n">bufferIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">alcoholValue</span><span class="p">;</span>
+<span class="n">bufferIndex</span> <span class="o">=</span> <span class="p">(</span><span class="n">bufferIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Threshold-based spoilage detection (25 ppm CO₂, 165 ppm ethanol)</li>
+</ul>
+
+<p><small><em>Triggers alerts only when recent readings deviate significantly from the rolling average, reducing false positives.</em></small></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Check for significant deviations and print alerts</span>
+<span class="kt">float</span> <span class="n">co2Difference</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">co2Readings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]</span> <span class="o">-</span> <span class="n">co2Average</span><span class="p">);</span>
+<span class="kt">float</span> <span class="n">alcoholDifference</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">alcoholReadings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]</span> <span class="o">-</span> <span class="n">alcoholAverage</span><span class="p">);</span>
+
+ <span class="k">if</span> <span class="p">(</span><span class="n">co2Difference</span> <span class="o">&gt;</span> <span class="n">CO2_DIFFERENCE_THRESHOLD</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Hi CO2: "</span><span class="p">);</span>
+   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">co2Readings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]);</span>
+   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">" ppm</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&gt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Hi Alco: "</span><span class="p">);</span>
+   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">alcoholReadings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]);</span>
+   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><small><em>Implements a freshness classification algorithm using CO₂ and alcohol deviation thresholds, with CO₂ rising first as an early spoilage indicator </em></small></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bool</span> <span class="n">fresh</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+<span class="n">bool</span> <span class="n">soon</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+<span class="n">bool</span> <span class="n">rot</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+<span class="k">if</span><span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&gt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">){</span>
+   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>  
+   <span class="n">soon</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+   <span class="n">rot</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+<span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span><span class="p">((</span><span class="n">co2Difference</span> <span class="o">&gt;</span> <span class="n">CO2_DIFFERENCE_THRESHOLD</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&lt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">)){</span>
+   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+   <span class="n">soon</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+   <span class="n">rot</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span> 
+   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+   <span class="n">soon</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+   <span class="n">rot</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Provides real-time visual feedback via RGB LED and graphical display to indicate freshness in real time</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Control the LED based on the state</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">rot</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
+   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">350</span><span class="p">);</span>
+   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Red for rotten</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">RED</span><span class="p">);</span> 
+   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Rotten: Red LED On"</span><span class="p">);</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Rotten: Red LED On"</span><span class="p">);</span>
+<span class="p">}</span> 
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">soon</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
+   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">);</span> 
+   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Soon: Yellow LED On"</span><span class="p">);</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Soon: Yellow LED On"</span><span class="p">);</span>
+<span class="p">}</span> 
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">fresh</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
+   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Green for fresh</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">GREEN</span><span class="p">);</span> 
+   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Fresh: Green LED On"</span><span class="p">);</span>
+   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Fresh: Green LED On"</span><span class="p">);</span>
+<span class="p">}</span> 
+<span class="k">else</span> <span class="p">{</span>
+   <span class="n">rgb</span><span class="p">.</span><span class="n">off</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/Gigasniffer%20Code.ino">Full Arduino Code</a></p>
+<h1 id="data">Data</h1>
+<p>The prototype was tested on pears, raspberries, and bananas over eight days, with daily measurements of CO₂ and ethanol. As the fruits decayed, the amount of CO₂ and ethanol generally increased. Thresholds of 25 ppm CO₂ and 165 ppm ethanol were set based on observed trends to indicate when produce was no longer fresh (based on visual inspection).</p>
+
+<div class="image-gallery" style="--gallery-height: 300px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/CO2.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/Ethanol.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+<h1 id="my-role-and-reflections">My role and reflections</h1>
+<p>In this project, I focused on developing both the hardware and software for the device, while my teammates conducted experiments and collected data. Overall, the final prototype successfully measured CO₂ and ethanol levels in correlation to fruit freshness. However, testing revealed the challenge of obtaining reliable data, requiring long exposure durations and careful interpretation of the multiple sensor outputs. Throughout the process, our team learned the importance of collaboration, iterative design, and extensive testing.</p>
+<div style="width: fit-content; margin: 0 auto;">
+  
+
+
+<div class="image-gallery" style="--gallery-height: 500px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/Best%20team.jpg" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalReport.pdf">Final Report</a><br />
+<a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalDocumentation.pdf">Final Documentation</a></p>
+
+    </div>
+</div>
+
+</div>
+
+     
+</body>
+
+    <footer>
+    <div class="footer-content">
+        <div class="links">
+            <a href="/">
+                <span>Home</span>
+            </a>
+            <a href="/projects/">
+                <span>Projects</span>
+            </a>
+             </a>
+            <a href="/research/">
+                <span>Research</span>
+            </a>
+            <a href=https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/view?usp=sharing target="_blank" rel="noopener noreferrer">
+                <span>Resume</span>
+            </a>
+        </div>
+    </div>
+    <div class="license">
+        <p style="font-size:14px; color:#888;">Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
+    </div>
+</footer>
+
+</html>
