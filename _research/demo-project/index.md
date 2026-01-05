@@ -98,7 +98,7 @@ console.log(x);
 [Wikipedia](https://en.wikipedia.org)
 
 
-## Adding block quote
+## Adding block quotes
 > A blockquote would look great if you need to highlight something
 
 
