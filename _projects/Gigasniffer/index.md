@@ -115,7 +115,7 @@ else {
    rgb.off();
 }
 ```
-[Full Arduino Code](https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/main/_projects/Gigasniffer/Gigasniffer%20Code.ino)
+[Full Arduino Code](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/Gigasniffer%20Code.ino) 
 # Data
 The prototype was tested on pears, raspberries, and bananas over eight days, with daily measurements of CO₂ and ethanol. As the fruits decayed, the amount of CO₂ and ethanol generally increased. Thresholds of 25 ppm CO₂ and 165 ppm ethanol were set based on observed trends to indicate when produce was no longer fresh (based on visual inspection).
 {% include image-gallery.html images="CO2.png, Ethanol.png" height="300" %}
@@ -124,5 +124,5 @@ In this project, I focused on developing both the hardware and software for the 
 <div style="display: flex; justify-content: center;">
   {% include image-gallery.html images="Best team.jpg" height="300" %}
 </div>
-[Download Final Report](EID101B_Team4_FinalReport.pdf)
-[Download Final Documentation](EID101B_Team4_FinalDocumentation.pdf)
+[Final Report]({{ "/EID101B_Team4_FinalReport.pdf" | relative_url }})<br>
+[Final Documentation]({{ "/EID101B_Team4_FinalDocumentation.pdf" | relative_url }})
