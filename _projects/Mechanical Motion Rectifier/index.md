@@ -26,4 +26,4 @@ The system is composed of three primary mechanical subsystems: the pulley, bevel
 Transfers power from the motor to an 8 mm main shaft using crowned pulleys, which self-centers the rubber drive belt and prevents slipping. Multiple pulley geometries were tested to identify the optimal configuration for reliable power transmission.
 
 <small><em>The initial motor gear had a hexagonal section to mount a gear meshing with the encoder gear and a recessed center to guide the rubber band. However, the band frequently slipped to the side, causing jams in the motor.</em></small>
-{% include image-gallery.html images="Initial.png, Initial1.png" height="300" %}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Initial.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Initial1.png" height="300"%}
