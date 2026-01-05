@@ -120,3 +120,4 @@ The prototype was tested on pears, raspberries, and bananas over eight days, wit
 {% include image-gallery.html images="CO2.png, Ethanol.png" height="300" %}
 # My role and reflections
 In this project, I focused on developing both the hardware and software for the device, while my teammates conducted experiments and collected data. Overall, the final prototype successfully measured CO₂ and ethanol levels in correlation to fruit freshness. However, testing revealed the challenge of obtaining reliable data, requiring long exposure durations and careful interpretation of the multiple sensor outputs. Throughout the process, our team learned the importance of collaboration, iterative design, and extensive testing.
+{% include image-gallery.html images="Best Team.jpg" height="300" %}
