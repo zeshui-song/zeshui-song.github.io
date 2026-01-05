@@ -67,6 +67,9 @@ Due to the 8" × 8" breadboard’s spatial constraints, the Archimedes screw was
 </div>
 
 ## Water Subsystem
-The Archimedes screw lifts water from the bottom to the upper reservoir, which flows through a tube to drive a water wheel. The water wheel rotates a 5 mm shaft via an M3 screw, spinning an output disk. 
+The Archimedes screw uses rotational motion to lift water from the bottom to the upper reservoir, which flows through a tube to drive a water wheel. The water wheel rotates a 5 mm shaft via an M3 screw, spinning an output disk. Multiple iterations of the screw improved water transport efficiency, modularity for 3D printing, and leak prevention.
 
-The Archimedes screw converts rotational motion into the movement of water from the lower to the upper reservoir. Multiple design iterations improved water transport efficiency, modularity for 3D printing, and leak prevention.
+<small><em>Archimedes Screw Support: The lower mount, consisting of a 3d printed bracket and a laser cut acrylic piece, reduces shaft wobble and vibration, ensuring smoother operation.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Arch%20Screw.png" height="400"%}
+</div>
