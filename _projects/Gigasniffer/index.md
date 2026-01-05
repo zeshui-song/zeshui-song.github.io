@@ -34,16 +34,15 @@ GigaSniffer is a sensor-based freshness indicator that evaluates produce conditi
 ## Software:
 - Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers
 
-<div style="margin-bottom:2px;">
-  <small><em>Maintains a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small>
-</div>
-
-<pre><code class="language-c">
+```html
+<small><em>Maintains a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small>
+<pre style="margin-top:2px;"><code class="language-c">
 // Update rolling buffer with latest readings
 co2Readings[bufferIndex] = co2Value;
 alcoholReadings[bufferIndex] = alcoholValue;
 bufferIndex = (bufferIndex + 1) % BUFFER_SIZE;
 </code></pre>
+
 - Threshold-based spoilage detection (25 ppm CO₂, 165 ppm ethanol)
 
 <small><em>Triggers alerts only when recent readings deviate significantly from the rolling average, reducing false positives.</em></small>
