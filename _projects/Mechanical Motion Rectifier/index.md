@@ -110,3 +110,23 @@ The Archimedes screw uses rotational motion to lift water from the bottom to the
 </div>
 
 Data collected at 7.5 V show that the input gear’s angular velocity varies sinusoidally between 16.16 and 26.4 rad/s, while the output gear’s angular velocity ranges from 4.2 to 9.37 rad/s, demonstrating that the rectifier reduces fluctuations and produces a more constant output speed. Accumulated angle analysis confirms this: the input gear shows varying slope, whereas the output gear maintains a nearly constant slope (R² = 1.00).
+
+<small><em>Plots comparing angular position (θ) and angular velocity (ω) of the input and output gears at 7.5 V, showing that the rectifier reduces output fluctuations and produces a more constant rotational speed.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Input%20q.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Output%20q.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Input%20w.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Output%20w.png" height="300"%}
+</div>
+
+# My Role and Reflections
+During this project, I was responsible for most of the CAD design in Onshape. As a team, we collaborated on manufacturing and assembling the system’s iterations, while other members handled data analysis and recording. Overall, the Archimedes screw pumped water effectively, but the output wheel was not fully constant. One major problem was that surface tension caused water droplets to cling to the water wheel buckets, increasing the effective moment of inertia and creating imbalances in the wheel. Future improvements could include smoothing surfaces, using hydrophobic coatings, or resin printing to reduce friction and optimize torque. This project taught me the “nonlinear path” of engineering, where parts that seem perfect in CAD often behave differently in the real world due to factors like tolerances and physical forces.
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
+    {% include youtube-video.html 
+        id="mN5z6ZzOAVA" 
+        format="normal" 
+        autoplay="true"
+        loop="true"
+    %}
+  </div>
+  
+</div>

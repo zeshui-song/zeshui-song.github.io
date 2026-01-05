@@ -784,33 +784,39 @@ footer p {
 /* YouTube Video Embeds */
 
 .youtube-wrapper {
-    height: 100%;      /* fill parent height (500px) */
+    height: 100%;
     display: flex;
-    align-items: flex-start;
+    justify-content: center; /* Ensures horizontal centering */
 }
 
 .youtube-container {
-    width: auto;        /* let width scale */
-    max-width: var(--max-width);
-    height: 100%;       /* match wrapper height */
+    height: 100%;
+    width: fit-content; /* Critical: tells container to hug the calculated width */
+    max-width: 100%;
     margin: 0;
     padding: 0;
 }
 
 .youtube-aspect-ratio {
+    height: 100%;
     position: relative;
-    width: auto;        /* scale width to maintain aspect ratio */
-    height: 100%;       /* match parent height */
-    padding-bottom: 0;  /* remove old padding trick */
 }
 
-.youtube-aspect-ratio.shorts iframe {
-    aspect-ratio: 9 / 16;  /* enforce Shorts ratio */
+/* Logic for Normal (16:9) */
+.youtube-aspect-ratio.normal {
+    aspect-ratio: 16 / 9;
+}
+
+/* Logic for Shorts (9:16) */
+.youtube-aspect-ratio.shorts {
+    aspect-ratio: 9 / 16;
 }
 
 .youtube-aspect-ratio iframe {
-    width: auto;
-    height: 100%;
+    width: 100%;  /* Fill the calculated aspect-ratio width */
+    height: 100%; /* Fill the 500px height */
+    display: block;
+    border: none;
 }
 
 
