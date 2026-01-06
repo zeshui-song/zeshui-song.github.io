@@ -52,10 +52,14 @@ Overall, this was a rather simple and straightforward project. However, figuring
 <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
   <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
     {% include youtube-video.html 
-        id="mN5z6ZzOAVA" 
+        id="7Snkj8CaAcY" 
         format="normal" 
         autoplay="false"
         loop="false"
     %}
   </div>  
 </div>
+
+[Arduino Code](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/HX711%20Scale/Scale%20Code.ino)<br>
+[Final Report](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/HX711%20Scale/Measurements%20Lab%20Final%20Report.pdf)<br>
+[Onshape CAD](https://cad.onshape.com/documents/879e940bb85becdcbd9707af/w/ac66949ea51a3570c61e25d7/e/4072b7e2dbef1a2713dcaf1b?renderMode=0&uiState=695c722bf032d6fc4be294bb)
