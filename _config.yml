@@ -8,6 +8,7 @@
 # Main Page Setup
 
 title: Zeshui Song's Portfolio # This is what shows up in the tab of the browser
+url: "https://zeshui-song.github.io"
 # _config.yml
 hero_image: https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/assets/images/bg.jpg 
 
