@@ -41,24 +41,19 @@
 
 {% if page.main-image %}
   {% comment %} 
-    1. Reconstruct the directory path from the page.path 
-    2. This handles nested folders correctly (e.g., /projects/my-work/)
+    1. Remove the leading slash from the image path (e.g., /_projects/img.jpg -> _projects/img.jpg)
+    2. This ensures the URL doesn't end up with a double slash (main//_projects)
   {% endcomment %}
-  {% assign path_parts = page.path | split: "/" %}
-  {% assign dir_path = "" %}
-  {% for part in path_parts %}
-    {% unless forloop.last %}
-      {% assign dir_path = dir_path | append: "/" | append: part %}
-    {% endunless %}
-  {% endfor %}
+  {% assign cleaned_image_path = page.main-image | remove_first: "/" %}
 
   {% comment %} 
-    3. Build the absolute GitHub Raw URL and escape it for spaces/special chars
+    3. Construct the absolute GitHub Raw URL
   {% endcomment %}
-  {% assign image_url = "https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main" | append: dir_path | append: "/" | append: page.main-image | uri_escape %}
+  {% capture github_base %}https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{% endcapture %}
+  {% assign final_image_url = github_base | append: cleaned_image_path | uri_escape %}
 
-  <meta property="og:image" content="{{ image_url }}">
-  <meta name="twitter:image" content="{{ image_url }}">
+  <meta property="og:image" content="{{ final_image_url }}">
+  <meta name="twitter:image" content="{{ final_image_url }}">
 {% else %}
   {% comment %} Fallback for pages without a main-image {% endcomment %}
   <meta property="og:image" content="{{ site.url }}/assets/images/homepage-preview.png">
