@@ -9,7 +9,7 @@ skills:
 - Python (SciPy/solve_ivp)
 - Static Equilibrium Analysis
 - Video Tracking & Validation
-main-image: \Sus.png
+main-image: /Sus.png
 ---
 **Team members:** Zeshui Song, Roy He, Ryan Lee<br>
 **Course:** ME 200<br>

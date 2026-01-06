@@ -40,7 +40,7 @@
 <meta property="og:description" content="{{ og_description }}">
 
 {% if page.main-image %}
-  {% assign image_name = page.main-image | remove: '\' %}
+  {% assign image_name = page.main-image | remove: '\' | remove: '/' %}
   {% assign image_dir = page.path | split: '/' | pop | join: '/' %}
   <meta property="og:image"
         content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{{ image_dir }}/{{ image_name | uri_escape }}">
@@ -61,6 +61,7 @@
   <meta name="twitter:image"
         content="{{ site.url }}/assets/images/homepage-preview.png">
 {% endif %}
+<!-- END PREVIEW METADATA -->
     
     <title>{{ site.title }}</title>
 </head>
