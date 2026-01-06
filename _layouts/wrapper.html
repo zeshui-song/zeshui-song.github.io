@@ -40,19 +40,33 @@
 <meta property="og:description" content="{{ og_description }}">
 
 {% if page.main-image %}
-  {% comment %}
-    1. Take "/Sus.png" or "/_projects/Gigasniffer/image.jpg"
-    2. Remove ONLY the very first slash so we don't get "main//Sus.png"
+  {% comment %} 
+    1. Check if the image starts with a slash (absolute) or not (relative)
   {% endcomment %}
-  {% assign image_relative_path = page.main-image | replace_first: '/', '' %}
+  {% assign first_char = page.main-image | slice: 0 %}
   
-  {% comment %}
-    3. Construct the direct link to the raw file on GitHub
-  {% endcomment %}
-  {% capture social_image_url %}https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{{ image_relative_path }}{% endcapture %}
+  {% if first_char == "/" %}
+    {% comment %} Path is already absolute (like /Sus.png), just remove the first slash {% endcomment %}
+    {% assign final_path = page.main-image | replace_first: "/", "" %}
+  {% else %}
+    {% comment %} Path is relative (like Motion Rectifier.jpg), so we find the folder from page.path {% endcomment %}
+    {% assign path_parts = page.path | split: "/" %}
+    {% assign dir_path = "" %}
+    {% for part in path_parts %}
+      {% unless forloop.last %}
+        {% assign dir_path = dir_path | append: part | append: "/" %}
+      {% endunless %}
+    {% endfor %}
+    {% assign final_path = dir_path | append: page.main-image %}
+  {% endif %}
 
-  <meta property="og:image" content="{{ social_image_url | uri_escape }}">
-  <meta name="twitter:image" content="{{ social_image_url | uri_escape }}">
+  {% comment %} 2. Combine with GitHub base and encode for spaces/special characters {% endcomment %}
+  {% capture github_base %}https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{% endcapture %}
+  {% assign raw_image_url = github_base | append: final_path %}
+  {% assign final_image_url = raw_image_url | uri_escape %}
+
+  <meta property="og:image" content="{{ final_image_url }}">
+  <meta name="twitter:image" content="{{ final_image_url }}">
 {% else %}
   <meta property="og:image" content="{{ site.url }}/assets/images/homepage-preview.png">
   <meta name="twitter:image" content="{{ site.url }}/assets/images/homepage-preview.png">
