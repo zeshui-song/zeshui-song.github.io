@@ -15,11 +15,23 @@
     <link rel="stylesheet" href="/css/syntax.css">
 
     <script src="/assets/js/script.js"></script>
-
+    
+    <!-- MathJax (LaTeX support) -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+      async>
+    </script>
+    <!-- End MathJax -->
     
     <title>Zeshui Song's Portfolio</title>
-    
-
 </head>
 <body>
     <!-- NAVBAR -->
@@ -69,203 +81,44 @@
        
         
                
-        <img src="/_projects/FSAE Suspension Modeling\Suspension.png" alt="FSAE Suspension Modeling image">
+        <img src="/_projects/FSAE Suspension Modeling\Suspension.png" alt="FSAE Suspension Dynamics Modeling image">
         
         <div class="title-header">
-            <h1>FSAE Suspension Modeling</h1>
+            <h1>FSAE Suspension Dynamics Modeling</h1>
         </div>
         
         <div class="project-description">
             <h2>Project Overview</h2>
-            <p>Design a system that turns a variable-speed rotational input into a constant-speed rotational output. It must fit on an 8” × 8” breadboard and be set up or removed in under 5 minutes. The system should connect to the supplied motor shaft, include a gear for the encoder, and measure input and output speeds over time. The output drives a 1”–3” disc that reaches steady state within 10 seconds, and will be tested at 1 Hz, 0.5 Hz, and 0.25 Hz. No part should spin beyond safe limits.</p>
+            <p>Characterized the dynamic response of the Cooper Union FSAE car’s front suspension by developing a four-bar linkage kinematic model and validating simulated free oscillation against experimental video tracking data.</p>
         </div>
         <div class="skills-card">
             <h2>Skills Used</h2> 
             <div class="skills-list">
                 
-                <span class="skill">Iterative Design & Prototyping</span>    
+                <span class="skill">Kinematic Modeling</span>    
                 
-                <span class="skill">FDM 3D Printing</span>    
+                <span class="skill">4-Bar Linkage Analysis</span>    
                 
-                <span class="skill">Onshape CAD</span>    
+                <span class="skill">Python (SciPy/solve_ivp)</span>    
                 
-                <span class="skill">Pulley & Bevel Gear Design</span>    
+                <span class="skill">Static Equilibrium Analysis</span>    
                 
-                <span class="skill">Archimedes Screw & Fluid Systems</span>    
-                
-                <span class="skill">3D Printing Tolerancing</span>    
-                
-                <span class="skill">Shaft & Bearing Mount Design</span>    
-                
-                <span class="skill">Design Documentation & System Diagrams</span>    
+                <span class="skill">Video Tracking & Validation</span>    
                 
             </div>
         </div>
     </div>
       
     <div class="content">
-        <p><strong>Team members:</strong> Nora Gallion, Zehra Girgin, Bertrand Juan, Zeshui Song<br />
-<strong>Course:</strong> EID 103<br />
-<strong>Duration:</strong> Jan–May 2025</p>
+        <p><strong>Team members:</strong> Zeshui Song, Roy He, Ryan Lee<br />
+<strong>Course:</strong> ME 200<br />
+<strong>Duration:</strong> Nov-Dec 2025</p>
 
 <hr />
 <h1 id="how-it-works">How it works</h1>
-<p>GigaSniffer is a sensor-based freshness indicator that evaluates produce condition by monitoring changes in CO₂ and ethanol concentrations within an enclosed chamber. By tracking deviations from baseline levels, the device categorizes produce as fresh, nearing spoilage, or spoiled.</p>
-<h1 id="engineering-and-design">Engineering and Design</h1>
+<p>The project objective was to characterize the dynamic response of the Cooper Union FSAE car’s front suspension. We modeled the system as a four-bar linkage consisting of the upper control arm, pushrod, and shock mount, with the chassis serving as the fixed ground link. By applying a geometric solution to the linkage kinematics and solving for rigid-body static equilibrium, we derived a nonlinear effective spring constant (k<sub>eff</sub>​). This variable stiffness was then integrated into a second-order ordinary differential equation (ODE) to simulate the car’s free oscillation as a spring mass system after being released from a compressed state.</p>
 
-<h2 id="bio-inspiration">Bio-inspiration:</h2>
-<ul>
-  <li>Modeled after fruit fly olfactory systems that respond to ethanol and CO₂ from decaying fruit.</li>
-</ul>
-
-<h2 id="hardware">Hardware:</h2>
-<ul>
-  <li>CO₂ and ethanol gas sensors</li>
-  <li>Arduino Mega (upgraded from Uno due to memory constraints)</li>
-  <li>Laser-cut acrylic and wood enclosure for controlled sensing</li>
-  <li>Integrated display for real-time feedback</li>
-</ul>
-
-<div class="image-gallery" style="--gallery-height: 400px;">
-  
-      
-      
-          
-          <img src="/projects/FSAE%20Suspension%20Modeling//Diagram.png" alt="Diagram.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-      
-      
-          
-          <img src="/projects/FSAE%20Suspension%20Modeling//Fruit Chamber.jpg" alt="Fruit Chamber.jpg" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-</div>
-
-<h2 id="software">Software:</h2>
-<ul>
-  <li>Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers</li>
-</ul>
-
-<p><small><em>Maintains a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small></p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Update rolling buffer with latest readings</span>
-<span class="n">co2Readings</span><span class="p">[</span><span class="n">bufferIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">co2Value</span><span class="p">;</span>
-<span class="n">alcoholReadings</span><span class="p">[</span><span class="n">bufferIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">alcoholValue</span><span class="p">;</span>
-<span class="n">bufferIndex</span> <span class="o">=</span> <span class="p">(</span><span class="n">bufferIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
-</code></pre></div></div>
-
-<ul>
-  <li>Threshold-based spoilage detection (25 ppm CO₂, 165 ppm ethanol)</li>
-</ul>
-
-<p><small><em>Triggers alerts only when recent readings deviate significantly from the rolling average, reducing false positives.</em></small></p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Check for significant deviations and print alerts</span>
-<span class="kt">float</span> <span class="n">co2Difference</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">co2Readings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]</span> <span class="o">-</span> <span class="n">co2Average</span><span class="p">);</span>
-<span class="kt">float</span> <span class="n">alcoholDifference</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">alcoholReadings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]</span> <span class="o">-</span> <span class="n">alcoholAverage</span><span class="p">);</span>
-
- <span class="k">if</span> <span class="p">(</span><span class="n">co2Difference</span> <span class="o">&gt;</span> <span class="n">CO2_DIFFERENCE_THRESHOLD</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Hi CO2: "</span><span class="p">);</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">co2Readings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]);</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">" ppm</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&gt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Hi Alco: "</span><span class="p">);</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">alcoholReadings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]);</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><small><em>Implements a freshness classification algorithm using CO₂ and alcohol deviation thresholds, with CO₂ rising first as an early spoilage indicator </em></small></p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bool</span> <span class="n">fresh</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-<span class="n">bool</span> <span class="n">soon</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-<span class="n">bool</span> <span class="n">rot</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-<span class="k">if</span><span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&gt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">){</span>
-   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>  
-   <span class="n">soon</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-   <span class="n">rot</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-<span class="p">}</span>
-<span class="k">else</span> <span class="nf">if</span><span class="p">((</span><span class="n">co2Difference</span> <span class="o">&gt;</span> <span class="n">CO2_DIFFERENCE_THRESHOLD</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&lt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">)){</span>
-   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-   <span class="n">soon</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-   <span class="n">rot</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-<span class="p">}</span>
-<span class="k">else</span><span class="p">{</span> 
-   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-   <span class="n">soon</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-   <span class="n">rot</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-<span class="p">}</span>
-</code></pre></div></div>
-<ul>
-  <li>Provides real-time visual feedback via RGB LED and graphical display to indicate freshness in real time</li>
-</ul>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Control the LED based on the state</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">rot</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
-   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">350</span><span class="p">);</span>
-   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Red for rotten</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">RED</span><span class="p">);</span> 
-   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Rotten: Red LED On"</span><span class="p">);</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Rotten: Red LED On"</span><span class="p">);</span>
-<span class="p">}</span> 
-<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">soon</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
-   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
-   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">);</span> 
-   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Soon: Yellow LED On"</span><span class="p">);</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Soon: Yellow LED On"</span><span class="p">);</span>
-<span class="p">}</span> 
-<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">fresh</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
-   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
-   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Green for fresh</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">GREEN</span><span class="p">);</span> 
-   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Fresh: Green LED On"</span><span class="p">);</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Fresh: Green LED On"</span><span class="p">);</span>
-<span class="p">}</span> 
-<span class="k">else</span> <span class="p">{</span>
-   <span class="n">rgb</span><span class="p">.</span><span class="n">off</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/Gigasniffer%20Code.ino">Full Arduino Code</a></p>
-<h1 id="data">Data</h1>
-<p>The prototype was tested on pears, raspberries, and bananas over eight days, with daily measurements of CO₂ and ethanol. As the fruits decayed, the amount of CO₂ and ethanol generally increased. Thresholds of 25 ppm CO₂ and 165 ppm ethanol were set based on observed trends to indicate when produce was no longer fresh (based on visual inspection).</p>
-
-<div class="image-gallery" style="--gallery-height: 300px;">
-  
-      
-      
-          
-          <img src="/projects/FSAE%20Suspension%20Modeling//CO2.png" alt="CO2.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-      
-      
-          
-          <img src="/projects/FSAE%20Suspension%20Modeling//Ethanol.png" alt="Ethanol.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-</div>
-<h1 id="my-role-and-reflections">My role and reflections</h1>
-<p>In this project, I focused on developing both the hardware and software for the device, while my teammates conducted experiments and collected data. Overall, the final prototype successfully measured CO₂ and ethanol levels in correlation to fruit freshness. However, testing revealed the challenge of obtaining reliable data, requiring long exposure durations and careful interpretation of the multiple sensor outputs. Throughout the process, our team learned the importance of collaboration, iterative design, and extensive testing.</p>
-<div style="width: fit-content; margin: 0 auto;">
-  
-
-
-<div class="image-gallery" style="--gallery-height: 300px;">
-  
-      
-      
-          
-          <img src="/projects/FSAE%20Suspension%20Modeling//Best team.jpg" alt="Best team.jpg" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-</div>
-</div>
-<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalReport.pdf">Final Report</a><br />
-<a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalDocumentation.pdf">Final Documentation</a></p>
+\[\sigma = \frac{F}{A}\]
 
     </div>
 </div>
