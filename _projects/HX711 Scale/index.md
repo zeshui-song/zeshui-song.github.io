@@ -52,7 +52,7 @@ Overall, this was a rather simple and straightforward project. However, figuring
 <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
   <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
     {% include youtube-video.html 
-        id="7Snkj8CaAcY" 
+        id="PGNhLCem6JA" 
         format="normal" 
         autoplay="false"
         loop="false"
