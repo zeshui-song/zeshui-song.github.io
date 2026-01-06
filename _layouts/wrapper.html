@@ -35,12 +35,29 @@
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:description" content="{{ page.description | default: site.description }}">
-<meta property="og:image" content="{{ site.url }}{{ page.image | default: '/assets/images/homepage-preview.png' }}">
+
+{% if page.main-image %}
+  {% assign image_name = page.main-image | remove: '\' %}
+  {% assign image_dir = page.path | split: '/' | pop | join: '/' %}
+  <meta property="og:image"
+        content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{{ image_dir }}/{{ image_name | uri_escape }}">
+{% else %}
+  <meta property="og:image"
+        content="{{ site.url }}/assets/images/homepage-preview.png">
+{% endif %}
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ page.title | default: site.title }}">
 <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-<meta name="twitter:image" content="{{ site.url }}{{ page.image | default: '/assets/images/homepage-preview.png' }}">
+
+{% if page.main-image %}
+  <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{{ image_dir }}/{{ image_name | uri_escape }}">
+{% else %}
+  <meta name="twitter:image"
+        content="{{ site.url }}/assets/images/homepage-preview.png">
+{% endif %}
+
 
     
     <title>{{ site.title }}</title>
