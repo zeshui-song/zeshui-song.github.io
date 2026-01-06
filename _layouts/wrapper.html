@@ -31,8 +31,7 @@
     </script>
     <!-- End MathJax -->
 
-<!-- PREVIEW METADATA -->
-<meta property="og:type" content="website">
+<!-- PREVIEW METADATA --><meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ page.title | default: site.title }}">
 
@@ -41,11 +40,15 @@
 
 {% if page.main-image %}
   {% assign image_name = page.main-image | remove: '\' | remove: '/' %}
-  {% assign image_dir = page.path | split: '/' | pop | join: '/' %}
+  {% assign image_dir = page.path | replace: page.name, '' | remove: '/' | prepend: '/' %}
   <meta property="og:image"
-        content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{{ image_dir }}/{{ image_name | uri_escape }}">
+        content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main{{ image_dir }}/{{ image_name | uri_escape }}">
+  <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main{{ image_dir }}/{{ image_name | uri_escape }}">
 {% else %}
   <meta property="og:image"
+        content="{{ site.url }}/assets/images/homepage-preview.png">
+  <meta name="twitter:image"
         content="{{ site.url }}/assets/images/homepage-preview.png">
 {% endif %}
 
@@ -53,14 +56,6 @@
 <meta name="twitter:title" content="{{ page.title | default: site.title }}">
 <meta name="twitter:description" content="{{ og_description }}">
 <meta name="twitter:image:aspect_ratio" content="1.91:1">
-
-{% if page.main-image %}
-  <meta name="twitter:image"
-        content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{{ image_dir }}/{{ image_name | uri_escape }}">
-{% else %}
-  <meta name="twitter:image"
-        content="{{ site.url }}/assets/images/homepage-preview.png">
-{% endif %}
 <!-- END PREVIEW METADATA -->
     
     <title>{{ site.title }}</title>
