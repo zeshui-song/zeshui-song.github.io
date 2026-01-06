@@ -55,18 +55,6 @@ p {
     margin-bottom: 1em;
     padding: 0;
   }
-
-/* 1. Remove the gap from the text ABOVE the code block */
-p + .highlighter-rouge,
-p + pre[class*="language-"] {
-    margin-top: -0.5rem !important; /* Pulls the code block up slightly */
-}
-
-/* 2. Target the specific paragraph BEFORE the code */
-p:has(+ .highlighter-rouge),
-p:has(+ pre[class*="language-"]) {
-    margin-bottom: 4px !important;
-}
   
 
 /* NAVBAR */
@@ -471,39 +459,45 @@ nav .mobile-nav {
     }
 }
 
-/* Wrap code */
-pre[class*="language-"],
-code[class*="language-"] {
-    white-space: pre-wrap !important;
-    word-break: break-all !important; 
-    overflow-wrap: break-word;
+/* ==========================================================================
+   CODE BLOCKS & SYNTAX HIGHLIGHTING
+   ========================================================================== */
+
+/* 1. Remove the gap from the paragraph text ABOVE a code block */
+.post-view .content p:has(+ .highlighter-rouge),
+.post-view .content p:has(+ pre[class*="language-"]) {
+    margin-bottom: 4px !important;
 }
 
-/* 1. Reset the outer wrapper background only */
+/* 2. Style the outer wrapper and reset backgrounds */
 .highlighter-rouge, 
 .highlight {
-    background: transparent !important; 
+    background: transparent !important;
+    margin-top: 0 !important;
 }
 
-/* 2. Style the actual Dark Grey Box */
+/* 3. The main Dark Grey Box */
 pre[class*="language-"], 
 pre.highlight {
     background-color: #2d2d2d !important; 
     color: #ccc;                          
-    padding: 1.2em !important;            
-    border-radius: 6px;                   
+    /* Padding: Top (tightened), Right, Bottom, Left */
+    padding: 0.7em 1.2em 1.2em 1.2em !important; 
+    border-radius: 6px;
+    margin-top: 0 !important;
     
-    /* Keep the text wrapping logic */
+    /* Text Wrapping Logic */
     white-space: pre-wrap !important;
     word-break: break-all !important;
     overflow-wrap: break-word;
 }
 
-/* Ensure the code text itself doesn't have a background */
+/* 4. Ensure internal code text is clean */
 code[class*="language-"], 
 .highlight code {
     background: transparent !important;
     text-shadow: none !important;
+    font-size: 0.9em; /* Slightly smaller code font looks better with Poppins */
 }
 
 /* SECTION 3: SKILLS */
