@@ -14,9 +14,9 @@ skills:
   - Design Documentation & System Diagrams
 main-image: /Motion Rectifier.jpg
 ---
-**Team members:** Nora Gallion, Zehra Girgin, Bertrand Juan, Zeshui Song<br>
-**Course:** EID 103<br>
-**Duration:** Jan–May 2025
+**Team members:** Zeshui Song, Roy He, Aleksander Szetela<br>
+**Course:** ME 104<br>
+**Duration:** April-May 2025
 
 ---
 # How it Works
