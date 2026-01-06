@@ -31,5 +31,31 @@ The scale uses a 10 kg load cell mounted to a 3D-printed support platform, with 
 The load cell was wired directly to an HX711 amplifier module via soldered connections to minimize noise and signal loss. The HX711 communicates with an Arduino microcontroller, which processes the amplified signal. Two push buttons mounted on a breadboard provide user input for tare and unit conversion. Measured values are output to the serial monitor.
 
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Electrical.png" height="400"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Electrical.png" height="300"%}
+</div>
+
+## Algorithm Design:
+The system reads raw load cell data through the HX711, applies calibration factors, and computes mass values in grams or ounces depending on the selected mode. The tare button zeros the scale by storing the current reading as an offset, while the unit-conversion button toggles between measurement units. Measurements are continuously updated and displayed in real time.
+
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Algorithm.png" height="300"%}
+</div>
+
+# Results
+Across the tested range of 2 g to 2000 g, the scale demonstrated excellent linearity and repeatability. The measured mass closely matched the actual mass, with a linear fit slope of 0.9988 and an R² value of 1.0, indicating near-ideal proportional response. Repeatability testing using a 100 g mass yielded a standard deviation of 0.2614 g over 44 measurements taken at 2-second intervals, confirming stable and consistent performance.
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Data.png" height="400"%}
+</div>
+
+# My Role and Reflections
+Overall, this was a rather simple and straightforward project. However, figuring out the validity of our data was interesting, since we only had enough time to calibrate our scale a limited number of times and temperature variations tended to affect the load cell output. As a result, determining our confidence level could only be done through statistical analysis using a decently large dataset.
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
+    {% include youtube-video.html 
+        id="mN5z6ZzOAVA" 
+        format="normal" 
+        autoplay="false"
+        loop="false"
+    %}
+  </div>  
 </div>

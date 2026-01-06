@@ -131,7 +131,7 @@
 
 
 
-<div class="image-gallery" style="--gallery-height: 400px;">
+<div class="image-gallery" style="--gallery-height: 300px;">
   
       
       
@@ -139,6 +139,51 @@
       
   
 </div>
+</div>
+
+<h2 id="algorithm-design">Algorithm Design:</h2>
+<p>The system reads raw load cell data through the HX711, applies calibration factors, and computes mass values in grams or ounces depending on the selected mode. The tare button zeros the scale by storing the current reading as an offset, while the unit-conversion button toggles between measurement units. Measurements are continuously updated and displayed in real time.</p>
+
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 300px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Algorithm.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<h1 id="results">Results</h1>
+<p>Across the tested range of 2 g to 2000 g, the scale demonstrated excellent linearity and repeatability. The measured mass closely matched the actual mass, with a linear fit slope of 0.9988 and an R² value of 1.0, indicating near-ideal proportional response. Repeatability testing using a 100 g mass yielded a standard deviation of 0.2614 g over 44 measurements taken at 2-second intervals, confirming stable and consistent performance.</p>
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Data.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<h1 id="my-role-and-reflections">My Role and Reflections</h1>
+<p>Overall, this was a rather simple and straightforward project. However, figuring out the validity of our data was interesting, since we only had enough time to calibrate our scale a limited number of times and temperature variations tended to affect the load cell output. As a result, determining our confidence level could only be done through statistical analysis using a decently large dataset.</p>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
+    <div class="youtube-container" style="--max-width: 560px">
+    <div class="youtube-aspect-ratio normal"><iframe src="https://www.youtube-nocookie.com/embed/mN5z6ZzOAVA?rel=0&amp;mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+  </div>  
 </div>
 
     </div>
