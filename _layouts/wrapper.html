@@ -41,29 +41,33 @@
 
 {% if page.main-image %}
   {% comment %} 
-    1. Check if the image starts with a slash (absolute) or not (relative)
+    1. Clean the image name (remove leading slash if it exists) 
   {% endcomment %}
-  {% assign first_char = page.main-image | slice: 0 %}
-  
-  {% if first_char == "/" %}
-    {% comment %} Path is already absolute (like /Sus.png), just remove the first slash {% endcomment %}
-    {% assign final_path = page.main-image | replace_first: "/", "" %}
+  {% assign img_name = page.main-image | replace_first: '/', '' %}
+
+  {% comment %} 
+    2. Check if the user already provided the full path (starts with _projects or assets)
+    3. If not, we extract the directory from the file's actual source path (page.path)
+  {% endcomment %}
+  {% if img_name contains "_projects/" or img_name contains "assets/" %}
+    {% assign final_path = img_name %}
   {% else %}
-    {% comment %} Path is relative (like Motion Rectifier.jpg), so we find the folder from page.path {% endcomment %}
     {% assign path_parts = page.path | split: "/" %}
-    {% assign dir_path = "" %}
+    {% assign dir_accum = "" %}
     {% for part in path_parts %}
       {% unless forloop.last %}
-        {% assign dir_path = dir_path | append: part | append: "/" %}
+        {% assign dir_accum = dir_accum | append: part | append: "/" %}
       {% endunless %}
     {% endfor %}
-    {% assign final_path = dir_path | append: page.main-image %}
+    {% assign final_path = dir_accum | append: img_name %}
   {% endif %}
 
-  {% comment %} 2. Combine with GitHub base and encode for spaces/special characters {% endcomment %}
+  {% comment %} 
+    4. Construct the GitHub Raw URL and encode spaces/special characters 
+  {% endcomment %}
   {% capture github_base %}https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/{% endcapture %}
-  {% assign raw_image_url = github_base | append: final_path %}
-  {% assign final_image_url = raw_image_url | uri_escape %}
+  {% assign raw_url = github_base | append: final_path | replace: '//', '/' %}
+  {% assign final_image_url = raw_url | uri_escape %}
 
   <meta property="og:image" content="{{ final_image_url }}">
   <meta name="twitter:image" content="{{ final_image_url }}">
