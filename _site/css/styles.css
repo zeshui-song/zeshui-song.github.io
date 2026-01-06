@@ -55,6 +55,18 @@ p {
     margin-bottom: 1em;
     padding: 0;
   }
+
+/* 1. Remove the gap from the text ABOVE the code block */
+p + .highlighter-rouge,
+p + pre[class*="language-"] {
+    margin-top: -0.5rem !important; /* Pulls the code block up slightly */
+}
+
+/* 2. Target the specific paragraph BEFORE the code */
+p:has(+ .highlighter-rouge),
+p:has(+ pre[class*="language-"]) {
+    margin-bottom: 4px !important;
+}
   
 
 /* NAVBAR */
@@ -457,6 +469,41 @@ nav .mobile-nav {
     .research-grid-section .grid-container {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
+}
+
+/* Wrap code */
+pre[class*="language-"],
+code[class*="language-"] {
+    white-space: pre-wrap !important;
+    word-break: break-all !important; 
+    overflow-wrap: break-word;
+}
+
+/* 1. Reset the outer wrapper background only */
+.highlighter-rouge, 
+.highlight {
+    background: transparent !important; 
+}
+
+/* 2. Style the actual Dark Grey Box */
+pre[class*="language-"], 
+pre.highlight {
+    background-color: #2d2d2d !important; 
+    color: #ccc;                          
+    padding: 1.2em !important;            
+    border-radius: 6px;                   
+    
+    /* Keep the text wrapping logic */
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+    overflow-wrap: break-word;
+}
+
+/* Ensure the code text itself doesn't have a background */
+code[class*="language-"], 
+.highlight code {
+    background: transparent !important;
+    text-shadow: none !important;
 }
 
 /* SECTION 3: SKILLS */
