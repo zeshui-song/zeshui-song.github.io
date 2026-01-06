@@ -9,7 +9,7 @@
 
 title: Zeshui Song's Portfolio # This is what shows up in the tab of the browser
 # _config.yml
-hero_image: /assets/images/bg.jpg # Place your hero image in /assets/images/your-background.jpg and edit the file name
+hero_image: https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/assets/images/bg.jpg 
 
 
 

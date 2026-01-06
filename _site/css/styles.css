@@ -145,26 +145,48 @@ nav .mobile-nav {
 
 /* SECTION 1: Hero */
 .hero-section {
-    padding: 0 50px;
-    margin: 50px 0;
-    display: flex;  /* This makes .hero-section a flex container */
-
-
-    border: 2px solid var(--border-color);
-    border-image: linear-gradient(
-        45deg, var(--border-color) 1%, transparent 1%, transparent 99%, var(--border-color) 99%
-        ) 
-        1;
+    padding: 80px 50px 40px 50px; 
+    margin-bottom: 20px; /* Reduced from 50px to bring the next element closer */
+    display: flex;
+    position: relative;
     
+    /* 1. FORCE-DISABLE PREVIOUS BORDERS */
+    border: none !important;
+    border-image: none !important; /* This is likely the culprit */
+    outline: none !important;
+
+    border-radius: 16px;
+    overflow: hidden; 
+    
+    /* This prevents a 1px "fringe" from appearing around the curves */
+    -webkit-mask-image: -webkit-radial-gradient(white, black); 
+    
+    /* 3. BACKGROUND LOGIC */
+    /* Use transparent to prevent the container's base color from bleeding out */
+    background-color: transparent; 
+    
+background-image: linear-gradient(
+    to right, 
+    var(--background-color) 0%, 
+    var(--background-color) 65%, /* Increased from 40% to 65% */
+    transparent 95%
+), url('https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/assets/images/bg.jpg');
+    
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+
+    /* 4. SHADOW REMOVAL */
+    /* Remove this entirely to see if the corner clears up */
+    box-shadow: none; 
 }
 
 .hero-section .group {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0;
-    gap: 40px;
-    border-radius: 8px;
+    width: 100%;
+    z-index: 2; /* Keeps content above the background */
 }
 
 .hero-section .text {
@@ -232,7 +254,7 @@ nav .mobile-nav {
 
 /* NAVIGATION ARROW */
 .arrow{
-    margin-top: 90px;
+    margin-top: 0px;
     margin-bottom: 300px;
     display: flex;
     justify-content: center;  
@@ -870,9 +892,6 @@ footer p {
     /* SECTION 1:HERO */
     .hero-section {
         padding: 0 20px;
-        border: none;
-       
-        
     }
     .hero-section .group{
         flex-direction: column-reverse;
