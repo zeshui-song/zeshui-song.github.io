@@ -31,7 +31,8 @@
     </script>
     <!-- End MathJax -->
 
-<!-- PREVIEW METADATA --><meta property="og:type" content="website">
+<!-- PREVIEW METADATA -->
+<meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ page.title | default: site.title }}">
 
@@ -39,17 +40,29 @@
 <meta property="og:description" content="{{ og_description }}">
 
 {% if page.main-image %}
-  {% assign image_name = page.main-image | remove: '\' | remove: '/' %}
-  {% assign image_dir = page.path | replace: page.name, '' | remove: '/' | prepend: '/' %}
-  <meta property="og:image"
-        content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main{{ image_dir }}/{{ image_name | uri_escape }}">
-  <meta name="twitter:image"
-        content="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main{{ image_dir }}/{{ image_name | uri_escape }}">
+  {% comment %} 
+    1. Reconstruct the directory path from the page.path 
+    2. This handles nested folders correctly (e.g., /projects/my-work/)
+  {% endcomment %}
+  {% assign path_parts = page.path | split: "/" %}
+  {% assign dir_path = "" %}
+  {% for part in path_parts %}
+    {% unless forloop.last %}
+      {% assign dir_path = dir_path | append: "/" | append: part %}
+    {% endunless %}
+  {% endfor %}
+
+  {% comment %} 
+    3. Build the absolute GitHub Raw URL and escape it for spaces/special chars
+  {% endcomment %}
+  {% assign image_url = "https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main" | append: dir_path | append: "/" | append: page.main-image | uri_escape %}
+
+  <meta property="og:image" content="{{ image_url }}">
+  <meta name="twitter:image" content="{{ image_url }}">
 {% else %}
-  <meta property="og:image"
-        content="{{ site.url }}/assets/images/homepage-preview.png">
-  <meta name="twitter:image"
-        content="{{ site.url }}/assets/images/homepage-preview.png">
+  {% comment %} Fallback for pages without a main-image {% endcomment %}
+  <meta property="og:image" content="{{ site.url }}/assets/images/homepage-preview.png">
+  <meta name="twitter:image" content="{{ site.url }}/assets/images/homepage-preview.png">
 {% endif %}
 
 <meta name="twitter:card" content="summary_large_image">
