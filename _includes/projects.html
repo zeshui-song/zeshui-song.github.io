@@ -1,9 +1,11 @@
-<!-- SECTION 3: project -->
 <section id="projects" class="project-grid-section">
     <h2>Projects</h2>
 
     <div class="grid-container">
-        {% for item in site.projects %}
+        {% comment %} Sort projects by the 'order' field {% endcomment %}
+        {% assign sorted_projects = site.projects | sort: "order" %}
+        
+        {% for item in sorted_projects %}
     <a href="{{ item.url }}" class="project-link">
         <div class="project-card">
             {% assign folder_path = item.path | split: "/" | slice: 0, 2 | join: "/" %}
@@ -21,6 +23,4 @@
     </a>
 {% endfor %}
     </div>
-
-
- </section>
+</section>

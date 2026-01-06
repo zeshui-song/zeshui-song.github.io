@@ -68,10 +68,10 @@
        
         
                
-        <img src="/_projects/HX711 Scale/Motion Rectifier.jpg" alt="Wales: A Water-Based Physical Motion Rectifier image">
+        <img src="/_projects/HX711 Scale/Motion Rectifier.jpg" alt="HX711 Scale image">
         
         <div class="title-header">
-            <h1>Wales: A Water-Based Physical Motion Rectifier</h1>
+            <h1>HX711 Scale</h1>
         </div>
         
         <div class="project-description">
@@ -108,147 +108,87 @@
 <strong>Duration:</strong> Jan–May 2025</p>
 
 <hr />
-<h1 id="how-it-works">How it works</h1>
-<p>GigaSniffer is a sensor-based freshness indicator that evaluates produce condition by monitoring changes in CO₂ and ethanol concentrations within an enclosed chamber. By tracking deviations from baseline levels, the device categorizes produce as fresh, nearing spoilage, or spoiled.</p>
+<h1 id="how-it-works">How it Works</h1>
+<p>Wales is a mechanical motion rectifier that decouples a variable input from its output by using water as an external energy buffer. A variable-speed motor drives an Archimedes screw, lifting water from a lower reservoir to an upper reservoir. The upper reservoir stores potential energy and releases water at a constant rate through gravity to drive a water wheel. Constant pressure in the upper reservoir is maintained via an overflow outlet. By converting fluctuating mechanical input into stable potential energy, the system produces a steady rotational output independent of input speed.</p>
 <h1 id="engineering-and-design">Engineering and Design</h1>
+<p>The system is composed of three primary mechanical subsystems: the pulley, bevel gear transmission, and the water subsystems.</p>
+<h2 id="pulley-subsystem">Pulley Subsystem:</h2>
+<p>Transfers power from the motor to an 8 mm main shaft using crowned pulleys, which self-centers the rubber drive belt and prevents slipping. Multiple pulley geometries were tested to identify the optimal configuration for reliable power transmission.</p>
 
-<h2 id="bio-inspiration">Bio-inspiration:</h2>
-<ul>
-  <li>Modeled after fruit fly olfactory systems that respond to ethanol and CO₂ from decaying fruit.</li>
-</ul>
+<p><small><em>The initial motor gear had a hexagonal section to mount a gear meshing with the encoder gear and a recessed center to guide the rubber band. However, the band frequently slipped to the side, causing jams in the motor.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
 
-<h2 id="hardware">Hardware:</h2>
-<ul>
-  <li>CO₂ and ethanol gas sensors</li>
-  <li>Arduino Mega (upgraded from Uno due to memory constraints)</li>
-  <li>Laser-cut acrylic and wood enclosure for controlled sensing</li>
-  <li>Integrated display for real-time feedback</li>
-</ul>
 
-<div class="image-gallery" style="--gallery-height: 400px;">
+
+<div class="image-gallery" style="--gallery-height: 200px;">
   
       
       
-          
-          <img src="/_projects/HX711%20Scale/Diagram.png" alt="Diagram.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Initial.png" alt="Web image" loading="lazy" />
       
   
       
       
-          
-          <img src="/_projects/HX711%20Scale/Fruit Chamber.jpg" alt="Fruit Chamber.jpg" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Initial1.png" alt="Web image" loading="lazy" />
       
   
 </div>
+</div>
 
-<h2 id="software">Software:</h2>
-<ul>
-  <li>Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers</li>
-</ul>
+<p><small><em>Various motor gear designs were tested to prevent rubber band slipping, including ribbed and concave surfaces, but only crowned pulleys with a smaller motor gear radius kept the band centered and improved the gear ratio for the Archimedes screw.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
 
-<p><small><em>Maintains a circular buffer of recent readings to compute rolling averages and smooth sensor noise.</em></small></p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Update rolling buffer with latest readings</span>
-<span class="n">co2Readings</span><span class="p">[</span><span class="n">bufferIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">co2Value</span><span class="p">;</span>
-<span class="n">alcoholReadings</span><span class="p">[</span><span class="n">bufferIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">alcoholValue</span><span class="p">;</span>
-<span class="n">bufferIndex</span> <span class="o">=</span> <span class="p">(</span><span class="n">bufferIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
-</code></pre></div></div>
 
-<ul>
-  <li>Threshold-based spoilage detection (25 ppm CO₂, 165 ppm ethanol)</li>
-</ul>
 
-<p><small><em>Triggers alerts only when recent readings deviate significantly from the rolling average, reducing false positives.</em></small></p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Check for significant deviations and print alerts</span>
-<span class="kt">float</span> <span class="n">co2Difference</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">co2Readings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]</span> <span class="o">-</span> <span class="n">co2Average</span><span class="p">);</span>
-<span class="kt">float</span> <span class="n">alcoholDifference</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">alcoholReadings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]</span> <span class="o">-</span> <span class="n">alcoholAverage</span><span class="p">);</span>
+<div class="image-gallery" style="--gallery-height: 200px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Rib.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Concave.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Convex.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Convex1.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
 
- <span class="k">if</span> <span class="p">(</span><span class="n">co2Difference</span> <span class="o">&gt;</span> <span class="n">CO2_DIFFERENCE_THRESHOLD</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Hi CO2: "</span><span class="p">);</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">co2Readings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]);</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">" ppm</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
+<h2 id="bevel-gear-transmission-subsystem">Bevel Gear Transmission Subsystem:</h2>
+<p>Due to the 8” × 8” breadboard’s spatial constraints, the Archimedes screw was angled at 55° and driven from the top. Power was transmitted via a pair of 45° bevel gears mounted on a custom angled support. Early prototypes experienced significant shaft wobble, which was eliminated by replacing a single-point support with an integrated bearing housing. This rigid design locked the gear mesh in place, enabling smooth power transfer even at peak motor velocity.</p>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&gt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Hi Alco: "</span><span class="p">);</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">alcoholReadings</span><span class="p">[</span><span class="n">lastIndex</span><span class="p">]);</span>
-   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<p><small><em>Comparison of initial bevel gear support (left) and final consolidated bevel gear support (right).</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
 
-<p><small><em>Implements a freshness classification algorithm using CO₂ and alcohol deviation thresholds, with CO₂ rising first as an early spoilage indicator </em></small></p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bool</span> <span class="n">fresh</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-<span class="n">bool</span> <span class="n">soon</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-<span class="n">bool</span> <span class="n">rot</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-<span class="k">if</span><span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&gt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">){</span>
-   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>  
-   <span class="n">soon</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-   <span class="n">rot</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-<span class="p">}</span>
-<span class="k">else</span> <span class="nf">if</span><span class="p">((</span><span class="n">co2Difference</span> <span class="o">&gt;</span> <span class="n">CO2_DIFFERENCE_THRESHOLD</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">alcoholDifference</span> <span class="o">&lt;</span> <span class="n">ALCOHOL_DIFFERENCE_THRESHOLD</span><span class="p">)){</span>
-   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-   <span class="n">soon</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-   <span class="n">rot</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-<span class="p">}</span>
-<span class="k">else</span><span class="p">{</span> 
-   <span class="n">fresh</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
-   <span class="n">soon</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-   <span class="n">rot</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
-<span class="p">}</span>
-</code></pre></div></div>
-<ul>
-  <li>Provides real-time visual feedback via RGB LED and graphical display to indicate freshness in real time</li>
-</ul>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Control the LED based on the state</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">rot</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
-   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">350</span><span class="p">);</span>
-   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Red for rotten</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">RED</span><span class="p">);</span> 
-   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Rotten: Red LED On"</span><span class="p">);</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Rotten: Red LED On"</span><span class="p">);</span>
-<span class="p">}</span> 
-<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">soon</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
-   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
-   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">);</span> 
-   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Soon: Yellow LED On"</span><span class="p">);</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Soon: Yellow LED On"</span><span class="p">);</span>
-<span class="p">}</span> 
-<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">fresh</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
-   <span class="n">display</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
-   <span class="n">rgb</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Green for fresh</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">GREEN</span><span class="p">);</span> 
-   <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Fresh: Green LED On"</span><span class="p">);</span>
-   <span class="n">display</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Fresh: Green LED On"</span><span class="p">);</span>
-<span class="p">}</span> 
-<span class="k">else</span> <span class="p">{</span>
-   <span class="n">rgb</span><span class="p">.</span><span class="n">off</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/Gigasniffer%20Code.ino">Full Arduino Code</a></p>
-<h1 id="data">Data</h1>
-<p>The prototype was tested on pears, raspberries, and bananas over eight days, with daily measurements of CO₂ and ethanol. As the fruits decayed, the amount of CO₂ and ethanol generally increased. Thresholds of 25 ppm CO₂ and 165 ppm ethanol were set based on observed trends to indicate when produce was no longer fresh (based on visual inspection).</p>
 
 <div class="image-gallery" style="--gallery-height: 300px;">
   
       
       
-          
-          <img src="/_projects/HX711%20Scale/CO2.png" alt="CO2.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel%20Sup%201.png" alt="Web image" loading="lazy" />
       
   
       
       
-          
-          <img src="/_projects/HX711%20Scale/Ethanol.png" alt="Ethanol.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel%20Sup%202.png" alt="Web image" loading="lazy" />
       
   
 </div>
-<h1 id="my-role-and-reflections">My role and reflections</h1>
-<p>In this project, I focused on developing both the hardware and software for the device, while my teammates conducted experiments and collected data. Overall, the final prototype successfully measured CO₂ and ethanol levels in correlation to fruit freshness. However, testing revealed the challenge of obtaining reliable data, requiring long exposure durations and careful interpretation of the multiple sensor outputs. Throughout the process, our team learned the importance of collaboration, iterative design, and extensive testing.</p>
+</div>
+
+<p><small><em>The 8 mm shaft gear (left) uses a set screw and flange to engage only the bearing’s inner race, while the Archimedes screw gear (center) secures to a 3 mm shaft and the screw via symmetric set screws. A cross-sectional view (right) shows the 3 mm shaft connection and the Archimedes screw interface.</em></small></p>
 <div style="width: fit-content; margin: 0 auto;">
   
 
@@ -257,14 +197,225 @@
   
       
       
-          
-          <img src="/_projects/HX711%20Scale/Best team.jpg" alt="Best team.jpg" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel1.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel2.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Bevel3.png" alt="Web image" loading="lazy" />
       
   
 </div>
 </div>
-<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalReport.pdf">Final Report</a><br />
-<a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalDocumentation.pdf">Final Documentation</a></p>
+
+<p><small><em>Full bevel gear transmission.</em></small></p>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div style="flex: 0 0 auto; width: fit-content;">
+    
+
+
+<div class="image-gallery" style="--gallery-height: 500px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Final%20Bevel.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+  </div>
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content;">
+  <div class="youtube-container" style="--max-width: 560px">
+    <div class="youtube-aspect-ratio shorts"><iframe src="https://www.youtube-nocookie.com/embed/iat7Izz4NXc?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=iat7Izz4NXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+  </div>  
+</div>
+
+<h2 id="water-subsystem">Water Subsystem</h2>
+<p>The Archimedes screw uses rotational motion to lift water from the bottom to the upper reservoir, which flows through a tube to drive a water wheel. The water wheel rotates a 5 mm shaft via an M3 screw, spinning an output disk. Multiple iterations of the screw improved water transport efficiency, modularity for 3D printing, and leak prevention.</p>
+
+<p><small><em>Archimedes Screw Support: The lower mount, consisting of a 3d printed bracket and a laser cut acrylic piece, reduces shaft wobble and vibration, ensuring smoother operation.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+  
+
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Arch%20Screw.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<p><small><em>Muji containers were made into reservoirs, with the upper reservoir drilled to guide water to the water wheel and maintain a constant outflow. A small acrylic guide prevents spillage onto the breadboard.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+  
+
+
+<div class="image-gallery" style="--gallery-height: 300px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Reservior.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<p><small><em>Final water wheel iteration (left) with 9 fins is fitted for a 5 mm shaft with a 25 mm radius. Its support (right) positions the shaft close to the main reservoir, ensuring stability while avoiding interference with the rubber band.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+  
+
+
+<div class="image-gallery" style="--gallery-height: 300px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/WaterWheel.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/WaterWheelSupp.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<h1 id="completed-system-and-results">Completed System and Results</h1>
+<p><small><em>Oblique, side, front, and top views of the full assembly, in that order, showing the overall system layout.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+  
+
+
+<div class="image-gallery" style="--gallery-height: 300px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Full.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Side.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Front.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Top.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content;">
+  <div class="youtube-container" style="--max-width: 560px">
+    <div class="youtube-aspect-ratio shorts"><iframe src="https://www.youtube-nocookie.com/embed/o6Od8IpsKps?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=o6Od8IpsKps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+  </div>
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content;">
+  <div class="youtube-container" style="--max-width: 560px">
+    <div class="youtube-aspect-ratio shorts"><iframe src="https://www.youtube-nocookie.com/embed/t_QB27qpTKk?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=t_QB27qpTKk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+  </div>  
+</div>
+
+<p>Data collected at 7.5 V show that the input gear’s angular velocity varies sinusoidally between 16.16 and 26.4 rad/s, while the output gear’s angular velocity ranges from 4.2 to 9.37 rad/s, demonstrating that the rectifier reduces fluctuations and produces a more constant output speed. Accumulated angle analysis confirms this: the input gear shows varying slope, whereas the output gear maintains a nearly constant slope (R² = 1.00).</p>
+
+<p><small><em>Plots comparing angular position (θ) and angular velocity (ω) of the input and output gears at 7.5 V, showing that the rectifier reduces output fluctuations and produces a more constant rotational speed.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+  
+
+
+<div class="image-gallery" style="--gallery-height: 300px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Input%20q.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Output%20q.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Input%20w.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Output%20w.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<h1 id="my-role-and-reflections">My Role and Reflections</h1>
+<p>During this project, I was responsible for most of the CAD design in Onshape. As a team, we collaborated on manufacturing and assembling the system’s iterations, while other members handled data analysis and recording. Overall, the Archimedes screw pumped water effectively, but the output wheel was not fully constant. One major problem was that surface tension caused water droplets to cling to the water wheel buckets, increasing the effective moment of inertia and creating imbalances in the wheel. Future improvements could include smoothing surfaces, using hydrophobic coatings, or resin printing to reduce friction and optimize torque. This project taught me the “nonlinear path” of engineering, where parts that seem perfect in CAD often behave differently in the real world due to factors like tolerances and physical forces.</p>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
+    <div class="youtube-container" style="--max-width: 560px">
+    <div class="youtube-aspect-ratio normal"><iframe src="https://www.youtube-nocookie.com/embed/mN5z6ZzOAVA?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=mN5z6ZzOAVA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+  </div>  
+</div>
+
+<h2 id="extra">Extra</h2>
+
+<p><small><em>Collection of scrap pieces and old iterations.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+  
+
+
+<div class="image-gallery" style="--gallery-height: 300px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Scraps.jpg" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<p><small><em>End of year showcase.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+  
+
+
+<div class="image-gallery" style="--gallery-height: 500px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Showcase.jpg" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Mechanical%20Motion%20Rectifier/EID103%20Final%20Report.pdf">Final Report</a><br />
+<a href="https://cad.onshape.com/documents/7a2f53f5851927828ad4b1ab/w/d7a775bbe256ee246480effd/e/acfc0676ad124d315c4e56da?renderMode=0&amp;uiState=695c356802bd79dd4a4d0af6">Onshape CAD</a></p>
 
     </div>
 </div>

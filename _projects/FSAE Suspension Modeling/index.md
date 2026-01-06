@@ -1,6 +1,7 @@
 ---
+order: 1
 layout: post
-title: "Wales: A Water-Based Physical Motion Rectifier"
+title: "FSAE Suspension Modeling"
 description:  Design a system that turns a variable-speed rotational input into a constant-speed rotational output. It must fit on an 8” × 8” breadboard and be set up or removed in under 5 minutes. The system should connect to the supplied motor shaft, include a gear for the encoder, and measure input and output speeds over time. The output drives a 1”–3” disc that reaches steady state within 10 seconds, and will be tested at 1 Hz, 0.5 Hz, and 0.25 Hz. No part should spin beyond safe limits.
 skills:
   - Iterative Design & Prototyping
