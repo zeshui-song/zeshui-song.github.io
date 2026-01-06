@@ -12,7 +12,7 @@ skills:
   - 3D Printing Tolerancing
   - Shaft & Bearing Mount Design
   - Design Documentation & System Diagrams
-main-image: /Motion Rectifier.jpg
+main-image: \Suspension.png
 ---
 **Team members:** Nora Gallion, Zehra Girgin, Bertrand Juan, Zeshui Song<br>
 **Course:** EID 103<br>
