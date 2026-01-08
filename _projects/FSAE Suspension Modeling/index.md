@@ -182,7 +182,30 @@ for i in range(n):
 ## Numerical Simulation
 Since the suspension geometry changes with wheel displacement, the system does not obey a linear Hooke's Law ($F=ky$). Instead, we calculate the effective spring constant as the derivative of the vertical force ($N$) with respect to vertical displacement of the wheel ($dN/dy$).
 
-<small><em>FBDs of disassembled suspension components. Where $N$ is the normal reaction force on the pushrod, and $F_s$ is the force from the shock absorber.</em></small>
+<small><em>Normal reaction force $N$ on the pushrod and effective spring constant $k_{eff} = dN/dy$ as a function of wheel displacement.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/FBD.png" height="400"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/N%20Plot.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Keff.png" height="400"%}
 </div>
+
+Knowing the effective spring constant as a function of wheel displacement, we can simulate the free oscillation of the car chassis as a mass-spring system using the ODE:
+
+$$
+m \frac{d^2 y}{dt^2} + c \frac{dy}{dt} + k_{\rm eff}(y) \, (y - y_{\rm eq}) = 0
+$$
+
+The initial conditions were determined from video analysis of the actual suspension oscillation:
+
+$$
+y(0) = -0.0233 \, \mathrm{m}, \quad
+y'(0) = 0 \, \mathrm{m/s}, \quad
+y_{\rm eq} = -0.0295 \, \mathrm{m}
+$$
+
+We numerically solved this ODE using Python's <span style="color: #333333; font-family: monospace;">solve_ivp</span> function. The mass and damping coefficient were tuned to best fit the experimental data, resulting in:
+
+$$
+m = 1000 \, \mathrm{kg}, \quad
+c = 4000 \, \mathrm{N \cdot s/m}
+$$
+
+The simulation models the vertical displacement of the car chassis ($y$) over time.
