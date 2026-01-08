@@ -26,9 +26,24 @@ The front suspension was simplified to a planar four-bar linkage consisting of t
 
 <small><em>Comparison of the full suspension system and a simplified four-bar linkage model. The model represents the suspension using the upper control arm ( $l_1$ ), pushrod ( $l_2$ ), and shock mount ( $l_3$ and $l_5$ ), with the chassis ( $l_4$ ) acting as the fixed ground link.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Initial.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Initial1.png" height="200"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Sus%20full.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Kinematics1.png" height="400"%}
 </div>
 
-$$
-\sigma = \frac{F}{A}
-$$
+To define the system geometrically, we first define the positions of the known pivots $A$ and $C$ and the vector $\vec{d}$ connecting them:
+
+$$\begin{align*}
+    \vec{A} &= \langle l_1 \cos \theta_1, l_1 \sin \theta_1 \rangle \\
+    \vec{C} &= \langle 0, l_4 \rangle \\
+    \vec{d} &= \vec{C} - \vec{A}, \quad d = \|\vec{d}\|
+\end{align*}$$
+
+We solve for point $B$ by viewing $\triangle ABC$ as two right triangles sharing a height $h$. The projection $a$ of link $l_2$ onto vector $\vec{d}$ and the orthogonal height $h$ are:
+
+$$a = \frac{l_2^2 - l_3^2 + d^2}{2d}, \quad h = \sqrt{l_2^2 - a^2}$$
+
+Point $B$ is located by traversing distance $a$ along the unit vector $\hat{d}$ and distance $h$ along the perpendicular vector $\hat{d}_\perp$:
+
+$$\vec{B} = \vec{A} + a \hat{d} + h \hat{d}_\perp \quad \text{where} \quad \hat{d}_\perp = \left\langle -\frac{d_y}{d}, \frac{d_x}{d} \right\rangle$$
+
+With coordinates for $A$, $B$, and $C$ known, vectors $\vec{l_2}$ and $\vec{l_3}$ are fully defined. Point $D$ is then found using the normal vector of $\vec{l_3}$ and using the length $l_5$. With points $D$ and $E$, we have fully defined the system and can find all the angles using trigonometry.
+

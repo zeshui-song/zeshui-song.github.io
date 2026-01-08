@@ -21,10 +21,12 @@
       MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          packages: {'[+]': ['ams']}
         }
       };
     </script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
       async>
@@ -158,22 +160,39 @@
 
 
 
-<div class="image-gallery" style="--gallery-height: 200px;">
+<div class="image-gallery" style="--gallery-height: 400px;">
   
       
       
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Initial.png" alt="Web image" loading="lazy" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Sus%20full.png" alt="Web image" loading="lazy" />
       
   
       
       
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Initial1.png" alt="Web image" loading="lazy" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Kinematics1.png" alt="Web image" loading="lazy" />
       
   
 </div>
 </div>
 
-\[\sigma = \frac{F}{A}\]
+<p>To define the system geometrically, we first define the positions of the known pivots $A$ and $C$ and the vector $\vec{d}$ connecting them:</p>
+
+\[\begin{align*}
+    \vec{A} &amp;= \langle l_1 \cos \theta_1, l_1 \sin \theta_1 \rangle \\
+    \vec{C} &amp;= \langle 0, l_4 \rangle \\
+    \vec{d} &amp;= \vec{C} - \vec{A}, \quad d = \|\vec{d}\|
+\end{align*}\]
+
+<p>We solve for point $B$ by viewing $\triangle ABC$ as two right triangles sharing a height $h$. The projection $a$ of link $l_2$ onto vector $\vec{d}$ and the orthogonal height $h$ are:</p>
+
+\[a = \frac{l_2^2 - l_3^2 + d^2}{2d}, \quad h = \sqrt{l_2^2 - a^2}\]
+
+<p>Point $B$ is located by traversing distance $a$ along the unit vector $\hat{d}$ and distance $h$ along the perpendicular vector $\hat{d}_\perp$:</p>
+
+\[\vec{B} = \vec{A} + a \hat{d} + h \hat{d}_\perp \quad \text{where} \quad \hat{d}_\perp = \left\langle -\frac{d_y}{d}, \frac{d_x}{d} \right\rangle\]
+
+<p>With coordinates for $A$, $B$, and $C$ known, vectors $\vec{l_2}$ and $\vec{l_3}$ are fully defined. Point $D$ is then found using the normal vector of $\vec{l_3}$ and using the length $l_5$. With points $D$ and $E$, we have fully defined the system and can find all the angles using trigonometry.</p>
+
 
     </div>
 </div>
