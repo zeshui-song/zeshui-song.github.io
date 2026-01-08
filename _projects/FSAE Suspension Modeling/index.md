@@ -274,3 +274,12 @@ The simulation successfully modeled the exponential decay of the suspension's am
 # My Role and Reflections
 I was mainly responsible for the simulation code, data analysis, and setting up the kinematics and statics equations. While we got a working simulation, we ran into many conceptual hurdles, particularly with determining how to determine the effect of the suspension linkage on the effective spring constant used to model the car as a spring mass system. Additionally, validating our results and analyzing the discrepancies in how we simplified the model proved to be more challenging than expected. Overall, thinking about engineering and modeling through these sanity checks really puts into perspective the reality of these physical behaviors.
 
+## Extra
+<small><em>Animation of suspension linkage motion, note that the actual range of motion is actually much smaller (10-12 deg) instead of the range shown (0-30 deg)</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/LaTex/refs/heads/main/Fall%202025%20Notes/Dynamics/Project/four_bar_linkage_NEW.gif" height="500"%}
+</div>
+
+[Animation Code](https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Dynamics/Project/gif%20export.ipynb)<br>
+[Full Python Code](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/FSAE%20Suspension%20Modeling/Suspension%20Simulation.ipynb)<br>
+[Final Report](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/FSAE%20Suspension%20Modeling/main.pdf)
