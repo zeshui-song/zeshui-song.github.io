@@ -75,4 +75,114 @@ D[i] = C + l_5 * n_hat
  ```
 
 ## Suspension Load Calculations
-Assuming a massless suspension, static equilibrium equations were written for each link to solve for reaction forces. We specifically solved for the normal reaction force N acting on the pushrod to calculate the effective wheel rate.
+Assuming a massless suspension, we established a system of 9 static equilibrium equations based on the sum of forces and moments for the disassembled components (shock mount, upper control arm, and pushrod). We specifically solved for the normal reaction force N acting on the pushrod to calculate the effective wheel rate.
+
+<small><em>FBDs of disassembled suspension components. Where $N$ is the normal reaction force on the pushrod, and $F_s$ is the force from the shock absorber.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/FBD.png" height="400"%}
+</div>
+
+Sum of forces and moments in the shock mount:
+
+$$\sum F_x = F_s cos\theta_5 +C_x -B_x = 0$$
+
+$$\sum F_y = F_s sin\theta_5 +C_y -B_y = 0$$
+
+$$\sum M_C = l_5F_s sin (\theta_5 - \theta_4) - l_3 B_y cos\theta_3 +L_3B_x sin\theta_3 = 0$$
+
+Sum of forces and moments in the upper control arm ($l_1$):
+
+$$\sum F_x = O_x + A_x =0$$
+
+$$\sum F_y = O_y + A_y =0$$
+
+$$\sum M_O = -l_1 A_x sin\theta_1 + l_1 A_y cos\theta_1 =0$$
+
+Sum of forces and moments in the pushrod ($l_2$):
+
+$$\sum F_x = B_x - A_x =0$$
+
+$$\sum F_y = B_y - A_y + N =0$$
+
+$$\sum M_B = -l_2 B_x sin\theta_2 + l_2 B_y cos\theta_2 =0$$
+
+<small><em>Code for solving the system of 9 equations for each linkage position.</em></small>
+
+```py
+# -----------------------------
+# Solution arrays
+n = len(th1_arr)
+
+# Positions
+Ax_arr, Ay_arr = np.zeros(n), np.zeros(n)
+Bx_arr, By_arr = np.zeros(n), np.zeros(n)
+Cx_arr, Cy_arr = np.zeros(n), np.zeros(n)
+Ox_arr, Oy_arr = np.zeros(n), np.zeros(n)
+
+# Normal force
+N_arr = np.zeros(n)
+# -----------------------------
+
+def build_linear_system(th1, th2, th3, th4, th5, Fs):
+    """
+    Builds 9x9 linear system M*X = b for the linkage problem
+    """
+    M = np.zeros((9, 9))
+    b = np.zeros(9)
+
+    # Force components
+    M[0, 2:6:3] = [-1, 1]  # Fx eq
+    b[0] = -Fs * np.cos(np.radians(th5))
+
+    M[1, 3:6:3] = [-1, 1]  # Fy eq
+    b[1] = -Fs * np.sin(np.radians(th5))
+
+    # Moment about link 3
+    M[2, 2:4] = [l_3*np.sin(np.radians(th3)), -l_3*np.cos(np.radians(th3))]
+    b[2] = -l_5 * Fs * np.sin(np.radians(th5 - th4))
+
+    # Geometric constraints
+    M[3, 0:4:2] = [-1, 1]
+    b[3] = 0
+
+    M[4, 1:6:3] = [-1, 1]
+    M[4, 8] = 1
+    b[4] = 0
+
+    M[5, 2:4] = [-l_2*np.sin(np.radians(th2)), l_2*np.cos(np.radians(th2))]
+    b[5] = 0
+
+    M[6, [0, 6]] = [1, 1]
+    b[6] = 0
+
+    M[7, [1, 7]] = [1, 1]
+    b[7] = 0
+
+    # Link 1 moment
+    M[8, 0:2] = [-l_1*np.sin(np.radians(th1)), l_1*np.cos(np.radians(th1))]
+    b[8] = 0
+
+    return M, b
+
+# -----------------------------
+# Solve system for each set of angles
+for i in range(n):
+    M, b = build_linear_system(th1_arr[i], th2_arr[i], th3_arr[i],
+                               th4_arr[i], th5_arr[i], Fs[i])
+    
+    X = np.linalg.solve(M, b)
+
+    # Unpack solution into arrays
+    Ax_arr[i], Ay_arr[i], \
+    Bx_arr[i], By_arr[i], \
+    Cx_arr[i], Cy_arr[i], \
+    Ox_arr[i], Oy_arr[i], \
+    N_arr[i] = X
+ ```
+## Numerical Simulation
+Since the suspension geometry changes with wheel displacement, the system does not obey a linear Hooke's Law ($F=ky$). Instead, we calculate the effective spring constant as the derivative of the vertical force ($N$) with respect to vertical displacement of the wheel ($dN/dy$).
+
+<small><em>FBDs of disassembled suspension components. Where $N$ is the normal reaction force on the pushrod, and $F_s$ is the force from the shock absorber.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/FBD.png" height="400"%}
+</div>

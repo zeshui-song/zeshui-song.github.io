@@ -230,7 +230,136 @@
 </code></pre></div></div>
 
 <h2 id="suspension-load-calculations">Suspension Load Calculations</h2>
-<p>Assuming a massless suspension, static equilibrium equations were written for each link to solve for reaction forces. We specifically solved for the normal reaction force N acting on the pushrod to calculate the effective wheel rate.</p>
+<p>Assuming a massless suspension, we established a system of 9 static equilibrium equations based on the sum of forces and moments for the disassembled components (shock mount, upper control arm, and pushrod). We specifically solved for the normal reaction force N acting on the pushrod to calculate the effective wheel rate.</p>
+
+<p><small><em>FBDs of disassembled suspension components. Where $N$ is the normal reaction force on the pushrod, and $F_s$ is the force from the shock absorber.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/FBD.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<p>Sum of forces and moments in the shock mount:</p>
+
+\[\sum F_x = F_s cos\theta_5 +C_x -B_x = 0\]
+
+\[\sum F_y = F_s sin\theta_5 +C_y -B_y = 0\]
+
+\[\sum M_C = l_5F_s sin (\theta_5 - \theta_4) - l_3 B_y cos\theta_3 +L_3B_x sin\theta_3 = 0\]
+
+<p>Sum of forces and moments in the upper control arm ($l_1$):</p>
+
+\[\sum F_x = O_x + A_x =0\]
+
+\[\sum F_y = O_y + A_y =0\]
+
+\[\sum M_O = -l_1 A_x sin\theta_1 + l_1 A_y cos\theta_1 =0\]
+
+<p>Sum of forces and moments in the pushrod ($l_2$):</p>
+
+\[\sum F_x = B_x - A_x =0\]
+
+\[\sum F_y = B_y - A_y + N =0\]
+
+\[\sum M_B = -l_2 B_x sin\theta_2 + l_2 B_y cos\theta_2 =0\]
+
+<p><small><em>Code for solving the system of 9 equations for each linkage position.</em></small></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># -----------------------------
+# Solution arrays
+</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">th1_arr</span><span class="p">)</span>
+
+<span class="c1"># Positions
+</span><span class="n">Ax_arr</span><span class="p">,</span> <span class="n">Ay_arr</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">Bx_arr</span><span class="p">,</span> <span class="n">By_arr</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">Cx_arr</span><span class="p">,</span> <span class="n">Cy_arr</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">Ox_arr</span><span class="p">,</span> <span class="n">Oy_arr</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Normal force
+</span><span class="n">N_arr</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="c1"># -----------------------------
+</span>
+<span class="k">def</span> <span class="nf">build_linear_system</span><span class="p">(</span><span class="n">th1</span><span class="p">,</span> <span class="n">th2</span><span class="p">,</span> <span class="n">th3</span><span class="p">,</span> <span class="n">th4</span><span class="p">,</span> <span class="n">th5</span><span class="p">,</span> <span class="n">Fs</span><span class="p">):</span>
+    <span class="s">"""
+    Builds 9x9 linear system M*X = b for the linkage problem
+    """</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+
+    <span class="c1"># Force components
+</span>    <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Fx eq
+</span>    <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">Fs</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th5</span><span class="p">))</span>
+
+    <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Fy eq
+</span>    <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">Fs</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th5</span><span class="p">))</span>
+
+    <span class="c1"># Moment about link 3
+</span>    <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">l_3</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th3</span><span class="p">)),</span> <span class="o">-</span><span class="n">l_3</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th3</span><span class="p">))]</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">l_5</span> <span class="o">*</span> <span class="n">Fs</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th5</span> <span class="o">-</span> <span class="n">th4</span><span class="p">))</span>
+
+    <span class="c1"># Geometric constraints
+</span>    <span class="n">M</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">M</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">M</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">M</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">l_2</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th2</span><span class="p">)),</span> <span class="n">l_2</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th2</span><span class="p">))]</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">M</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">M</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Link 1 moment
+</span>    <span class="n">M</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">l_1</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th1</span><span class="p">)),</span> <span class="n">l_1</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">th1</span><span class="p">))]</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="n">M</span><span class="p">,</span> <span class="n">b</span>
+
+<span class="c1"># -----------------------------
+# Solve system for each set of angles
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">M</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">build_linear_system</span><span class="p">(</span><span class="n">th1_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">th2_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">th3_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                               <span class="n">th4_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">th5_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Fs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="c1"># Unpack solution into arrays
+</span>    <span class="n">Ax_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Ay_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> \
+    <span class="n">Bx_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">By_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> \
+    <span class="n">Cx_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Cy_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> \
+    <span class="n">Ox_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Oy_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> \
+    <span class="n">N_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span>
+</code></pre></div></div>
+<h2 id="numerical-simulation">Numerical Simulation</h2>
+<p>Since the suspension geometry changes with wheel displacement, the system does not obey a linear Hooke’s Law ($F=ky$). Instead, we calculate the effective spring constant as the derivative of the vertical force ($N$) with respect to vertical displacement of the wheel ($dN/dy$).</p>
+
+<p><small><em>FBDs of disassembled suspension components. Where $N$ is the normal reaction force on the pushrod, and $F_s$ is the force from the shock absorber.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/FBD.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
 
     </div>
 </div>
