@@ -381,7 +381,90 @@ y_{\rm eq} = -0.0295 \, \mathrm{m}\]
 \[m = 1000 \, \mathrm{kg}, \quad
 c = 4000 \, \mathrm{N \cdot s/m}\]
 
-<p>The simulation models the vertical displacement of the car chassis ($y$) over time.</p>
+<p><small><em>Code for numerically solving the effective spring constant and ODE.</em></small></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># -----------------------------
+# y coordinate (vertical position of point A)
+# -----------------------------
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># -----------------------------
+# Direct stiffness: dN/dy
+# -----------------------------
+</span><span class="n">k_eff</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">N_arr</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">k_interp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">k_eff</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s">"extrapolate"</span><span class="p">)</span>
+
+<span class="c1"># ---- Simulation parameters ----
+</span><span class="n">m</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">#66.904875    # sprung mass [kg]
+</span><span class="n">c</span> <span class="o">=</span> <span class="mi">4000</span>       <span class="c1"># damping [N·s/m] (lower for visible oscillation)
+</span><span class="n">x_init</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.023394191990219634</span>   <span class="c1"># Positive is downward from equilibrium
+</span><span class="n">x_eq</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.0295</span>  <span class="c1"># equilibrium position
+</span><span class="n">v_init</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1"># small initial velocity optional
+</span><span class="n">t_final</span> <span class="o">=</span> <span class="mi">3</span>    <span class="c1"># seconds
+</span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+<span class="c1"># ---- Nonlinear spring-mass-damper ODE ----
+</span><span class="k">def</span> <span class="nf">spring_mass</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">state</span>
+    <span class="n">k_local</span> <span class="o">=</span> <span class="n">k_interp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>        <span class="c1"># wheel-rate at current displacement
+</span>    <span class="n">F_ext</span> <span class="o">=</span> <span class="mf">0.0</span>                  <span class="c1"># no external force
+</span>    <span class="n">F_spring</span> <span class="o">=</span> <span class="n">k_local</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_eq</span><span class="p">)</span> <span class="c1"># spring force relative to equilibrium position
+</span>    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">F_ext</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">v</span> <span class="o">-</span> <span class="n">F_spring</span><span class="p">)</span> <span class="o">/</span> <span class="n">m</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span>
+
+<span class="c1"># ---- Solve ODE ----
+</span><span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">ic</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_init</span><span class="p">,</span> <span class="n">v_init</span><span class="p">]</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">spring_mass</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_final</span><span class="p">],</span> <span class="n">ic</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><small><em>The simulation models the vertical displacement of the car chassis ($y$) over time.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Simulation.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<p><small><em>Comparison of simulated and experimental suspension oscillation.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Validation.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
+    <div class="youtube-container" style="--max-width: 560px">
+    <div class="youtube-aspect-ratio normal"><iframe src="https://www.youtube-nocookie.com/embed/Dv6SuCOE8nw?rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Dv6SuCOE8nw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+  </div>  
+</div>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>The simulation successfully modeled the exponential decay of the suspension’s amplitude. By mapping the simulated chassis displacement $y(t)$ back to the equivalent spring displacement, we validated the model against experimental video tracking data. While the frequency matched, the simulation required a tuned mass of 1000 kg, roughly four times the actual car mass. This discrepancy suggests our simplified model overestimated the real suspension stiffness, likely due to neglected internal reaction forces from tires and the lower control arm.</p>
+
+<h1 id="my-role-and-reflections">My Role and Reflections</h1>
+<p>I was mainly responsible for the simulation code, data analysis, and setting up the kinematics and statics equations. While we got a working simulation, we ran into many conceptual hurdles, particularly with determining how to determine the effect of the suspension linkage on the effective spring constant used to model the car as a spring mass system. Additionally, validating our results and analyzing the discrepancies in how we simplified the model proved to be more challenging than expected. Overall, thinking about engineering and modeling through these sanity checks really puts into perspective the reality of these physical behaviors.</p>
+
 
     </div>
 </div>

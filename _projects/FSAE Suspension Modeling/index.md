@@ -208,4 +208,69 @@ m = 1000 \, \mathrm{kg}, \quad
 c = 4000 \, \mathrm{N \cdot s/m}
 $$
 
-The simulation models the vertical displacement of the car chassis ($y$) over time.
+<small><em>Code for numerically solving the effective spring constant and ODE.</em></small>
+
+```py
+# -----------------------------
+# y coordinate (vertical position of point A)
+# -----------------------------
+y = A[:, 1]
+y = y - y[0]
+
+# -----------------------------
+# Direct stiffness: dN/dy
+# -----------------------------
+k_eff = np.gradient(N_arr, y)
+k_interp = interp1d(y, k_eff, fill_value="extrapolate")
+
+# ---- Simulation parameters ----
+m = 1000 #66.904875    # sprung mass [kg]
+c = 4000       # damping [N·s/m] (lower for visible oscillation)
+x_init = -0.023394191990219634   # Positive is downward from equilibrium
+x_eq = -0.0295  # equilibrium position
+v_init = 0.0    # small initial velocity optional
+t_final = 3    # seconds
+dt = 0.001
+
+# ---- Nonlinear spring-mass-damper ODE ----
+def spring_mass(t, state, m, c):
+    x, v = state
+    k_local = k_interp(x)        # wheel-rate at current displacement
+    F_ext = 0.0                  # no external force
+    F_spring = k_local * (x - x_eq) # spring force relative to equilibrium position
+    a = (F_ext - c*v - F_spring) / m
+    return [v, a]
+
+# ---- Solve ODE ----
+t_eval = np.arange(0, t_final, dt)
+ic = [x_init, v_init]
+sol = solve_ivp(spring_mass, [0, t_final], ic, args=(m, c), t_eval=t_eval, rtol=1e-6, atol=1e-8)
+ ```
+
+<small><em>The simulation models the vertical displacement of the car chassis ($y$) over time.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Simulation.png" height="400"%}
+</div>
+
+<small><em>Comparison of simulated and experimental suspension oscillation.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Validation.png" height="400"%}
+</div>
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
+    {% include youtube-video.html 
+        id="Dv6SuCOE8nw" 
+        format="normal" 
+        autoplay="true"
+        loop="true"
+    %}
+  </div>  
+</div>
+
+# Conclusion
+The simulation successfully modeled the exponential decay of the suspension's amplitude. By mapping the simulated chassis displacement $y(t)$ back to the equivalent spring displacement, we validated the model against experimental video tracking data. While the frequency matched, the simulation required a tuned mass of 1000 kg, roughly four times the actual car mass. This discrepancy suggests our simplified model overestimated the real suspension stiffness, likely due to neglected internal reaction forces from tires and the lower control arm.
+
+# My Role and Reflections
+I was mainly responsible for the simulation code, data analysis, and setting up the kinematics and statics equations. While we got a working simulation, we ran into many conceptual hurdles, particularly with determining how to determine the effect of the suspension linkage on the effective spring constant used to model the car as a spring mass system. Additionally, validating our results and analyzing the discrepancies in how we simplified the model proved to be more challenging than expected. Overall, thinking about engineering and modeling through these sanity checks really puts into perspective the reality of these physical behaviors.
+
