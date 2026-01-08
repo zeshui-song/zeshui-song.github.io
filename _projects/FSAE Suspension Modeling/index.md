@@ -47,3 +47,32 @@ $$\vec{B} = \vec{A} + a \hat{d} + h \hat{d}_\perp \quad \text{where} \quad \hat{
 
 With coordinates for $A$, $B$, and $C$ known, vectors $\vec{l_2}$ and $\vec{l_3}$ are fully defined. Point $D$ is then found using the normal vector of $\vec{l_3}$ and using the length $l_5$. With points $D$ and $E$, we have fully defined the system and can find all the angles using trigonometry.
 
+<small><em>Geometry of the linkage variables.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Geometry.png" height="400"%}
+</div>
+
+<small><em>Code for generating a complete array of point coordinates from a set of discrete angle inputs.</em></small>
+
+```py
+# Geometry Solver for Four-Bar Linkage
+for i, t1 in enumerate(theta1):
+A[i] = O + np.array([l_1*np.cos(t1), l_1*np.sin(t1)]) # Point A position
+d = np.linalg.norm(C - A[i]) # Distance AC
+        
+# Using law of cosines to find intersection P and height h
+a = (l_2**2 - l_3**2 + d**2) / (2*d)
+h = np.sqrt(l_2**2 - a**2)
+P = A[i] + a*(C - A[i]) / d
+
+B[i,0] = P[0] + h*(C[1] - A[i,1]) / d # Point Bx
+B[i,1] = P[1] - h*(C[0] - A[i,0]) / d # Point By
+        
+# Solve for Point D (perpendicular to link 3)
+v3 = C - B[i]
+n_hat = np.array([v3[1] / np.linalg.norm(v3), -v3[0] / np.linalg.norm(v3)])
+D[i] = C + l_5 * n_hat
+ ```
+
+## Suspension Load Calculations
+Assuming a massless suspension, static equilibrium equations were written for each link to solve for reaction forces. We specifically solved for the normal reaction force N acting on the pushrod to calculate the effective wheel rate.

@@ -193,6 +193,44 @@
 
 <p>With coordinates for $A$, $B$, and $C$ known, vectors $\vec{l_2}$ and $\vec{l_3}$ are fully defined. Point $D$ is then found using the normal vector of $\vec{l_3}$ and using the length $l_5$. With points $D$ and $E$, we have fully defined the system and can find all the angles using trigonometry.</p>
 
+<p><small><em>Geometry of the linkage variables.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Geometry.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<p><small><em>Code for generating a complete array of point coordinates from a set of discrete angle inputs.</em></small></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Geometry Solver for Four-Bar Linkage
+</span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">theta1</span><span class="p">):</span>
+<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">O</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">l_1</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">l_1</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t1</span><span class="p">)])</span> <span class="c1"># Point A position
+</span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">norm</span><span class="p">(</span><span class="n">C</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1"># Distance AC
+</span>        
+<span class="c1"># Using law of cosines to find intersection P and height h
+</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">l_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">l_3</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">l_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">C</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">d</span>
+
+<span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">d</span> <span class="c1"># Point Bx
+</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">d</span> <span class="c1"># Point By
+</span>        
+<span class="c1"># Solve for Point D (perpendicular to link 3)
+</span><span class="n">v3</span> <span class="o">=</span> <span class="n">C</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">n_hat</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">v3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v3</span><span class="p">),</span> <span class="o">-</span><span class="n">v3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v3</span><span class="p">)])</span>
+<span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span> <span class="o">+</span> <span class="n">l_5</span> <span class="o">*</span> <span class="n">n_hat</span>
+</code></pre></div></div>
+
+<h2 id="suspension-load-calculations">Suspension Load Calculations</h2>
+<p>Assuming a massless suspension, static equilibrium equations were written for each link to solve for reaction forces. We specifically solved for the normal reaction force N acting on the pushrod to calculate the effective wheel rate.</p>
 
     </div>
 </div>
@@ -201,7 +239,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 
     <footer>
