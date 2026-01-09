@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <script src="/assets/js/script.js"></script>
+    
+    <!-- MathJax (LaTeX support) -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          packages: {'[+]': ['ams']}
+        }
+      };
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+      async>
+    </script>
+    <!-- End MathJax -->
+
+<!-- PREVIEW METADATA -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:4000/research/Tow%20Tank/index/">
+<meta property="og:title" content="Tow Tank (Work in Progress)">
+
+
+<meta property="og:description" content="The goal of this project was to design and build a $30 digital scale capable of accurately measuring mass while mechanically isolating the load cell from external, non-normal forces. The system inc...">
+
+
+  
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  <meta property="og:image" content="https:/raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Scale.jpg">
+  <meta name="twitter:image" content="https:/raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Scale.jpg">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tow Tank (Work in Progress)">
+<meta name="twitter:description" content="The goal of this project was to design and build a $30 digital scale capable of accurately measuring mass while mechanically isolating the load cell from external, non-normal forces. The system inc...">
+<meta name="twitter:image:aspect_ratio" content="1.91:1">
+<!-- END PREVIEW METADATA -->
+    
+    <title>Zeshui Song's Portfolio</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+     <nav>
+    <div class="left">
+        <a href="/">Zeshui Song</a>
+    </div>
+
+    <div class="right desktop-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/research/">
+            <span>Research</span>
+        </a>
+        <a href="https://youtu.be/xvFZjo5PgG0?si=xJph3LNPv0NLrmOQ" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fa fa-bars fa-2x"></i>
+    </button>
+
+    <div class="mobile-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/research/">
+            <span>Research</span>
+        </a>
+        <a href="https://youtu.be/xvFZjo5PgG0?si=xJph3LNPv0NLrmOQ" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+</nav>
+
+     <div class="page"><div class="post-view">
+    <div class="summary">
+        
+       
+        
+               
+        <img src="/_research/Tow Tank/Scale.jpg" alt="Tow Tank (Work in Progress) image">
+        
+        <div class="title-header">
+            <h1>Tow Tank (Work in Progress)</h1>
+        </div>
+        
+        <div class="project-description">
+            <h2>Project Overview</h2>
+            <p>The goal of this project was to design and build a $30 digital scale capable of accurately measuring mass while mechanically isolating the load cell from external, non-normal forces. The system includes tare and unit-conversion (grams to ounces) functions and employs a pulley-based decoupling mechanism to improve measurement precision.</p>
+        </div>
+        <div class="skills-card">
+            <h2>Skills Used</h2> 
+            <div class="skills-list">
+                
+                <span class="skill">Mechanical Design</span>    
+                
+                <span class="skill">3D Printing (FDM)</span>    
+                
+                <span class="skill">Arduino Programming</span>    
+                
+                <span class="skill">Signal Conditioning (HX711)</span>    
+                
+                <span class="skill">Load Cells</span>    
+                
+                <span class="skill">Soldering</span>    
+                
+            </div>
+        </div>
+    </div>
+      
+    <div class="content">
+        <p><strong>Team members:</strong> Zeshui Song, Roy He, Aleksander Szetela<br />
+<strong>Course:</strong> ME 104<br />
+<strong>Duration:</strong> April-May 2025</p>
+
+<hr />
+<h1 id="how-it-works">How it Works</h1>
+<p>The scale uses a 10 kg load cell mounted to a 3D-printed support platform, with one end fixed and the sensing end free to respond to applied loads. To isolate the load cell from non-normal forces, a pulley-based system was selected over alternatives such as linear rails and hinged arms; a mass basket is suspended from a rope routed over a 3D-printed pulley mounted on an 8 mm shoulder screw, ensuring that only tensile force aligned with gravity is transmitted to the load cell. The mass basket incorporates a circular retaining wall and four attachment points to maintain stability and prevent tipping under off-center loads, and the entire assembly was clamped to the table to eliminate motion and ensure accurate force measurement.</p>
+
+<p><small><em>Mechanical diagram of the scale.</em></small></p>
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 600px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<h1 id="engineering-and-design">Engineering and Design</h1>
+
+<h2 id="electrical-design">Electrical Design:</h2>
+<p>The load cell was wired directly to an HX711 amplifier module via soldered connections to minimize noise and signal loss. The HX711 communicates with an Arduino microcontroller, which processes the amplified signal. Two push buttons mounted on a breadboard provide user input for tare and unit conversion. Measured values are output to the serial monitor.</p>
+
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 300px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Electrical.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<h2 id="algorithm-design">Algorithm Design:</h2>
+<p>The system reads raw load cell data through the HX711, applies calibration factors, and computes mass values in grams or ounces depending on the selected mode. The tare button zeros the scale by storing the current reading as an offset, while the unit-conversion button toggles between measurement units. Measurements are continuously updated and displayed in real time.</p>
+
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 600px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Algorithm.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<h1 id="results">Results</h1>
+<p>Across the tested range of 2 g to 2000 g, the scale demonstrated excellent linearity and repeatability. The measured mass closely matched the actual mass, with a linear fit slope of 0.9988 and an R² value of 1.0, indicating near-ideal proportional response. Repeatability testing using a 100 g mass yielded a standard deviation of 0.2614 g over 44 measurements taken at 2-second intervals, confirming stable and consistent performance.</p>
+<div style="width: fit-content; margin: 0 auto;">
+
+
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Data.png" alt="Web image" loading="lazy" />
+      
+  
+</div>
+</div>
+
+<h1 id="my-role-and-reflections">My Role and Reflections</h1>
+<p>Overall, this was a rather simple and straightforward project. However, figuring out the validity of our data was interesting, since we only had enough time to calibrate our scale a limited number of times and temperature variations tended to affect the load cell output. As a result, determining our confidence level could only be done through statistical analysis using a decently large dataset.</p>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
+  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
+    <div class="youtube-container" style="--max-width: 560px">
+    <div class="youtube-aspect-ratio normal"><iframe src="https://www.youtube-nocookie.com/embed/PGNhLCem6JA?rel=0&amp;mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+  </div>  
+</div>
+
+<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/HX711%20Scale/Scale%20Code.ino">Arduino Code</a><br />
+<a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/HX711%20Scale/Measurements%20Lab%20Final%20Report.pdf">Final Report</a><br />
+<a href="https://cad.onshape.com/documents/879e940bb85becdcbd9707af/w/ac66949ea51a3570c61e25d7/e/4072b7e2dbef1a2713dcaf1b?renderMode=0&amp;uiState=695c722bf032d6fc4be294bb">Onshape CAD</a></p>
+
+    </div>
+</div>
+
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+
+    <footer>
+    <div class="footer-content">
+        <div class="links">
+            <a href="/">
+                <span>Home</span>
+            </a>
+            <a href="/projects/">
+                <span>Projects</span>
+            </a>
+             </a>
+            <a href="/research/">
+                <span>Research</span>
+            </a>
+            <a href=https://youtu.be/xvFZjo5PgG0?si=xJph3LNPv0NLrmOQ target="_blank" rel="noopener noreferrer">
+                <span>Resume</span>
+            </a>
+        </div>
+    </div>
+    <div class="license">
+        <p style="font-size:14px; color:#888;">Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
+    </div>
+</footer>
+
+</html>
