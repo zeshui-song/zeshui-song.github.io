@@ -8,17 +8,17 @@ skills:
   - Linear Actuation
   - 3D Printing (FDM)
   - Stepper motor control
-main-image: /Img.jpg
+main-image: /Media - Copy.jpg
 ---
 **Duration:** Ongoing (Started July 2025)
 
 ---
 # How it Works
-The scale uses a 10 kg load cell mounted to a 3D-printed support platform, with one end fixed and the sensing end free to respond to applied loads. To isolate the load cell from non-normal forces, a pulley-based system was selected over alternatives such as linear rails and hinged arms; a mass basket is suspended from a rope routed over a 3D-printed pulley mounted on an 8 mm shoulder screw, ensuring that only tensile force aligned with gravity is transmitted to the load cell. The mass basket incorporates a circular retaining wall and four attachment points to maintain stability and prevent tipping under off-center loads, and the entire assembly was clamped to the table to eliminate motion and ensure accurate force measurement.
+The setup uses a vertically actuated mechanism to raise and lower the water tank, controlling the position of the water surface relative to a tethered beetle. The beetle is fixed above the tank, with a camera centered and focused on it. This configuration enables a consistent, repeatable air-to-water transition while allowing the immersion rate to be varied.
 
-<small><em>Mechanical diagram of the scale.</em></small>
+<small><em>Preliminary camera set up with tethered beetle.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" height="600"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" height="400"%}
 </div>
 
 # Engineering and Design
