@@ -7,7 +7,9 @@ skills:
   - Experimental Apparatus Design
   - Linear Actuation
   - 3D Printing (FDM)
-  - Stepper motor control
+  - Stepper Motor Control
+  - 80/20 Aluminum Framing
+  - Power Supply and Motor Driver Selection
 main-image: /Media - Copy.jpg
 ---
 **Duration:** Ongoing (Started July 2025)
@@ -18,16 +20,17 @@ The setup uses a vertically actuated mechanism to raise and lower the water tank
 
 <small><em>Preliminary camera set up with tethered beetle.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" height="400"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Vertical%20Actuator%20Tank/Media.jpg, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Vertical%20Actuator%20Tank/Media%20(1).jpg" height="400"%}
 </div>
 
 # Engineering and Design
 
-## Electrical Design:
-The load cell was wired directly to an HX711 amplifier module via soldered connections to minimize noise and signal loss. The HX711 communicates with an Arduino microcontroller, which processes the amplified signal. Two push buttons mounted on a breadboard provide user input for tare and unit conversion. Measured values are output to the serial monitor.
+## Mechanical Design:
+The mechanical system supports the water tank and provides smooth, guided vertical motion with minimal vibration. Several approaches for varying water level were evaluated, including using a DC motor–driven pump and physically translating the tank. It was determined that vertically actuating the tank allowed for better control over immersion rate and little to none disturbance of the water. The actuation system is mounted on an optical breadboard and constrained to vertical motion with 2 linear motion shafts. Most components were designed for 3D printing and assembled using heat-set inserts and interference fits. However, select parts will be replaced with 80/20 aluminum framing to improve stiffness and structural robustness.
 
+<small><em>Preliminary mechanical design.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Electrical.png" height="300"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Vertical%20Actuator%20Tank/Actuator.png" height="400"%}
 </div>
 
 ## Algorithm Design:
