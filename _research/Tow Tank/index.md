@@ -22,7 +22,7 @@ The system utilizes a linear actuation setup where a moving gantry is driven alo
 
 <small><em>Overview of the linear actuation system.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Linear%20Actuation.png" height="300"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Linear%20Actuation.png" height="450"%}
 </div>
 
 <div style="width: fit-content; margin: 0 auto;">
@@ -36,7 +36,7 @@ Dual MGN12 linear rails provide low-friction, high-precision guidance for the mo
 
 <small><em>Linear rail and gantry connection via MGN12 linear bearings.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Gantry%20Rail.png" height="300"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Gantry%20Rail.png" height="400"%}
 </div>
 
 <small><em>Linear rail and T-nut assembly.</em></small>
@@ -50,3 +50,13 @@ Several alternative linear motion solutions were considered. V-slot wheels offer
 <div style="width: fit-content; margin: 0 auto;">
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/V%20slot.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Round.png" height="300"%}
 </div>
+
+The gantry consists of a 10-inch piece of 8020 aluminum extrusion mounted directly onto the linear rails, providing stiffness and structural integrity while allowing for flexible mounting along its extrusion profiles via T-nuts.
+
+<small><em>Moving gantry assembly.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Gantry.png" height="400"%}
+</div>
+
+## Power System
+A NEMA 23 stepper motor drives the gantry through a GT2 timing belt system. This setup enables precise control of motion parameters while maintaining smooth translation over long distances. An idler pulley at the opposite end of the system maintains belt tension and alignment, ensuring consistent performance during operation. Initial testing revealed that additional belt tensioning was required for reliable performance. A modified version of a belt tensioner design by [Cahorton](https://www.thingiverse.com/thing:181349) was used initially, with plans to develop a custom tensioner integrated directly into the gantry timing-belt mount.
