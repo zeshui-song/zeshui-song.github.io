@@ -805,23 +805,41 @@ footer p {
     border-radius: 10px;
 }
  
+/* UPDATED IMAGE GALLERY - GRID STYLE */
 .post-view .content .image-gallery {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;      /* Images will move to the next line when space runs out */
     justify-content: flex-start;
-    align-items: flex-start;
-    align-content: flex-start;
+    gap: 15px; 
+    padding: 10px 0;
     width: 100%;
-    gap: 10px
+}
+
+/* The "Frame" that clips the zoom effect */
+.post-view .content .image-gallery a.glightbox {
+    cursor: zoom-in;
+    display: block;
+    overflow: hidden;    /* Important: Clips the image so it doesn't overlap neighbors */
+    border-radius: 8px;
+    flex: 0 1 auto;      /* Allows images to maintain their natural width */
 }
 
 .post-view .content .image-gallery img {
-    max-height: var(--gallery-height); 
+    height: var(--gallery-height, 300px); 
     width: auto; 
-    max-width: 100%;
-    object-fit: contain;
-    align-self: flex-start;
+    max-width: 100%;     /* Prevents images from ever being wider than the screen */
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+/* Hover effects */
+.post-view .content .image-gallery a.glightbox:hover img {
+    transform: scale(1.02);   /* Zooms in slightly */
+    filter: brightness(0.8); /* Dims the image (grey highlight effect) */
+}
+/* END IMAGE GALLERY STYLES */
   
 .post-view .content  a {
     color: #3498db;
@@ -958,47 +976,6 @@ footer p {
         height: auto !important;
     }
 }
-
-/* Gallery Layout */
-.image-gallery {
-    display: flex;
-    gap: 15px; /* Increased gap slightly */
-    overflow-x: auto;
-    overflow-y: hidden; /* Prevent vertical scrollbars during zoom */
-    padding: 15px 0;    /* Added vertical padding to give zoom space */
-    scrollbar-width: thin;
-    align-items: center;
-}
-
-/* Clickable Link Styling */
-.image-gallery a.glightbox {
-    cursor: zoom-in;
-    flex: 0 0 auto;
-    display: block;
-    overflow: hidden; /* Clip the image zoom to the container if needed */
-    border-radius: 8px; /* Match the image radius */
-}
-
-/* Image Styling */
-.image-gallery img {
-    height: var(--gallery-height, 300px);
-    width: auto;
-    border-radius: 8px;
-    display: block;
-    /* Use 'will-change' to tell the browser to optimize this animation */
-    will-change: transform;
-    transition: transform 0.25s ease-out, filter 0.25s;
-}
-
-/* Hover effects */
-.image-gallery a.glightbox:hover img {
-    /* Scale is reduced slightly to 1.05 for a smoother look */
-    transform: scale(1.05);
-    filter: brightness(0.9);
-}
-/* Gallery Layout END */
-
-
 
 
 /*     Responsive styles     */
