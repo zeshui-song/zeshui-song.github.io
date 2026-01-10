@@ -83,3 +83,14 @@ The structural framework was engineered to minimize reliance on friction-based j
 <div style="width: fit-content; margin: 0 auto;">
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Frame2.png" height="300"%}
 </div>
+
+## Electronics
+The electronics system includes a limit switch to enable a simple and repeatable homing procedure, similar to those used in 3D printers. The stepper motor is controlled using an Arduino Uno, a TB6600 motor driver, and a variable power supply. This configuration provides reliable motor control while remaining flexible for future expansion.
+
+<small><em>NEMA 23 stepper motor test setup using an Arduino Uno, TB6600 motor driver, and a variable power supply.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Electronics.jpg" height="400"%}
+</div>
+
+# Future Work
+While the linear actuation system is largely complete in terms of design and fabrication, it has not yet been tested. The stepper motor inherently generates significant high-frequency vibrations, and it is unclear whether it provides sufficient torque to pull 3D-printed samples through water at the required speeds. Furthermore, the tank may be too short to achieve a meaningful length of steady-state flow around the specimen. To address these questions, we first need to design a simple linear stage that allows collection of hydrodynamic force data on a 3D-printed wing during operation, verifying whether this approach can yield valid measurements. In parallel, I plan to improve the belt tensioner and potentially enhance the structural rigidity of the idler pulley mount.
