@@ -809,38 +809,62 @@ footer p {
 }
  
 /* UPDATED IMAGE GALLERY - GRID STYLE */
+/* UPDATED IMAGE GALLERY - FULLY RESPONSIVE */
 .post-view .content .image-gallery {
     display: flex;
-    flex-wrap: wrap;      /* Images will move to the next line when space runs out */
+    flex-wrap: wrap; 
     justify-content: flex-start;
     gap: 15px; 
-    padding: 10px 0;
+    padding: 15px 0;
     width: 100%;
 }
 
-/* The "Frame" that clips the zoom effect */
+/* The Link/Frame */
 .post-view .content .image-gallery a.glightbox {
     cursor: zoom-in;
     display: block;
-    overflow: hidden;    /* Important: Clips the image so it doesn't overlap neighbors */
+    overflow: hidden;    /* Clips the zoom effect */
     border-radius: 8px;
-    flex: 0 1 auto;      /* Allows images to maintain their natural width */
+    flex: 0 1 auto;      /* Allows the frame to shrink */
+    max-width: 100%;     /* Keeps frame within screen bounds */
 }
 
+/* The Image */
 .post-view .content .image-gallery img {
-    height: var(--gallery-height, 300px); 
-    width: auto; 
-    max-width: 100%;     /* Prevents images from ever being wider than the screen */
-    object-fit: cover;
+    /* KEY CHANGE: height is auto, and gallery-height is the limit */
+    height: auto; 
+    max-height: var(--gallery-height, 300px); 
+    
+    width: auto;
+    max-width: 100%;     /* Image will shrink width-wise to fit screen */
     display: block;
+    object-fit: contain; /* Ensures the whole image is visible */
+    
     will-change: transform;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s ease-out, filter 0.3s ease-out;
 }
 
 /* Hover effects */
 .post-view .content .image-gallery a.glightbox:hover img {
-    transform: scale(1.02);   /* Zooms in slightly */
-    filter: brightness(0.8); /* Dims the image (grey highlight effect) */
+    transform: scale(1.08); 
+    filter: brightness(0.85); 
+}
+
+/* Ensure images don't look tiny on small phones */
+@media (max-width: 480px) {
+    .post-view .content .image-gallery {
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .post-view .content .image-gallery a.glightbox {
+        width: 100%; /* Forces images to take full width on mobile */
+    }
+    
+    .post-view .content .image-gallery img {
+        width: 100%;
+        max-height: none; /* Allows the image to be as tall as it needs to be */
+    }
 }
 /* END IMAGE GALLERY STYLES */
   
@@ -1132,10 +1156,10 @@ footer p {
         
          
     }
-    .post-view.image-gallery {
-        column-gap: 5px;
-        row-gap: 5px;
-      }
+    .post-view .content .image-gallery {
+    gap: 10px;
+    justify-content: center; /* Centers images on mobile for a cleaner look */
+    }
       
     .video-container {
         margin:0 auto;
