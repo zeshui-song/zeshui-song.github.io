@@ -51,7 +51,7 @@ Several alternative linear motion solutions were considered. V-slot wheels offer
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/V%20slot.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Round.png" height="300"%}
 </div>
 
-The gantry consists of a 10-inch piece of 8020 aluminum extrusion mounted directly onto the linear rails, providing stiffness and structural integrity while allowing for flexible mounting along its extrusion profiles via T-nuts.
+The gantry consists of a 10-inch piece of 80/20 aluminum extrusion mounted directly onto the linear rails, providing stiffness and structural integrity while allowing for flexible mounting along its extrusion profiles via T-nuts.
 
 <small><em>Moving gantry assembly.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
@@ -64,4 +64,22 @@ A NEMA 23 stepper motor drives the gantry through a GT2 timing belt system. This
 <small><em>NEMA 23 (left) and idler pulley assembly (right).</em></small>
 <div style="width: fit-content; margin: 0 auto;">
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Stepper.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Pulley.png" height="400"%}
+</div>
+
+## Structural Frame Design
+The structural framework was engineered to minimize reliance on friction-based joints for supporting vertical loads from the moving gantry. To ensure long-term stability and precision, I utilized a design where vertical struts carry the majority of the load, with four-hole corner gussets serving primarily to maintain alignment and contact between the 80/20 extrusions.
+
+<small><em>Full tow tank frame assembly.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Frame.png" height="400"%}
+</div>
+
+<small><em>This joint relies on the vertical strut for all its vertical load support, while the corner bracket’s role is to maintain contact between the two pieces of 80/20 extrusion.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Frame1.png" height="300"%}
+</div>
+
+<small><em>While this joint could use a similar stacking arrangement, I chose to rely primarily on the shear strength of the screws to support the rails, allowing for easier alignment of the moving gantry and pulley system.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Frame2.png" height="300"%}
 </div>
