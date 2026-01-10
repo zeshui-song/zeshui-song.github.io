@@ -30,7 +30,9 @@ GigaSniffer is a sensor-based freshness indicator that evaluates produce conditi
 - Arduino Mega (upgraded from Uno due to memory constraints)
 - Laser-cut acrylic and wood enclosure for controlled sensing
 - Integrated display for real-time feedback
+<div style="width: fit-content; margin: 0 auto;">
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/Diagram.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/Fruit%20Chamber.jpg" height="400" %}
+</div>
 
 ## Software:
 - Rolling-average algorithm using the 10 most recent samples to smooth noisy signals and minimize false positives and outliers
@@ -120,7 +122,10 @@ else {
 [Full Arduino Code](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/Gigasniffer%20Code.ino) 
 # Data
 The prototype was tested on pears, raspberries, and bananas over eight days, with daily measurements of CO₂ and ethanol. As the fruits decayed, the amount of CO₂ and ethanol generally increased. Thresholds of 25 ppm CO₂ and 165 ppm ethanol were set based on observed trends to indicate when produce was no longer fresh (based on visual inspection).
+<div style="width: fit-content; margin: 0 auto;">
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/CO2.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/Ethanol.png" height="300" %}
+</div>
+
 # My Role and Reflections
 In this project, I focused on developing both the hardware and software for the device, while my teammates conducted experiments and collected data. Overall, the final prototype successfully measured CO₂ and ethanol levels in correlation to fruit freshness. However, testing revealed the challenge of obtaining reliable data, requiring long exposure durations and careful interpretation of the multiple sensor outputs. Throughout the process, our team learned the importance of collaboration, iterative design, and extensive testing.
 <div style="width: fit-content; margin: 0 auto;">
