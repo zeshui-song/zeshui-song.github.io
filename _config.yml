@@ -26,7 +26,7 @@ profile_image: ./assets/images/profile-image/IMG_20251227_145357313_HDR.jpg
 
 # Link your resume
 # You can place your resume in assets/resume/{resume.pdf or add external link such as pdf saved in google drive 
-resume-url: https://youtu.be/xvFZjo5PgG0?si=xJph3LNPv0NLrmOQ # or /assets/resume/resume.pdf
+resume-url: /Resume/main.pdf # or /assets/resume/resume.pdf
 
 
 # Set up external links - this will show up as small icons next to your name.
