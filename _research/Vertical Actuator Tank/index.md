@@ -4,11 +4,11 @@ layout: post
 title: "Vertically Actuated Immersion Tank (Work in Progress)"
 description:  The goal of this project is to design and build a vertically actuated immersion tank to study how tethered whirligig beetles behave as they transition from open air into an underwater environment. The system is designed to provide precise, repeatable control over immersion depth and rate while enabling controlled behavioral observation during air-to-water transitions.
 skills:
-  - Experimental Apparatus Design
-  - Linear Actuation
+  - Experimental Rig Design & Fabrication
+  - Precision Linear Motion Systems
   - 3D Printing (FDM)
   - Stepper Motor Control
-  - 80/20 Aluminum Framing
+  - Modular Structural Framing (80/20)
   - Power Supply and Motor Driver Selection
 main-image: /Media - Copy.jpg
 ---

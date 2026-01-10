@@ -821,8 +821,8 @@ footer p {
     padding: 0 50px;
     border-radius: 10px;
 }
- 
-/* UPDATED IMAGE GALLERY - GRID STYLE */
+
+
 /* UPDATED IMAGE GALLERY - FULLY RESPONSIVE */
 .post-view .content .image-gallery {
     display: flex;
@@ -860,7 +860,7 @@ footer p {
 
 /* Hover effects */
 .post-view .content .image-gallery a.glightbox:hover img {
-    transform: scale(1.08); 
+    transform: scale(1.04); 
     filter: brightness(0.85); 
 }
 

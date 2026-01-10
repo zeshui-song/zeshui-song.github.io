@@ -2,19 +2,19 @@
 order: 1
 layout: post
 title: "Tow Tank (Work in Progress)"
-description:  The goal of this project was to design and build a $30 digital scale capable of accurately measuring mass while mechanically isolating the load cell from external, non-normal forces. The system includes tare and unit-conversion (grams to ounces) functions and employs a pulley-based decoupling mechanism to improve measurement precision.
+description:  The goal of this project is to design a tow tank capable of moving a wing smoothly through water at a range of controlled speeds, enabling precise measurements of hydrodynamic forces acting on it. The setup must maintain a constant velocity for a sufficient duration while minimizing twisting and vibrations in the moving components. Additionally, it should be scalable to accommodate additional hardware such as mounted cameras and sensors.
 skills:
-  - Mechanical Design
+  - Experimental Rig Design & Fabrication
+  - Precision Linear Motion Systems
   - 3D Printing (FDM)
-  - Arduino Programming
-  - Signal Conditioning (HX711)
-  - Load Cells
-  - Soldering
-main-image: /Scale.jpg
+  - Stepper Motor Control
+  - Modular Structural Framing (80/20)
+  - Power Supply and Motor Driver Selection
+  - Timing Belt and Pulley System
+  - Belt Tensioners
+main-image: /Tow - Copy.jpg
 ---
-**Team members:** Zeshui Song, Roy He, Aleksander Szetela<br>
-**Course:** ME 104<br>
-**Duration:** April-May 2025
+**Duration:** Ongoing (Started July 2025)
 
 ---
 # How it Works
