@@ -257,6 +257,7 @@ sol = solve_ivp(spring_mass, [0, t_final], ic, args=(m, c), t_eval=t_eval, rtol=
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/FSAE%20Suspension%20Modeling/Validation.png" height="400"%}
 </div>
 
+<small><em>Ground truth video showing shock absorbers decompressing and oscillating after the applied load is removed.</em></small>
 <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
   <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
     {% include youtube-video.html 

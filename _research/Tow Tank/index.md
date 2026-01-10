@@ -18,11 +18,11 @@ main-image: /Tow - Copy.jpg
 
 ---
 # How it Works
-The scale uses a 10 kg load cell mounted to a 3D-printed support platform, with one end fixed and the sensing end free to respond to applied loads. To isolate the load cell from non-normal forces, a pulley-based system was selected over alternatives such as linear rails and hinged arms; a mass basket is suspended from a rope routed over a 3D-printed pulley mounted on an 8 mm shoulder screw, ensuring that only tensile force aligned with gravity is transmitted to the load cell. The mass basket incorporates a circular retaining wall and four attachment points to maintain stability and prevent tipping under off-center loads, and the entire assembly was clamped to the table to eliminate motion and ensure accurate force measurement.
+The system utilizes a linear actuation setup where a moving gantry is driven along linear rails by a NEMA 23 stepper motor and a timing belt pulley system. This set up ensures precise control over position, speed, and acceleration while maintaining a constant velocity and minimizing twisting and vibration in the structural framing.
 
-<small><em>Mechanical diagram of the scale.</em></small>
+<small><em>Overview of the linear actuation system.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" height="600"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Linear%20Actuation.png" height="300"%}
 </div>
 
 # Engineering and Design
