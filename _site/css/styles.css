@@ -236,8 +236,10 @@ nav .mobile-nav {
 }
 
 .hero-section .text .links a:hover,
-.hero-section .text .links a:hover span {
-    color: var(--text-color);
+.hero-section .text .links a:hover span,
+.hero-section .text .links a:hover i {
+    color: var(--text-color);         /* Text and Icons turn black */
+    border-color: var(--text-color);  /* The blue outline turns black */
 }
 
 .hero-section .headshot {
