@@ -42,6 +42,7 @@ external-links:    # input only your own url slug. The icons with missing entrie
   youtube: zesh.3906           # https://youtube.com/@{your url slug} 
   discord:            # https://discord.com/users/{your url slug} 
   bluesky:           # https://bsky.app/profile/{your url slug} 
+  strava: 172431806      # https://www.strava.com/athletes/{your url slug}
   
 
 # Skills Section - Add the list of your Skills by categories/tools. The indentation for each level needs to be precise. 
