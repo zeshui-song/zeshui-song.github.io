@@ -26,7 +26,7 @@ The system utilizes a linear actuation setup where a moving gantry is driven alo
 </div>
 
 <div style="width: fit-content; margin: 0 auto;">
-{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Tow.png" height="400"%}
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Tow1.png" height="400"%}
 </div>
 
 
