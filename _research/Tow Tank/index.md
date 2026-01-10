@@ -43,3 +43,10 @@ Dual MGN12 linear rails provide low-friction, high-precision guidance for the mo
 <div style="width: fit-content; margin: 0 auto;">
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/T-nut%201.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/T-nut%202.png" height="300"%}
 </div>
+
+Several alternative linear motion solutions were considered. V-slot wheels offered a lower-cost option but lacked sufficient vertical load capacity and required a stiff metal backplate that was difficult to source. Round shaft rails were also evaluated, but their looser tolerances introduced excessive play in the bearings, reducing precision and increasing vibration. Linear rails were ultimately selected for their superior stiffness, tighter tolerances, and improved dynamic performance.
+
+<small><em>V-slot (left) and round shaft rail (right).</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/V%20slot.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Round.png" height="300"%}
+</div>
