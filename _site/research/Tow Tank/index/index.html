@@ -69,6 +69,9 @@
 <meta name="twitter:description" content="The goal of this project was to design and build a $30 digital scale capable of accurately measuring mass while mechanically isolating the load cell from external, non-normal forces. The system inc...">
 <meta name="twitter:image:aspect_ratio" content="1.91:1">
 <!-- END PREVIEW METADATA -->
+
+<!-- GLightbox for Image Galleries -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
     
     <title>Zeshui Song's Portfolio</title>
 </head>
@@ -168,8 +171,11 @@
   
       
       
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" alt="Web image" loading="lazy" />
       
+
+      <a href="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" class="glightbox" data-gallery="gallery-tow-tank-work-in-progress">
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" alt="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Mech.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      </a>
   
 </div>
 </div>
@@ -187,8 +193,11 @@
   
       
       
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Electrical.png" alt="Web image" loading="lazy" />
       
+
+      <a href="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Electrical.png" class="glightbox" data-gallery="gallery-tow-tank-work-in-progress">
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Electrical.png" alt="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Electrical.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      </a>
   
 </div>
 </div>
@@ -204,8 +213,11 @@
   
       
       
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Algorithm.png" alt="Web image" loading="lazy" />
       
+
+      <a href="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Algorithm.png" class="glightbox" data-gallery="gallery-tow-tank-work-in-progress">
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Algorithm.png" alt="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Algorithm.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      </a>
   
 </div>
 </div>
@@ -220,8 +232,11 @@
   
       
       
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Data.png" alt="Web image" loading="lazy" />
       
+
+      <a href="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Data.png" class="glightbox" data-gallery="gallery-tow-tank-work-in-progress">
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Data.png" alt="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Data.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      </a>
   
 </div>
 </div>
@@ -250,6 +265,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+<!-- GLightbox JS -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script type="text/javascript">
+  // This runs ONCE when the whole page is finished loading
+  document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
+      draggable: true
+    });
+  });
+</script>
 </body>
 
     <footer>

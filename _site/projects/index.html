@@ -58,6 +58,9 @@
 <meta name="twitter:description" content="Mechanical engineering student at Cooper Union.">
 <meta name="twitter:image:aspect_ratio" content="1.91:1">
 <!-- END PREVIEW METADATA -->
+
+<!-- GLightbox for Image Galleries -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
     
     <title>Zeshui Song's Portfolio</title>
 </head>
@@ -224,6 +227,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+<!-- GLightbox JS -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script type="text/javascript">
+  // This runs ONCE when the whole page is finished loading
+  document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
+      draggable: true
+    });
+  });
+</script>
 </body>
 
     <footer>

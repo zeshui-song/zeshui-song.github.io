@@ -962,6 +962,45 @@ footer p {
     }
 }
 
+/* Gallery Layout */
+.image-gallery {
+    display: flex;
+    gap: 15px; /* Increased gap slightly */
+    overflow-x: auto;
+    overflow-y: hidden; /* Prevent vertical scrollbars during zoom */
+    padding: 15px 0;    /* Added vertical padding to give zoom space */
+    scrollbar-width: thin;
+    align-items: center;
+}
+
+/* Clickable Link Styling */
+.image-gallery a.glightbox {
+    cursor: zoom-in;
+    flex: 0 0 auto;
+    display: block;
+    overflow: hidden; /* Clip the image zoom to the container if needed */
+    border-radius: 8px; /* Match the image radius */
+}
+
+/* Image Styling */
+.image-gallery img {
+    height: var(--gallery-height, 300px);
+    width: auto;
+    border-radius: 8px;
+    display: block;
+    /* Use 'will-change' to tell the browser to optimize this animation */
+    will-change: transform;
+    transition: transform 0.25s ease-out, filter 0.25s;
+}
+
+/* Hover effects */
+.image-gallery a.glightbox:hover img {
+    /* Scale is reduced slightly to 1.05 for a smoother look */
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+/* Gallery Layout END */
+
 
 
 
