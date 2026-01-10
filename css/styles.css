@@ -1229,3 +1229,27 @@ footer p {
      
 }
 
+/* Block LaTeX scrollable container for Firefox */
+mjx-container[display="true"] {
+    max-width: 100% !important;
+    overflow-x: scroll !important;  /* ensures horizontal scroll */
+    overflow-y: hidden !important;
+    display: block !important;
+    text-align: center !important;
+    padding-top: 10px;
+    padding-bottom: 20px; 
+    margin: 0 auto;
+
+    /* Firefox scrollbar styling */
+    scrollbar-width: thin;       /* makes scrollbar visible and thinner */
+    scrollbar-color: var(--link-color) transparent; /* thumb and track colors */
+}
+
+/* Optional: keep WebKit styling too */
+mjx-container[display="true"]::-webkit-scrollbar {
+    height: 5px;
+}
+mjx-container[display="true"]::-webkit-scrollbar-thumb {
+    background: var(--link-color);
+    border-radius: 10px;
+}
