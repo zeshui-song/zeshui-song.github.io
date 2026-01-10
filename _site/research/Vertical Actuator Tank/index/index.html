@@ -33,6 +33,13 @@
     </script>
     <!-- End MathJax -->
 
+<!-- Favicon -->
+<link rel="icon" href="/assets/favicon_io/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/favicon_io/apple-touch-icon.png">
+<!-- End Favicon -->
+
 <!-- PREVIEW METADATA -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://localhost:4000/research/Vertical%20Actuator%20Tank/index/">
@@ -173,7 +180,7 @@
 <h1 id="engineering-and-design">Engineering and Design</h1>
 
 <h2 id="mechanical-design">Mechanical Design:</h2>
-<p>The mechanical system supports the water tank and provides smooth, guided vertical motion with minimal vibration. Several approaches for varying water level were evaluated, including using a DC motor–driven pump and physically translating the tank. It was determined that vertically actuating the tank allowed for better control over immersion rate and little to none disturbance of the water. The actuation system is mounted on an optical breadboard and constrained to vertical motion with 2 linear motion shafts. Most components were designed for 3D printing and assembled using heat-set inserts and interference fits. However, select parts will be replaced with 80/20 aluminum framing to improve stiffness and structural robustness.</p>
+<p>The mechanical system supports the water tank and provides smooth, guided vertical motion with minimal vibration. Several approaches for varying water level were evaluated, including using a DC motor–driven pump and physically translating the tank. It was determined that vertically actuating the tank allowed for better control over immersion rate and little to none disturbance of the water. The actuation system is mounted on an optical breadboard and constrained to vertical motion with 2 linear motion shafts. Most components were designed for 3D printing and assembled using heat-set inserts and interference fits. However, select parts will be replaced with 80/20 aluminum framing to improve stiffness and structural robustness. While the water load was estimated, the risk of tipping is negligible. The larger physical optical breadboard provides sufficient stability, so any failure would likely come from part shearing or breakage rather than tipping.</p>
 
 <p><small><em>Preliminary mechanical design.</em></small></p>
 <div style="width: fit-content; margin: 0 auto;">
@@ -184,31 +191,11 @@
   
       
       
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Vertical%20Actuator%20Tank/Actuator.png" alt="Web image" loading="lazy" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Vertical%20Actuator%20Tank/Oblique.png" alt="Web image" loading="lazy" />
       
   
 </div>
 </div>
-
-<h2 id="algorithm-design">Algorithm Design:</h2>
-<p>The system reads raw load cell data through the HX711, applies calibration factors, and computes mass values in grams or ounces depending on the selected mode. The tare button zeros the scale by storing the current reading as an offset, while the unit-conversion button toggles between measurement units. Measurements are continuously updated and displayed in real time.</p>
-
-<div style="width: fit-content; margin: 0 auto;">
-
-
-
-<div class="image-gallery" style="--gallery-height: 600px;">
-  
-      
-      
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Algorithm.png" alt="Web image" loading="lazy" />
-      
-  
-</div>
-</div>
-
-<h1 id="results">Results</h1>
-<p>Across the tested range of 2 g to 2000 g, the scale demonstrated excellent linearity and repeatability. The measured mass closely matched the actual mass, with a linear fit slope of 0.9988 and an R² value of 1.0, indicating near-ideal proportional response. Repeatability testing using a 100 g mass yielded a standard deviation of 0.2614 g over 44 measurements taken at 2-second intervals, confirming stable and consistent performance.</p>
 <div style="width: fit-content; margin: 0 auto;">
 
 
@@ -217,27 +204,27 @@
   
       
       
-          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/HX711%20Scale/Data.png" alt="Web image" loading="lazy" />
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Vertical%20Actuator%20Tank/Front.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Vertical%20Actuator%20Tank/Side.png" alt="Web image" loading="lazy" />
+      
+  
+      
+      
+          <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Vertical%20Actuator%20Tank/Top.png" alt="Web image" loading="lazy" />
       
   
 </div>
 </div>
 
-<h1 id="my-role-and-reflections">My Role and Reflections</h1>
-<p>Overall, this was a rather simple and straightforward project. However, figuring out the validity of our data was interesting, since we only had enough time to calibrate our scale a limited number of times and temperature variations tended to affect the load cell output. As a result, determining our confidence level could only be done through statistical analysis using a decently large dataset.</p>
-<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 500px; width: 100%;">
-  <div class="youtube-wrapper" style="flex: 0 0 auto; width: fit-content; height: 100%;">
-    <div class="youtube-container" style="--max-width: 560px">
-    <div class="youtube-aspect-ratio normal"><iframe src="https://www.youtube-nocookie.com/embed/PGNhLCem6JA?rel=0&amp;mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-</div>
-  </div>  
-</div>
+<h2 id="actuation-and-motion-control">Actuation and Motion Control:</h2>
+<p>The vertical motion is generated using a linear actuator driven by a NEMA 17 stepper motor coupled to a lead screw. This configuration allows precise, programmable control of immersion depth and velocity, enabling systematic variation of experimental conditions. Stepper motor control was further developed in my tow tank project, using a TB6600 driver with GRBL on an Arduino Uno and Universal G-code Sender to operate the motors via standard G-code commands.</p>
 
-<p><a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/HX711%20Scale/Scale%20Code.ino">Arduino Code</a><br />
-<a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/HX711%20Scale/Measurements%20Lab%20Final%20Report.pdf">Final Report</a><br />
-<a href="https://cad.onshape.com/documents/879e940bb85becdcbd9707af/w/ac66949ea51a3570c61e25d7/e/4072b7e2dbef1a2713dcaf1b?renderMode=0&amp;uiState=695c722bf032d6fc4be294bb">Onshape CAD</a></p>
+<h1 id="future-work">Future Work</h1>
+<p>The actuator has not yet been built, so I plan to redesign the mechanical structure to incorporate 80/20 mounting hardware for improved stability and rigidity. Once complete, we will focus on data collection and configuring the camera to reliably record the beetle in both air and water.</p>
 
     </div>
 </div>

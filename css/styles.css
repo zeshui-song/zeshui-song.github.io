@@ -77,30 +77,33 @@ nav .left a {
 }
 
 nav .right {
-    gap: 15px;
+    display: flex;
+    align-items: center;
+    /* Removed gap to fix spacing */
 }
 
 nav .right a {
     color: var(--text-color);
     font-size: 23px;
-    margin-left: 30px;
+    /* margin-left is removed; padding now creates the 30px gap between words */
+    padding: 3px 15px; 
+    border-radius: 10px;
+    border: 2px solid transparent; 
+    transition: all 0.2s ease;
+    outline: none;
 }
 
-nav .right a:last-child
- {
-    border: 2px solid var(--link-color);
+/* Resume Button Specific (Normal State) */
+nav .right a:last-child {
     color: var(--link-color);
-    padding: 3px 15px;
-    border-radius: 10px;
+    border: 2px solid transparent; /* Ensures no permanent outline */
 }
 
-nav .right a:last-child:hover,
-nav .right a span:last-child:hover,
-nav .mobile-nav a:last-child:hover,
-nav .mobile-nav a span:last-child:hover {
-    color: var(--text-color);
-    background-color: var(--light-background-color);
-    border-radius: 10px;
+/* ALL Navbar Buttons Hover State */
+nav .right a:hover {
+    background-color: transparent !important; /* Removes grey highlight */
+    border-color: var(--link-color);        /* Adds blue outline */
+    color: var(--link-color);
 }
 
 /* Navbar Mobile Menu Button */
