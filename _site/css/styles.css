@@ -26,6 +26,20 @@ body {
     margin: 0 auto;
 }
 
+
+/* Mobile-specific fixes */
+@media (max-width: 850px) {
+    html, 
+    body {
+        overflow-x: hidden !important;  /* Prevent horizontal page shift on mobile */
+        width: 100vw;                   /* Lock width to viewport */
+    }
+
+    body {
+        padding: 0 20px;  /* Optional: adjust padding for smaller screens */
+    }
+}
+
 a {
     color: var(--link-color);
     text-decoration: none;
