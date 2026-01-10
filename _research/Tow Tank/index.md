@@ -25,6 +25,11 @@ The system utilizes a linear actuation setup where a moving gantry is driven alo
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Linear%20Actuation.png" height="300"%}
 </div>
 
+<div style="width: fit-content; margin: 0 auto;">
+{% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_research/Tow%20Tank/Tow.png" height="400"%}
+</div>
+
+
 # Engineering and Design
 
 ## Electrical Design:
