@@ -142,5 +142,5 @@ During this project, I was responsible for most of the CAD design in Onshape. As
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Mechanical%20Motion%20Rectifier/Showcase.jpg" height="500"%}
 </div>
 
-[Final Report](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Mechanical%20Motion%20Rectifier/EID103%20Final%20Report.pdf)<br>
+[Final Report](/_projects/Mechanical%20Motion%20Rectifier/EID103%20Final%20Report.pdf)<br>
 [Onshape CAD](https://cad.onshape.com/documents/7a2f53f5851927828ad4b1ab/w/d7a775bbe256ee246480effd/e/acfc0676ad124d315c4e56da?renderMode=0&uiState=695c356802bd79dd4a4d0af6)

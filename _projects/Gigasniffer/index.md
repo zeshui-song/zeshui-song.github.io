@@ -137,5 +137,5 @@ In this project, I focused on developing both the hardware and software for the 
 {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Gigasniffer/giggasniff.jpg" height="300" %}
 </div>
 
-[Final Report](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalReport.pdf)<br>
-[Final Documentation](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/Gigasniffer/EID101B_Team4_FinalDocumentation.pdf)
+[Final Report](/_projects/Gigasniffer/EID101B_Team4_FinalReport.pdf)<br>
+[Final Documentation](/_projects/Gigasniffer/EID101B_Team4_FinalDocumentation.pdf)

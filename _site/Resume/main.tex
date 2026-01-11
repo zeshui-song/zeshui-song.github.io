@@ -1,0 +1,206 @@
+%-------------------------
+% Resume in Latex
+% Author : Zeshui Song (Based on template by Jake Gutierrez)
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Zeshui Song} \\ \vspace{1pt}
+    \small (929) 410-2239 $|$ \href{mailto:zeshui.song@cooper.edu}{\underline{zeshui.song@cooper.edu}} $|$ 
+    \href{https://zeshui-song.github.io/}{\underline{zeshui-song.github.io}} $|$
+    \href{https://www.linkedin.com/in/zeshui-song/}{\underline{linkedin.com/in/zeshui-song}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {The Cooper Union for the Advancement of Science and Art}{New York, NY}
+      {B.E. in Mechanical Engineering; GPA: 3.859}{Aug. 2024 -- Present}
+      \resumeItemListStart
+        \resumeItem{\textbf{Relevant Coursework}: Statics, Dynamics, Mechanics of Materials, Materials Science, Design and Prototyping, Systems Engineering, Thermodynamics, Physics I-III, Calculus I-III}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Brooklyn Technical High School}{Brooklyn, NY}
+      {Advanced Regents Diploma; AP Scholar with Distinction}{2020 -- 2024}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE / RESEARCH-----------
+\section{Experience \& Research}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Tow Tank Research}{July 2025 -- Present}
+      {Mechanical Designer}{New York, NY}
+      \resumeItemListStart
+        \resumeItem{Engineered a linear gantry using a NEMA 23 stepper, timing belt, and dual MGN12 rails for precise wing force measurement.}
+        \resumeItem{Designed high-stiffness modular 80/20 framing to optimize load paths and minimize structural vibration.}
+        \resumeItem{Integrated Arduino motion control with a TB6600 driver and limit switches for repeatable homing.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Vertically Actuated Immersion Tank}{July 2025 -- Present}
+      {Mechanical Designer}{New York, NY}
+      \resumeItemListStart
+        \resumeItem{Designed a NEMA 17/lead screw vertical actuator to study beetle behavior during air-to-water transitions.}
+        \resumeItem{Developed motion control using GRBL and G-code to vary immersion rates and depth systematically.}
+        \resumeItem{Optimized stability via an optical breadboard base and precision linear motion guide shafts.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{FSAE Suspension Dynamics Model} $|$ \emph{Python (SciPy), ODE, Kinematics}}{Nov. 2025 -- Dec. 2025}
+          \resumeItemListStart
+             \resumeItem{Characterized the front suspension of a Cooper Union FSAE car by developing a four-bar linkage kinematic model and solving for rigid-body static equilibrium.}
+
+            \resumeItem{Derived a nonlinear effective spring constant and integrated it into a second-order ODE to simulate free oscillation, validating results against experimental video tracking data.}
+
+            \resumeItem{Implemented geometric solvers using circle-circle intersections to ensure numerical robustness across the full range of motion.} 
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Wales: Water-Based Motion Rectifier} $|$ \emph{Onshape CAD, 3D Printing, Fluid Systems}}{Jan. 2025 -- May. 2025}
+          \resumeItemListStart
+            \resumeItem{Designed an Archimedes screw energy-buffer system in Onshape to decouple variable input for constant output.}
+            \resumeItem{Developed a bevel gear transmission and crowned pulley system in Onshape to ensure reliable power transfer and self-centering of drive belts.}
+            \resumeItem{Achieved a nearly constant output speed ($R^2 = 1.00$) by maintaining constant pressure in the upper reservoir via an overflow outlet.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{GigaSniffer: Spoilage Detector} $|$ \emph{Arduino, Sensor Calibration, Prototyping}}{Sept. 2024 -- Dec. 2024}
+          \resumeItemListStart
+            \resumeItem{Built a portable CO2 and ethanol sensor array using Arduino with rolling-average filtering for spoilage detection.}
+            \resumeItem{Fabricated a laser-cut sensing chamber and integrated real-time graphical feedback for alerts.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{HX711 Digital Scale} $|$ \emph{Mechanical Design, Arduino, Signal Conditioning}}{April 2025 -- May 2025}
+          \resumeItemListStart
+            \resumeItem{Designed a 2000g scale with high linearity ($R^2 = 1.0$) using a pulley-based mechanism to isolate non-normal forces.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{CAD/Mechanical}{: Onshape, Solidworks, AutoCAD, Fusion 360, Inventor, 80/20 Aluminum Framing} \\
+     \textbf{Prototyping/Fab}{: 3D Printing (FDM), Laser Cutting, Sand Casting, Soldering} \\
+     \textbf{Programming}{: Python (SciPy, NumPy), MATLAB, Arduino IDE, C, GRBL} \\
+     \textbf{Tools/Hardware}{: Arduino Microcontrollers, Stepper Motors (NEMA 17/23), TB6600 Motor Drivers, Load Cells (HX711), Gas Sensors (CO2, Ethanol)}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
