@@ -269,7 +269,48 @@
     draw();
 </script>
 
-     <div class="page"><div class="about-page-layout">
+     <div class="page"><style>
+    /* 1. Prevent Horizontal Jumping */
+    html {
+        scrollbar-gutter: stable !important;
+    }
+
+    /* 2. Stabilize Sticky Sidebar */
+    .profile-sticky-container {
+        position: sticky;
+        top: 2rem;
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+
+    /* 3. Responsive Banner Styling */
+    .banner-container {
+        width: 100%;
+        height: 500px; /* Standard desktop height */
+        overflow: hidden;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        pointer-events: none; /* Keeps the banner unclickable */
+    }
+
+    /* Resize for mobile and small screens */
+    @media (max-width: 768px) {
+        .banner-container {
+            height: 250px; /* Reduced height for smaller viewports */
+            margin-top: 2rem;
+        }
+    }
+
+    .banner-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Prevents distortion during resizing */
+        display: block;
+    }
+</style>
+
+<div class="about-page-layout">
     <aside class="profile-sidebar">
         <div class="profile-sticky-container">
             
@@ -312,6 +353,12 @@
 I have always been drawn to challenging problems that sit at the intersection of physics and mechanical design. This interest has led me to work on experimental apparatus for the testing and verification of fluid flow, as well as exploring machine learning algorithms that model and predict physical behavior in complex systems. These experiences have fueled my curiosity and helped me develop both practical and analytical skills, which I hope to continue applying in future research and engineering projects.</p>
 
         </div>
+
+        
+        <div class="banner-container">
+            <img src="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/assets/images/Ab%20bg.jpg" alt="Page Banner">
+        </div>
+        
     </main>
 </div></div>
 
@@ -348,6 +395,7 @@ I have always been drawn to challenging problems that sit at the intersection of
             <a href="/research/">
                 <span>Research</span>
             </a>
+            <a href="/about/"><span>About</span></a>
             <a href=/Resume/main.pdf target="_blank" rel="noopener noreferrer">
                 <span>Resume</span>
             </a>

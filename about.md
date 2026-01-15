@@ -9,6 +9,7 @@ focus_areas:
   - Fluid Dynamics
   - Machine Learning (FNO/DMD)
   - Mechanical Design
+banner_image: "https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/assets/images/Ab%20bg.jpg"
 ---
 
 ## About Me
