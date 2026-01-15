@@ -16,9 +16,9 @@ hero_image: https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/
 
 # Hero Section
 name: Zeshui Song
-headline: Mechanical Engineer
+headline: Mechanical engineering student at Cooper Union
 description: >- # dont remove this line. this will ignore all new lines until the next section
-  Mechanical engineering student at Cooper Union.
+  
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/IMG_20251227_145357313_HDR.jpg
