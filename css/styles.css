@@ -174,11 +174,22 @@ nav .mobile-nav {
 
 
 
+/* LAYOUT WRAPPER */
+.hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
 /* SECTION 1: Hero */
 .hero-section {
+    flex: 1; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
     padding: 80px 50px 50px 50px; 
     margin-bottom: 20px;
-    display: flex;
     position: relative;
     border: none !important;
     border-image: none !important;
@@ -189,8 +200,6 @@ nav .mobile-nav {
     mask-image: radial-gradient(white, black);
     background-color: transparent; 
     
-    /* RECTANGULAR OPTION 2: Inset Shadow Frame */
-    /* This creates a solid block of color on the left that fades out */
     background-image: url('{{ site.hero_image }}');
     box-shadow: inset 800px 0 150px -100px var(--background-color);
     
@@ -204,7 +213,7 @@ nav .mobile-nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    z-index: 2; /* Keeps content above the background */
+    z-index: 2;
 }
 
 .hero-section .text {
@@ -255,8 +264,8 @@ nav .mobile-nav {
 .hero-section .text .links a:hover,
 .hero-section .text .links a:hover span,
 .hero-section .text .links a:hover i {
-    color: var(--text-color);         /* Text and Icons turn black */
-    border-color: var(--text-color);  /* The blue outline turns black */
+    color: var(--text-color);
+    border-color: var(--text-color);
 }
 
 .hero-section .headshot {
@@ -266,10 +275,9 @@ nav .mobile-nav {
 }
 
 .hero-section .headshot img {
-    /* 1. LOCK THE DIMENSIONS */
     width: 350px;
     height: 350px;
-    min-width: 350px; /* Forces browser to stay at 350 */
+    min-width: 350px;
     max-width: 350px;
     min-height: 350px;
     max-height: 350px;
@@ -278,10 +286,15 @@ nav .mobile-nav {
     border-radius: 50%;
     flex-shrink: 0;
 
-    /* White Glow Pop */
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 
                 0 0 40px rgba(255, 255, 255, 0.4),
                 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* BOTTOM ARROW */
+.arrow {
+    text-align: center;
+    padding: 20px 0;
 }
 
 /* NAVIGATION ARROW */
