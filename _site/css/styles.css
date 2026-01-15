@@ -179,7 +179,7 @@ nav .mobile-nav {
     width: 100%;
 }
 
-/* SECTION 1: Hero */
+/* SECTION 1: Hero - ORIGINAL DESKTOP STYLES UNCHANGED */
 .hero-section {
     flex: 1; 
     display: flex;
@@ -243,6 +243,7 @@ nav .mobile-nav {
     margin-top: 25px;
 }
 
+/* Fix for Button Colors (Research/Project) */
 .hero-section .text .links a {
     display: inline-block;
     padding: 5px 10px;
@@ -261,8 +262,8 @@ nav .mobile-nav {
 .hero-section .text .links a:hover,
 .hero-section .text .links a:hover span,
 .hero-section .text .links a:hover i {
-    color: var(--text-color);
-    border-color: var(--text-color);
+    color: var(--text-color) !important;
+    border-color: var(--text-color) !important;
 }
 
 .hero-section .headshot {
@@ -272,13 +273,11 @@ nav .mobile-nav {
 }
 
 .hero-section .headshot img {
-    width: 350px;
-    height: 350px;
-    min-width: 350px;
-    max-width: 350px;
-    min-height: 350px;
-    max-height: 350px;
-    
+    /* Responsive adjustment to prevent pushing other content */
+    width: 100%;
+    max-width: 350px; 
+    height: auto;
+    aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 50%;
     flex-shrink: 0;
@@ -292,6 +291,38 @@ nav .mobile-nav {
 .arrow {
     text-align: center;
     padding: 20px 0;
+    margin-bottom: 100px;
+}
+
+/* --- MOBILE GRADIENT & CENTERING --- */
+
+@media (max-width: 1200px) {
+    .hero-section {
+        /* Remove the heavy desktop shadow */
+        box-shadow: none; 
+
+        /* Use the lighter gradient for better readability on mobile */
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
+            linear-gradient(to bottom, var(--background-color) 5%, transparent 100%),
+            url('https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/assets/images/bg.jpg');
+        
+        background-position: center;
+    }
+
+    .hero-section .group {
+        flex-direction: column-reverse; /* Stacks image on top, text below */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-section .headshot {
+        justify-content: center;
+    }
+
+    .hero-section .headshot img {
+        max-width: 280px; 
+    }
 }
 
 /* NAVIGATION ARROW */
