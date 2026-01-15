@@ -1,36 +1,67 @@
 <style>
     /* 1. Define a consistent breakpoint for the "Mobile UI" */
     @media (max-width: 768px) {
+        #mainNav {
+            /* Shrink the nav container height to 20px to pull the hero up */
+            height: 20px !important; 
+            padding: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
         #canvasParent {
             display: none !important;
         }
+
         .desktop-nav {
             display: none !important;
         }
+
         .menu-toggle {
             display: block !important;
+            /* Move the icon down 40px from the top */
+            margin-top: 40px !important; 
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 11;
+            position: relative;
+        }
+
+        /* 2. KILL THE WHITESPACE: This pulls your headshot up */
+        .hero-section {
+            padding-top: 10px !important; /* Minimal gap between nav and headshot */
+            margin-top: 0 !important;
         }
     }
 
-    /* 2. Ensure animation stays hidden if the menu is manually toggled open */
-    .nav-open #canvasParent {
-        display: none !important;
+    /* Desktop defaults */
+    .menu-toggle { 
+        display: none; 
+        outline: none;
+        color: var(--text-color, #000);
     }
 
-    /* Desktop defaults */
-    .menu-toggle { display: none; }
     .mobile-nav { display: none; }
 
     .nav-open .mobile-nav {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 80px;
+        /* Adjusted to align below the shifted icon */
+        top: 90px; 
         right: 0;
         background: #fff;
         width: 100%;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         z-index: 10;
+    }
+
+    .mobile-nav a {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        text-decoration: none;
+        color: #333;
     }
 </style>
 
@@ -72,8 +103,8 @@
     const menuToggle = document.getElementById('menuToggle');
 
     let angle = 0;
-    const radius = 14;      // The radius of the rolling circle (R)
-    const armLength = 22;   // Distance from center to the point (d). d > R creates the loop.
+    const radius = 14;      
+    const armLength = 22;   
     const speed = 0.05;
     let points = [];
     
@@ -85,6 +116,7 @@
     });
 
     function resize() {
+        if (!parent) return;
         dpr = window.devicePixelRatio || 1;
         w = parent.offsetWidth;
         h = 60; 
@@ -93,8 +125,6 @@
         canvas.height = h * dpr;
         ctx.scale(dpr, dpr);
         
-        // Vertically center the circle so the loop (which goes below the "floor") 
-        // and the top of the curve both fit in the 60px height.
         centerY = h / 2; 
         points = [];
         angle = 0;
@@ -105,21 +135,15 @@
     resize();
 
     function draw() {
-        if (mainNav.classList.contains('nav-open') || getComputedStyle(parent).display === 'none') {
+        // Skip drawing if canvas is hidden on mobile
+        if (mainNav.classList.contains('nav-open') || getComputedStyle(document.getElementById('canvasParent')).display === 'none') {
             requestAnimationFrame(draw);
             return;
         }
 
         ctx.clearRect(0, 0, w, h);
 
-        // Prolate Cycloid Equations:
-        // x = R*θ - d*sin(θ)
-        // y = R - d*cos(θ)
-        
-        // Horizontal position of the circle's center
         let centerX = (radius * angle) - radius;
-        
-        // Position of the tracing point
         let px = centerX - armLength * Math.sin(angle);
         let py = centerY + armLength * Math.cos(angle);
 
@@ -127,7 +151,6 @@
             points.push({x: px, y: py});
             angle += speed;
 
-            // Stop rolling when the trailing part of the loop leaves the screen
             if (centerX > w + armLength + radius) {
                 isRolling = false;
             }
@@ -140,7 +163,6 @@
             }
         }
 
-        // Draw the path (the Prolate Cycloid)
         if (points.length > 1) {
             ctx.beginPath();
             ctx.strokeStyle = 'rgba(0, 123, 255, 0.4)';
@@ -154,21 +176,18 @@
         }
 
         if (isRolling) {
-            // Draw the rolling circle
             ctx.beginPath();
             ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
             ctx.strokeStyle = '#444';
             ctx.lineWidth = 1.2;
             ctx.stroke();
 
-            // Draw the "arm" extending to the point
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
             ctx.lineTo(px, py);
             ctx.strokeStyle = '#bbb';
             ctx.stroke();
 
-            // Draw the tracing point
             ctx.beginPath();
             ctx.arc(px, py, 4, 0, Math.PI * 2);
             ctx.fillStyle = '#007bff';
