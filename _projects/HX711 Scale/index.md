@@ -1,5 +1,8 @@
 ---
-order: 3
+date: 2025-04-09
+academic_level: "College"
+academic_period: "Freshman Spring"
+
 layout: post
 title: "HX711 Scale"
 description:  The goal of this project was to design and build a $30 digital scale capable of accurately measuring mass while mechanically isolating the load cell from external, non-normal forces. The system includes tare and unit-conversion (grams to ounces) functions and employs a pulley-based decoupling mechanism to improve measurement precision.

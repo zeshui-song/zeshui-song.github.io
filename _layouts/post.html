@@ -4,20 +4,25 @@ layout: wrapper
 
 <div class="post-view">
     <div class="summary">
-        
-       
         {% assign folder_path = page.path | split: "/" | slice: 0, 2 | join: "/" %}
-        {% assign image_path = "/" | append: folder_path | append: page['main-image'] %}       
+        {% assign image_path = "/" | append: folder_path | append: "/" | append: page['main-image'] %}       
         <img src="{{ image_path }}" alt="{{ page.title }} image">
         
         <div class="title-header">
-            <h1>{{page.title}}</h1>
+            <h1>{{ page.title }}</h1>
+        </div>
+
+        {% comment %} Academic Labels added UNDER title {% endcomment %}
+        <div class="project-timeline">
+            <span class="academic-level">{{ page.academic_level }}</span>
+            <span class="academic-period">{{ page.academic_period }}</span>
         </div>
         
         <div class="project-description">
             <h2>Project Overview</h2>
             <p>{{ page.description }}</p>
         </div>
+        
         <div class="skills-card">
             <h2>Skills Used</h2> 
             <div class="skills-list">
@@ -29,7 +34,6 @@ layout: wrapper
     </div>
       
     <div class="content">
-        {{content}}
+        {{ content }}
     </div>
 </div>
-

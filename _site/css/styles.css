@@ -434,16 +434,29 @@ nav .mobile-nav {
 
 .project-card .project-description,
 .research-card .research-description {
-    display: -webkit-box;
-    -webkit-line-clamp: 4; 
-    line-clamp: 4px;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* 1. Remove the arbitrary 4-line cutoff */
+    display: block;             /* Changed from -webkit-box */
+    -webkit-line-clamp: unset;  /* Disables the line limit */
+    line-clamp: unset;
+    max-height: none;           /* Removes the height restriction */
+    overflow: visible;          /* Shows all text unless it hits the card bounds */
+    
+    /* 2. Text styling */
     word-break: break-word;
     line-height: 1.5; 
-    max-height: calc(1.5em * 4); 
+    margin-bottom: 20px;        /* Spacing between text and the button */
+
+    /* 3. This allows the description to fill the space so the button pins to the bottom */
+    flex-grow: 1;               
 }
+
+/* Ensure the content container fills the card space */
+.project-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensures it fills the available card space */
+}
+
 .read-more {
     display: inline-block;
     padding: 5px 15px;
@@ -455,9 +468,25 @@ nav .mobile-nav {
     font-size: 14px;
     cursor: pointer;
     transition: 0.1s;
+
     margin-top: auto; 
     align-self: flex-start;
     text-align: center;
+}
+
+/* Styling for the Academic Period text */
+.project-timeline {
+    margin-top: -5px;       /* Pulls it slightly closer to the title above it */
+    margin-bottom: 15px;    /* Adds space before the skills/description */
+    font-size: 0.95rem;     /* Slightly smaller than the title */
+    font-weight: 400;       /* Not bold */
+    font-style: italic;     /* This makes it italicized */
+}
+
+/* Updated to a medium-dark grey (#777) and targeted correctly */
+.project-timeline .academic-level, 
+.project-timeline .academic-period {
+    color: #777 !important; /* Medium-dark grey color */
 }
 
 .read-more:hover {

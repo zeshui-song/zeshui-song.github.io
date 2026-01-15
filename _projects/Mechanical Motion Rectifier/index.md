@@ -1,5 +1,8 @@
 ---
-order: 2
+date: 2025-02-27
+academic_level: "College"
+academic_period: "Freshman Spring"
+
 layout: post
 title: "Wales: A Water-Based Physical Motion Rectifier"
 description:  Design a system that turns a variable-speed rotational input into a constant-speed rotational output. It must fit on an 8” × 8” breadboard and be set up or removed in under 5 minutes. The system should connect to the supplied motor shaft, include a gear for the encoder, and measure input and output speeds over time. The output drives a 1”–3” disc that reaches steady state within 10 seconds, and will be tested at 1 Hz, 0.5 Hz, and 0.25 Hz. No part should spin beyond safe limits.
@@ -16,7 +19,7 @@ main-image: /Motion Rectifier.jpg
 ---
 **Team members:** Nora Gallion, Zehra Girgin, Bertrand Juan, Zeshui Song<br>
 **Course:** EID 103<br>
-**Duration:** Jan–May 2025
+**Duration:** Feb–May 2025
 
 ---
 # How it Works

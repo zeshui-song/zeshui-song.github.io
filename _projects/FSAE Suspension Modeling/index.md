@@ -1,5 +1,8 @@
 ---
-order: 1
+date: 2025-11-17
+academic_level: "College"
+academic_period: "Sophomore Fall"
+
 layout: post
 title: "FSAE Suspension Dynamics Modeling"
 description:  Characterized the dynamic response of the Cooper Union FSAE car’s front suspension by developing a four-bar linkage kinematic model and validating simulated free oscillation against experimental video tracking data.
