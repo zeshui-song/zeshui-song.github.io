@@ -11,20 +11,24 @@ layout: wrapper
             
             <div class="profile-info">
                 <h1>{{ site.name }}</h1>
-                <p class="subtitle">Research & Engineering</p>
+                {% if page.subtitle %}
+                    <p class="subtitle">{{ page.subtitle }}</p>
+                {% endif %}
                 
                 <div class="profile-links">
-                    <a href="{{ site.resume-url }}" class="btn-profile">View Resume</a>
+                    <a href="{{ page.resume_url | default: site.resume-url }}" class="btn-profile">View Resume</a>
                 </div>
 
+                {% if page.focus_areas %}
                 <div class="specialties">
                     <h3>Focus Areas</h3>
                     <ul>
-                        <li>Fluid Dynamics</li>
-                        <li>Machine Learning (FNO/DMD)</li>
-                        <li>Aero & Mechanical Design</li>
+                        {% for area in page.focus_areas %}
+                            <li>{{ area }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
+                {% endif %}
             </div>
         </div>
     </aside>
