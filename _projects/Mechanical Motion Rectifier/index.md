@@ -1,4 +1,5 @@
 ---
+featured: "true"
 date: 2025-02-27
 academic_level: "College"
 academic_period: "Freshman Spring"

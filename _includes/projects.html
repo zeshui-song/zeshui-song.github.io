@@ -1,27 +1,42 @@
 <section id="projects" class="project-grid-section">
-    <h2>Projects</h2>
+    {% comment %} 
+        1. Determine the list of projects 
+    {% endcomment %}
+    {% if include.featured_only %}
+        {% assign project_list = site.projects | where: "featured", true %}
+        
+        {% comment %} Fallback: If no projects are marked featured, show all instead {% endcomment %}
+        {% if project_list.size == 0 %}
+            {% assign project_list = site.projects %}
+            {% assign is_fallback = true %}
+        {% endif %}
+    {% else %}
+        {% assign project_list = site.projects %}
+    {% endif %}
+
+    {% comment %} 
+        2. Dynamic Heading logic 
+    {% endcomment %}
+    {% if include.featured_only and is_fallback != true %}
+        <h2>Project Highlights</h2>
+    {% else %}
+        <h2>Projects</h2>
+    {% endif %}
 
     <div class="grid-container">
-        {% comment %} 
-            Sorting by date (YYYY-MM-DD). 
-            'reverse' puts 2026 at the top and 2020 at the bottom.
-        {% endcomment %}
-        {% assign sorted_projects = site.projects | sort: "date" | reverse %}
+        {% assign sorted_projects = project_list | sort: "date" | reverse %}
         
         {% for item in sorted_projects %}
             <a href="{{ item.url }}" class="project-link">
                 <div class="project-card">
-                    {% comment %} Extract the folder path for the image {% endcomment %}
                     {% assign folder_path = item.path | split: "/" | slice: 0, 2 | join: "/" %}
                     {% assign image_path = "/" | append: folder_path | append: "/" | append: item['main-image'] %}
                     
                     <img src="{{ image_path }}" alt="{{ item.title }} image">
                     
                     <div class="project-content">
-                        {% comment %} 1. Title first {% endcomment %}
                         <h3 class="project-title">{{ item.title }}</h3>
 
-                        {% comment %} 2. Academic Labels moved UNDER title {% endcomment %}
                         <div class="project-timeline">
                             <span class="academic-level">{{ item.academic_level }}</span>
                             <span class="academic-period">{{ item.academic_period }}</span>
@@ -41,4 +56,15 @@
             </a>
         {% endfor %}
     </div>
+
+    {% comment %} 
+        Only show the button if on homepage AND we aren't already showing everything 
+    {% endcomment %}
+    {% if include.featured_only and is_fallback != true %}
+        <div style="display: flex; justify-content: center; margin-top: 50px;">
+            <a href="{{ '/projects/' | relative_url }}" class="read-more" style="padding: 10px 30px; font-size: 1.1rem; text-align: center;">
+                View All Projects →
+            </a>
+        </div>
+    {% endif %}
 </section>

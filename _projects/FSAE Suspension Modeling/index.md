@@ -1,4 +1,5 @@
 ---
+featured: "true"
 date: 2025-11-17
 academic_level: "College"
 academic_period: "Sophomore Fall"

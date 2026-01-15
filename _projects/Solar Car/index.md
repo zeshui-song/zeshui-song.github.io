@@ -1,11 +1,11 @@
 ---
 featured: "true"
-date: 2024-09-30
-academic_level: "College"
-academic_period: "Freshman Fall"
+date: 2020-06-20
+academic_level: "High School"
+academic_period: "Freshman"
 
 layout: post
-title: "GigaSniffer: Portable Produce Freshness Detector"
+title: "Solar Car Team"
 description:  New York City generates nearly 4 million tons of food waste annually, much of it edible at the time of disposal. A major contributor is uncertainty around food freshness, driven by unreliable expiration dates that fail to account for storage conditions. GigaSniffer is a portable device designed to reduce household food waste by detecting early-stage spoilage in produce through gas emissions rather than printed dates. Inspired by the way fruit flies detect rotting fruit through airborne chemicals, GigaSniffer measures carbon dioxide (CO₂) and ethanol emissions to infer freshness and alert users when produce is nearing spoilage.
 skills: 
   - Arduino Programming
