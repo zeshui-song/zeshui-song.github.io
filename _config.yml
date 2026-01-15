@@ -6,6 +6,7 @@
 # feature for the data you need to update frequently.
 
 # Main Page Setup
+timezone: America/New_York
 
 title: Zeshui Song's Portfolio # This is what shows up in the tab of the browser
 url: "https://zeshui-song.github.io"
