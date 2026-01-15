@@ -1,7 +1,37 @@
 ---
 layout: wrapper
-permalink: /about
 ---
 
+<div class="about-page-layout">
+    <aside class="profile-sidebar">
+        <div class="profile-sticky-container">
+            {% if page.profile_image %}
+                <img src="{{ page.profile_image | relative_url }}" alt="Profile Picture" class="profile-img">
+            {% endif %}
+            
+            <div class="profile-info">
+                <h1>{{ site.name }}</h1>
+                <p class="subtitle">Research & Engineering</p>
+                
+                <div class="profile-links">
+                    <a href="{{ site.resume-url }}" class="btn-profile">View Resume</a>
+                </div>
 
-This is your about page
+                <div class="specialties">
+                    <h3>Focus Areas</h3>
+                    <ul>
+                        <li>Fluid Dynamics</li>
+                        <li>Machine Learning (FNO/DMD)</li>
+                        <li>Aero & Mechanical Design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-text">
+        <div class="content-body">
+            {{ content }}
+        </div>
+    </main>
+</div>

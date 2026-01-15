@@ -1326,3 +1326,77 @@ mjx-container[display="true"]::-webkit-scrollbar-thumb {
     background: var(--link-color);
     border-radius: 10px;
 }
+
+
+/* Container Split */
+.about-page-layout {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    gap: 60px;
+    padding: 0 20px;
+}
+
+/* Left Sidebar */
+.profile-sidebar {
+    flex: 0 0 300px; /* Fixed width */
+}
+
+.profile-sticky-container {
+    position: sticky;
+    top: 40px; /* Keeps the profile visible while scrolling */
+}
+
+.profile-img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.specialties h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 30px;
+}
+
+.specialties ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* Right Content */
+.main-text {
+    flex: 1;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* Mobile Responsive */
+@media (max-width: 850px) {
+    .about-page-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .profile-sidebar {
+        flex: none;
+        width: 100%;
+    }
+    .profile-sticky-container {
+        position: static;
+    }
+}
