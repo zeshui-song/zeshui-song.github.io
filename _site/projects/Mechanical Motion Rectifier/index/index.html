@@ -148,11 +148,18 @@
     const menuToggle = document.getElementById('menuToggle');
 
     const isAboutPage = window.location.pathname.includes('/about/');
+    const isResearchPage = window.location.pathname.includes('/research/');
 
     let angle = 0;
     let xOffset = 0; 
     let direction = 1; 
     let isErasing = false;
+    
+    // Research Page Variables
+    let waveTime = 0;
+    let wavefrontX = 0; 
+    let reflectedFrontX = 0;
+    let wavePhase = 'propagating'; // 'propagating', 'reflecting', 'steady'
 
     const radius = 14;      
     const armLength = 22;   
@@ -179,12 +186,17 @@
         points = [];
         angle = 0;
         
-        // Match trace width to the visible tangent width
         const limit = w * 0.45;
         xOffset = -limit; 
         direction = 1;
         isErasing = false;
         isRolling = true;
+
+        // Reset Research Animation
+        const margin = 40;
+        wavefrontX = margin;
+        reflectedFrontX = w - margin;
+        wavePhase = 'propagating';
     }
 
     window.addEventListener('resize', resize);
@@ -201,7 +213,87 @@
         let px, py, centerX;
         const limit = w * 0.45;
 
-        if (isAboutPage) {
+        if (isResearchPage) {
+            waveTime += 0.05;
+            const margin = 40;
+            const rightBound = w - margin;
+            const propSpeed = 2.5;
+
+            // Amplitude logic: 
+            // Pipe half-height is 25. Standing wave peak (2A) should be ~24.
+            // Therefore, traveling wave amplitude (A) is 12.
+            const pipeHalfHeight = 25;
+            const amp = 12; 
+
+            const L = rightBound - margin;
+            const freq = (2 * Math.PI) / (L / 2); // n=2 mode
+
+            if (wavePhase === 'propagating') {
+                wavefrontX += propSpeed;
+                if (wavefrontX >= rightBound) {
+                    wavefrontX = rightBound;
+                    wavePhase = 'reflecting';
+                }
+            } else if (wavePhase === 'reflecting') {
+                reflectedFrontX -= propSpeed;
+                if (reflectedFrontX <= margin) {
+                    reflectedFrontX = margin;
+                    wavePhase = 'steady';
+                }
+            }
+
+            // Draw Open Pipe (Black and Bold)
+            ctx.beginPath();
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 2.5;
+            ctx.moveTo(margin, centerY - pipeHalfHeight);
+            ctx.lineTo(rightBound, centerY - pipeHalfHeight);
+            ctx.moveTo(margin, centerY + pipeHalfHeight);
+            ctx.lineTo(rightBound, centerY + pipeHalfHeight);
+            ctx.stroke();
+
+            // 1. Traveling Wave (Solid Grey)
+            ctx.beginPath();
+            ctx.setLineDash([]);
+            ctx.strokeStyle = '#ddd';
+            ctx.lineWidth = 1.2;
+            for (let x = margin; x <= wavefrontX; x++) {
+                const y = centerY + amp * Math.cos(freq * (x - margin) - waveTime);
+                if (x === margin) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // 2. Reflected Wave (Dotted Grey)
+            if (wavePhase !== 'propagating') {
+                ctx.beginPath();
+                ctx.setLineDash([4, 4]);
+                ctx.strokeStyle = '#ccc';
+                for (let x = rightBound; x >= reflectedFrontX; x--) {
+                    const y = centerY + amp * Math.cos(freq * (x - margin) + waveTime);
+                    if (x === rightBound) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
+            // 3. Standing Wave (Blue Interference)
+            if (wavePhase !== 'propagating') {
+                ctx.beginPath();
+                ctx.strokeStyle = 'rgba(0, 123, 255, 0.7)';
+                ctx.lineWidth = 2.5;
+                for (let x = reflectedFrontX; x <= rightBound; x++) {
+                    const y1 = amp * Math.cos(freq * (x - margin) - waveTime);
+                    const y2 = amp * Math.cos(freq * (x - margin) + waveTime);
+                    const y = centerY + (y1 + y2);
+                    if (x === Math.ceil(reflectedFrontX)) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+            }
+
+        } else if (isAboutPage) {
             const a = radius;
             centerX = w / 2;
             const groundY = h - 10; 
@@ -241,8 +333,8 @@
             }
         }
 
-        // 1. Draw Traced Path
-        if (points.length > 1) {
+        // Shared Traced Path Logic
+        if (!isResearchPage && points.length > 1) {
             ctx.beginPath();
             ctx.strokeStyle = 'rgba(0, 123, 255, 0.4)';
             ctx.lineWidth = 2.5;
@@ -254,7 +346,8 @@
             ctx.stroke();
         }
 
-        if (isAboutPage || isRolling) {
+        if (!isResearchPage && (isAboutPage || isRolling)) {
+            ctx.lineWidth = 1.2;
             if (isAboutPage) {
                 const a = radius;
                 const groundY = h - 10; 
@@ -262,25 +355,20 @@
                 const circleY = groundY - a;
                 const topY = groundY - 2 * a;
 
-                // Horizontal Tangent (Centered at 2a)
                 ctx.beginPath();
                 ctx.moveTo(centerX - limit, topY); 
                 ctx.lineTo(centerX + limit, topY);
                 ctx.strokeStyle = '#eee';
-                ctx.lineWidth = 1.2;
                 ctx.stroke();
 
-                // Static Circle
                 ctx.beginPath();
                 ctx.arc(circleX, circleY, a, 0, Math.PI * 2);
                 ctx.strokeStyle = '#444';
-                ctx.lineWidth = 1.2;
                 ctx.stroke();
 
                 const yFromBottom = groundY - py;
                 const intersectionX = circleX + (yFromBottom * (xOffset / (2 * a)));
 
-                // Secant Line (Bottom to Top Tangent)
                 ctx.setLineDash([2, 2]);
                 ctx.strokeStyle = '#bbb';
                 ctx.beginPath();
@@ -288,7 +376,6 @@
                 ctx.lineTo(px, topY);
                 ctx.stroke();
 
-                // Green Dotted Tangents (Vertical to Tangent, Horizontal to Intersection)
                 ctx.strokeStyle = '#28a745';
                 ctx.beginPath();
                 ctx.moveTo(px, py); ctx.lineTo(px, topY); 
@@ -296,7 +383,6 @@
                 ctx.stroke();
                 ctx.setLineDash([]);
 
-                // Grey Intersection Dot
                 ctx.beginPath();
                 ctx.arc(intersectionX, py, 3, 0, Math.PI * 2);
                 ctx.fillStyle = '#888';
@@ -305,13 +391,12 @@
             } else {
                 ctx.beginPath();
                 ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-                ctx.strokeStyle = '#444'; ctx.lineWidth = 1.2; ctx.stroke();
+                ctx.strokeStyle = '#444'; ctx.stroke();
                 ctx.beginPath();
                 ctx.moveTo(centerX, centerY); ctx.lineTo(px, py);
                 ctx.strokeStyle = '#bbb'; ctx.stroke();
             }
 
-            // Blue Trace Point
             ctx.beginPath();
             ctx.arc(px, py, 4, 0, Math.PI * 2);
             ctx.fillStyle = '#007bff';
@@ -815,7 +900,7 @@
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-01-16 10:36 EST</p>
+            <p>Last Updated: 2026-01-16 10:52 EST</p>
         </div>
     </div>
 
