@@ -283,6 +283,13 @@ nav .mobile-nav {
 /* --- MOBILE GRADIENT & CENTERING --- */
 
 @media (max-width: 1200px) {
+    .hero-wrapper {
+        /* Adjust 100vh by subtracting the navbar height.
+           If your navbar + margins = 60px, use 60px.
+        */
+        min-height: calc(100vh - 50px); 
+    }
+
     .hero-section {
         /* Remove the heavy desktop shadow */
         box-shadow: none; 
