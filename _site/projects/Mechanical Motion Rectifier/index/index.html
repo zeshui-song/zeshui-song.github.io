@@ -774,23 +774,40 @@
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-01-15 20:26 EST</p>
+            <p>Last Updated: 2026-01-15 20:58 EST</p>
         </div>
     </div>
 
     <style>
-        /* Wave Animation Logic (keeps HTML self-contained) */
+        /* Wave Animation Logic */
         .wave-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
         .waves { width: 100%; height: 100%; }
         .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
-        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 10s; }
-        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 14s; }
-        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 18s; }
-        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 25s; }
+        
+        /* Fallback durations (JS will override the delays) */
+        .parallax > use:nth-child(1) { animation-duration: 10s; }
+        .parallax > use:nth-child(2) { animation-duration: 14s; }
+        .parallax > use:nth-child(3) { animation-duration: 18s; }
+        .parallax > use:nth-child(4) { animation-duration: 25s; }
+
         @keyframes move-forever {
             0% { transform: translate3d(-90px, 0, 0); }
             100% { transform: translate3d(85px, 0, 0); }
         }
     </style>
+
+    <script>
+        // Randomize wave start positions on initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            const waves = document.querySelectorAll('.parallax > use');
+            waves.forEach(wave => {
+                // Get the animation duration defined in CSS
+                const duration = parseFloat(getComputedStyle(wave).animationDuration);
+                // Apply a random negative delay so it starts mid-animation
+                const randomDelay = -Math.random() * duration;
+                wave.style.animationDelay = `${randomDelay}s`;
+            });
+        });
+    </script>
 </footer>
 </html>
