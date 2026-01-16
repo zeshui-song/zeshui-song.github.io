@@ -2,6 +2,48 @@
 layout: wrapper
 ---
 
+<style>
+    /* 1. Reset the header container */
+    .post-view .title-header {
+        display: block !important; 
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 0 !important;
+    }
+
+    .project-logo-wrapper {
+        display: block !important;
+        margin-bottom: 15px !important;
+        width: 100% !important;
+    }
+
+    /* 2. Target the logo and KILL the 3/1 aspect-ratio from your main CSS */
+    .post-view .summary img.project-logo-img {
+        /* Dimensions */
+        height: 60px !important;    /* Desktop requirement */
+        width: auto !important;      /* Stops it from stretching to 100% width */
+        
+        /* Overriding your main.css rules */
+        aspect-ratio: auto !important; /* CRITICAL: Kills the 3/1 crop */
+        object-fit: contain !important;
+        object-position: left;
+        
+        /* Resetting spacing */
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        border-radius: 0 !important; /* Removes border-radius if not wanted on logo */
+    }
+
+    /* 3. Mobile adjustments */
+    @media (max-width: 768px) {
+        .post-view .summary img.project-logo-img {
+            height: 40px !important; /* Mobile requirement */
+        }
+    }
+</style>
+
 <div class="post-view">
     <div class="summary">
         {% assign folder_path = page.path | split: "/" | slice: 0, 2 | join: "/" %}
@@ -9,10 +51,17 @@ layout: wrapper
         <img src="{{ image_path }}" alt="{{ page.title }} image">
         
         <div class="title-header">
-            <h1>{{ page.title }}</h1>
+            {% if page.project_logo %}
+                <div class="project-logo-wrapper">
+                    <img src="{{ page.project_logo | relative_url }}" 
+                         alt="{{ page.title }} logo" 
+                         class="project-logo-img">
+                </div>
+            {% else %}
+                <h1>{{ page.title }}</h1>
+            {% endif %}
         </div>
 
-        {% comment %} Academic Labels added UNDER title {% endcomment %}
         <div class="project-timeline">
             <span class="academic-level">{{ page.academic_level }}</span>
             <span class="academic-period">{{ page.academic_period }}</span>

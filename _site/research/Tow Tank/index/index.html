@@ -388,17 +388,60 @@
     draw();
 </script>
 
-     <div class="page"><div class="post-view">
+     <div class="page"><style>
+    /* 1. Reset the header container */
+    .post-view .title-header {
+        display: block !important; 
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 0 !important;
+    }
+
+    .project-logo-wrapper {
+        display: block !important;
+        margin-bottom: 15px !important;
+        width: 100% !important;
+    }
+
+    /* 2. Target the logo and KILL the 3/1 aspect-ratio from your main CSS */
+    .post-view .summary img.project-logo-img {
+        /* Dimensions */
+        height: 60px !important;    /* Desktop requirement */
+        width: auto !important;      /* Stops it from stretching to 100% width */
+        
+        /* Overriding your main.css rules */
+        aspect-ratio: auto !important; /* CRITICAL: Kills the 3/1 crop */
+        object-fit: contain !important;
+        object-position: left;
+        
+        /* Resetting spacing */
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        border-radius: 0 !important; /* Removes border-radius if not wanted on logo */
+    }
+
+    /* 3. Mobile adjustments */
+    @media (max-width: 768px) {
+        .post-view .summary img.project-logo-img {
+            height: 40px !important; /* Mobile requirement */
+        }
+    }
+</style>
+
+<div class="post-view">
     <div class="summary">
         
                
         <img src="/_research/Tow Tank//Tow - Copy.jpg" alt="Tow Tank (Work in Progress) image">
         
         <div class="title-header">
-            <h1>Tow Tank (Work in Progress)</h1>
+            
+                <h1>Tow Tank (Work in Progress)</h1>
+            
         </div>
 
-        
         <div class="project-timeline">
             <span class="academic-level"></span>
             <span class="academic-period"></span>
@@ -736,7 +779,7 @@
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-01-16 16:59 EST</p>
+            <p>Last Updated: 2026-01-16 18:18 EST</p>
         </div>
     </div>
 

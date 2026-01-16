@@ -4,8 +4,7 @@ date: 2020-06-20
 academic_level: "High School"
 academic_period: "Freshman"
 
-logo: "logooo.png"
-logo_max_height: 50
+project_logo: "_projects/Solar Car/logooo.png"
 
 layout: post
 title: "BTHS Solar Car Team"
