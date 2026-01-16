@@ -726,11 +726,13 @@ code[class*="language-"],
 
 /* SECTION 4: CONTACT */
 .contact-section {
-    padding: 25px 25px;
+    /* Padding reduced from 25px to 12px (vertical) to shrink internal height */
+    padding: 5px 25px; 
     max-width: 600px;
-    margin: 0 auto 100px auto; 
+    /* Bottom margin reduced from 100px to 50px to pull the footer up */
+    margin: 0 auto 0px auto; 
     border-radius: 20px; 
-    text-align: center; /* This is the "magic" line for centering text */
+    text-align: center; 
 }
 
 .contact-section h2 {
@@ -739,92 +741,104 @@ code[class*="language-"],
 }
 
 .contact-section .group {
-    /* We removed display: flex here because it's no longer needed without a form */
     display: block; 
 }
 
 .contact-section .group p {
     margin: 0;
     line-height: 1.6;
-    /* This ensures the lines of text themselves are centered */
     text-align: center; 
 }
 
 /* FOOTER */
-
 footer {
-    padding: 0;
-    font-size: 12px;
-    text-align: center;
-    min-height: 150px; 
-    flex-shrink: 0;
-    background-color: var(--light-background-color);
     width: 100vw;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    padding: 0;
+    min-height: 270px; 
+    flex-shrink: 0;
+    background-color: transparent; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: flex-end; 
     align-items: center;
+    overflow: hidden;
+    border: none !important;
 }
 
+/* Removes the top horizontal line gradient */
 footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px; 
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    display: none !important;
 }
 
-footer .footer-content {
-    flex-grow: 1; 
+footer .footer-content-wrapper {
+    position: relative; 
+    z-index: 2; 
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 footer .links {
-    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Wide horizontal spacing (40px) and vertical gap (15px) */
+    gap: 15px 40px; 
+    margin-bottom: 15px;
 }
 
 footer .links a {
     color: var(--text-color);
-    font-size: 20px;
-    margin: 0 30px;
+    font-size: 20px; /* Original size */
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-footer .links a:hover {
-    color: var(--link-color);
+/* High-specificity hover for desktop */
+footer .links a:hover, 
+footer .links a:hover span {
+    color: #007bff !important;
 }
 
-footer .license {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+footer .license-text {
+    font-size: 14px; 
+    color: #888;    
+    margin: 0;
+    line-height: 1.4;
+    padding: 0 20px;
+    text-align: center; /* Explicitly centered */
+    width: 100%;       /* Ensure full width for centering */
+}
+
+footer .footer-status p {
+    font-size: 11px; 
+    color: #aaa;    
+    margin-top: 4px;
     text-align: center;
-    gap: 0;  /* Changed from 10px to 0 */
 }
 
-footer span, p {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    max-width: 100%;
-    margin: 0; /* Added to remove default margins */
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    footer {
+        min-height: 280px;
+    }
+    footer .links {
+        gap: 10px 30px; 
+        max-width: 350px; 
+    }
+    footer .links a {
+        font-size: 18px; /* Near original 20px to prevent aggressive shrinking */
+    }
+    footer .license-text {
+        font-size: 12px !important; 
+        text-align: center;
+    }
 }
-
-footer p {
-    font-size: 12px;
-    margin: 0; /* Changed from 5px 0 0 to 0 */
-}
-
-
-
-
 
 
 /* PROJECT POST VIEW */
@@ -1208,8 +1222,6 @@ footer p {
     .contact-section .group{
         flex-direction: column;
     }
-
-
 
     footer {
         padding: 0 35px

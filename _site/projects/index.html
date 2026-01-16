@@ -492,37 +492,55 @@
 </body>
 
     <footer>
-    <div class="footer-content">
+    <div class="wave-wrapper">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 150 150" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-48 88-48s 58 48 88 48 58-48 88-48 58 48 88 48 v250h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="35" fill="rgba(0, 123, 255, 0.05)" />
+                <use xlink:href="#gentle-wave" x="48" y="40" fill="rgba(0, 123, 255, 0.03)" />
+                <use xlink:href="#gentle-wave" x="48" y="45" fill="rgba(0, 123, 255, 0.02)" />
+                <use xlink:href="#gentle-wave" x="48" y="50" fill="rgba(0, 123, 255, 0.07)" />
+            </g>
+        </svg>
+    </div>
+
+    <div class="footer-content-wrapper">
         <div class="links">
-            <a href="/">
-                <span>Home</span>
-            </a>
-            <a href="/projects/">
-                <span>Projects</span>
-            </a>
-            <a href="/research/">
-                <span>Research</span>
-            </a>
-            <a href="/about/">
-                <span>About</span>
-            </a>
-            <a href="/Resume/main.pdf" target="_blank" rel="noopener noreferrer">
-                <span>Resume</span>
-            </a>
+            <a href="/"><span>Home</span></a>
+            <a href="/projects/"><span>Projects</span></a>
+            <a href="/research/"><span>Research</span></a>
+            <a href="/about/"><span>About</span></a>
+            <a href="/Resume/main.pdf" target="_blank" rel="noopener noreferrer"><span>Resume</span></a>
+        </div>
+
+        <div class="license">
+            <p class="license-text">
+                Based on Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under 
+                <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CC BY 4.0</a>
+            </p>
+        </div>
+
+        <div class="footer-status">
+            <p>Last Updated: 2026-01-15 19:47 EST</p>
         </div>
     </div>
 
-    <div class="license" style="margin-top: -20px;">
-        <p style="font-size:14px; color:#888; margin: 0;">
-            Based on Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under 
-            <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>
-        </p>
-    </div>
-
-    <div class="footer-status" style="margin-top: 4px;">
-    <p style="font-size: 11px; color: #aaa; margin: 0;">
-        Last Updated: 2026-01-15 12:09 EST
-    </p>
-    </div>
+    <style>
+        /* Wave Animation Logic (keeps HTML self-contained) */
+        .wave-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .waves { width: 100%; height: 100%; }
+        .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
+        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 10s; }
+        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 14s; }
+        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 18s; }
+        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 25s; }
+        @keyframes move-forever {
+            0% { transform: translate3d(-90px, 0, 0); }
+            100% { transform: translate3d(85px, 0, 0); }
+        }
+    </style>
 </footer>
 </html>
