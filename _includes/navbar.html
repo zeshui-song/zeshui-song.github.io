@@ -2,23 +2,14 @@
     /* 1. Define a consistent breakpoint for the "Mobile UI" */
     @media (max-width: 768px) {
         #mainNav {
-            /* Shrink the nav container height to 20px to pull the hero up */
             height: 20px !important; 
             padding: 0 !important;
             margin-bottom: 40px !important;
         }
-
-        #canvasParent {
-            display: none !important;
-        }
-
-        .desktop-nav {
-            display: none !important;
-        }
-
+        #canvasParent { display: none !important; }
+        .desktop-nav { display: none !important; }
         .menu-toggle {
             display: block !important;
-            /* Move the icon down 40px from the top */
             margin-top: 40px !important; 
             background: none;
             border: none;
@@ -29,34 +20,14 @@
     }
 
     /* Desktop defaults */
-    .menu-toggle { 
-        display: none; 
-        outline: none;
-        color: var(--text-color, #000);
-    }
-
+    .menu-toggle { display: none; outline: none; color: var(--text-color, #000); }
     .mobile-nav { display: none; }
-
     .nav-open .mobile-nav {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        /* Adjusted to align below the shifted icon */
-        top: 60px; 
-        right: 0;
-        background: #fff;
-        width: 100%;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        z-index: 10;
+        display: flex; flex-direction: column; position: absolute;
+        top: 60px; right: 0; background: #fff; width: 100%;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 10;
     }
-
-    .mobile-nav a {
-        padding: 15px;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-        text-decoration: none;
-        color: #333;
-    }
+    .mobile-nav a { padding: 15px; text-align: center; border-bottom: 1px solid #eee; text-decoration: none; color: #333; }
 </style>
 
 <nav id="mainNav" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; height: 80px; position: relative;">
@@ -96,10 +67,17 @@
     const mainNav = document.getElementById('mainNav');
     const menuToggle = document.getElementById('menuToggle');
 
+    const isAboutPage = window.location.pathname.includes('/about/');
+
     let angle = 0;
+    let xOffset = 0; 
+    let direction = 1; 
+    let isErasing = false;
+
     const radius = 14;      
     const armLength = 22;   
     const speed = 0.05;
+    const agnesiSpeed = 0.8; 
     let points = [];
     
     let isRolling = true;
@@ -114,14 +92,18 @@
         dpr = window.devicePixelRatio || 1;
         w = parent.offsetWidth;
         h = 60; 
-        
         canvas.width = w * dpr;
         canvas.height = h * dpr;
         ctx.scale(dpr, dpr);
-        
         centerY = h / 2; 
         points = [];
         angle = 0;
+        
+        // Match trace width to the visible tangent width
+        const limit = w * 0.45;
+        xOffset = -limit; 
+        direction = 1;
+        isErasing = false;
         isRolling = true;
     }
 
@@ -129,7 +111,6 @@
     resize();
 
     function draw() {
-        // Skip drawing if canvas is hidden on mobile
         if (mainNav.classList.contains('nav-open') || getComputedStyle(document.getElementById('canvasParent')).display === 'none') {
             requestAnimationFrame(draw);
             return;
@@ -137,26 +118,50 @@
 
         ctx.clearRect(0, 0, w, h);
 
-        let centerX = (radius * angle) - radius;
-        let px = centerX - armLength * Math.sin(angle);
-        let py = centerY + armLength * Math.cos(angle);
+        let px, py, centerX;
+        const limit = w * 0.45;
 
-        if (isRolling) {
-            points.push({x: px, y: py});
-            angle += speed;
+        if (isAboutPage) {
+            const a = radius;
+            centerX = w / 2;
+            const groundY = h - 10; 
+            const topY = groundY - 2 * a; 
 
-            if (centerX > w + armLength + radius) {
-                isRolling = false;
+            px = centerX + xOffset;
+            const yFromBottom = (8 * Math.pow(a, 3)) / (Math.pow(xOffset, 2) + 4 * Math.pow(a, 2));
+            py = groundY - yFromBottom;
+
+            if (!isErasing) {
+                points.push({x: px, y: py});
+                xOffset += (agnesiSpeed * direction);
+
+                if (xOffset > limit || xOffset < -limit) {
+                    isErasing = true;
+                }
+            } else {
+                if (points.length > 0) {
+                    points.splice(0, 4); 
+                } else {
+                    direction *= -1;
+                    isErasing = false;
+                }
             }
         } else {
-            if (points.length > 0) {
-                points.splice(0, 3); 
+            centerX = (radius * angle) - radius;
+            px = centerX - armLength * Math.sin(angle);
+            py = centerY + armLength * Math.cos(angle);
+
+            if (isRolling) {
+                points.push({x: px, y: py});
+                angle += speed;
+                if (centerX > w + armLength + radius) isRolling = false;
             } else {
-                isRolling = true;
-                angle = 0;
+                if (points.length > 0) points.splice(0, 3);
+                else { isRolling = true; angle = 0; }
             }
         }
 
+        // 1. Draw Traced Path
         if (points.length > 1) {
             ctx.beginPath();
             ctx.strokeStyle = 'rgba(0, 123, 255, 0.4)';
@@ -169,19 +174,64 @@
             ctx.stroke();
         }
 
-        if (isRolling) {
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-            ctx.strokeStyle = '#444';
-            ctx.lineWidth = 1.2;
-            ctx.stroke();
+        if (isAboutPage || isRolling) {
+            if (isAboutPage) {
+                const a = radius;
+                const groundY = h - 10; 
+                const circleX = w / 2;
+                const circleY = groundY - a;
+                const topY = groundY - 2 * a;
 
-            ctx.beginPath();
-            ctx.moveTo(centerX, centerY);
-            ctx.lineTo(px, py);
-            ctx.strokeStyle = '#bbb';
-            ctx.stroke();
+                // Horizontal Tangent (Centered at 2a)
+                ctx.beginPath();
+                ctx.moveTo(centerX - limit, topY); 
+                ctx.lineTo(centerX + limit, topY);
+                ctx.strokeStyle = '#eee';
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
 
+                // Static Circle
+                ctx.beginPath();
+                ctx.arc(circleX, circleY, a, 0, Math.PI * 2);
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+
+                const yFromBottom = groundY - py;
+                const intersectionX = circleX + (yFromBottom * (xOffset / (2 * a)));
+
+                // Secant Line (Bottom to Top Tangent)
+                ctx.setLineDash([2, 2]);
+                ctx.strokeStyle = '#bbb';
+                ctx.beginPath();
+                ctx.moveTo(circleX, groundY);
+                ctx.lineTo(px, topY);
+                ctx.stroke();
+
+                // Green Dotted Tangents (Vertical to Tangent, Horizontal to Intersection)
+                ctx.strokeStyle = '#28a745';
+                ctx.beginPath();
+                ctx.moveTo(px, py); ctx.lineTo(px, topY); 
+                ctx.moveTo(px, py); ctx.lineTo(intersectionX, py); 
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Grey Intersection Dot
+                ctx.beginPath();
+                ctx.arc(intersectionX, py, 3, 0, Math.PI * 2);
+                ctx.fillStyle = '#888';
+                ctx.fill();
+
+            } else {
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+                ctx.strokeStyle = '#444'; ctx.lineWidth = 1.2; ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY); ctx.lineTo(px, py);
+                ctx.strokeStyle = '#bbb'; ctx.stroke();
+            }
+
+            // Blue Trace Point
             ctx.beginPath();
             ctx.arc(px, py, 4, 0, Math.PI * 2);
             ctx.fillStyle = '#007bff';
@@ -190,6 +240,5 @@
 
         requestAnimationFrame(draw);
     }
-
     draw();
 </script>
