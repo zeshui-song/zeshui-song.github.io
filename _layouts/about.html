@@ -8,29 +8,42 @@ layout: wrapper
         scrollbar-gutter: stable !important;
     }
 
-    /* 2. Stabilize Sticky Sidebar */
+    /* 2. Simplified Sidebar (Non-Sticky) */
+    .profile-sidebar {
+        /* Sidebar stays at the top of the page */
+        width: 100%; 
+    }
+
     .profile-sticky-container {
-        position: sticky;
-        top: 2rem;
-        will-change: transform;
-        backface-visibility: hidden;
+        /* Removed position: sticky and hardware acceleration */
+        margin-bottom: 2rem;
+    }
+
+    .about-page-layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 3rem; /* Increased gap for better breathing room */
     }
 
     /* 3. Responsive Banner Styling */
     .banner-container {
         width: 100%;
-        height: 500px; /* Standard desktop height */
+        height: 500px;
         overflow: hidden;
         margin-top: 3rem;
         margin-bottom: 2rem;
         border-radius: 8px;
-        pointer-events: none; /* Keeps the banner unclickable */
+        pointer-events: none;
     }
 
     /* Resize for mobile and small screens */
     @media (max-width: 768px) {
+        .about-page-layout {
+            flex-direction: column; /* Stack sidebar on top of content */
+        }
+
         .banner-container {
-            height: 250px; /* Reduced height for smaller viewports */
+            height: 250px;
             margin-top: 2rem;
         }
     }
@@ -38,7 +51,7 @@ layout: wrapper
     .banner-container img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Prevents distortion during resizing */
+        object-fit: cover;
         display: block;
     }
 </style>
