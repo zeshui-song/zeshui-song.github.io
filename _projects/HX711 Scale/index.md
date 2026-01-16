@@ -63,6 +63,6 @@ Overall, this was a rather simple and straightforward project. However, figuring
   </div>  
 </div>
 
-[Arduino Code](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/HX711%20Scale/Scale%20Code.ino)<br>
-[Final Report](/_projects/HX711%20Scale/Measurements%20Lab%20Final%20Report.pdf)<br>
-[Onshape CAD](https://cad.onshape.com/documents/879e940bb85becdcbd9707af/w/ac66949ea51a3570c61e25d7/e/4072b7e2dbef1a2713dcaf1b?renderMode=0&uiState=695c722bf032d6fc4be294bb)
+<a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/HX711%20Scale/Scale%20Code.ino" target="_blank">Arduino Code</a><br>
+<a href="/_projects/HX711%20Scale/Measurements%20Lab%20Final%20Report.pdf" target="_blank">Final Report</a><br>
+<a href="https://cad.onshape.com/documents/879e940bb85becdcbd9707af/w/ac66949ea51a3570c61e25d7/e/4072b7e2dbef1a2713dcaf1b?renderMode=0&uiState=695c722bf032d6fc4be294bb" target="_blank">Onshape CAD</a>

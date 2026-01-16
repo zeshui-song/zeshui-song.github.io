@@ -285,6 +285,6 @@ I was mainly responsible for the simulation code, data analysis, and setting up 
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/LaTex/refs/heads/main/Fall%202025%20Notes/Dynamics/Project/four_bar_linkage_NEW.gif" height="500"%}
 </div>
 
-[Animation Code](https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Dynamics/Project/gif%20export.ipynb)<br>
-[Full Python Code](https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/FSAE%20Suspension%20Modeling/Suspension%20Simulation.ipynb)<br>
-[Final Report](/_projects/FSAE%20Suspension%20Modeling/main.pdf)
+<a href="https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Dynamics/Project/gif%20export.ipynb" target="_blank">Animation Code</a><br>
+<a href="https://github.com/zeshui-song/zeshui-song.github.io/blob/main/_projects/FSAE%20Suspension%20Modeling/Suspension%20Simulation.ipynb" target="_blank">Full Python Code</a><br>
+<a href="/_projects/FSAE%20Suspension%20Modeling/main.pdf" target="_blank">Final Report</a>

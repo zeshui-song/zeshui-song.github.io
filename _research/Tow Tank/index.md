@@ -59,7 +59,7 @@ The gantry consists of a 10-inch piece of 80/20 aluminum extrusion mounted direc
 </div>
 
 ## Power System
-A NEMA 23 stepper motor drives the gantry through a GT2 timing belt system. This setup enables precise control of motion parameters while maintaining smooth translation over long distances. An idler pulley at the opposite end of the system maintains belt tension and alignment, ensuring consistent performance during operation. Initial testing revealed that additional belt tensioning was required for reliable performance. A modified version of a belt tensioner design by [Cahorton](https://www.thingiverse.com/thing:181349) was used initially, with plans to develop a custom tensioner integrated directly into the gantry timing-belt mount.
+A NEMA 23 stepper motor drives the gantry through a GT2 timing belt system. This setup enables precise control of motion parameters while maintaining smooth translation over long distances. An idler pulley at the opposite end of the system maintains belt tension and alignment, ensuring consistent performance during operation. Initial testing revealed that additional belt tensioning was required for reliable performance. A modified version of a belt tensioner design by <a href="https://www.thingiverse.com/thing:181349" target="_blank">Cahorton</a> was used initially, with plans to develop a custom tensioner integrated directly into the gantry timing-belt mount.
 
 <small><em>NEMA 23 (left) and idler pulley assembly (right).</em></small>
 <div style="width: fit-content; margin: 0 auto;">
