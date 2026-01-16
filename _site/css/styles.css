@@ -16,8 +16,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* This is the magic line */
 }
-
 body {
     padding: 0 50px;
     font-family: 'Poppins', sans-serif;
