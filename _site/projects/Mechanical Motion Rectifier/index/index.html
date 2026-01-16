@@ -149,30 +149,39 @@
 
     const isAboutPage = window.location.pathname.includes('/about/');
     const isResearchPage = window.location.pathname.includes('/research/');
+    const isProjectsPage = window.location.pathname.includes('/projects/');
 
-    let angle = 0;
-    let xOffset = 0; 
-    let direction = 1; 
-    let isErasing = false;
-    
-    // Research Page Variables
-    let waveTime = 0;
-    let wavefrontX = 0; 
-    let reflectedFrontX = 0;
-    let wavePhase = 'propagating'; // 'propagating', 'reflecting', 'steady'
-
-    const radius = 14;      
-    const armLength = 22;   
-    const speed = 0.05;
-    const agnesiSpeed = 0.8; 
+    let angle = 0, xOffset = 0, direction = 1, isErasing = false;
+    let waveTime = 0, wavefrontX = 0, reflectedFrontX = 0, wavePhase = 'propagating';
+    let particles = [];
+    const numParticles = 8;
+    const radius = 14, armLength = 22, speed = 0.05, agnesiSpeed = 0.8; 
     let points = [];
-    
-    let isRolling = true;
-    let dpr, w, h, centerY;
+    let isRolling = true, dpr, w, h, centerY;
 
     menuToggle.addEventListener('click', () => {
         mainNav.classList.toggle('nav-open');
     });
+
+    function createCRTParticle() {
+        const spread = 44;
+        const startY = centerY + (Math.random() - 0.5) * spread;
+        const normalizedY = (startY - (centerY - spread/2)) / spread;
+        const hue = 240 - (normalizedY * 65); 
+        const colorHue = hue;
+
+        return {
+            x: -20, 
+            y: startY, 
+            vx: 1.0 + Math.random() * 0.8, 
+            vy: 0, 
+            charge: Math.random() > 0.5 ? 1 : -1, 
+            hue: colorHue,
+            hasHit: false,
+            headOpacity: 1.0,
+            history: []
+        };
+    }
 
     function resize() {
         if (!parent) return;
@@ -185,18 +194,10 @@
         centerY = h / 2; 
         points = [];
         angle = 0;
-        
-        const limit = w * 0.45;
-        xOffset = -limit; 
-        direction = 1;
-        isErasing = false;
-        isRolling = true;
-
-        // Reset Research Animation
-        const margin = 40;
-        wavefrontX = margin;
-        reflectedFrontX = w - margin;
-        wavePhase = 'propagating';
+        xOffset = -(w * 0.45);
+        direction = 1; isErasing = false; isRolling = true;
+        wavefrontX = 40; reflectedFrontX = w - 40; wavePhase = 'propagating';
+        particles = Array.from({ length: numParticles }, createCRTParticle);
     }
 
     window.addEventListener('resize', resize);
@@ -209,114 +210,130 @@
         }
 
         ctx.clearRect(0, 0, w, h);
-
         let px, py, centerX;
         const limit = w * 0.45;
 
         if (isResearchPage) {
             waveTime += 0.05;
-            const margin = 40;
-            const rightBound = w - margin;
-            const propSpeed = 2.5;
-
-            // Amplitude logic: 
-            // Pipe half-height is 25. Standing wave peak (2A) should be ~24.
-            // Therefore, traveling wave amplitude (A) is 12.
-            const pipeHalfHeight = 25;
-            const amp = 12; 
-
-            const L = rightBound - margin;
-            const freq = (2 * Math.PI) / (L / 2); // n=2 mode
+            const margin = 40, rightBound = w - margin, propSpeed = 2.5;
+            const pipeHalfHeight = 25, amp = 12, L = rightBound - margin, freq = (2 * Math.PI) / (L / 2);
 
             if (wavePhase === 'propagating') {
                 wavefrontX += propSpeed;
-                if (wavefrontX >= rightBound) {
-                    wavefrontX = rightBound;
-                    wavePhase = 'reflecting';
-                }
+                if (wavefrontX >= rightBound) { wavefrontX = rightBound; wavePhase = 'reflecting'; }
             } else if (wavePhase === 'reflecting') {
                 reflectedFrontX -= propSpeed;
-                if (reflectedFrontX <= margin) {
-                    reflectedFrontX = margin;
-                    wavePhase = 'steady';
-                }
+                if (reflectedFrontX <= margin) { reflectedFrontX = margin; wavePhase = 'steady'; }
             }
 
-            // Draw Open Pipe (Black and Bold)
             ctx.beginPath();
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 2.5;
-            ctx.moveTo(margin, centerY - pipeHalfHeight);
-            ctx.lineTo(rightBound, centerY - pipeHalfHeight);
-            ctx.moveTo(margin, centerY + pipeHalfHeight);
-            ctx.lineTo(rightBound, centerY + pipeHalfHeight);
+            ctx.strokeStyle = '#000'; ctx.lineWidth = 2.5;
+            ctx.moveTo(margin, centerY - pipeHalfHeight); ctx.lineTo(rightBound, centerY - pipeHalfHeight);
+            ctx.moveTo(margin, centerY + pipeHalfHeight); ctx.lineTo(rightBound, centerY + pipeHalfHeight);
             ctx.stroke();
 
-            // 1. Traveling Wave (Solid Grey)
-            ctx.beginPath();
-            ctx.setLineDash([]);
-            ctx.strokeStyle = '#ddd';
-            ctx.lineWidth = 1.2;
+            ctx.beginPath(); ctx.strokeStyle = '#ddd'; ctx.lineWidth = 1.2;
             for (let x = margin; x <= wavefrontX; x++) {
                 const y = centerY + amp * Math.cos(freq * (x - margin) - waveTime);
-                if (x === margin) ctx.moveTo(x, y);
-                else ctx.lineTo(x, y);
+                if (x === margin) ctx.moveTo(x, y); else ctx.lineTo(x, y);
             }
             ctx.stroke();
 
-            // 2. Reflected Wave (Dotted Grey)
             if (wavePhase !== 'propagating') {
-                ctx.beginPath();
-                ctx.setLineDash([4, 4]);
-                ctx.strokeStyle = '#ccc';
+                ctx.beginPath(); ctx.setLineDash([4, 4]); ctx.strokeStyle = '#ccc';
                 for (let x = rightBound; x >= reflectedFrontX; x--) {
                     const y = centerY + amp * Math.cos(freq * (x - margin) + waveTime);
-                    if (x === rightBound) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
+                    if (x === rightBound) ctx.moveTo(x, y); else ctx.lineTo(x, y);
                 }
-                ctx.stroke();
-                ctx.setLineDash([]);
-            }
-
-            // 3. Standing Wave (Blue Interference)
-            if (wavePhase !== 'propagating') {
-                ctx.beginPath();
-                ctx.strokeStyle = 'rgba(0, 123, 255, 0.7)';
-                ctx.lineWidth = 2.5;
+                ctx.stroke(); ctx.setLineDash([]);
+                
+                ctx.beginPath(); ctx.strokeStyle = 'rgba(0, 123, 255, 0.7)'; ctx.lineWidth = 2.5;
                 for (let x = reflectedFrontX; x <= rightBound; x++) {
                     const y1 = amp * Math.cos(freq * (x - margin) - waveTime);
                     const y2 = amp * Math.cos(freq * (x - margin) + waveTime);
                     const y = centerY + (y1 + y2);
-                    if (x === Math.ceil(reflectedFrontX)) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
+                    if (x === Math.ceil(reflectedFrontX)) ctx.moveTo(x, y); else ctx.lineTo(x, y);
                 }
                 ctx.stroke();
             }
 
-        } else if (isAboutPage) {
-            const a = radius;
-            centerX = w / 2;
-            const groundY = h - 10; 
-            const topY = groundY - 2 * a; 
+        } else if (isProjectsPage) {
+            const plateX = w - 20;
+            const fieldEnd = plateX - 40; 
+            const fieldStart = fieldEnd - 50; 
 
-            px = centerX + xOffset;
+            ctx.fillStyle = 'rgba(100, 100, 100, 0.04)';
+            ctx.fillRect(fieldStart, 5, fieldEnd - fieldStart, h - 10);
+            
+            ctx.beginPath();
+            ctx.moveTo(plateX, 5); ctx.lineTo(plateX, h - 5);
+            ctx.lineWidth = 3; ctx.strokeStyle = '#222'; ctx.stroke();
+
+            particles.forEach((p, idx) => {
+                if (!p.hasHit) {
+                    p.history.push({x: p.x, y: p.y});
+                    if (p.x > fieldStart && p.x < fieldEnd) {
+                        const fieldStrength = 0.016; 
+                        p.vy += fieldStrength * p.charge;
+                    }
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x >= plateX) {
+                        p.x = plateX;
+                        p.hasHit = true;
+                    }
+                    // Off-screen handling
+                    if (p.y > h + 20 || p.y < -20) p.hasHit = true; 
+                } else {
+                    // Start erasing the tail as soon as it hits or goes off screen
+                    if (p.history.length > 0) {
+                        p.history.shift();
+                    } else {
+                        // Once trace is gone, fade out the particle head
+                        p.headOpacity -= 0.1;
+                    }
+                }
+
+                // Draw Path Trace
+                if (p.history.length > 1) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `hsla(${p.hue}, 100%, 50%, 0.45)`;
+                    ctx.lineWidth = 1.6;
+                    ctx.moveTo(p.history[0].x, p.history[0].y);
+                    for(let i=1; i < p.history.length; i++) {
+                        ctx.lineTo(p.history[i].x, p.history[i].y);
+                    }
+                    ctx.stroke();
+                }
+
+                // Draw Particle Head (if it hasn't hit or is still fading)
+                if (p.headOpacity > 0 && p.history.length > 0) {
+                     ctx.beginPath();
+                     ctx.arc(p.x, p.y, 2.4, 0, Math.PI * 2);
+                     ctx.fillStyle = `hsla(${p.hue}, 100%, 50%, ${p.headOpacity})`;
+                     ctx.fill();
+                }
+
+                // Respawn when fully invisible
+                if (p.headOpacity <= 0) {
+                    particles[idx] = createCRTParticle();
+                }
+            });
+
+        } else if (isAboutPage) {
+            const a = radius; centerX = w / 2;
+            const groundY = h - 10; px = centerX + xOffset;
             const yFromBottom = (8 * Math.pow(a, 3)) / (Math.pow(xOffset, 2) + 4 * Math.pow(a, 2));
             py = groundY - yFromBottom;
 
             if (!isErasing) {
                 points.push({x: px, y: py});
                 xOffset += (agnesiSpeed * direction);
-
-                if (xOffset > limit || xOffset < -limit) {
-                    isErasing = true;
-                }
+                if (xOffset > limit || xOffset < -limit) isErasing = true;
             } else {
-                if (points.length > 0) {
-                    points.splice(0, 4); 
-                } else {
-                    direction *= -1;
-                    isErasing = false;
-                }
+                if (points.length > 0) points.splice(0, 4); 
+                else { direction *= -1; isErasing = false; }
             }
         } else {
             centerX = (radius * angle) - radius;
@@ -333,76 +350,39 @@
             }
         }
 
-        // Shared Traced Path Logic
-        if (!isResearchPage && points.length > 1) {
-            ctx.beginPath();
-            ctx.strokeStyle = 'rgba(0, 123, 255, 0.4)';
-            ctx.lineWidth = 2.5;
-            ctx.lineCap = 'round';
+        if (!isResearchPage && !isProjectsPage && points.length > 1) {
+            ctx.beginPath(); ctx.strokeStyle = 'rgba(0, 123, 255, 0.4)';
+            ctx.lineWidth = 2.5; ctx.lineCap = 'round';
             ctx.moveTo(points[0].x, points[0].y);
-            for (let i = 1; i < points.length; i++) {
-                ctx.lineTo(points[i].x, points[i].y);
-            }
+            for (let i = 1; i < points.length; i++) ctx.lineTo(points[i].x, points[i].y);
             ctx.stroke();
         }
 
-        if (!isResearchPage && (isAboutPage || isRolling)) {
+        if (!isResearchPage && !isProjectsPage && (isAboutPage || isRolling)) {
             ctx.lineWidth = 1.2;
             if (isAboutPage) {
-                const a = radius;
-                const groundY = h - 10; 
-                const circleX = w / 2;
-                const circleY = groundY - a;
-                const topY = groundY - 2 * a;
-
-                ctx.beginPath();
-                ctx.moveTo(centerX - limit, topY); 
-                ctx.lineTo(centerX + limit, topY);
-                ctx.strokeStyle = '#eee';
-                ctx.stroke();
-
-                ctx.beginPath();
-                ctx.arc(circleX, circleY, a, 0, Math.PI * 2);
-                ctx.strokeStyle = '#444';
-                ctx.stroke();
-
+                const a = radius, groundY = h - 10, circleX = w / 2, circleY = groundY - a, topY = groundY - 2 * a;
+                ctx.beginPath(); ctx.moveTo(centerX - limit, topY); ctx.lineTo(centerX + limit, topY);
+                ctx.strokeStyle = '#eee'; ctx.stroke();
+                ctx.beginPath(); ctx.arc(circleX, circleY, a, 0, Math.PI * 2);
+                ctx.strokeStyle = '#444'; ctx.stroke();
                 const yFromBottom = groundY - py;
                 const intersectionX = circleX + (yFromBottom * (xOffset / (2 * a)));
-
-                ctx.setLineDash([2, 2]);
-                ctx.strokeStyle = '#bbb';
-                ctx.beginPath();
-                ctx.moveTo(circleX, groundY);
-                ctx.lineTo(px, topY);
-                ctx.stroke();
-
-                ctx.strokeStyle = '#28a745';
-                ctx.beginPath();
-                ctx.moveTo(px, py); ctx.lineTo(px, topY); 
-                ctx.moveTo(px, py); ctx.lineTo(intersectionX, py); 
-                ctx.stroke();
-                ctx.setLineDash([]);
-
-                ctx.beginPath();
-                ctx.arc(intersectionX, py, 3, 0, Math.PI * 2);
-                ctx.fillStyle = '#888';
-                ctx.fill();
-
+                ctx.setLineDash([2, 2]); ctx.strokeStyle = '#bbb';
+                ctx.beginPath(); ctx.moveTo(circleX, groundY); ctx.lineTo(px, topY); ctx.stroke();
+                ctx.strokeStyle = '#28a745'; ctx.beginPath();
+                ctx.moveTo(px, py); ctx.lineTo(px, topY); ctx.moveTo(px, py); ctx.lineTo(intersectionX, py); ctx.stroke();
+                ctx.setLineDash([]); ctx.beginPath(); ctx.arc(intersectionX, py, 3, 0, Math.PI * 2);
+                ctx.fillStyle = '#888'; ctx.fill();
             } else {
-                ctx.beginPath();
-                ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+                ctx.beginPath(); ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
                 ctx.strokeStyle = '#444'; ctx.stroke();
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY); ctx.lineTo(px, py);
+                ctx.beginPath(); ctx.moveTo(centerX, centerY); ctx.lineTo(px, py);
                 ctx.strokeStyle = '#bbb'; ctx.stroke();
             }
-
-            ctx.beginPath();
-            ctx.arc(px, py, 4, 0, Math.PI * 2);
-            ctx.fillStyle = '#007bff';
-            ctx.fill();
+            ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#007bff'; ctx.fill();
         }
-
         requestAnimationFrame(draw);
     }
     draw();
@@ -900,7 +880,7 @@
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-01-16 10:52 EST</p>
+            <p>Last Updated: 2026-01-16 11:31 EST</p>
         </div>
     </div>
 
