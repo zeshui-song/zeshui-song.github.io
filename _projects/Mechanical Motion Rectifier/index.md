@@ -10,7 +10,7 @@ description:  Design a system that turns a variable-speed rotational input into 
 skills:
   - Iterative Design & Prototyping
   - FDM 3D Printing
-  - Onshape CAD
+  - CAD (Onshape)
   - Pulley & Bevel Gear Design
   - Archimedes Screw & Fluid Systems
   - 3D Printing Tolerancing

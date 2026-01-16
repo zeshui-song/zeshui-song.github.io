@@ -48,7 +48,13 @@
                             {% endfor %}
                         </div>
                         
-                        <p class="project-description">{{ item.description }}</p>
+                        {% comment %} 
+                           Markdownify processes the link, and strip_html removes the <a> tag 
+                           to prevent breaking the master <a> link of the card.
+                        {% endcomment %}
+                        <p class="project-description">
+                            {{ item.description | markdownify | strip_html }}
+                        </p>
                         
                         <button class="read-more">Read more →</button>
                     </div>
