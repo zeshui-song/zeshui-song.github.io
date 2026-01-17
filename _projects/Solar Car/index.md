@@ -71,7 +71,35 @@ Following the Kogakuin design direction, we established a three-wheel configurat
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Car.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Sus.png" height="300"%}
 </div>
 
-## 
+<small><em>Initial visualization of front steering geometry.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Steering%201.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Steering.png" height="300"%}
+</div>
+
+
+## Chassis and Roll Cage
+The frame was designed to be safe and fully regulation-compliant, capable of passing the Advanced Division’s scrutineering requirements. Multiple tube-frame iterations were explored before converging on a simplified chromoly steel frame to optimize strength-to-weight ratio and weldability. In accordance with safety regulations, the roll cage was designed with a minimum outside diameter of 1.9 cm and maintained a 5 cm safety clearance envelope around the driver. The main roll bar was specified as a single-piece 5 cm diameter tube with a 1.0 mm wall thickness, welded directly to the frame.
+
+<small><em>Iteration 1: Preliminary full-scale draft that exposed major compliance issues, including a multi-piece welded roll bar instead of a single continuous tube, poorly defined driver space, and an undefined 5 cm safety envelope.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/V1.png" height="300"%}
+</div>
+
+<small><em>Iteration 2: Tube frame revision with a stabilized overall shape, but bulkhead dimensions remained overly wide, adding unnecessary mass and limiting driver-side entry; this prompted narrowing the track width toward 0.7 m.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/V2.png" height="300"%}
+</div>
+
+<small><em>Iteration 3: Frame layout adjusted to accommodate battery box and Omni Powertrain motor mounting points, with a simplified structure, uniform front driver compartment width, an overall length set to 3.5 m, and an enlarged rear compartment based on manufacturer CAD.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/V3.1.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/V3.png" height="300"%}
+</div>
+
+<small><em>Iteration 4: Simplified frame design to reduce weight and cost by removing redundant cross members identified through finite element analysis, improving structural efficiency without unnecessary complexity.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Final.png" height="300"%}
+</div>
+
 
 # My Role and Reflections 
 My primary responsibility was the founding and high-level management of the organization. I spent significant time learning advanced engineering topics independently so I could effectively teach and lead the team. A major turning point was transitioning from a centralized management style to a delegated leadership model, giving division leads autonomy over their technical domains. This allowed me to focus on overcoming massive administrative hurdles, such as a 10-month search for a teacher advisor. The project eventually faced insurmountable logistical constraints. Following the pandemic, my transition to homeschooling created a communication gap while the team returned to in-person instruction, significantly slowing progress. Furthermore, despite our success in securing thousands of dollars in sponsored materials, we lacked the physical space at the school to store components or begin full-scale fabrication. These challenges ultimately led to the project's conclusion after my sophomore year. This experience taught me that engineering success is not just about technical data, but also about managing the physical and logistical infrastructure required to bring a vision to life.
