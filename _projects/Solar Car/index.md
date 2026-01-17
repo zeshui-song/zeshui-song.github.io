@@ -9,7 +9,7 @@ project_logo: "_projects/Solar Car/logooo.png"
 layout: post
 title: "BTHS Solar Car Team"
 description: >
-  In June 2020, I founded the first-ever solar car team at Brooklyn Technical High School. Over one year, I built a multidisciplinary organization of over 30 members to design and engineer a roadworthy solar vehicle from the ground up to race at the <a href="https://www.solarcarchallenge.org/challenge/" target="_blank" class="inline-link">Solar Car Challenge</a>. The project involved securing over $30,000 in technical sponsorships, forming a partnership with a 501(c)(3) nonprofit, and both learning and teaching core technical concepts within a student-led engineering team.
+  Over the course of one year, I led the formation of a student-run solar car program, coordinating a team of 30+ members across mechanical, electrical, programming, and operations divisions. The work focused on translating high-level competition requirements into viable engineering systems, building external industry and nonprofit partnerships, and developing internal structures for peer-led technical learning. As a team, we secured over $30,000 in technical sponsorships and established a 501(c)(3) partnership to support long-term funding and operations.
 skills: 
   - Project Management & Leadership
   - CAD (Autodesk Inventor)
@@ -22,8 +22,20 @@ skills:
 
 main-image: /Team - Copy.png
 ---
-**Core Team Members:** Zeshui Song (Founder/Executive Lead), Simon Gura (Operations Lead), Jacob Koziej (Technical Lead)<br>
+**Core Team Members:** Zeshui Song (Founder/Team Captain), Simon Gura (Operations Lead), Jacob Koziej (Technical Lead)<br>
 **Duration:** June 2020 - July 2021
 
 ---
-# How it Works
+# Project Overview
+In June 2020, I founded the first-ever Solar Car Team at Brooklyn Technical High School during the height of the COVID-19 pandemic. The goal was to build a multidisciplinary, student-led engineering organization capable of designing and eventually racing a road-legal solar electric vehicle in the <a href="https://www.solarcarchallenge.org/challenge/" target="_blank" class="inline-link">Solar Car Challenge</a>, while using the project as a opportunity to gain hands-on experience and knowledge in engineering.
+
+Starting as an incoming freshman without access to school facilities, I led the formation of a 36-member, student-run engineering team organized into four technical and operational divisions: Mechanical, Electrical, Programming (Telemetry), and Operations. We established a strategic partnership with the Staten Island Green Technology Club (501(c)(3)) and built a robust technical advisory network by securing mentorship from collegiate solar car teams at MIT, the University of Toronto, the University of Michigan, and the University of Illinois to guide engineering decisions and systems design.
+
+# Team & Division Structure
+To manage complexity and enable parallel progress, the team was reorganized into four semi-autonomous divisions, each led by student division heads and coordinated through weekly executive meetings.
+<br><br>
+**Mechanical:** Chassis, suspension, aerodynamics, and structural safety
+
+
+# My Role and Reflections 
+My primary responsibility was the founding and high-level management of the organization. I spent significant time learning advanced engineering topics independently so I could effectively teach and lead the team. A major turning point was transitioning from a centralized management style to a delegated leadership model, giving division leads autonomy over their technical domains. This allowed me to focus on overcoming massive administrative hurdles, such as a 10-month search for a teacher advisor. The project eventually faced insurmountable logistical constraints. Following the pandemic, my transition to homeschooling created a communication gap while the team returned to in-person instruction, significantly slowing progress. Furthermore, despite our success in securing thousands of dollars in sponsored materials, we lacked the physical space at the school to store components or begin full-scale fabrication. These challenges ultimately led to the project's conclusion after my sophomore year. This experience taught me that engineering success is not just about technical data, but also about managing the physical and logistical infrastructure required to bring a vision to life.
