@@ -9,7 +9,7 @@ project_logo: "_projects/Solar Car/logooo.png"
 layout: post
 title: "BTHS Solar Car Team"
 description: >
-  Over the course of one year, I led the formation of a student-run solar car program, coordinating a team of 30+ members across mechanical, electrical, programming, and operations divisions. The work focused on translating high-level competition requirements into viable engineering systems, building external industry and nonprofit partnerships, and developing internal structures for peer-led technical learning. As a team, we secured over $30,000 in technical sponsorships and established a 501(c)(3) partnership to support long-term funding and operations.
+  Over the course of my freshman year, I led the formation of a student-run solar car program, coordinating a team of 30+ members across mechanical, electrical, programming, and operations divisions. The work focused on translating high-level competition requirements into viable engineering systems, building external industry and nonprofit partnerships, and developing internal structures for peer-led technical learning. As a team, we secured over $30,000 in technical sponsorships and established a 501(c)(3) partnership to support long-term funding and operations.
 skills: 
   - Project Management & Leadership
   - CAD (Autodesk Inventor)
