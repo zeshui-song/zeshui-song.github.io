@@ -65,7 +65,7 @@ We wanted our design to prioritize maximizing solar array area while maintaining
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Mich.jpg, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Mich1.jpg" height="300"%}
 </div>
 
-<small><em>First iteration of aero shell.</em></small>
+<small><em>First iteration of aero shell (by Stanley).</em></small>
 <div style="width: fit-content; margin: 0 auto;">
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Shell%201.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Shell%201.1.png" height="300"%}
 </div>
@@ -112,7 +112,7 @@ Following the Kogakuin design direction, we established a three-wheel configurat
 ## Chassis and Roll Cage
 The frame was designed to be safe and fully regulation-compliant, capable of passing the Advanced Division’s scrutineering requirements. Multiple tube-frame iterations were explored before converging on a simplified chromoly steel frame to optimize strength-to-weight ratio and weldability. In accordance with safety regulations, the roll cage was designed with a minimum outside diameter of 1.9 cm and maintained a 5 cm safety clearance envelope around the driver. The main roll bar was specified as a single-piece 5 cm diameter tube with a 1.0 mm wall thickness, welded directly to the frame.
 
-<small><em>Iteration 1: Preliminary full-scale draft that exposed major compliance issues, including a multi-piece welded roll bar instead of a single continuous tube, poorly defined driver space, and an undefined 5 cm safety envelope.</em></small>
+<small><em>Iteration 1 (by Nikita): Preliminary full-scale draft that exposed major compliance issues, including a multi-piece welded roll bar instead of a single continuous tube, poorly defined driver space, and an undefined 5 cm safety envelope.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/V1.png" height="300"%}
 </div>
