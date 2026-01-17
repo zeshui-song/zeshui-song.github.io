@@ -34,7 +34,7 @@ In June 2020, I founded the first-ever Solar Car Team at Brooklyn Technical High
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/scc2025_orig.jpg" height="500"%}
 </div>
 
-Starting as an incoming freshman without access to school facilities, I led the formation of a 36-member, student-run engineering team organized into four technical and operational divisions: Mechanical, Electrical, Programming (Telemetry), and Operations. We established a strategic partnership with the Staten Island Green Technology Club (501(c)(3)) and built a robust technical advisory network by securing mentorship from collegiate solar car teams at MIT, the University of Toronto, the University of Michigan, and the University of Illinois to guide engineering decisions and systems design.
+Starting as an incoming freshman without access to school facilities, I led the formation of a 36-member, student-run engineering team organized into four technical and operational divisions: Mechanical, Electrical, Programming (Telemetry), and Operations. We established a strategic partnership with the Staten Island Green Technology Club (501(c)(3)) and built a robust technical advisory network by securing mentorship from collegiate solar car teams at MIT, the University of Toronto, the University of Michigan, and the University of Illinois, as well as seeking advice from other high school teams, including Staten Island Solar and Okemos, to guide engineering decisions and systems design.
 <br><br>
 As Team Captain, I was responsible for coordinating work across mechanical, electrical, and software subteams while contributing directly to design and iterative development throughout the project. I participated hands-on in CAD development, simulation, electrical system planning, and telemetry system planning, while leading design reviews and guiding system-level integration decisions. This role required balancing technical trade-offs across disciplines, aligning team efforts with competition requirements, and developing broad working knowledge across systems to understand the bigger picture and ensure cohesive vehicle integration.
 
@@ -146,6 +146,40 @@ In parallel, the team collaborated with Omni Powertrain to customize a Motor Gen
 To ensure that the motor would perform under race conditions, we defined a target cruise speed of 49 mph and a maximum speed of 53 mph, with the ability to handle a 6% gradient. The electrical interface was designed for a 1:1 direct-drive axle ratio using 17-inch wheels (0.25m rolling radius). A critical part of this integration was matching the motor controller to our battery's voltage swing, specifically targeting a nominal 100.8V with an operating range between 75.6V and 117.6V. Additionally, we also ensured the hub motor was compatible with our rear suspension.
 
 ## Battery Pack Design
+To optimize the weight-to-power ratio, we chose to design and build a custom DIY lithium-ion battery pack rather than purchasing a pre-made unit. Pre-made packs were rejected due to their excessive mass and rigid form factors that did not fit our streamlined chassis. The proposed configuration specified Panasonic NCR18650GA cells (3.6 V, 3500 mAh), with approximately 400 cells arranged to achieve a nominal 96 V, 52 Ah output. Design work focused on series–parallel configurations, battery enclosure geometry, and space allocation within the chassis. The team also began investigating spot-welding techniques, modular pack architectures, and battery safety practices. Commercial Battery Management Systems were evaluated, with Orion BMS identified as a strong candidate due to its CAN bus communication protocol, which allows compatibility with future telemetry integration. Thermal studies on the battery pack produced mixed results: while simulations ran successfully, temperatures were higher than desired, likely due to restricted airflow or incomplete data on the thermal output of individual cells.
+
+<small><em>Battery pack schematic draft.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Battery%20Schem.png" height="300"%}
+</div>
+
+<small><em>Initial sketch for battery box placement and cooling system.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Initial%20cooling%20plan.png" height="300"%}
+</div>
+
+<small><em>Revised battery pack placement for lower center of mass and more compact.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Battery%20Placement.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/0.png" height="300"%}
+</div>
+
+<small><em>Revised battery pack cooling system, with side inlets and back exhaust.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Battery%20Box%20Ext.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Battery%20Box.png" height="300"%}
+</div>
+
+<small><em>Initial battery pack thermal simulations in SimScale showed that the pack center overheated tremendously, potentially due to incorrect fan speed or inaccurate cell thermal output inputs.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Battery%20Sim.png" height="300"%}
+</div>
+
+## Solar Array
+Solar array design focused on minimizing electrical losses and system mass while maintaining flexibility during early vehicle layout. We opted for Sunpower cells (sourced via SBM Solar), known for their high efficiency. To manage power conversion, we selected AERL RaceMax 600B Maximum Power Point Trackers (MPPTs). A key learning from our research was the necessity of these trackers to prevent the lowest-current cell bottleneck; without them, shaded panels could force the entire array output down to match the battery voltage, resulting in a loss of over 400 watts. To further reduce mass and resistance, we replaced standard MC4 connectors with direct soldered interconnects.
+
+## Wiring Standards and Traceability
+During technical scrutineering, every wire needed to be traceable from start to finish. To ensure this, we plan to document all electrical systems in KiCAD and adopt a standard wire color code: red for positive, black or blue for negative, and grey for ground.
+
+# 
 
 # My Role and Reflections 
 My primary responsibility was the founding and high-level management of the organization. I spent significant time learning advanced engineering topics independently so I could effectively teach and lead the team. A major turning point was transitioning from a centralized management style to a delegated leadership model, giving division leads autonomy over their technical domains. This allowed me to focus on overcoming massive administrative hurdles, such as a 10-month search for a teacher advisor. The project eventually faced insurmountable logistical constraints. Following the pandemic, my transition to homeschooling created a communication gap while the team returned to in-person instruction, significantly slowing progress. Furthermore, despite our success in securing thousands of dollars in sponsored materials, we lacked the physical space at the school to store components or begin full-scale fabrication. These challenges ultimately led to the project's conclusion after my sophomore year. This experience taught me that engineering success is not just about technical data, but also about managing the physical and logistical infrastructure required to bring a vision to life.
