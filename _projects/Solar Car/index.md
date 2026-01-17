@@ -63,6 +63,16 @@ We wanted our design to prioritize maximizing solar array area while maintaining
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Mich.jpg, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Mich1.jpg" height="300"%}
 </div>
 
+<small><em>First iteration of aero shell.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Shell%201.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Shell%201.1.png" height="300"%}
+</div>
+
+<small><em>Next iteration of aero shell with CFD visualization.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/111.png, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Prius.gif" height="300"%}
+</div>
+
 ## Vehicle Architecture
 Following the Kogakuin design direction, we established a three-wheel configuration with two front wheels and one rear wheel, an overall length of approximately 3.5 m, and an overall width of about 1.0 m. Stability was prioritized through the largest feasible wheelbase and a 0.7 m track width. The vehicle uses 18-inch front wheels and a 17-inch rear driven motorcycle wheel to optimize the balance between rolling resistance and traction. The suspension system was designed with a double wishbone (double A-arm) front suspension and a swing arm rear suspension. A forward steering system was implemented with a steering radius adjustable via ball joint end rods, while braking is handled by hydraulic disc brakes mounted on the forward wheels. 
 
