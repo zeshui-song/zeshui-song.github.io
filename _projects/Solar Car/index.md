@@ -132,6 +132,14 @@ The frame was designed to be safe and fully regulation-compliant, capable of pas
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Final.png" height="300"%}
 </div>
 
+# Electrical Division
+The electrical division focused on developing a first-generation, competition-ready electrical system covering the motor, battery, solar array, and supporting electronics. With limited access to hardware during the pandemic, the team focused on deciding how power would flow through the car, comparing and selecting key components, and planning how all parts would connect and fit together, using guidance from established solar car teams like MIT and the University of Toronto.
+
+## System Voltage and Architecture
+A foundational decision for the vehicle was the selection of a 96 V system targeting approximately 52 Ah, corresponding to a total energy capacity of roughly 5 kWh. University of Toronto confirmed that operating at this energy scale was feasible, and MIT shared that their current vehicle operates at a higher voltage of 120 V at a similar total energy capacity, reinforcing that higher-voltage architectures are viable but introduce additional insulation, safety, and compliance complexity. Given the team’s experience level and emphasis on reliability and safety, the 96 V configuration was selected.
+
+## Motor Selection
+
 
 # My Role and Reflections 
 My primary responsibility was the founding and high-level management of the organization. I spent significant time learning advanced engineering topics independently so I could effectively teach and lead the team. A major turning point was transitioning from a centralized management style to a delegated leadership model, giving division leads autonomy over their technical domains. This allowed me to focus on overcoming massive administrative hurdles, such as a 10-month search for a teacher advisor. The project eventually faced insurmountable logistical constraints. Following the pandemic, my transition to homeschooling created a communication gap while the team returned to in-person instruction, significantly slowing progress. Furthermore, despite our success in securing thousands of dollars in sponsored materials, we lacked the physical space at the school to store components or begin full-scale fabrication. These challenges ultimately led to the project's conclusion after my sophomore year. This experience taught me that engineering success is not just about technical data, but also about managing the physical and logistical infrastructure required to bring a vision to life.
