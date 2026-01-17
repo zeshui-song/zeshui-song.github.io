@@ -52,10 +52,18 @@ The mechanical division focused on deepening our understanding of solar car desi
 
 <small><em>Kogakuin University's 2017 solar car, named Wing. Images from <a href="https://www.kogakuin.ac.jp/solar/cars.html" target="_blank">Kogakuin University</a> </em></small>
 <div style="width: fit-content; margin: 0 auto;">
-  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Kogakuin.jpg" height="400"%}
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Kogakuin.jpg" height="300"%}
 </div>
 <div style="width: fit-content; margin: 0 auto;">
-  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Kogakuin1.jpg" height="400"%}
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Kogakuin1.jpg" height="300"%}
+</div>
+
+## Aerodynamic Shell (Aero-shell) Design
+We wanted our design to prioritize maximizing solar array area while maintaining aerodynamic stability within regulations. Two design directions were considered: a bullet design based on the University of Michigan’s 2017 solar car, Novum, and Kogakuin University’s 2017 solar car. Through a team-wide debate, we decided that although the bullet design offered strong aerodynamic performance, it constrained array dimensions, requiring us to be highly efficient with energy losses, and expanding it would have negated its aerodynamic advantages. We ultimately based the design on the Kogakuin architecture, which allowed us to fully maximize array area while allowing us greater flexibility with chassis and suspension design.
+
+<small><em>University of Michigan's 2017 solar car, Novum. Images from <a href="https://www.flickr.com/people/umsolar/" target="_blank">University of Michigan</a> </em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Mich.jpg, https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Mich1.jpg" height="300"%}
 </div>
 
 # My Role and Reflections 
