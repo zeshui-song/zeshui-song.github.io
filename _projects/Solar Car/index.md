@@ -135,6 +135,7 @@ The frame was designed to be safe and fully regulation-compliant, capable of pas
 </div>
 
  <a href="https://bths285.autodesk360.com/g/shares/SH9285eQTcf875d3c5395ee211870bbe7d80" target="_blank">CAD of the shell and chassis (click to hide the shell and view the chassis)</a>
+ 
 ---
 
 # Electrical Division
