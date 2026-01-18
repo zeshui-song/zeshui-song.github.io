@@ -151,8 +151,12 @@
     const isResearchPage = window.location.pathname.includes('/research/');
     const isProjectsPage = window.location.pathname.includes('/projects/');
 
+    // Random choice for Projects page: 'crt' or 'fourier'
+    const projectChoice = Math.random() < 0.5 ? 'crt' : 'fourier';
+
     let angle = 0, xOffset = 0, direction = 1, isErasing = false;
     let waveTime = 0, wavefrontX = 0, reflectedFrontX = 0, wavePhase = 'propagating';
+    let fourierTime = 0, fourierPath = [];
     let particles = [];
     const numParticles = 8;
     const radius = 14, armLength = 22, speed = 0.05, agnesiSpeed = 0.8; 
@@ -193,10 +197,12 @@
         ctx.scale(dpr, dpr);
         centerY = h / 2; 
         points = [];
+        fourierPath = [];
         angle = 0;
         xOffset = -(w * 0.45);
         direction = 1; isErasing = false; isRolling = true;
-        wavefrontX = 40; reflectedFrontX = w - 40; wavePhase = 'propagating';
+        // Adjusted wavefront to start at the new margin (10)
+        wavefrontX = 10; reflectedFrontX = w - 10; wavePhase = 'propagating';
         particles = Array.from({ length: numParticles }, createCRTParticle);
     }
 
@@ -215,7 +221,8 @@
 
         if (isResearchPage) {
             waveTime += 0.05;
-            const margin = 40, rightBound = w - margin, propSpeed = 2.5;
+            // Moved margin to 10 for a more "left-extended" look
+            const margin = 10, rightBound = w - margin, propSpeed = 2.5;
             const pipeHalfHeight = 25, amp = 12, L = rightBound - margin, freq = (2 * Math.PI) / (L / 2);
 
             if (wavePhase === 'propagating') {
@@ -257,7 +264,7 @@
                 ctx.stroke();
             }
 
-        } else if (isProjectsPage) {
+        } else if (isProjectsPage && projectChoice === 'crt') {
             const plateX = w - 20;
             const fieldEnd = plateX - 40; 
             const fieldStart = fieldEnd - 50; 
@@ -283,19 +290,15 @@
                         p.x = plateX;
                         p.hasHit = true;
                     }
-                    // Off-screen handling
                     if (p.y > h + 20 || p.y < -20) p.hasHit = true; 
                 } else {
-                    // Start erasing the tail as soon as it hits or goes off screen
                     if (p.history.length > 0) {
                         p.history.shift();
                     } else {
-                        // Once trace is gone, fade out the particle head
                         p.headOpacity -= 0.1;
                     }
                 }
 
-                // Draw Path Trace
                 if (p.history.length > 1) {
                     ctx.beginPath();
                     ctx.strokeStyle = `hsla(${p.hue}, 100%, 50%, 0.45)`;
@@ -307,7 +310,6 @@
                     ctx.stroke();
                 }
 
-                // Draw Particle Head (if it hasn't hit or is still fading)
                 if (p.headOpacity > 0 && p.history.length > 0) {
                      ctx.beginPath();
                      ctx.arc(p.x, p.y, 2.4, 0, Math.PI * 2);
@@ -315,13 +317,50 @@
                      ctx.fill();
                 }
 
-                // Respawn when fully invisible
                 if (p.headOpacity <= 0) {
                     particles[idx] = createCRTParticle();
                 }
             });
 
+        } else if (isProjectsPage && projectChoice === 'fourier') {
+            // --- FOURIER SERIES ---
+            fourierTime += 0.03;
+            // Shifted fx to 45 so the circles start closer to the left edge
+            let fx = 45, fy = centerY;
+            const pathStartPoint = 100;
+
+            ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+            for (let i = 0; i < 4; i++) {
+                let prevX = fx, prevY = fy;
+                let n = i * 2 + 1;
+                let radiusVal = 18 * (4 / (n * Math.PI));
+                fx += radiusVal * Math.cos(n * fourierTime);
+                fy += radiusVal * Math.sin(n * fourierTime);
+
+                ctx.beginPath();
+                ctx.arc(prevX, prevY, radiusVal, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(prevX, prevY);
+                ctx.lineTo(fx, fy);
+                ctx.stroke();
+            }
+
+            fourierPath.unshift(fy);
+            if (fourierPath.length > w - pathStartPoint) fourierPath.pop();
+
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(0, 123, 255, 0.7)';
+            ctx.lineWidth = 2;
+            ctx.moveTo(fx, fy);
+            ctx.lineTo(pathStartPoint, fourierPath[0]);
+            for (let i = 0; i < fourierPath.length; i++) {
+                ctx.lineTo(pathStartPoint + i, fourierPath[i]);
+            }
+            ctx.stroke();
+
         } else if (isAboutPage) {
+            // --- WITCH OF MARIA AGNESI ---
             const a = radius; centerX = w / 2;
             const groundY = h - 10; px = centerX + xOffset;
             const yFromBottom = (8 * Math.pow(a, 3)) / (Math.pow(xOffset, 2) + 4 * Math.pow(a, 2));
@@ -336,6 +375,7 @@
                 else { direction *= -1; isErasing = false; }
             }
         } else {
+            // --- CYCLOID (Home) ---
             centerX = (radius * angle) - radius;
             px = centerX - armLength * Math.sin(angle);
             py = centerY + armLength * Math.cos(angle);
@@ -350,7 +390,8 @@
             }
         }
 
-        if (!isResearchPage && !isProjectsPage && points.length > 1) {
+        // Shared drawing logic
+        if (!isResearchPage && !isProjectsPage && points.length > 1 || (isAboutPage && points.length > 1)) {
             ctx.beginPath(); ctx.strokeStyle = 'rgba(0, 123, 255, 0.4)';
             ctx.lineWidth = 2.5; ctx.lineCap = 'round';
             ctx.moveTo(points[0].x, points[0].y);
@@ -521,7 +562,7 @@
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-01-18 10:41 EST</p>
+            <p>Last Updated: 2026-01-18 13:01 EST</p>
         </div>
     </div>
 

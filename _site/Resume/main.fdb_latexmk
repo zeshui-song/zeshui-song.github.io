@@ -1,7 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1768088436.49381 "c:/Users/zsong/Desktop/zeshui-song.github.io/Resume/main.tex" "main.pdf" "main" 1768088437.16601 0
+["pdflatex"] 1768751529.10192 "c:/Users/zsong/Desktop/zeshui-song.github.io/Resume/main.tex" "main.pdf" "main" 1768751529.74254 0
   "C:/Users/zsong/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768086119 80937 91001db6d4ae332437b4b739862cda02 ""
+  "C:/Users/zsong/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1759836066 11548 baaa13199b628aa9d9a6f4d7312163cb ""
   "C:/Users/zsong/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1758289211 24225046 93fab31cee048cd2ef0f58bac36106e4 ""
+  "C:/Users/zsong/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Users/zsong/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/zsong/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "C:/Users/zsong/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmcsc10.tfm" 1136765053 1300 63a6111ee6274895728663cf4b4e7e81 ""
@@ -85,10 +87,10 @@
   "C:/Users/zsong/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1700599895 7147 d45559f8a31b8c53ada0640516660003 ""
   "C:/Users/zsong/AppData/Local/Programs/MiKTeX/tex/latex/tools/verbatim.sty" 1700599895 7500 db31c3d04f8bc9010e47a5efbbace9ff ""
   "C:/Users/zsong/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/zsong/Desktop/zeshui-song.github.io/Resume/main.tex" 1768088435 7956 9a6f66c8759fe9808d18d685c2931f59 ""
-  "main.aux" 1768088437 685 3a1c0c53a4b3ed5b089f73babbff2afc "pdflatex"
-  "main.out" 1768088437 454 a637379c1c2b68b5aee565a447edd0f7 "pdflatex"
-  "main.tex" 1768088435 7956 9a6f66c8759fe9808d18d685c2931f59 ""
+  "c:/Users/zsong/Desktop/zeshui-song.github.io/Resume/main.tex" 1768751528 8406 ecd314b9199818362e6c68ee3dd8de33 ""
+  "main.aux" 1768751529 685 3a1c0c53a4b3ed5b089f73babbff2afc "pdflatex"
+  "main.out" 1768751529 454 a637379c1c2b68b5aee565a447edd0f7 "pdflatex"
+  "main.tex" 1768751528 8406 ecd314b9199818362e6c68ee3dd8de33 ""
   (generated)
   "main.aux"
   "main.log"
