@@ -307,6 +307,7 @@ Division leads were given autonomy to structure and teach within their own divis
 Education was reinforced through a lightweight but consistent meeting schedule. Weekly technical meetings were used to align on goals, break down upcoming work, and connect learners to active projects. Short bi-weekly documentation check-ins ensured that design decisions, progress, and lessons learned were captured accurately. All technical documentation, code, and CAD were tracked through GitHub, though we ended up using Google Drive mostly, making version control and written explanations a core part of the learning process rather than an afterthought.
 <br><br>
 Together, this structure allowed the team to transition from a group of mostly inexperienced members into a functional, multidisciplinary engineering team while maintaining clarity, accountability, and long-term knowledge retention.
+
 ---
 
 # Reflections 
