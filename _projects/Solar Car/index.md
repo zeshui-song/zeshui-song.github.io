@@ -279,8 +279,42 @@ To maintain public engagement and transparency with sponsors, the division manag
 ---
 
 # Education
+As we built the team during the pandemic with limited access to hardware and little prior solar car experience, the importance of a structured education system quickly emerged. Early on, there was no clear separation between learning and leading. Many of us were still figuring out how the car worked while trying to organize others around it, which made progress slow and unfocused. To address this, we formalized education as part of the team’s core structure rather than treating it as an independent requirement.
 
+## Learner–Worker Model
+The team implemented a formal hierarchy based on technical experience rather than age or grade level. Workers are the more experienced members who were responsible for guiding system-level work and mentoring newer members in a big/little sib model, with an emphasis on explaining both the implementation and the reasoning behind key design decisions. Learners are newer members who contributed in parallel on active engineering tasks and were specifically tasked with documenting technical work in Markdown and tracking it through Git. By embedding documentation and mentorship directly into live development, learning occurred through production work itself rather than alongside it.
+<br><br>
+Knowledge transfer was reinforced through small, standardized internal projects before learners touched vehicle-critical systems. For example, the mechanical division used a tire and rim CAD exercise to assess 3D modeling skills, while the electrical division ran onboarding circuitry labs involving logic gates, LEDs, and buttons to introduce KiCad and basic circuit design. Foundational concepts such as Ohm’s Law and series/parallel behavior were taught using virtual simulations before any hardware work began.
+
+<small><em>Cover slide for sponsor proposals and team introduction</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Slideshow%20cover.png" height="300"%}
+</div>
+
+Division leads were given autonomy to structure and teach within their own teams, shifting education from top-down instruction to peer-driven mentorship. Over time, learners transitioned into workers by taking ownership of subsystems themselves, creating a sustainable pipeline for technical growth and leadership.
+
+## Meeting and Documentation Structure
+Education was reinforced through a lightweight but consistent meeting schedule. Weekly technical meetings were used to align on goals, break down upcoming work, and connect learners to active projects. Short bi-weekly documentation check-ins ensured that design decisions, progress, and lessons learned were captured accurately. All technical documentation, code, and CAD were tracked through GitHub, though we ended up using Google Drive mostly, making version control and written explanations a core part of the learning process rather than an afterthought.
+<br><br>
+Together, this structure allowed the team to transition from a group of mostly inexperienced members into a functional, multidisciplinary engineering team while maintaining clarity, accountability, and long-term knowledge retention.
 ---
 
 # My Role and Reflections 
 My primary responsibility was the founding and high-level management of the organization. I spent significant time learning advanced engineering topics independently so I could effectively teach and lead the team. A major turning point was transitioning from a centralized management style to a delegated leadership model, giving division leads autonomy over their technical domains. This allowed me to focus on overcoming massive administrative hurdles, such as a 10-month search for a teacher advisor. The project eventually faced insurmountable logistical constraints. Following the pandemic, my transition to homeschooling created a communication gap while the team returned to in-person instruction, significantly slowing progress. Furthermore, despite our success in securing thousands of dollars in sponsored materials, we lacked the physical space at the school to store components or begin full-scale fabrication. These challenges ultimately led to the project's conclusion after my sophomore year. This experience taught me that engineering success is not just about technical data, but also about managing the physical and logistical infrastructure required to bring a vision to life.
+
+## Extra
+
+<small><em>First team photo during the COVID pandemic in early 2021.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Team.png" height="400"%}
+</div>
+
+<small><em>Second team photo after in person instruction resumed in early 2022.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/image0.jpg" height="400"%}
+</div>
+
+<small><em>Measuring driver size and clearances.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/IMG_8343.jpg" height="400"%}
+</div>
