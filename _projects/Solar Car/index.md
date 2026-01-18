@@ -309,7 +309,7 @@ Education was reinforced through a lightweight but consistent meeting schedule. 
 Together, this structure allowed the team to transition from a group of mostly inexperienced members into a functional, multidisciplinary engineering team while maintaining clarity, accountability, and long-term knowledge retention.
 ---
 
-# My Role and Reflections 
+# Reflections 
 Looking back, I began this project with big ambition but limited technical and leadership experience. Many teammates shared that motivation but lacked the skills for a project of this scale, so we started from scratch. Early successes came from reaching out to experienced mentors and teams, even securing a potential car donation within the first month, though rules later prevented us from racing it. This momentum helped the team grow from 15 to nearly 40 members.
 <br><br>
 Growth brought challenges. Coordinating such a large group was difficult, and progress often fell to the few members who would later become division leads. Our second major breakthrough was restructuring: I, Simon, and Jacob took executive roles to guide team-level decisions, while autonomous mechanical, electrical, programming, and operations divisions allowed work to proceed in parallel. This boosted both technical progress and morale, enabling decisive design choices in chassis architecture, powertrain configuration, and telemetry strategy. I realized I tended to micromanage out of curiosity, but the new structure empowered division leads to take ownership. I could still contribute to projects I was passionate about, such as suspension and steering, battery pack development, and CFD and thermal simulations, while maintaining a high-level understanding of every subsystem. 
