@@ -179,7 +179,27 @@ Solar array design focused on minimizing electrical losses and system mass while
 ## Wiring Standards and Traceability
 During technical scrutineering, every wire needed to be traceable from start to finish. To ensure this, we plan to document all electrical systems in KiCAD and adopt a standard wire color code: red for positive, black or blue for negative, and grey for ground.
 
-# 
+# Programming Division
+The programming division worked on building a system to track the car’s state of charge and performance in real-time. Our goal was to create a way for both the driver and the pit crew to see exactly what was happening with the sensors at any moment. Following the "UNIX philosophy," we designed the system to be broken into small, simple parts that talk to each other through standard inputs and outputs (STDOUT/STDIN). This makes it easy to add or remove sensors without breaking the whole setup.
+
+## System Design and Scribby
+Because we had limited access to hardware during the pandemic, we focused on the software side of how data would flow. We developed a central daemon called Scribby. Its job is to take raw data from the car's sensors, log it locally, and then format it into SQL tables so it can be sent to our remote database. By using an SSH tunnel over an LTE connection (SIM card) instead of just standard radio, we planned for a system that could handle connection drops more reliably. If the signal cuts out, the connection handler is designed to keep the data safe until the link is back up.
+
+<small><em>High-Level Telemetry System Overview.</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/High%20Level%20Abstraction%20on%20Telemetry%20System.png" height="400"%}
+</div>
+
+## Sensors and Data Collection
+We identified several key data points we wanted to collect to from the car during operation:
+
+- Speed: A Hall effect sensor to track wheel speed, with GPS used as a backup for speed and to record precise vehicle location.
+
+- Voltage & Amperage: Electrical shunts were used to measure power flow to and from the main and auxiliary batteries, solar array, and motor.
+
+- IMU: An inertial measurement unit to calculate turning forces.
+
+- Potentiometers: Placed on the pedals and steering wheel to see how the driver is handling the car.
 
 # My Role and Reflections 
 My primary responsibility was the founding and high-level management of the organization. I spent significant time learning advanced engineering topics independently so I could effectively teach and lead the team. A major turning point was transitioning from a centralized management style to a delegated leadership model, giving division leads autonomy over their technical domains. This allowed me to focus on overcoming massive administrative hurdles, such as a 10-month search for a teacher advisor. The project eventually faced insurmountable logistical constraints. Following the pandemic, my transition to homeschooling created a communication gap while the team returned to in-person instruction, significantly slowing progress. Furthermore, despite our success in securing thousands of dollars in sponsored materials, we lacked the physical space at the school to store components or begin full-scale fabrication. These challenges ultimately led to the project's conclusion after my sophomore year. This experience taught me that engineering success is not just about technical data, but also about managing the physical and logistical infrastructure required to bring a vision to life.
