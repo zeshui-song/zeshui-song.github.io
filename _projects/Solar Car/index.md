@@ -134,6 +134,7 @@ The frame was designed to be safe and fully regulation-compliant, capable of pas
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Final.png" height="300"%}
 </div>
 
+ <a href="https://bths285.autodesk360.com/g/shares/SH9285eQTcf875d3c5395ee211870bbe7d80" target="_blank">CAD of the shell and chassis (click to hide the shell and view the chassis)</a>
 ---
 
 # Electrical Division
@@ -143,7 +144,7 @@ The electrical division focused on developing a first-generation, competition-re
 A foundational decision for the vehicle was the selection of a 96 V system targeting approximately 52 Ah, corresponding to a total energy capacity of roughly 5 kWh. University of Toronto confirmed that operating at this energy scale was feasible, and MIT shared that their current vehicle operates at a higher voltage of 120 V at a similar total energy capacity, reinforcing that higher-voltage architectures are viable but introduce additional insulation, safety, and compliance complexity. Given the team’s experience level and emphasis on reliability and safety, the 96 V configuration was selected.
 
 ## Motor Selection
-The drivetrain architecture was defined around a single powered rear wheel in a three-wheel, rear-wheel-drive (RWD) configuration. This decision reduced both electrical and mechanical complexity and aligned with the team’s budget constraints. Industry-standard Mitsuba hub motors were identified as the performance benchmark in solar racing, but their cost, typically between $9,000 and $16,000, placed them beyond the team’s feasible budget. As a result, the team evaluated QS brushless DC hub motors as a lower-cost alternative commonly used by newer solar car teams.
+The drivetrain architecture was defined around a single powered rear wheel in a three-wheel, rear-wheel-drive (RWD) configuration. This decision reduced both electrical and mechanical complexity and aligned with the team’s budget constraints. Industry-standard Mitsuba hub motors were identified as the performance benchmark in solar racing, but their cost, typically between <span>$</span>9,000 and <span>$</span>16,000, placed them beyond the team’s feasible budget. As a result, the team evaluated QS brushless DC hub motors as a lower-cost alternative commonly used by newer solar car teams.
 <br><br>
 In parallel, the team collaborated with Omni Powertrain to customize a Motor Generator Unit (MGU) and Motor Control Unit (MCU) based on the Magelec axial flux motor, tailored to our vehicle’s specific dynamics. The design targeted a 200 kg Gross Vehicle Weight and an optimized aerodynamic profile with a Coefficient of Drag of 0.15.
 <br><br>
@@ -305,6 +306,8 @@ Looking back, I began this project with big ambition but limited technical and l
 Growth brought challenges. Coordinating such a large group was difficult, and progress often fell to the few members who would later become division leads. Our second major breakthrough was restructuring: I, Simon, and Jacob took executive roles to guide team-level decisions, while autonomous mechanical, electrical, programming, and operations divisions allowed work to proceed in parallel. This boosted both technical progress and morale, enabling decisive design choices in chassis architecture, powertrain configuration, and telemetry strategy. I realized I tended to micromanage out of curiosity, but the new structure empowered division leads to take ownership. I could still contribute to projects I was passionate about, such as suspension and steering, battery pack development, and CFD and thermal simulations, while maintaining a high-level understanding of every subsystem. 
 <br><br>
 It has been a surreal experience looking back at all the progress we made, and I am proud of the talented people we found who made this dream feel real and attainable, despite real-world constraints such as school bureaucracy, space limitations, student workshop hazards, and many other obstacles that prevented us from taking our virtual designs fully into the real world. One of the biggest challenges we faced in team management was the lack of focus on validating our designs through either experimental or simulated methods. Most of our low-level CAD and design decisions, while informed by external advice from reputable mentors, were not rigorously tested and involved a lot of guesswork, which sometimes resulted in low confidence in our technical direction. If I were to do this again, I would focus on building the team properly from the start and grounding all decisions in a strong technical basis rather than relying on estimation.
+<br><br>
+After the intense engineering and fundraising of 2020–2022, activity sharply declined in 2023 as key members, including Simon, Jacob, and many division leads, graduated, and with limited space and reduced online connectivity it was harder to motivate the remaining team. This left our focus on documenting systems and preserving knowledge and taught me the importance of succession planning and sustaining an engineering culture.
 
 ## Extra
 
