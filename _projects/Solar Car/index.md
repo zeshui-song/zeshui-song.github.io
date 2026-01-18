@@ -49,6 +49,8 @@ To manage complexity and enable parallel progress, the team was reorganized into
 <br><br>
 **Operations:** Fundraising, logistics, branding, and sponsorship management
 
+---
+
 # Mechanical Division
 The mechanical division focused on deepening our understanding of solar car design and developing components such as the aero-shell, tube frame chassis, and battery cooling systems, drawing primary inspiration from Kogakuin University's 2017 solar car.
 
@@ -132,6 +134,8 @@ The frame was designed to be safe and fully regulation-compliant, capable of pas
   {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Final.png" height="300"%}
 </div>
 
+---
+
 # Electrical Division
 The electrical division focused on developing a first-generation, competition-ready electrical system covering the motor, battery, solar array, and supporting electronics. With limited access to hardware during the pandemic, the team focused on deciding how power would flow through the car, comparing and selecting key components, and planning how all parts would connect and fit together, using guidance from established solar car teams like MIT and the University of Toronto.
 
@@ -179,8 +183,10 @@ Solar array design focused on minimizing electrical losses and system mass while
 ## Wiring Standards and Traceability
 During technical scrutineering, every wire needed to be traceable from start to finish. To ensure this, we plan to document all electrical systems in KiCAD and adopt a standard wire color code: red for positive, black or blue for negative, and grey for ground.
 
+---
+
 # Programming Division
-The programming division worked on building a system to track the car’s state of charge and performance in real-time. Our goal was to create a way for both the driver and the pit crew to see exactly what was happening with the sensors at any moment. Following the "UNIX philosophy," we designed the system to be broken into small, simple parts that talk to each other through standard inputs and outputs (STDOUT/STDIN). This makes it easy to add or remove sensors without breaking the whole setup.
+The programming division, led by Jacob, worked on building a system to track the car’s state of charge and performance in real-time. Our goal was to create a way for both the driver and the pit crew to see exactly what was happening with the sensors at any moment. Following the "UNIX philosophy," we designed the system to be broken into small, simple parts that talk to each other through standard inputs and outputs (STDOUT/STDIN). This makes it easy to add or remove sensors without breaking the whole setup.
 
 ## System Design and Scribby
 Because we had limited access to hardware during the pandemic, we focused on the software side of how data would flow. We developed a central daemon called Scribby. Its job is to take raw data from the car's sensors, log it locally, and then format it into SQL tables so it can be sent to our remote database. By using an SSH tunnel over an LTE connection (SIM card) instead of just standard radio, we planned for a system that could handle connection drops more reliably. If the signal cuts out, the connection handler is designed to keep the data safe until the link is back up.
@@ -193,13 +199,89 @@ Because we had limited access to hardware during the pandemic, we focused on the
 ## Sensors and Data Collection
 We identified several key data points we wanted to collect to from the car during operation:
 
-- Speed: A Hall effect sensor to track wheel speed, with GPS used as a backup for speed and to record precise vehicle location.
+<small><em>Draft of sensor hardware and collected data</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/telem.png" height="400"%}
+</div>
 
-- Voltage & Amperage: Electrical shunts were used to measure power flow to and from the main and auxiliary batteries, solar array, and motor.
+In terms of microcontrollers, we planned to use Arduino Uno Rev3 for prototyping, and ATmega328P or ATtiny85 chips for the final versions to save space and power. Raspberry Pis will be used as the main computers (SBCs) to run the Linux environment.
+<br><br>
+<a href="https://github.com/bthssolar" target="_blank">BTHS Solar Car Github</a>
 
-- IMU: An inertial measurement unit to calculate turning forces.
+## Feedback from MIT and Toronto on Telemetry
+Talking to teams like MIT and the University of Toronto helped us refine our plans for the telemetry system:
+<br><br>
+**MIT Feedback**
 
-- Potentiometers: Placed on the pedals and steering wheel to see how the driver is handling the car.
+- **Design Philosophy:** Their core advice was "smaller, lighter, simpler" and focused on fixing everything that breaks.
+- **Telemetry:** They warned against overdesigning and stated the system must be able to be debugged within 5 minutes.
+- **Battery Management:** They recommended using an Orion BMS for safety-critical systems and ensuring the BMS uses EEPROM memory to retain the battery's state of charge.
+- **Communication:** For data transmission, they utilize RFD900+ radios for their high 3–4 mile range.
+- **Strategy:** They suggested experimentally finding the "energy neutral" optimal speed and monitoring weather conditions closely.
+
+**University of Toronto Feedback**
+
+- **Hardware Redundancy:** They emphasized implementing redundancy for the battery by monitoring currents and voltages at multiple points.
+- **Critical Data Points:** The most important data to collect includes cell temperatures for safety, motor RPM for speed, and array gain/loss to understand power characteristics.
+- **Mapping & Strategy:** They recommended using GPS coordinates combined with online resources to map out elevation data for the race route.
+- **User Interface:** Their driver UI is streamlined to display only the most essential metrics: cell temperature, state of charge, and speed.
+
+---
+
+# Operations Division
+The operations division, led by Simon, focused on securing the financial, institutional, and material resources necessary to transform the solar car project from a student concept into a fully funded racing team.
+
+## Sponsorship Strategy and Structure
+
+To incentivize corporate support, the operations team developed a structured, tiered sponsorship model:
+
+- **Tiered Benefits:** Sponsorship levels were defined as Silver ($100–$499), Gold ($500–$999), Platinum ($1,000–$4,999), and Diamond ($5,000+).
+
+- **Incentives:** Benefits offered to partners included tiered logo placement on the car shell, team uniforms, and the website, as well as custom laser-engraved sponsorship plaques.
+
+- **Legal Framework:** The team established a 501(c)(3) tax-deductible status through a collaboration with the Staten Island Tech Green Technology Club and the BTHS Alumni Foundation, allowing for formal corporate donations.
+
+## Fundraising and Institutional Support
+
+A critical process for the division was securing official recognition and long-term funding within the Brooklyn Tech community:
+
+- **Administrative Approval:** Operations successfully navigated the school’s club application process, securing Mr. David Adams as a faculty advisor and achieving official club status in October 2020.
+
+- **Institutional Funding:** Through meetings with Principal David Newman and the BTHS Alumni Foundation, the team identified roughly $25,000 in potential support, including a $15,000 faculty grant and $10,000 in direct foundation funding.
+
+- **Corporate Cash Sponsorship:** The team secured its first official cash sponsorship from Ponce Bank, which was processed through the Alumni Foundation.
+
+## In-Kind Strategic Partnerships
+
+Given the high cost of specialized solar car components, the operations team focused on securing "in-kind" donations of hardware and software:
+
+- **Powertrain:** A major result was a partnership with Omni Powertrain to provide a custom-developed motor and prototype motor controller (valued at approximately $20,000) for free.
+
+- **Composites:** The team secured over 100 yards of high-grade carbon fiber from manufacturers like Chomarat and Boston Materials, as well as honeycomb structures from Argosy International.
+
+- **Design Software:** Altium provided the team with professional PCB design software and offered tours of their local facilities to bridge the technical gap for the electrical division.
+
+## Branding and Public Relations
+
+To maintain public engagement and transparency with sponsors, the division managed all external-facing materials:
+
+- **Visual Identity:** A custom team logo was designed to emphasize technical precision, incorporating gear motifs and the "Btech" name to ensure memorability among sponsors.
+
+- **Web Presence:** Operations launched the official team website (bthssolar.org) to host a "Meet the Team" page, project blogs, and documentation for potential recruiters.
+
+- **Social Media:** The team implemented "Solar Sundays," a weekly Instagram campaign aimed at educating the student body and potential sponsors about renewable energy and the Solar Car Challenge.
+
+
+
+
+
+
+
+---
+
+# Education
+
+---
 
 # My Role and Reflections 
 My primary responsibility was the founding and high-level management of the organization. I spent significant time learning advanced engineering topics independently so I could effectively teach and lead the team. A major turning point was transitioning from a centralized management style to a delegated leadership model, giving division leads autonomy over their technical domains. This allowed me to focus on overcoming massive administrative hurdles, such as a 10-month search for a teacher advisor. The project eventually faced insurmountable logistical constraints. Following the pandemic, my transition to homeschooling created a communication gap while the team returned to in-person instruction, significantly slowing progress. Furthermore, despite our success in securing thousands of dollars in sponsored materials, we lacked the physical space at the school to store components or begin full-scale fabrication. These challenges ultimately led to the project's conclusion after my sophomore year. This experience taught me that engineering success is not just about technical data, but also about managing the physical and logistical infrastructure required to bring a vision to life.
