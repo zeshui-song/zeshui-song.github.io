@@ -1,6 +1,6 @@
 ---
 featured: "true"
-date: 2020-06-20
+date: 2022-06-20
 academic_level: "High School"
 academic_period: "Freshman"
 
@@ -23,7 +23,7 @@ skills:
 main-image: /Team - Copy.png
 ---
 **Core Team Members:** Zeshui Song (Founder/Team Captain), Simon Gura (Operations Lead), Jacob Koziej (Technical Lead)<br>
-**Duration:** June 2020 - July 2021
+**Duration:** June 2020 - June 2023 (Peak Activity: 2020-2022)
 
 ---
 # Project Overview
@@ -286,12 +286,12 @@ The team implemented a formal hierarchy based on technical experience rather tha
 <br><br>
 Knowledge transfer was reinforced through small, standardized internal projects before learners touched vehicle-critical systems. For example, the mechanical division used a tire and rim CAD exercise to assess 3D modeling skills, while the electrical division ran onboarding circuitry labs involving logic gates, LEDs, and buttons to introduce KiCad and basic circuit design. Foundational concepts such as Ohm’s Law and series/parallel behavior were taught using virtual simulations before any hardware work began.
 
-<small><em>Cover slide for sponsor proposals and team introduction</em></small>
+<small><em>Screenshot of one of our electrical lessons held on Discord.</em></small>
 <div style="width: fit-content; margin: 0 auto;">
-  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Slideshow%20cover.png" height="300"%}
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Discord.png" height="300"%}
 </div>
 
-Division leads were given autonomy to structure and teach within their own teams, shifting education from top-down instruction to peer-driven mentorship. Over time, learners transitioned into workers by taking ownership of subsystems themselves, creating a sustainable pipeline for technical growth and leadership.
+Division leads were given autonomy to structure and teach within their own divisions, shifting education from top-down instruction to peer-driven mentorship. Over time, learners transitioned into workers by taking ownership of subsystems themselves, creating a sustainable pipeline for technical growth and leadership.
 
 ## Meeting and Documentation Structure
 Education was reinforced through a lightweight but consistent meeting schedule. Weekly technical meetings were used to align on goals, break down upcoming work, and connect learners to active projects. Short bi-weekly documentation check-ins ensured that design decisions, progress, and lessons learned were captured accurately. All technical documentation, code, and CAD were tracked through GitHub, though we ended up using Google Drive mostly, making version control and written explanations a core part of the learning process rather than an afterthought.
@@ -300,7 +300,11 @@ Together, this structure allowed the team to transition from a group of mostly i
 ---
 
 # My Role and Reflections 
-My primary responsibility was the founding and high-level management of the organization. I spent significant time learning advanced engineering topics independently so I could effectively teach and lead the team. A major turning point was transitioning from a centralized management style to a delegated leadership model, giving division leads autonomy over their technical domains. This allowed me to focus on overcoming massive administrative hurdles, such as a 10-month search for a teacher advisor. The project eventually faced insurmountable logistical constraints. Following the pandemic, my transition to homeschooling created a communication gap while the team returned to in-person instruction, significantly slowing progress. Furthermore, despite our success in securing thousands of dollars in sponsored materials, we lacked the physical space at the school to store components or begin full-scale fabrication. These challenges ultimately led to the project's conclusion after my sophomore year. This experience taught me that engineering success is not just about technical data, but also about managing the physical and logistical infrastructure required to bring a vision to life.
+Looking back, I began this project with big ambition but limited technical and leadership experience. Many teammates shared that motivation but lacked the skills for a project of this scale, so we started from scratch. Early successes came from reaching out to experienced mentors and teams, even securing a potential car donation within the first month, though rules later prevented us from racing it. This momentum helped the team grow from 15 to nearly 40 members.
+<br><br>
+Growth brought challenges. Coordinating such a large group was difficult, and progress often fell to the few members who would later become division leads. Our second major breakthrough was restructuring: I, Simon, and Jacob took executive roles to guide team-level decisions, while autonomous mechanical, electrical, programming, and operations divisions allowed work to proceed in parallel. This boosted both technical progress and morale, enabling decisive design choices in chassis architecture, powertrain configuration, and telemetry strategy. I realized I tended to micromanage out of curiosity, but the new structure empowered division leads to take ownership. I could still contribute to projects I was passionate about, such as suspension and steering, battery pack development, and CFD and thermal simulations, while maintaining a high-level understanding of every subsystem. 
+<br><br>
+It has been a surreal experience looking back at all the progress we made, and I am proud of the talented people we found who made this dream feel real and attainable, despite real-world constraints such as school bureaucracy, space limitations, student workshop hazards, and many other obstacles that prevented us from taking our virtual designs fully into the real world. One of the biggest challenges we faced in team management was the lack of focus on validating our designs through either experimental or simulated methods. Most of our low-level CAD and design decisions, while informed by external advice from reputable mentors, were not rigorously tested and involved a lot of guesswork, which sometimes resulted in low confidence in our technical direction. If I were to do this again, I would focus on building the team properly from the start and grounding all decisions in a strong technical basis rather than relying on estimation.
 
 ## Extra
 
