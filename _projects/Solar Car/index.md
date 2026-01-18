@@ -235,7 +235,7 @@ The operations division, led by Simon, focused on securing the financial, instit
 
 To incentivize corporate support, the operations team developed a structured, tiered sponsorship model:
 
-- **Tiered Benefits:** Sponsorship levels were defined as Silver ($100–$499), Gold ($500–$999), Platinum ($1,000–$4,999), and Diamond ($5,000+).
+- **Tiered Benefits:** Sponsorship levels were defined as Silver (<span>$</span>100–<span>$</span>499), Gold (<span>$</span>500–<span>$</span>999), Platinum (<span>$</span>1,000–<span>$</span>4,999), and Diamond (<span>$</span>5,000+).
 
 - **Incentives:** Benefits offered to partners included tiered logo placement on the car shell, team uniforms, and the website, as well as custom laser-engraved sponsorship plaques.
 
@@ -247,15 +247,15 @@ A critical process for the division was securing official recognition and long-t
 
 - **Administrative Approval:** Operations successfully navigated the school’s club application process, securing Mr. David Adams as a faculty advisor and achieving official club status in October 2020.
 
-- **Institutional Funding:** Through meetings with Principal David Newman and the BTHS Alumni Foundation, the team identified roughly $25,000 in potential support, including a $15,000 faculty grant and $10,000 in direct foundation funding.
+- **Institutional Funding:** Through meetings with Principal David Newman and the BTHS Alumni Foundation, the team identified roughly <span>$</span>25,000 in potential support, including a <span>$</span>15,000 faculty grant and <span>$</span>10,000 in direct foundation funding.
 
 - **Corporate Cash Sponsorship:** The team secured its first official cash sponsorship from Ponce Bank, which was processed through the Alumni Foundation.
 
 ## In-Kind Strategic Partnerships
 
-Given the high cost of specialized solar car components, the operations team focused on securing "in-kind" donations of hardware and software:
+Given the high cost of specialized solar car components, the operations team focused on securing in-kind donations of hardware and software:
 
-- **Powertrain:** A major result was a partnership with Omni Powertrain to provide a custom-developed motor and prototype motor controller (valued at approximately $20,000) for free.
+- **Powertrain:** A major result was a partnership with Omni Powertrain to provide a custom-developed motor and prototype motor controller (valued at approximately <span>$</span>20,000) for free.
 
 - **Composites:** The team secured over 100 yards of high-grade carbon fiber from manufacturers like Chomarat and Boston Materials, as well as honeycomb structures from Argosy International.
 
@@ -267,15 +267,14 @@ To maintain public engagement and transparency with sponsors, the division manag
 
 - **Visual Identity:** A custom team logo was designed to emphasize technical precision, incorporating gear motifs and the "Btech" name to ensure memorability among sponsors.
 
-- **Web Presence:** Operations launched the official team website (bthssolar.org) to host a "Meet the Team" page, project blogs, and documentation for potential recruiters.
+<small><em>Cover slide for sponsor proposals and team introduction</em></small>
+<div style="width: fit-content; margin: 0 auto;">
+  {% include image-gallery.html images="https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/_projects/Solar%20Car/Slideshow%20cover.png" height="300"%}
+</div>
 
-- **Social Media:** The team implemented "Solar Sundays," a weekly Instagram campaign aimed at educating the student body and potential sponsors about renewable energy and the Solar Car Challenge.
+- **Web Presence:** Operations launched the <a href="https://bthssolar.netlify.app/" target="_blank">official team website</a> (not completed) to host a "Meet the Team" page, project blogs, and documentation for potential recruiters.
 
-
-
-
-
-
+- **Social Media:** The team planned to implement "Solar Sundays," a weekly Instagram campaign aimed at educating the student body and potential sponsors about renewable energy and the Solar Car Challenge.
 
 ---
 
