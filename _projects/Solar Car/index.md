@@ -135,7 +135,7 @@ The frame was designed to be safe and fully regulation-compliant, capable of pas
 </div>
 
  <a href="https://bths285.autodesk360.com/g/shares/SH9285eQTcf875d3c5395ee211870bbe7d80" target="_blank">CAD of the shell and chassis (click to hide the shell and view the chassis)</a>
- 
+
 ---
 
 # Electrical Division
@@ -213,19 +213,27 @@ In terms of microcontrollers, we planned to use Arduino Uno Rev3 for prototyping
 ## Feedback from MIT and Toronto on Telemetry
 Talking to teams like MIT and the University of Toronto helped us refine our plans for the telemetry system:
 <br><br>
+
 **MIT Feedback**
 
 - **Design Philosophy:** Their core advice was "smaller, lighter, simpler" and focused on fixing everything that breaks.
+
 - **Telemetry:** They warned against overdesigning and stated the system must be able to be debugged within 5 minutes.
+
 - **Battery Management:** They recommended using an Orion BMS for safety-critical systems and ensuring the BMS uses EEPROM memory to retain the battery's state of charge.
+
 - **Communication:** For data transmission, they utilize RFD900+ radios for their high 3–4 mile range.
+
 - **Strategy:** They suggested experimentally finding the "energy neutral" optimal speed and monitoring weather conditions closely.
 
 **University of Toronto Feedback**
 
 - **Hardware Redundancy:** They emphasized implementing redundancy for the battery by monitoring currents and voltages at multiple points.
+
 - **Critical Data Points:** The most important data to collect includes cell temperatures for safety, motor RPM for speed, and array gain/loss to understand power characteristics.
+
 - **Mapping & Strategy:** They recommended using GPS coordinates combined with online resources to map out elevation data for the race route.
+
 - **User Interface:** Their driver UI is streamlined to display only the most essential metrics: cell temperature, state of charge, and speed.
 
 ---

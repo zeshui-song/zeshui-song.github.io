@@ -1045,24 +1045,43 @@ To ensure that the motor would perform under race conditions, we defined a targe
 
 <h2 id="feedback-from-mit-and-toronto-on-telemetry">Feedback from MIT and Toronto on Telemetry</h2>
 <p>Talking to teams like MIT and the University of Toronto helped us refine our plans for the telemetry system:
-<br /><br />
-<strong>MIT Feedback</strong></p>
+<br /><br /></p>
+
+<p><strong>MIT Feedback</strong></p>
 
 <ul>
-  <li><strong>Design Philosophy:</strong> Their core advice was “smaller, lighter, simpler” and focused on fixing everything that breaks.</li>
-  <li><strong>Telemetry:</strong> They warned against overdesigning and stated the system must be able to be debugged within 5 minutes.</li>
-  <li><strong>Battery Management:</strong> They recommended using an Orion BMS for safety-critical systems and ensuring the BMS uses EEPROM memory to retain the battery’s state of charge.</li>
-  <li><strong>Communication:</strong> For data transmission, they utilize RFD900+ radios for their high 3–4 mile range.</li>
-  <li><strong>Strategy:</strong> They suggested experimentally finding the “energy neutral” optimal speed and monitoring weather conditions closely.</li>
+  <li>
+    <p><strong>Design Philosophy:</strong> Their core advice was “smaller, lighter, simpler” and focused on fixing everything that breaks.</p>
+  </li>
+  <li>
+    <p><strong>Telemetry:</strong> They warned against overdesigning and stated the system must be able to be debugged within 5 minutes.</p>
+  </li>
+  <li>
+    <p><strong>Battery Management:</strong> They recommended using an Orion BMS for safety-critical systems and ensuring the BMS uses EEPROM memory to retain the battery’s state of charge.</p>
+  </li>
+  <li>
+    <p><strong>Communication:</strong> For data transmission, they utilize RFD900+ radios for their high 3–4 mile range.</p>
+  </li>
+  <li>
+    <p><strong>Strategy:</strong> They suggested experimentally finding the “energy neutral” optimal speed and monitoring weather conditions closely.</p>
+  </li>
 </ul>
 
 <p><strong>University of Toronto Feedback</strong></p>
 
 <ul>
-  <li><strong>Hardware Redundancy:</strong> They emphasized implementing redundancy for the battery by monitoring currents and voltages at multiple points.</li>
-  <li><strong>Critical Data Points:</strong> The most important data to collect includes cell temperatures for safety, motor RPM for speed, and array gain/loss to understand power characteristics.</li>
-  <li><strong>Mapping &amp; Strategy:</strong> They recommended using GPS coordinates combined with online resources to map out elevation data for the race route.</li>
-  <li><strong>User Interface:</strong> Their driver UI is streamlined to display only the most essential metrics: cell temperature, state of charge, and speed.</li>
+  <li>
+    <p><strong>Hardware Redundancy:</strong> They emphasized implementing redundancy for the battery by monitoring currents and voltages at multiple points.</p>
+  </li>
+  <li>
+    <p><strong>Critical Data Points:</strong> The most important data to collect includes cell temperatures for safety, motor RPM for speed, and array gain/loss to understand power characteristics.</p>
+  </li>
+  <li>
+    <p><strong>Mapping &amp; Strategy:</strong> They recommended using GPS coordinates combined with online resources to map out elevation data for the race route.</p>
+  </li>
+  <li>
+    <p><strong>User Interface:</strong> Their driver UI is streamlined to display only the most essential metrics: cell temperature, state of charge, and speed.</p>
+  </li>
 </ul>
 
 <hr />
@@ -1308,7 +1327,7 @@ After the intense engineering and fundraising of 2020–2022, activity sharply d
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-01-18 10:28 EST</p>
+            <p>Last Updated: 2026-01-18 10:34 EST</p>
         </div>
     </div>
 
