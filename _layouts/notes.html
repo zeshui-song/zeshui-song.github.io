@@ -1,0 +1,196 @@
+---
+layout: wrapper
+---
+
+<style>
+    .notes-container {
+        display: flex;
+        gap: 3rem;
+        margin-top: 2rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Sidebar Navigation */
+    .notes-sidebar { flex: 0 0 250px; }
+    .course-nav {
+        position: sticky;
+        top: 2rem;
+        background: var(--light-background-color);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+    .course-nav h3 { margin-top: 0; font-size: 1rem; color: var(--text-color); text-transform: uppercase; letter-spacing: 1px; }
+    .course-nav ul { list-style: none; padding: 0; }
+    .course-nav li { margin-bottom: 0.8rem; font-size: 0.9rem; }
+    .course-nav a { text-decoration: none; color: var(--link-color); transition: 0.2s; }
+    .course-nav a:hover { color: var(--text-color); }
+
+    /* Main Content Area */
+    .notes-main { flex: 1; }
+
+    /* THE COURSE BOX: Groups all notes for one class */
+    .class-card-box {
+        background: var(--background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        scroll-margin-top: 50px; 
+    }
+
+    .class-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+    
+    .class-code { 
+        background: var(--text-color);
+        color: var(--background-color);
+        padding: 0.2rem 0.6rem; 
+        border-radius: 4px; 
+        font-weight: 600; 
+        font-size: 0.8rem;
+    }
+
+    .resource-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .pdf-item {
+        position: relative;
+        background: var(--background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: border-color 0.2s ease;
+    }
+
+    .stretched-link::after {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: 1;
+        content: "";
+    }
+
+    .preview-window {
+        width: 100%;
+        height: 180px;
+        background: var(--light-background-color);
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .preview-window img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .pdf-details {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .pdf-info { 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+        margin-bottom: 15px; 
+    }
+    .pdf-info i { color: var(--link-color); font-size: 1rem; }
+    .pdf-name { font-weight: 600; font-size: 1rem; color: var(--text-color); }
+
+    .btn-visual {
+        display: inline-block;
+        padding: 5px 15px;
+        background: transparent;
+        color: var(--link-color);
+        border: 2px solid var(--link-color);
+        border-radius: 5px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        transition: 0.1s;
+        margin-top: auto;
+        align-self: flex-start;
+        text-align: center;
+    }
+
+    .pdf-item:hover .btn-visual {
+        color: var(--text-color) !important;
+        border-color: var(--text-color) !important;
+        background-color: var(--light-background-color) !important;
+    }
+
+    @media (max-width: 850px) {
+        .notes-container { flex-direction: column; }
+        .notes-sidebar { display: none; }
+    }
+</style>
+
+<div class="notes-container">
+    <aside class="notes-sidebar">
+        <div class="course-nav">
+            <h3>Contents</h3>
+            <ul>
+                {% for course in page.classes %}
+                    <li><a href="#{{ course.code | slugify }}">{{ course.code }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </aside>
+
+    <main class="notes-main">
+        {{ content }}
+
+        {% for course in page.classes %}
+        <section class="class-card-box" id="{{ course.code | slugify }}">
+            <div class="class-header">
+                <span class="class-code">{{ course.code }}</span>
+                <h2>{{ course.name }}</h2>
+            </div>
+
+            <div class="resource-list">
+                {% for pdf in course.pdfs %}
+                    {% assign raw_url = pdf.url | replace: 'github.com', 'raw.githubusercontent.com' | replace: '/blob/', '/' %}
+                
+                <div class="pdf-item">
+                    <a href="{{ raw_url }}" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        {% if pdf.preview_image %}
+                            <img src="{{ pdf.preview_image | relative_url }}" alt="{{ pdf.title }}">
+                        {% else %}
+                            <i class="fa-regular fa-file-pdf" style="font-size: 3rem; color: #ccc;"></i>
+                        {% endif %}
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">{{ pdf.title }}</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+    </main>
+</div>

@@ -43,8 +43,8 @@
 
 <!-- PREVIEW METADATA -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="http://localhost:4000/research/">
-<meta property="og:title" content="Zeshui Song's Portfolio">
+<meta property="og:url" content="http://localhost:4000/notes/">
+<meta property="og:title" content="Notes">
 
 
 <meta property="og:description" content="">
@@ -55,7 +55,7 @@
 
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Zeshui Song's Portfolio">
+<meta name="twitter:title" content="Notes">
 <meta name="twitter:description" content="">
 <meta name="twitter:image:aspect_ratio" content="1.91:1">
 <!-- END PREVIEW METADATA -->
@@ -425,76 +425,417 @@
     draw();
 </script>
 
-     <div class="page"><section id="research" class="research-grid-section">
-    <h2>Research</h2>
+     <div class="page"><style>
+    .notes-container {
+        display: flex;
+        gap: 3rem;
+        margin-top: 2rem;
+        font-family: 'Poppins', sans-serif;
+    }
 
-    <div class="grid-container">
+    /* Sidebar Navigation */
+    .notes-sidebar { flex: 0 0 250px; }
+    .course-nav {
+        position: sticky;
+        top: 2rem;
+        background: var(--light-background-color);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+    .course-nav h3 { margin-top: 0; font-size: 1rem; color: var(--text-color); text-transform: uppercase; letter-spacing: 1px; }
+    .course-nav ul { list-style: none; padding: 0; }
+    .course-nav li { margin-bottom: 0.8rem; font-size: 0.9rem; }
+    .course-nav a { text-decoration: none; color: var(--link-color); transition: 0.2s; }
+    .course-nav a:hover { color: var(--text-color); }
+
+    /* Main Content Area */
+    .notes-main { flex: 1; }
+
+    /* THE COURSE BOX: Groups all notes for one class */
+    .class-card-box {
+        background: var(--background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        scroll-margin-top: 50px; 
+    }
+
+    .class-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+    
+    .class-code { 
+        background: var(--text-color);
+        color: var(--background-color);
+        padding: 0.2rem 0.6rem; 
+        border-radius: 4px; 
+        font-weight: 600; 
+        font-size: 0.8rem;
+    }
+
+    .resource-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .pdf-item {
+        position: relative;
+        background: var(--background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: border-color 0.2s ease;
+    }
+
+    .stretched-link::after {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: 1;
+        content: "";
+    }
+
+    .preview-window {
+        width: 100%;
+        height: 180px;
+        background: var(--light-background-color);
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .preview-window img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .pdf-details {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .pdf-info { 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+        margin-bottom: 15px; 
+    }
+    .pdf-info i { color: var(--link-color); font-size: 1rem; }
+    .pdf-name { font-weight: 600; font-size: 1rem; color: var(--text-color); }
+
+    .btn-visual {
+        display: inline-block;
+        padding: 5px 15px;
+        background: transparent;
+        color: var(--link-color);
+        border: 2px solid var(--link-color);
+        border-radius: 5px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        transition: 0.1s;
+        margin-top: auto;
+        align-self: flex-start;
+        text-align: center;
+    }
+
+    .pdf-item:hover .btn-visual {
+        color: var(--text-color) !important;
+        border-color: var(--text-color) !important;
+        background-color: var(--light-background-color) !important;
+    }
+
+    @media (max-width: 850px) {
+        .notes-container { flex-direction: column; }
+        .notes-sidebar { display: none; }
+    }
+</style>
+
+<div class="notes-container">
+    <aside class="notes-sidebar">
+        <div class="course-nav">
+            <h3>Contents</h3>
+            <ul>
+                
+                    <li><a href="#ph-213">PH-213</a></li>
+                
+                    <li><a href="#ma-240">MA-240</a></li>
+                
+                    <li><a href="#me-200">ME-200</a></li>
+                
+                    <li><a href="#esc-210">ESC-210</a></li>
+                
+            </ul>
+        </div>
+    </aside>
+
+    <main class="notes-main">
+        <h1 id="notes-archive">Notes Archive</h1>
+<p>A catalog of my LaTex notes from past semesters.</p>
+
+
         
-        <a href="/research/Tow%20Tank/index/" class="research-link">
-            <div class="research-card">
+        <section class="class-card-box" id="ph-213">
+            <div class="class-header">
+                <span class="class-code">PH-213</span>
+                <h2>Physics II: Electromagnetic Phenomena</h2>
+            </div>
+
+            <div class="resource-list">
                 
+                    
                 
-                <img src="/_research/Tow Tank/Tow - Copy.jpg" alt="Tow Tank (Work in Progress) image">
-                
-                <h3 class="research-title">Tow Tank (Work in Progress)</h3>
-                
-                <div class="research-skills">
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_1/main.pdf" class="stretched-link" target="_blank"></a>
                     
-                        <span class="skill">Experimental Rig Design & Fabrication</span>
-                    
-                        <span class="skill">Precision Linear Motion Systems</span>
-                    
-                        <span class="skill">3D Printing (FDM)</span>
-                    
-                        <span class="skill">Stepper Motor Control</span>
-                    
-                        <span class="skill">Modular Structural Framing (80/20)</span>
-                    
-                        <span class="skill">Power Supply and Motor Driver Selection</span>
-                    
-                        <span class="skill">Timing Belt and Pulley System</span>
-                    
-                        <span class="skill">Belt Tensioners</span>
-                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Phy1-1.png" alt="Exam 1 Notes: Waves">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Exam 1 Notes: Waves</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
                 </div>
                 
-                <p class="research-description">The goal of this project is to design a tow tank capable of moving a wing smoothly through water at a range of controlled speeds, enabling precise measurements of hydrodynamic forces acting on it. The setup must maintain a constant velocity for a sufficient duration while minimizing twisting and vibrations in the moving components. Additionally, it should be scalable to accommodate additional hardware such as mounted cameras and sensors.</p>
-                <button class="read-more">Read more →</button>
-            </div>
-        </a>
-        
-        <a href="/research/Vertical%20Actuator%20Tank/index/" class="research-link">
-            <div class="research-card">
+                    
                 
-                
-                <img src="/_research/Vertical Actuator Tank/Media - Copy.jpg" alt="Vertically Actuated Immersion Tank (Work in Progress) image">
-                
-                <h3 class="research-title">Vertically Actuated Immersion Tank (Work in Progress)</h3>
-                
-                <div class="research-skills">
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_2/main.pdf" class="stretched-link" target="_blank"></a>
                     
-                        <span class="skill">Experimental Rig Design & Fabrication</span>
-                    
-                        <span class="skill">Precision Linear Motion Systems</span>
-                    
-                        <span class="skill">3D Printing (FDM)</span>
-                    
-                        <span class="skill">Stepper Motor Control</span>
-                    
-                        <span class="skill">Modular Structural Framing (80/20)</span>
-                    
-                        <span class="skill">Power Supply and Motor Driver Selection</span>
-                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Phy2-1.png" alt="Exam 2 Notes: Electrostatics">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Exam 2 Notes: Electrostatics</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
                 </div>
                 
-                <p class="research-description">The goal of this project is to design and build a vertically actuated immersion tank to study how tethered whirligig beetles behave as they transition from open air into an underwater environment. The system is designed to provide precise, repeatable control over immersion depth and rate while enabling controlled behavioral observation during air-to-water transitions.</p>
-                <button class="read-more">Read more →</button>
+                    
+                
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_3/main.pdf" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Phy3-1.png" alt="Exam 3 Notes: Magnetism, EM Waves, Circuits">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Exam 3 Notes: Magnetism, EM Waves, Circuits</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                
             </div>
-        </a>
+        </section>
         
-    </div>
-</section>
-</div>
+        <section class="class-card-box" id="ma-240">
+            <div class="class-header">
+                <span class="class-code">MA-240</span>
+                <h2>Differential Equations</h2>
+            </div>
+
+            <div class="resource-list">
+                
+                    
+                
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%201/main.pdf" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Diff1-1.png" alt="Exam 1: First Order">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Exam 1: First Order</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                
+                    
+                
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%202/main.pdf" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Diff2-1.png" alt="Exam 2: Higher Order and Systems">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Exam 2: Higher Order and Systems</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                
+                    
+                
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/The%20rest/main.pdf" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Diff3-1.png" alt="Final: Laplace Transform">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Final: Laplace Transform</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <section class="class-card-box" id="me-200">
+            <div class="class-header">
+                <span class="class-code">ME-200</span>
+                <h2>Dynamics</h2>
+            </div>
+
+            <div class="resource-list">
+                
+                    
+                
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Dyn1-1.png" alt="Quiz 1: Motion and Energetics of Particles, Orbital Mechanics">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Quiz 1: Motion and Energetics of Particles, Orbital Mechanics</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                
+                    
+                
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%202/main.pdf" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Dyn2-1.png" alt="Quiz 2: Particle Collision, Rigid Body Motion, ">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Quiz 2: Particle Collision, Rigid Body Motion, </span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                
+                    
+                
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/The%20rest/main.pdf" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Dyn3-1.png" alt="The Rest: Rigid Body Energetics and Collision">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">The Rest: Rigid Body Energetics and Collision</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <section class="class-card-box" id="esc-210">
+            <div class="class-header">
+                <span class="class-code">ESC-210</span>
+                <h2>Materials Science</h2>
+            </div>
+
+            <div class="resource-list">
+                
+                    
+                
+                <div class="pdf-item">
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf" class="stretched-link" target="_blank"></a>
+                    
+                    <div class="preview-window">
+                        
+                            <img src="/assets/note_preview/Mat1-1.png" alt="Materials Science">
+                        
+                    </div>
+
+                    <div class="pdf-details">
+                        <div class="pdf-info">
+                            <i class="fa-regular fa-file-pdf"></i>
+                            <span class="pdf-name">Materials Science</span>
+                        </div>
+                        <div class="btn-visual">View Notes</div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+    </main>
+</div></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
