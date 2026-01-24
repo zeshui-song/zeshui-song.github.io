@@ -410,7 +410,7 @@ nav .mobile-nav {
     display: inline-block;
 }
 
-/* Base Card State - High specificity to match your original structure */
+/* Base Card State */
 .project-grid-section .grid-container .project-link .project-card,
 .research-grid-section .grid-container .research-link .research-card {
     display: flex;
@@ -430,11 +430,19 @@ nav .mobile-nav {
     overflow: hidden;
 }
 
-/* REVISED HOVER STATE - Matching high specificity to ensure it displays */
+/* REVISED HOVER STATE - Card Shadow */
 .project-grid-section .grid-container .project-link:hover .project-card,
 .research-grid-section .grid-container .research-link:hover .research-card {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 
                 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* REVISED HOVER STATE - Read More Button Effect */
+.project-grid-section .grid-container .project-link:hover .read-more,
+.research-grid-section .grid-container .research-link:hover .read-more {
+    color: var(--text-color) !important;
+    border-color: var(--text-color) !important;
+    background-color: var(--light-background-color) !important;
 }
 
 /* Shared image and text styling */
