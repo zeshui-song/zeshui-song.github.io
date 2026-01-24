@@ -5,15 +5,32 @@
         {% for school in site.education %}
         <div class="timeline-item">
             <div class="timeline-dot"></div>
+            
             <div class="timeline-content">
-                <span class="date">{{ school.date }}</span>
-                <h3>{{ school.school }} – <span>{{ school.location }}</span></h3>
-                <p class="degree">{{ school.degree }}</p>
-                <ul class="details">
-                    {% for detail in school.details %}
-                    <li>{{ detail }}</li>
-                    {% endfor %}
-                </ul>
+                <a href="{{ school.school_url | default: '#' }}" target="_blank" rel="noopener noreferrer" class="timeline-card-link">
+                    <div class="timeline-card">
+                        <span class="date">{{ school.date }}</span>
+
+                        <div class="school-reveal">
+                            <img src="{{ school.image_url | default: 'https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=774' }}" alt="{{ school.school }}">
+                        </div>
+
+                        <div class="card-body">
+                            <h3>
+                                <img src="{{ school.icon_url | default: 'https://images.unsplash.com/photo-1547721064-da6cfb341d50?q=80&w=774' }}" class="school-icon" alt="icon">
+                                <div class="school-name-wrapper">
+                                    {{ school.school }}<span class="location">{{ school.location }}</span>
+                                </div>
+                            </h3>
+                            <p class="degree">{{ school.degree }}</p>
+                            <ul class="details">
+                                {% for detail in school.details %}
+                                <li>{{ detail }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
         {% endfor %}

@@ -654,7 +654,8 @@ code[class*="language-"],
     font-size: 14px;
 }
 
-/* SECTION: EDUCATION (TIMELINE) */
+/* SECTION: EDUCATION */
+
 .education-section {
     margin-bottom: 100px;
     display: flex;
@@ -662,64 +663,239 @@ code[class*="language-"],
 }
 
 .education-section h2 {
-    font-size: 34px;      /* Matches Skills header exactly */
-    margin-bottom: 15px; /* Matches Skills header spacing */
-    font-weight: 700;    /* Ensuring the same "boldness" */
+    font-size: 34px;
+    margin-bottom: 40px;
+    font-weight: 700;
     color: var(--text-color);
+    letter-spacing: -0.5px;
 }
 
-/* The Timeline Layout */
 .timeline {
     position: relative;
-    border-left: 2px solid var(--text-color); 
-    margin-left: 10px;      /* Aligns the vertical line with the header start */
-    padding-left: 35px;     /* Space between the line and your content */
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(to bottom, #007bff 0%, rgba(0, 123, 255, 0) 100%);
+    border-image-slice: 1;
+    margin-left: 170px; 
+    padding-left: 30px;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 50px;    /* Spacing between Cooper Union and Aviation High */
+    margin-bottom: 60px;
 }
 
-/* The Dots on the line */
+/* Link wrapper styles */
+.timeline-card-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+    width: 100%;
+}
+
+.timeline-card .date {
+    position: absolute;
+    left: -240px; 
+    width: 170px;
+    text-align: right;
+    top: 20px; 
+    font-size: calc(10px + 0.3vw);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+    z-index: 5;
+}
+
+/* DOT ALIGNMENT - LOCKED */
 .timeline-dot {
     position: absolute;
-    left: -46px;            /* Centers the dot on the 2px line */
-    top: 6px;               /* Aligns dot with the top of the date/title */
-    width: 20px;
-    height: 20px;
-    background-color: var(--text-color); 
+    left: -43.5px; 
+    top: 20px; 
+    width: 24px;
+    height: 24px;
+    background-color: var(--background-color);
+    border: 3px solid #007bff;
     border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
-.timeline-content .date {
-    font-size: calc(9px + 0.5vw); /* Using your site's dynamic scaling */
-    font-weight: 500;
-    margin-bottom: 5px;
+.timeline-item:hover .timeline-dot {
+    background-color: #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+    transform: scale(1.2);
 }
 
-.timeline-content h3 {
-    font-size: calc(9px + 0.6vw); /* Matches other H3 headings on your site */
-    font-weight: 600;
+.timeline-card {
+    position: relative;
+    background: var(--background-color); 
+    border: 1px solid rgba(0, 0, 0, 0.05); 
+    border-radius: 15px; 
+    padding: 20px 25px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: visible; 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
 }
 
-.timeline-content .degree {
+.timeline-item:hover .timeline-card {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 
+                0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* UPDATED SCHOOL ICON */
+.school-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 0; 
+    object-fit: contain; 
+    flex-shrink: 0;
+    margin-right: 12px;
+    border: none; 
+    background: #fff; 
+}
+
+.school-reveal {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.school-reveal img {
+    position: absolute;
+    right: -60px;
+    width: 500px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: brightness(0.9);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    -webkit-mask-image: linear-gradient(to left, black 10%, transparent 90%);
+    mask-image: linear-gradient(to left, black 10%, transparent 90%);
+}
+
+.timeline-item:hover .school-reveal {
+    opacity: 0.35;
+}
+
+.timeline-item:hover .school-reveal img {
+    right: 0;
+}
+
+.card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-card h3 {
+    font-size: calc(11px + 0.6vw);
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+}
+
+.school-name-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.timeline-card h3 .location {
+    font-weight: 400;
+    opacity: 0.6;
+    font-size: 0.9em;
+}
+
+/* FIXED DASH SPACING */
+.timeline-card h3 .location::before {
+    content: "–"; 
+    margin: 0 10px; 
+}
+
+.timeline-card .degree {
     font-style: italic;
-    font-size: calc(9px + 0.5vw);
-    margin-bottom: 10px;
+    font-size: calc(10px + 0.4vw);
+    color: #007bff;
+    margin-bottom: 15px;
+    display: block;
 }
 
-.timeline-content .details {
-    list-style: disc;
+.timeline-card .details {
+    list-style: none;
+    padding-left: 0;
+}
+
+.timeline-card .details li {
+    font-size: calc(9px + 0.4vw);
+    line-height: 1.5;
+    margin-bottom: 8px;
+    position: relative;
     padding-left: 20px;
+    opacity: 0.85;
 }
 
-.timeline-content .details li {
-    font-size: calc(9px + 0.5vw);
-    line-height: 1.6;
-    margin-bottom: 5px;
+.timeline-card .details li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #007bff;
+    font-weight: bold;
 }
 
+/* --- MOBILE LOGIC --- */
+@media (max-width: 768px) {
+    .timeline { 
+        margin-left: 20px; 
+    }
+    
+    .timeline-dot {
+        left: -43.5px !important; 
+        top: 20px;
+    }
+
+    .timeline-card .date { 
+        position: static; 
+        text-align: left; 
+        display: block;
+        margin-bottom: 10px;
+        font-size: 13px;
+        color: #000;
+    }
+
+    .school-name-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-card h3 .location::before {
+        content: ""; 
+        margin: 0;
+    }
+
+    .school-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 0;
+        object-fit: contain; 
+    }
+
+    .school-reveal img {
+        width: 200px; 
+    }
+}
 /* SECTION 4: CONTACT */
 .contact-section {
     /* Padding reduced from 25px to 12px (vertical) to shrink internal height */

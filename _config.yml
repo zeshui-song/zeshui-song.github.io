@@ -75,12 +75,20 @@ education:
     location: New York, NY
     date: 2024 – Present
     degree: B.E. in Mechanical Engineering
+    school_url: https://cooper.edu/
+    # Define your images here
+    image_url: /assets/images/Cooper.jpg
+    icon_url: /assets/images/CooperLogo.png
     details:
       - "Coursework: General Chemistry, General Chemistry Lab, Intro to Linear Algebra, Statics, Dynamics, Materials Science, Mechanics of Materials, Basic Principles of Electrical Engineering, Systems Engineering, Engineering Thermodynamics, Design and Prototyping, Calculus I-III, Differential Equations, Physics I-III"
   - school: Brooklyn Technical High School
     location: Brooklyn, NY
     date: 2020 – 2024
     degree: Advanced Regents Diploma
+    school_url: https://www.bths.edu/
+    # Define your images here
+    image_url: /assets/images/BTHS.jpg
+    icon_url: /assets/images/BTHSLogo.png
     details:
       - AP Scholar with Disctinction
 
