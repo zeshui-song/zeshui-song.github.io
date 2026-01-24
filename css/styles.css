@@ -675,7 +675,7 @@ code[class*="language-"],
     border-left: 3px solid transparent;
     border-image: linear-gradient(to bottom, #007bff 0%, rgba(0, 123, 255, 0) 100%);
     border-image-slice: 1;
-    margin-left: 170px; 
+    margin-left: 220px; 
     padding-left: 30px;
 }
 
@@ -684,7 +684,6 @@ code[class*="language-"],
     margin-bottom: 60px;
 }
 
-/* Link wrapper styles */
 .timeline-card-link {
     text-decoration: none !important;
     color: inherit !important;
@@ -744,7 +743,6 @@ code[class*="language-"],
                 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* UPDATED SCHOOL ICON */
 .school-icon {
     width: 32px;
     height: 32px;
@@ -756,13 +754,15 @@ code[class*="language-"],
     background: #fff; 
 }
 
+/* Updated: Image always showing */
 .school-reveal {
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    /* SET TO VISIBLE BY DEFAULT */
+    opacity: 0.25; 
     z-index: 0;
     pointer-events: none;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -772,7 +772,8 @@ code[class*="language-"],
 
 .school-reveal img {
     position: absolute;
-    right: -60px;
+    /* MOVED TO 0 BY DEFAULT */
+    right: 0; 
     width: 500px;
     height: 100%;
     object-fit: cover;
@@ -783,12 +784,9 @@ code[class*="language-"],
     mask-image: linear-gradient(to left, black 10%, transparent 90%);
 }
 
+/* Subtle brighten on hover */
 .timeline-item:hover .school-reveal {
-    opacity: 0.35;
-}
-
-.timeline-item:hover .school-reveal img {
-    right: 0;
+    opacity: 0.45;
 }
 
 .card-body {
@@ -819,7 +817,6 @@ code[class*="language-"],
     font-size: 0.9em;
 }
 
-/* FIXED DASH SPACING */
 .timeline-card h3 .location::before {
     content: "–"; 
     margin: 0 10px; 
@@ -894,8 +891,11 @@ code[class*="language-"],
 
     .school-reveal img {
         width: 200px; 
+        /* Ensure it shows by default on mobile too */
+        right: 0;
     }
 }
+
 /* SECTION 4: CONTACT */
 .contact-section {
     /* Padding reduced from 25px to 12px (vertical) to shrink internal height */
