@@ -1507,10 +1507,10 @@ footer .footer-status p {
      
 }
 
-/* Block LaTeX scrollable container for Firefox */
+/* Block LaTeX scrollable container */
 mjx-container[display="true"] {
     max-width: 100% !important;
-    overflow-x: scroll !important;  /* ensures horizontal scroll */
+    overflow-x: auto !important;  /* Changed from scroll to auto */
     overflow-y: hidden !important;
     display: block !important;
     text-align: center !important;
@@ -1519,11 +1519,11 @@ mjx-container[display="true"] {
     margin: 0 auto;
 
     /* Firefox scrollbar styling */
-    scrollbar-width: thin;       /* makes scrollbar visible and thinner */
-    scrollbar-color: var(--link-color) transparent; /* thumb and track colors */
+    scrollbar-width: thin; 
+    scrollbar-color: var(--link-color) transparent;
 }
 
-/* Optional: keep WebKit styling too */
+/* Custom WebKit scrollbar styling (Chrome/Safari) */
 mjx-container[display="true"]::-webkit-scrollbar {
     height: 5px;
 }
