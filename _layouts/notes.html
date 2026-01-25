@@ -207,7 +207,7 @@ document.addEventListener('click', function(e) {
         const btn = e.target.closest('.pdf-item').querySelector('.btn-visual');
         
         const originalText = btn.innerText;
-        btn.innerText = "Loading PDF...";
+        btn.innerText = "Opening...";
 
         fetch(url)
             .then(res => {
