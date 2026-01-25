@@ -29,7 +29,7 @@ layout: wrapper
     /* Main Content Area */
     .notes-main { flex: 1; }
 
-    /* THE COURSE BOX: Groups all notes for one class */
+    /* THE COURSE BOX */
     .class-card-box {
         background: var(--background-color);
         border: 1px solid var(--border-color);
@@ -75,11 +75,11 @@ layout: wrapper
         transition: border-color 0.2s ease;
     }
 
-    .stretched-link::after {
+    .pdf-trigger {
         position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: 1;
-        content: "";
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 5;
+        cursor: pointer;
     }
 
     .preview-window {
@@ -170,7 +170,10 @@ layout: wrapper
                     {% assign raw_url = pdf.url | replace: 'github.com', 'raw.githubusercontent.com' | replace: '/blob/', '/' %}
                 
                 <div class="pdf-item">
-                    <a href="{{ raw_url }}" class="stretched-link" target="_blank"></a>
+                    <a href="{{ raw_url }}" 
+                       class="pdf-trigger" 
+                       data-pdf-url="{{ raw_url }}" 
+                       data-pdf-title="{{ pdf.title }}"></a>
                     
                     <div class="preview-window">
                         {% if pdf.preview_image %}
@@ -194,3 +197,53 @@ layout: wrapper
         {% endfor %}
     </main>
 </div>
+
+<script>
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('pdf-trigger')) {
+        e.preventDefault();
+        const url = e.target.getAttribute('data-pdf-url');
+        const title = e.target.getAttribute('data-pdf-title');
+        const btn = e.target.closest('.pdf-item').querySelector('.btn-visual');
+        
+        const originalText = btn.innerText;
+        btn.innerText = "Loading PDF...";
+
+        fetch(url)
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.blob();
+            })
+            .then(blob => {
+                const pdfBlob = new Blob([blob], { type: 'application/pdf' });
+                const blobUrl = URL.createObjectURL(pdfBlob);
+                
+                // Construct a small HTML Bridge to force the tab title
+                const htmlContent = `
+                    <html>
+                    <head>
+                        <title>${title}</title>
+                        <style>body,html{margin:0;padding:0;height:100%;overflow:hidden;}iframe{width:100%;height:100%;border:none;}</style>
+                    </head>
+                    <body>
+                        <iframe src="${blobUrl}"></iframe>
+                    </body>
+                    </html>
+                `;
+                
+                const blobHtml = new Blob([htmlContent], { type: 'text/html' });
+                const bridgeUrl = URL.createObjectURL(blobHtml);
+                
+                window.open(bridgeUrl, '_blank');
+                
+                btn.innerText = originalText;
+            })
+            .catch(err => {
+                console.error("PDF Fetch Error:", err);
+                btn.innerText = "Error!";
+                window.open(url, '_blank');
+                setTimeout(() => { btn.innerText = originalText; }, 2000);
+            });
+    }
+});
+</script>

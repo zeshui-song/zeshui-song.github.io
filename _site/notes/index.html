@@ -452,7 +452,7 @@
     /* Main Content Area */
     .notes-main { flex: 1; }
 
-    /* THE COURSE BOX: Groups all notes for one class */
+    /* THE COURSE BOX */
     .class-card-box {
         background: var(--background-color);
         border: 1px solid var(--border-color);
@@ -498,11 +498,11 @@
         transition: border-color 0.2s ease;
     }
 
-    .stretched-link::after {
+    .pdf-trigger {
         position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: 1;
-        content: "";
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 5;
+        cursor: pointer;
     }
 
     .preview-window {
@@ -601,7 +601,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_1/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_1/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_1/main.pdf" 
+                       data-pdf-title="Exam 1 Notes: Waves"></a>
                     
                     <div class="preview-window">
                         
@@ -621,7 +624,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_2/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_2/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_2/main.pdf" 
+                       data-pdf-title="Exam 2 Notes: Electrostatics"></a>
                     
                     <div class="preview-window">
                         
@@ -641,7 +647,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_3/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_3/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_3/main.pdf" 
+                       data-pdf-title="Exam 3 Notes: Magnetism, EM Waves, Circuits"></a>
                     
                     <div class="preview-window">
                         
@@ -672,7 +681,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%201/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%201/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%201/main.pdf" 
+                       data-pdf-title="Exam 1: First Order"></a>
                     
                     <div class="preview-window">
                         
@@ -692,7 +704,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%202/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%202/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%202/main.pdf" 
+                       data-pdf-title="Exam 2: Higher Order and Systems"></a>
                     
                     <div class="preview-window">
                         
@@ -712,7 +727,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/The%20rest/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/The%20rest/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/The%20rest/main.pdf" 
+                       data-pdf-title="Final: Laplace Transform"></a>
                     
                     <div class="preview-window">
                         
@@ -743,7 +761,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf" 
+                       data-pdf-title="Quiz 1: Motion and Energetics of Particles, Orbital Mechanics"></a>
                     
                     <div class="preview-window">
                         
@@ -763,7 +784,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%202/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%202/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%202/main.pdf" 
+                       data-pdf-title="Quiz 2: Particle Collision, Rigid Body Motion, "></a>
                     
                     <div class="preview-window">
                         
@@ -783,7 +807,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/The%20rest/main.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/The%20rest/main.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/The%20rest/main.pdf" 
+                       data-pdf-title="The Rest: Rigid Body Energetics and Collision"></a>
                     
                     <div class="preview-window">
                         
@@ -814,7 +841,10 @@
                     
                 
                 <div class="pdf-item">
-                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf" class="stretched-link" target="_blank"></a>
+                    <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf" 
+                       class="pdf-trigger" 
+                       data-pdf-url="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf" 
+                       data-pdf-title="Materials Science"></a>
                     
                     <div class="preview-window">
                         
@@ -835,7 +865,57 @@
         </section>
         
     </main>
-</div></div>
+</div>
+
+<script>
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('pdf-trigger')) {
+        e.preventDefault();
+        const url = e.target.getAttribute('data-pdf-url');
+        const title = e.target.getAttribute('data-pdf-title');
+        const btn = e.target.closest('.pdf-item').querySelector('.btn-visual');
+        
+        const originalText = btn.innerText;
+        btn.innerText = "Loading PDF...";
+
+        fetch(url)
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.blob();
+            })
+            .then(blob => {
+                const pdfBlob = new Blob([blob], { type: 'application/pdf' });
+                const blobUrl = URL.createObjectURL(pdfBlob);
+                
+                // Construct a small HTML Bridge to force the tab title
+                const htmlContent = `
+                    <html>
+                    <head>
+                        <title>${title}</title>
+                        <style>body,html{margin:0;padding:0;height:100%;overflow:hidden;}iframe{width:100%;height:100%;border:none;}</style>
+                    </head>
+                    <body>
+                        <iframe src="${blobUrl}"></iframe>
+                    </body>
+                    </html>
+                `;
+                
+                const blobHtml = new Blob([htmlContent], { type: 'text/html' });
+                const bridgeUrl = URL.createObjectURL(blobHtml);
+                
+                window.open(bridgeUrl, '_blank');
+                
+                btn.innerText = originalText;
+            })
+            .catch(err => {
+                console.error("PDF Fetch Error:", err);
+                btn.innerText = "Error!";
+                window.open(url, '_blank');
+                setTimeout(() => { btn.innerText = originalText; }, 2000);
+            });
+    }
+});
+</script></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
@@ -889,7 +969,7 @@
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-01-23 21:53 EST</p>
+            <p>Last Updated: 2026-01-25 09:16 EST</p>
         </div>
     </div>
 
