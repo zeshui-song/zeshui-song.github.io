@@ -201,11 +201,21 @@ layout: wrapper
 <script>
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('pdf-trigger')) {
-        e.preventDefault();
         const url = e.target.getAttribute('data-pdf-url');
         const title = e.target.getAttribute('data-pdf-title');
         const btn = e.target.closest('.pdf-item').querySelector('.btn-visual');
         
+        // Mobile Detection
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            // Just open the direct link on mobile and exit
+            window.open(url, '_blank');
+            return;
+        }
+
+        // Desktop logic (HTML Bridge for title preservation)
+        e.preventDefault();
         const originalText = btn.innerText;
         btn.innerText = "Opening...";
 
@@ -218,7 +228,6 @@ document.addEventListener('click', function(e) {
                 const pdfBlob = new Blob([blob], { type: 'application/pdf' });
                 const blobUrl = URL.createObjectURL(pdfBlob);
                 
-                // Construct a small HTML Bridge to force the tab title
                 const htmlContent = `
                     <html>
                     <head>
@@ -235,7 +244,6 @@ document.addEventListener('click', function(e) {
                 const bridgeUrl = URL.createObjectURL(blobHtml);
                 
                 window.open(bridgeUrl, '_blank');
-                
                 btn.innerText = originalText;
             })
             .catch(err => {
