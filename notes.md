@@ -45,6 +45,79 @@ classes:
       - title: "Materials Science"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf"
         preview_image: "/assets/note_preview/Mat1-1.png"
+
+youtube_channels:
+- name: "3Blue1Brown"
+  handle: "3blue1brown"
+  desc: "Elegant, intuition-first explanations of advanced mathematics through clear visuals and thoughtful pacing."
+  category: "Math"
+
+- name: "2swap"
+  handle: "twoswap"
+  desc: "Striking mathematical visualizations that reveal deep ideas through geometry and motion."
+  category: "Math"
+
+- name: "Physics with Elliot"
+  handle: "PhysicswithElliot"
+  desc: "Clear, rigorous physics explanations that emphasize derivations without sacrificing intuition."
+  category: "Physics"
+
+- name: "Veritasium"
+  handle: "veritasium"
+  desc: "Investigates surprising questions in science and technology, blending curiosity, experiments, and storytelling."
+  category: "Explainers and Science Demos"
+
+- name: "NileRed"
+  handle: "NileRed"
+  desc: "Hands-on chemistry experiments with clear explanations of the underlying reactions and theory."
+  category: "Chem"
+
+- name: "DrBenYelverton"
+  handle: "DrBenYelverton"
+  desc: "Carefully illustrated physics problem solving across a broad range of classical topics."
+  category: "Physics"
+
+- name: "AngeTheGreat"
+  handle: "AngeTheGreat"
+  desc: "Advanced sound simulation work focused on engines and automotive acoustics."
+  category: "Physics"
+
+- name: "Stuff Made Here"
+  handle: "StuffMadeHere"
+  desc: "Ambitious engineering projects combining mechanical design, software, and creative problem solving."
+  category: "Engineering"
+
+- name: "BPS.space"
+  handle: "BPSspace"
+  desc: "Detailed documentation of experimental rocketry projects from concept to flight."
+  category: "Engineering"
+
+- name: "AlphaPhoenix"
+  handle: "AlphaPhoenixChannel"
+  desc: "Explores physics and engineering concepts through experiments and careful analysis."
+  category: "Explainers and Science Demos"
+
+- name: "Steve Mould"
+  handle: "SteveMould"
+  desc: "Examines strange and counterintuitive scientific phenomena with clear explanations."
+  category: "Explainers and Science Demos"
+
+- name: "Real Engineering"
+  handle: "RealEngineering"
+  desc: "Breaks down major engineering achievements and the ideas behind modern technology."
+  category: "Engineering"
+
+- name: "HTX Studio"
+  handle: "HTXStudio"
+  desc: "Precision-engineered projects presented with high-quality cinematography and design."
+  category: "Engineering"
+
+- name: "Steve Brunton"
+  handle: "Eigensteve"
+  desc: "Data-driven modeling of dynamical systems, with applications to fluid dynamics and machine learning."
+  category: "Physics"
+
+
 ---
 
 # Notes Archive

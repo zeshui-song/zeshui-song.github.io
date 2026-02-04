@@ -560,6 +560,73 @@
         background-color: var(--light-background-color) !important;
     }
 
+    /* Inspiration Grid with Categories */
+    .inspiration-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    
+    .inspiration-meta h3 { margin: 0 0 0.5rem 0; font-size: 1.5rem; color: var(--text-color); }
+    .inspiration-meta p { font-size: 0.95rem; opacity: 0.8; line-height: 1.6; margin-bottom: 0; }
+    
+    .category-group { margin-bottom: 1.5rem; }
+    .category-label { 
+        font-size: 0.75rem; 
+        font-weight: 800; 
+        text-transform: uppercase; 
+        letter-spacing: 1.5px; 
+        color: var(--link-color);
+        margin-bottom: 1rem;
+        display: block;
+        border-left: 3px solid var(--link-color);
+        padding-left: 10px;
+    }
+
+    .yt-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+        gap: 1rem; 
+    }
+    
+    .yt-link-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+        background: var(--light-background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        height: 100%;
+    }
+    
+    .yt-link-card:hover { 
+        border-color: #FF0000; 
+        background: #fff; 
+        transform: translateY(-2px);
+    }
+    
+    .yt-avatar {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid var(--border-color);
+        background: #eee;
+        flex-shrink: 0;
+    }
+    
+    .yt-text-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .yt-name { font-weight: 700; color: var(--text-color); font-size: 0.95rem; }
+    .yt-desc { font-size: 0.8rem; color: var(--text-color); opacity: 0.7; margin: 0; line-height: 1.4; }
+
     @media (max-width: 850px) {
         .notes-container { flex-direction: column; }
         .notes-sidebar { display: none; }
@@ -580,6 +647,9 @@
                 
                     <li><a href="#esc-210">ESC-210</a></li>
                 
+                
+                    <li><a href="#sources-of-inspiration">Sources of Inspiration</a></li>
+                
             </ul>
         </div>
     </aside>
@@ -599,7 +669,7 @@
             <div class="resource-list">
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_1/main.pdf" 
                        class="pdf-trigger" 
@@ -622,7 +692,7 @@
                 </div>
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_2/main.pdf" 
                        class="pdf-trigger" 
@@ -645,7 +715,7 @@
                 </div>
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_3/main.pdf" 
                        class="pdf-trigger" 
@@ -679,7 +749,7 @@
             <div class="resource-list">
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%201/main.pdf" 
                        class="pdf-trigger" 
@@ -702,7 +772,7 @@
                 </div>
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%202/main.pdf" 
                        class="pdf-trigger" 
@@ -725,7 +795,7 @@
                 </div>
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/The%20rest/main.pdf" 
                        class="pdf-trigger" 
@@ -759,7 +829,7 @@
             <div class="resource-list">
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf" 
                        class="pdf-trigger" 
@@ -782,7 +852,7 @@
                 </div>
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%202/main.pdf" 
                        class="pdf-trigger" 
@@ -805,7 +875,7 @@
                 </div>
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/The%20rest/main.pdf" 
                        class="pdf-trigger" 
@@ -839,7 +909,7 @@
             <div class="resource-list">
                 
                     
-                
+              
                 <div class="pdf-item">
                     <a href="https://raw.githubusercontent.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf" 
                        class="pdf-trigger" 
@@ -864,6 +934,189 @@
             </div>
         </section>
         
+
+        
+        <section class="class-card-box" id="sources-of-inspiration">
+            <div class="inspiration-container">
+                <div class="inspiration-meta">
+                    <i class="fa-brands fa-youtube" style="color:#FF0000; font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3>Sources of Inspiration</h3>
+                    <p>These YouTube channels consistently inspire my thinking and creativity, presenting ideas in a clear, engaging, and intellectually satisfying ways.</p>
+                </div>
+
+                
+                
+                
+                    
+                    
+                    
+                    <div class="category-group">
+                        <span class="category-label">Physics</span>
+                        <div class="yt-grid">
+                            
+                            <a href="https://youtube.com/@PhysicswithElliot" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/PhysicswithElliot?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">Physics with Elliot</span>
+                                    <p class="yt-desc">Clear, rigorous physics explanations that emphasize derivations without sacrificing intuition.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@DrBenYelverton" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/DrBenYelverton?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">DrBenYelverton</span>
+                                    <p class="yt-desc">Carefully illustrated physics problem solving across a broad range of classical topics.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@AngeTheGreat" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/AngeTheGreat?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">AngeTheGreat</span>
+                                    <p class="yt-desc">Advanced sound simulation work focused on engines and automotive acoustics.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@Eigensteve" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/Eigensteve?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">Steve Brunton</span>
+                                    <p class="yt-desc">Data-driven modeling of dynamical systems, with applications to fluid dynamics and machine learning.</p>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                
+                    
+                    
+                    
+                    <div class="category-group">
+                        <span class="category-label">Math</span>
+                        <div class="yt-grid">
+                            
+                            <a href="https://youtube.com/@3blue1brown" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/3blue1brown?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">3Blue1Brown</span>
+                                    <p class="yt-desc">Elegant, intuition-first explanations of advanced mathematics through clear visuals and thoughtful pacing.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@twoswap" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/twoswap?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">2swap</span>
+                                    <p class="yt-desc">Striking mathematical visualizations that reveal deep ideas through geometry and motion.</p>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                
+                    
+                    
+                    
+                    <div class="category-group">
+                        <span class="category-label">Engineering</span>
+                        <div class="yt-grid">
+                            
+                            <a href="https://youtube.com/@StuffMadeHere" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/StuffMadeHere?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">Stuff Made Here</span>
+                                    <p class="yt-desc">Ambitious engineering projects combining mechanical design, software, and creative problem solving.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@BPSspace" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/BPSspace?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">BPS.space</span>
+                                    <p class="yt-desc">Detailed documentation of experimental rocketry projects from concept to flight.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@RealEngineering" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/RealEngineering?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">Real Engineering</span>
+                                    <p class="yt-desc">Breaks down major engineering achievements and the ideas behind modern technology.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@HTXStudio" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/HTXStudio?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">HTX Studio</span>
+                                    <p class="yt-desc">Precision-engineered projects presented with high-quality cinematography and design.</p>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                
+                    
+                    
+                    
+                    <div class="category-group">
+                        <span class="category-label">Explainers and Science Demos</span>
+                        <div class="yt-grid">
+                            
+                            <a href="https://youtube.com/@veritasium" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/veritasium?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">Veritasium</span>
+                                    <p class="yt-desc">Investigates surprising questions in science and technology, blending curiosity, experiments, and storytelling.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@AlphaPhoenixChannel" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/AlphaPhoenixChannel?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">AlphaPhoenix</span>
+                                    <p class="yt-desc">Explores physics and engineering concepts through experiments and careful analysis.</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://youtube.com/@SteveMould" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/SteveMould?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">Steve Mould</span>
+                                    <p class="yt-desc">Examines strange and counterintuitive scientific phenomena with clear explanations.</p>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                
+                    
+                    
+                    
+                    <div class="category-group">
+                        <span class="category-label">Chem</span>
+                        <div class="yt-grid">
+                            
+                            <a href="https://youtube.com/@NileRed" class="yt-link-card" target="_blank">
+                                <img src="https://unavatar.io/youtube/NileRed?fallback=https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="yt-avatar" alt="">
+                                <div class="yt-text-meta">
+                                    <span class="yt-name">NileRed</span>
+                                    <p class="yt-desc">Hands-on chemistry experiments with clear explanations of the underlying reactions and theory.</p>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                
+            </div>
+        </section>
+        
     </main>
 </div>
 
@@ -873,7 +1126,6 @@ document.addEventListener('click', function(e) {
         const url = e.target.getAttribute('data-pdf-url');
         const title = e.target.getAttribute('data-pdf-title');
         const btn = e.target.closest('.pdf-item').querySelector('.btn-visual');
-        
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         if (isMobile) {
@@ -882,17 +1134,13 @@ document.addEventListener('click', function(e) {
         }
 
         e.preventDefault();
-        
-        // FIX: Open the window immediately to satisfy the browser's "user-initiated" requirement
         const newWindow = window.open('', '_blank');
         if (!newWindow) {
             alert("Please allow popups for this site to view notes.");
             return;
         }
 
-        // Set a temporary loading state in the new window
         newWindow.document.write(`<html><head><title>Loading...</title></head><body style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;color:#666;">Loading PDF...</body></html>`);
-
         const originalText = btn.innerText;
         btn.innerText = "Opening...";
 
@@ -904,30 +1152,15 @@ document.addEventListener('click', function(e) {
             .then(blob => {
                 const pdfBlob = new Blob([blob], { type: 'application/pdf' });
                 const blobUrl = URL.createObjectURL(pdfBlob);
-                
-                const htmlContent = `
-                    <html>
-                    <head>
-                        <title>${title}</title>
-                        <style>body,html{margin:0;padding:0;height:100%;overflow:hidden;}iframe{width:100%;height:100%;border:none;}</style>
-                    </head>
-                    <body>
-                        <iframe src="${blobUrl}"></iframe>
-                    </body>
-                    </html>
-                `;
-                
+                const htmlContent = `<html><head><title>${title}</title><style>body,html{margin:0;padding:0;height:100%;overflow:hidden;}iframe{width:100%;height:100%;border:none;}</style></head><body><iframe src="${blobUrl}"></iframe></body></html>`;
                 const blobHtml = new Blob([htmlContent], { type: 'text/html' });
                 const bridgeUrl = URL.createObjectURL(blobHtml);
-                
-                // Update the location of the window we opened earlier
                 newWindow.location.href = bridgeUrl;
                 btn.innerText = originalText;
             })
             .catch(err => {
                 console.error("PDF Fetch Error:", err);
                 btn.innerText = "Error!";
-                // Fallback: If fetch fails, try to redirect the new window to the raw URL
                 newWindow.location.href = url;
                 setTimeout(() => { btn.innerText = originalText; }, 2000);
             });
@@ -987,7 +1220,7 @@ document.addEventListener('click', function(e) {
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-01-27 20:44 EST</p>
+            <p>Last Updated: 2026-02-04 12:04 EST</p>
         </div>
     </div>
 
