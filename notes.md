@@ -5,6 +5,7 @@ permalink: /notes/
 classes:
   - code: "PH-213"
     name: "Physics II: Electromagnetic Phenomena"
+    category: "Physics"
     pdfs:
       - title: "Exam 1 Notes: Waves"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Physics/Physics_Exam_1/main.pdf"
@@ -17,6 +18,7 @@ classes:
         preview_image: "/assets/note_preview/Phy3-1.png"
   - code: "MA-240"
     name: "Differential Equations"
+    category: "Math"
     pdfs:
       - title: "Exam 1: First Order"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Diff%20Eq/Exam%201/main.pdf"
@@ -29,6 +31,7 @@ classes:
         preview_image: "/assets/note_preview/Diff3-1.png"
   - code: "ME-200"
     name: "Dynamics"
+    category: "Engineering"
     pdfs:
       - title: "Quiz 1: Motion and Energetics of Particles, Orbital Mechanics"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf"
@@ -41,6 +44,7 @@ classes:
         preview_image: "/assets/note_preview/Dyn3-1.png"
   - code: "ESC-210"
     name: "Materials Science"
+    category: "Engineering"
     pdfs:
       - title: "Materials Science"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf"

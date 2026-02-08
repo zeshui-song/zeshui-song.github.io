@@ -23,11 +23,48 @@ layout: wrapper
     .course-nav h3 { margin-top: 0; font-size: 1rem; color: var(--text-color); text-transform: uppercase; letter-spacing: 1px; }
     .course-nav ul { list-style: none; padding: 0; }
     .course-nav li { margin-bottom: 0.8rem; font-size: 0.9rem; }
-    .course-nav a { text-decoration: none; color: var(--link-color); transition: 0.2s; }
-    .course-nav a:hover { color: var(--text-color); }
+    
+    /* REVISED LINK STYLING: Links are now dark text, turning blue on hover */
+    .course-nav a { 
+        text-decoration: none; 
+        color: var(--text-color); 
+        opacity: 0.8;
+        transition: 0.2s; 
+    }
+    .course-nav a:hover { 
+        color: var(--link-color); 
+        opacity: 1;
+    }
+
+    /* REVISED HEADER STYLING: Headers are now the link color (blue) */
+    .sidebar-cat-header {
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--link-color);
+        margin-top: 1.2rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
 
     /* Main Content Area */
     .notes-main { flex: 1; }
+
+    /* Main Category Header */
+    .main-category-header {
+        font-size: 1.4rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--link-color);
+        margin-top: 4rem;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid var(--link-color);
+        padding-left: 15px;
+        line-height: 1.2;
+    }
+    
+    .category-wrapper:first-of-type .main-category-header { margin-top: 0; }
 
     /* THE COURSE BOX */
     .class-card-box {
@@ -210,15 +247,26 @@ layout: wrapper
     }
 </style>
 
+{% assign note_category_order = "Math,Physics,Engineering,Humanities" | split: "," %}
+
 <div class="notes-container">
     <aside class="notes-sidebar">
         <div class="course-nav">
             <h3>Contents</h3>
             <ul>
-                {% for course in page.classes %}
-                    <li><a href="#{{ course.code | slugify }}">{{ course.code }}</a></li>
+                {% for category in note_category_order %}
+                    {% assign cat_classes = page.classes | where: "category", category %}
+                    
+                    {% if cat_classes.size > 0 %}
+                    <div class="sidebar-cat-header">{{ category }}</div>
+                    {% for course in cat_classes %}
+                        <li><a href="#{{ course.code | slugify }}">{{ course.code }}</a></li>
+                    {% endfor %}
+                    {% endif %}
                 {% endfor %}
+
                 {% if page.youtube_channels %}
+                    <div class="sidebar-cat-header">Extras</div>
                     <li><a href="#sources-of-inspiration">Sources of Inspiration</a></li>
                 {% endif %}
             </ul>
@@ -228,41 +276,51 @@ layout: wrapper
     <main class="notes-main">
         {{ content }}
 
-        {% for course in page.classes %}
-        <section class="class-card-box" id="{{ course.code | slugify }}">
-            <div class="class-header">
-                <span class="class-code">{{ course.code }}</span>
-                <h2>{{ course.name }}</h2>
-            </div>
+        {% for category in note_category_order %}
+            {% assign cat_classes = page.classes | where: "category", category %}
+            
+            {% if cat_classes.size > 0 %}
+            <div class="category-wrapper">
+                <h2 class="main-category-header">{{ category }}</h2>
+                
+                {% for course in cat_classes %}
+                <section class="class-card-box" id="{{ course.code | slugify }}">
+                    <div class="class-header">
+                        <span class="class-code">{{ course.code }}</span>
+                        <h2>{{ course.name }}</h2>
+                    </div>
 
-            <div class="resource-list">
-                {% for pdf in course.pdfs %}
-                    {% assign raw_url = pdf.url | replace: 'github.com', 'raw.githack.com' | replace: '/blob/', '/' %}
-              
-                <div class="pdf-item">
-                    <a href="{{ raw_url }}" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
+                    <div class="resource-list">
+                        {% for pdf in course.pdfs %}
+                            {% assign raw_url = pdf.url | replace: 'github.com', 'raw.githack.com' | replace: '/blob/', '/' %}
                     
-                    <div class="preview-window">
-                        {% if pdf.preview_image %}
-                            <img src="{{ pdf.preview_image | relative_url }}" alt="{{ pdf.title }}">
-                        {% else %}
-                            <i class="fa-regular fa-file-pdf" style="font-size: 3rem; color: #ccc;"></i>
-                        {% endif %}
-                    </div>
+                        <div class="pdf-item">
+                            <a href="{{ raw_url }}" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                {% if pdf.preview_image %}
+                                    <img src="{{ pdf.preview_image | relative_url }}" alt="{{ pdf.title }}">
+                                {% else %}
+                                    <i class="fa-regular fa-file-pdf" style="font-size: 3rem; color: #ccc;"></i>
+                                {% endif %}
+                            </div>
 
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">{{ pdf.title }}</span>
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">{{ pdf.title }}</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
                         </div>
-                        <div class="btn-visual">View Notes</div>
+                        {% endfor %}
                     </div>
-                </div>
+                </section>
                 {% endfor %}
             </div>
-        </section>
+            {% endif %}
         {% endfor %}
 
         {% if page.youtube_channels %}

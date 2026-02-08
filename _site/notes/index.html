@@ -446,11 +446,48 @@
     .course-nav h3 { margin-top: 0; font-size: 1rem; color: var(--text-color); text-transform: uppercase; letter-spacing: 1px; }
     .course-nav ul { list-style: none; padding: 0; }
     .course-nav li { margin-bottom: 0.8rem; font-size: 0.9rem; }
-    .course-nav a { text-decoration: none; color: var(--link-color); transition: 0.2s; }
-    .course-nav a:hover { color: var(--text-color); }
+    
+    /* REVISED LINK STYLING: Links are now dark text, turning blue on hover */
+    .course-nav a { 
+        text-decoration: none; 
+        color: var(--text-color); 
+        opacity: 0.8;
+        transition: 0.2s; 
+    }
+    .course-nav a:hover { 
+        color: var(--link-color); 
+        opacity: 1;
+    }
+
+    /* REVISED HEADER STYLING: Headers are now the link color (blue) */
+    .sidebar-cat-header {
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--link-color);
+        margin-top: 1.2rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
 
     /* Main Content Area */
     .notes-main { flex: 1; }
+
+    /* Main Category Header */
+    .main-category-header {
+        font-size: 1.4rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--link-color);
+        margin-top: 4rem;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid var(--link-color);
+        padding-left: 15px;
+        line-height: 1.2;
+    }
+    
+    .category-wrapper:first-of-type .main-category-header { margin-top: 0; }
 
     /* THE COURSE BOX */
     .class-card-box {
@@ -633,21 +670,50 @@
     }
 </style>
 
+
+
 <div class="notes-container">
     <aside class="notes-sidebar">
         <div class="course-nav">
             <h3>Contents</h3>
             <ul>
                 
-                    <li><a href="#ph-213">PH-213</a></li>
+                    
+                    
+                    
+                    <div class="sidebar-cat-header">Math</div>
+                    
+                        <li><a href="#ma-240">MA-240</a></li>
+                    
+                    
                 
-                    <li><a href="#ma-240">MA-240</a></li>
+                    
+                    
+                    
+                    <div class="sidebar-cat-header">Physics</div>
+                    
+                        <li><a href="#ph-213">PH-213</a></li>
+                    
+                    
                 
-                    <li><a href="#me-200">ME-200</a></li>
+                    
+                    
+                    
+                    <div class="sidebar-cat-header">Engineering</div>
+                    
+                        <li><a href="#me-200">ME-200</a></li>
+                    
+                        <li><a href="#esc-210">ESC-210</a></li>
+                    
+                    
                 
-                    <li><a href="#esc-210">ESC-210</a></li>
+                    
+                    
+                    
                 
+
                 
+                    <div class="sidebar-cat-header">Extras</div>
                     <li><a href="#sources-of-inspiration">Sources of Inspiration</a></li>
                 
             </ul>
@@ -660,269 +726,303 @@
 
 
         
-        <section class="class-card-box" id="ph-213">
-            <div class="class-header">
-                <span class="class-code">PH-213</span>
-                <h2>Physics II: Electromagnetic Phenomena</h2>
+            
+            
+            
+            <div class="category-wrapper">
+                <h2 class="main-category-header">Math</h2>
+                
+                
+                <section class="class-card-box" id="ma-240">
+                    <div class="class-header">
+                        <span class="class-code">MA-240</span>
+                        <h2>Differential Equations</h2>
+                    </div>
+
+                    <div class="resource-list">
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%201/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Diff1-1.png" alt="Exam 1: First Order">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Exam 1: First Order</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%202/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Diff2-1.png" alt="Exam 2: Higher Order and Systems">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Exam 2: Higher Order and Systems</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/The%20rest/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Diff3-1.png" alt="Final: Laplace Transform">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Final: Laplace Transform</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                
             </div>
-
-            <div class="resource-list">
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_1/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Phy1-1.png" alt="Exam 1 Notes: Waves">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Exam 1 Notes: Waves</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_2/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Phy2-1.png" alt="Exam 2 Notes: Electrostatics">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Exam 2 Notes: Electrostatics</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_3/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Phy3-1.png" alt="Exam 3 Notes: Magnetism, EM Waves, Circuits">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Exam 3 Notes: Magnetism, EM Waves, Circuits</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
+            
         
-        <section class="class-card-box" id="ma-240">
-            <div class="class-header">
-                <span class="class-code">MA-240</span>
-                <h2>Differential Equations</h2>
+            
+            
+            
+            <div class="category-wrapper">
+                <h2 class="main-category-header">Physics</h2>
+                
+                
+                <section class="class-card-box" id="ph-213">
+                    <div class="class-header">
+                        <span class="class-code">PH-213</span>
+                        <h2>Physics II: Electromagnetic Phenomena</h2>
+                    </div>
+
+                    <div class="resource-list">
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_1/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Phy1-1.png" alt="Exam 1 Notes: Waves">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Exam 1 Notes: Waves</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_2/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Phy2-1.png" alt="Exam 2 Notes: Electrostatics">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Exam 2 Notes: Electrostatics</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Physics/Physics_Exam_3/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Phy3-1.png" alt="Exam 3 Notes: Magnetism, EM Waves, Circuits">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Exam 3 Notes: Magnetism, EM Waves, Circuits</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                
             </div>
-
-            <div class="resource-list">
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%201/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Diff1-1.png" alt="Exam 1: First Order">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Exam 1: First Order</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/Exam%202/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Diff2-1.png" alt="Exam 2: Higher Order and Systems">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Exam 2: Higher Order and Systems</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Diff%20Eq/The%20rest/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Diff3-1.png" alt="Final: Laplace Transform">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Final: Laplace Transform</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
+            
         
-        <section class="class-card-box" id="me-200">
-            <div class="class-header">
-                <span class="class-code">ME-200</span>
-                <h2>Dynamics</h2>
+            
+            
+            
+            <div class="category-wrapper">
+                <h2 class="main-category-header">Engineering</h2>
+                
+                
+                <section class="class-card-box" id="me-200">
+                    <div class="class-header">
+                        <span class="class-code">ME-200</span>
+                        <h2>Dynamics</h2>
+                    </div>
+
+                    <div class="resource-list">
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Dyn1-1.png" alt="Quiz 1: Motion and Energetics of Particles, Orbital Mechanics">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Quiz 1: Motion and Energetics of Particles, Orbital Mechanics</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%202/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Dyn2-1.png" alt="Quiz 2: Particle Collision, Rigid Body Motion, ">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Quiz 2: Particle Collision, Rigid Body Motion, </span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/The%20rest/main.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Dyn3-1.png" alt="The Rest: Rigid Body Energetics and Collision">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">The Rest: Rigid Body Energetics and Collision</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                
+                <section class="class-card-box" id="esc-210">
+                    <div class="class-header">
+                        <span class="class-code">ESC-210</span>
+                        <h2>Materials Science</h2>
+                    </div>
+
+                    <div class="resource-list">
+                        
+                            
+                    
+                        <div class="pdf-item">
+                            <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf" 
+                               class="pdf-trigger" 
+                               target="_blank"></a>
+                            
+                            <div class="preview-window">
+                                
+                                    <img src="/assets/note_preview/Mat1-1.png" alt="Materials Science">
+                                
+                            </div>
+
+                            <div class="pdf-details">
+                                <div class="pdf-info">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <span class="pdf-name">Materials Science</span>
+                                </div>
+                                <div class="btn-visual">View Notes</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                
             </div>
-
-            <div class="resource-list">
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Dyn1-1.png" alt="Quiz 1: Motion and Energetics of Particles, Orbital Mechanics">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Quiz 1: Motion and Energetics of Particles, Orbital Mechanics</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/Quiz%202/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Dyn2-1.png" alt="Quiz 2: Particle Collision, Rigid Body Motion, ">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Quiz 2: Particle Collision, Rigid Body Motion, </span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Dynamics/The%20rest/main.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Dyn3-1.png" alt="The Rest: Rigid Body Energetics and Collision">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">The Rest: Rigid Body Energetics and Collision</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
+            
         
-        <section class="class-card-box" id="esc-210">
-            <div class="class-header">
-                <span class="class-code">ESC-210</span>
-                <h2>Materials Science</h2>
-            </div>
-
-            <div class="resource-list">
-                
-                    
-              
-                <div class="pdf-item">
-                    <a href="https://raw.githack.com/zeshui-song/LaTex/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf" 
-                       class="pdf-trigger" 
-                       target="_blank"></a>
-                    
-                    <div class="preview-window">
-                        
-                            <img src="/assets/note_preview/Mat1-1.png" alt="Materials Science">
-                        
-                    </div>
-
-                    <div class="pdf-details">
-                        <div class="pdf-info">
-                            <i class="fa-regular fa-file-pdf"></i>
-                            <span class="pdf-name">Materials Science</span>
-                        </div>
-                        <div class="btn-visual">View Notes</div>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
+            
+            
+            
         
 
         
@@ -1162,7 +1262,7 @@
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-02-08 10:02 EST</p>
+            <p>Last Updated: 2026-02-08 10:19 EST</p>
         </div>
     </div>
 
