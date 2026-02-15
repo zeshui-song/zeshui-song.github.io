@@ -778,7 +778,7 @@
         </div>
 
         <div class="footer-status">
-            <p>Last Updated: 2026-02-15 12:05 EST</p>
+            <p>Last Updated: 2026-02-15 15:09 EST</p>
         </div>
     </div>
 
@@ -794,6 +794,28 @@
         });
     </script>
 </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const hero = document.querySelector('.hero-section');
+    const imageUrl = "/assets/images/bg.webp";
+    
+    if (imageUrl) {
+      const img = new Image();
+      img.src = imageUrl;
+      
+      // When the image is fully cached/loaded, add the class
+      img.onload = function() {
+        hero.classList.add('is-loaded');
+      };
+      
+      // Fallback: If the image fails to load, reveal anyway so the site isn't broken
+      img.onerror = function() {
+        hero.classList.add('is-loaded');
+      };
+    }
+  });
+</script>
 </body>
 
     

@@ -123,6 +123,28 @@
   });
 </script>
 {% include footer.html%}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const hero = document.querySelector('.hero-section');
+    const imageUrl = "{{ site.hero_image }}";
+    
+    if (imageUrl) {
+      const img = new Image();
+      img.src = imageUrl;
+      
+      // When the image is fully cached/loaded, add the class
+      img.onload = function() {
+        hero.classList.add('is-loaded');
+      };
+      
+      // Fallback: If the image fails to load, reveal anyway so the site isn't broken
+      img.onerror = function() {
+        hero.classList.add('is-loaded');
+      };
+    }
+  });
+</script>
 </body>
 
     

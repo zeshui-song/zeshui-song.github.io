@@ -212,12 +212,8 @@ nav .mobile-nav {
     top: 0;
     left: 0;
     height: 100%;
-    width: 200%; /* Double width to hold the solid color AND the fade tail */
+    width: 200%; 
     
-    /* The Gradient:
-       - 0% - 50%: Solid Color (Covers screen initially)
-       - 50% - 85%: Fades out (The soft edge)
-    */
     background: linear-gradient(to right, 
         var(--background-color) 0%, 
         var(--background-color) 50%, 
@@ -227,7 +223,12 @@ nav .mobile-nav {
     z-index: 1; 
     pointer-events: none; 
     
-    /* Slide Animation */
+    /* Animation is REMOVED from here so it doesn't auto-start */
+    opacity: 1;
+}
+
+/* New Trigger Class: Only runs when JS adds .is-loaded */
+.hero-section.is-loaded::before {
     animation: soft-roll-reveal 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
 }
 
@@ -239,22 +240,28 @@ nav .mobile-nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    z-index: 2; /* Sits on top of the curtain */
+    z-index: 2; 
+    
+    /* Optional: Hide text until image is loaded too */
+    opacity: 0;
+}
+
+.hero-section.is-loaded .group {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
 }
 
 /* =========================================
    3. STAGGERED TEXT ENTRANCE
    ========================================= */
-
-/* Define the Fade Up Move */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px); /* Starts lower */
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);    /* Ends in place */
+        transform: translateY(0);
     }
 }
 
