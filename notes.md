@@ -43,6 +43,13 @@ classes:
       - title: "Notes"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Spring%202026%20Notes/Mech%20Mat/Mech%20Mat.pdf"
         preview_image: "/assets/note_preview/MechMat.png"
+  - code: "ESC-330"
+    name: "Engineering Thermodynamics"
+    category: "Engineering"
+    pdfs:
+      - title: "Notes"
+        url: "https://github.com/zeshui-song/LaTex/blob/main/Spring%202026%20Notes/Thermodynamics/Thermo.pdf"
+        preview_image: "/assets/note_preview/Thermo.png"
   - code: "ME-200"
     name: "Dynamics"
     category: "Engineering"
