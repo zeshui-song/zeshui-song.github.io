@@ -3,6 +3,13 @@ layout: notes
 title: Notes
 permalink: /notes/
 classes:
+  - code: "PH-214"
+    name: "Physics III: Optics and Modern Physics"
+    category: "Physics"
+    pdfs:
+      - title: "Notes"
+        url: "https://github.com/zeshui-song/LaTex/blob/main/Spring%202026%20Notes/Modern%20Physics/Modern.pdf"
+        preview_image: "/assets/note_preview/Modern.png"
   - code: "PH-213"
     name: "Physics II: Electromagnetic Phenomena"
     category: "Physics"
@@ -29,6 +36,13 @@ classes:
       - title: "Final: Laplace Transform"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Diff%20Eq/The%20rest/main.pdf"
         preview_image: "/assets/note_preview/Diff3-1.png"
+  - code: "ESC-201"
+    name: "Mechanics of Materials"
+    category: "Engineering"
+    pdfs:
+      - title: "Notes"
+        url: "https://github.com/zeshui-song/LaTex/blob/main/Spring%202026%20Notes/Mech%20Mat/Mech%20Mat.pdf"
+        preview_image: "/assets/note_preview/MechMat.png"
   - code: "ME-200"
     name: "Dynamics"
     category: "Engineering"
@@ -36,7 +50,7 @@ classes:
       - title: "Quiz 1: Motion and Energetics of Particles, Orbital Mechanics"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Dynamics/Quiz%201/main.pdf"
         preview_image: "/assets/note_preview/Dyn1-1.png"
-      - title: "Quiz 2: Particle Collision, Rigid Body Motion, "
+      - title: "Quiz 2: Particle Collision, Rigid Body Motion"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Dynamics/Quiz%202/main.pdf"
         preview_image: "/assets/note_preview/Dyn2-1.png"
       - title: "The Rest: Rigid Body Energetics and Collision"
@@ -46,10 +60,10 @@ classes:
     name: "Materials Science"
     category: "Engineering"
     pdfs:
-      - title: "Materials Science"
+      - title: "Notes"
         url: "https://github.com/zeshui-song/LaTex/blob/main/Fall%202025%20Notes/Materials%20Science/Materials%20Science.pdf"
         preview_image: "/assets/note_preview/Mat1-1.png"
-
+        
 youtube_channels:
 - name: "3Blue1Brown"
   handle: "3blue1brown"
