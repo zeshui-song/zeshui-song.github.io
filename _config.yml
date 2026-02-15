@@ -11,7 +11,7 @@ timezone: America/New_York
 title: Zeshui Song's Portfolio # This is what shows up in the tab of the browser
 url: "https://zeshui-song.github.io"
 # _config.yml
-hero_image: https://raw.githubusercontent.com/zeshui-song/zeshui-song.github.io/refs/heads/main/assets/images/bg.jpg 
+hero_image: "/assets/images/bg.webp"
 
 
 
@@ -22,7 +22,7 @@ description: >- # dont remove this line. this will ignore all new lines until th
   
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
-profile_image: ./assets/images/profile-image/IMG_20251227_145357313_HDR.jpg
+profile_image: ./assets/images/profile-image/IMG_20251227_145357313_HDR.webp
 
 
 # Link your resume

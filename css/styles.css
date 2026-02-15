@@ -168,7 +168,7 @@ nav .mobile-nav {
     width: 100%;
 }
 
-/* SECTION 1: Hero - ORIGINAL DESKTOP STYLES UNCHANGED */
+/* SECTION 1: Hero - DESKTOP STYLES */
 .hero-section {
     flex: 1; 
     display: flex;
@@ -178,20 +178,32 @@ nav .mobile-nav {
     margin-bottom: 20px;
     position: relative;
     border: none !important;
-    border-image: none !important;
-    outline: none !important;
     border-radius: 16px;
     overflow: hidden; 
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    mask-image: radial-gradient(white, black);
-    background-color: transparent; 
+
+    /* RESET: Chrome Fix */
+    -webkit-mask-image: none;
+    mask-image: none;
+    box-shadow: none;
     
-    background-image: url('{{ site.hero_image }}');
-    box-shadow: inset 800px 0 150px -100px var(--background-color);
+    background-color: var(--background-color); 
+    
+    /* GRADIENT ADJUSTMENT:
+       1. Solid color stops at 450px (Much closer to the left edge).
+       2. Fades out slowly until 1000px (Creates a very long, soft fade).
+    */
+    background-image: 
+        linear-gradient(to right, 
+            var(--background-color) 0%,
+            var(--background-color) 550px, 
+            rgba(255, 255, 255, 0) 1400px
+        ),
+        url('{{ site.hero_image }}');
     
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
+    background-blend-mode: normal;
 }
 
 .hero-section .group {
