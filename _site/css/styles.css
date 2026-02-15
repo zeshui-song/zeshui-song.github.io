@@ -210,46 +210,35 @@ nav .mobile-nav {
     left: 0;
     height: 100%;
     width: 200%; 
-    
     background: linear-gradient(to right, 
         var(--background-color) 0%, 
         var(--background-color) 50%, 
         rgba(255,255,255,0) 85% 
     );
-    
     z-index: 1; 
     pointer-events: none; 
-    
-    /* Animation is REMOVED from here so it doesn't auto-start */
-    opacity: 1;
+    /* No animation here - it stays static initially */
 }
 
-/* New Trigger Class: Only runs when JS adds .is-loaded */
+/* TRIGGER: Background ONLY follows this delay */
 .hero-section.is-loaded::before {
     animation: soft-roll-reveal 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
 }
 
 /* =========================================
-   2. CONTENT LAYOUT
+   2. CONTENT LAYOUT (Profile Pic & Text)
    ========================================= */
 .hero-section .group {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    z-index: 2; 
-    
-    /* Optional: Hide text until image is loaded too */
-    opacity: 0;
-}
-
-.hero-section.is-loaded .group {
-    opacity: 1;
-    transition: opacity 0.5s ease-in;
+    z-index: 2; /* Sits on top of the curtain */
 }
 
 /* =========================================
-   3. STAGGERED TEXT ENTRANCE
+   3. ORIGINAL ENTRANCE ANIMATIONS
+   (These run immediately on page load)
    ========================================= */
 @keyframes fadeInUp {
     from {
@@ -260,6 +249,25 @@ nav .mobile-nav {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Profile Pic / Text use their original delays */
+.hero-section h1 {
+    animation: fadeInUp 0.8s ease forwards 0.2s;
+}
+
+.hero-section p {
+    animation: fadeInUp 0.8s ease forwards 0.4s;
+}
+
+.hero-section .profile-pic {
+    animation: fadeInUp 0.8s ease forwards 0.6s;
+}
+
+/* The actual wipe animation */
+@keyframes soft-roll-reveal {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
 .hero-section .text {
