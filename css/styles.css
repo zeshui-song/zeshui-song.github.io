@@ -188,10 +188,7 @@ nav .mobile-nav {
     
     background-color: var(--background-color); 
     
-    /* GRADIENT ADJUSTMENT:
-       1. Solid color stops at 450px (Much closer to the left edge).
-       2. Fades out slowly until 1000px (Creates a very long, soft fade).
-    */
+    /* BACKGROUND IMAGE */
     background-image: 
         linear-gradient(to right, 
             var(--background-color) 0%,
@@ -204,6 +201,172 @@ nav .mobile-nav {
     background-position: center right;
     background-repeat: no-repeat;
     background-blend-mode: normal;
+}
+
+/* =========================================
+   1. THE ANIMATED CURTAIN (Soft Wipe)
+   ========================================= */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%; /* Double width to hold the solid color AND the fade tail */
+    
+    /* The Gradient:
+       - 0% - 50%: Solid Color (Covers screen initially)
+       - 50% - 85%: Fades out (The soft edge)
+    */
+    background: linear-gradient(to right, 
+        var(--background-color) 0%, 
+        var(--background-color) 50%, 
+        rgba(255,255,255,0) 85% 
+    );
+    
+    z-index: 1; 
+    pointer-events: none; 
+    
+    /* Slide Animation */
+    animation: soft-roll-reveal 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+/* =========================================
+   2. CONTENT LAYOUT
+   ========================================= */
+.hero-section .group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 2; /* Sits on top of the curtain */
+}
+
+/* =========================================
+   3. STAGGERED TEXT ENTRANCE
+   ========================================= */
+
+/* Define the Fade Up Move */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Starts lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Ends in place */
+    }
+}
+
+.hero-section .text {
+    flex: 5;
+}
+
+/* Apply animation to elements with increasing delays */
+.hero-section .text h2 {
+    font-size: 50px;
+    opacity: 0; /* Hidden by default */
+    animation: fadeInUp 0.8s ease-out 0.3s forwards; /* 0.3s delay */
+}
+
+.hero-section .text h3 {
+    font-size: 18px;
+    color: var(--text-color);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.45s forwards; /* 0.45s delay */
+}
+
+.hero-section .text p {
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 0px;
+    color: var(--text-color);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards; /* 0.6s delay */
+}
+
+.hero-section .text .links {
+    margin-top: 25px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.75s forwards; /* 0.75s delay */
+}
+
+/* Existing Link Styles (Unchanged) */
+.hero-section .text .external-links i {
+    font-size: 20px;
+    padding: 0 5px;
+    color: var(--text-color);
+}
+.hero-section .text .links a {
+    display: inline-block;
+    padding: 5px 10px;
+    color: var(--link-color);
+    border: 2px solid var(--link-color);
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 0.1s;
+}
+.hero-section .text .links a span {
+    color: var(--link-color);
+}
+.hero-section .text .links a:hover,
+.hero-section .text .links a:hover span,
+.hero-section .text .links a:hover i {
+    color: var(--text-color) !important;
+    border-color: var(--text-color) !important;
+}
+
+/* =========================================
+   4. HEADSHOT REVEAL (Scale In)
+   ========================================= */
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-section .headshot {
+    flex: 3;
+    display: flex;
+    justify-content: right;
+    
+    opacity: 0; 
+    /* Comes in last for dramatic effect */
+    animation: scaleIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards; 
+}
+
+.hero-section .headshot img {
+    width: 100%;
+    max-width: 350px; 
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 
+                0 0 40px rgba(255, 255, 255, 0.4),
+                0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   5. KEYFRAMES
+   ========================================= */
+
+@keyframes soft-roll-reveal {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .hero-section .group {
